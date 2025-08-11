@@ -65,4 +65,8 @@ const Icon = ({ iconName, iconSize = "ic-24", className = "" }) => {
   );
 };
 
+
+// box-shadow: 0px 4px 8px 0px #00000014;
+
+
 export default Icon;

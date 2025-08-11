@@ -66,15 +66,15 @@ export default {
         sans: ["Pretendard", "ui-sans-serif", "system-ui"],
       },
       boxShadow: {
-        "shadow-inset-purple-1": "inset 0 0 0 2px #5603a7",
-        "shadow-inset-purple-2": "inset 0 0 0 2px #5603a7",
-
-        "shadow-purple-600": "inset 0 0 0 1px #9935FF",
-        "shadow-purple-700": "inset 0 0 0 1px #861DEE",
-        "shadow-purple-800": "inset 0 0 0 1px #6E0AD1",
-
-        "shadow-gray-300": "inset 0 0 0 1px #CCCCCC",
-        "shadow-gray-500": "inset 0 0 0 1px #555555",
+        "purple-600": "inset 0 0 0 1px #9935FF",
+        "purple-600-2": "inset 0 0 0 2px #9935FF",
+        "purple-700": "inset 0 0 0 1px #861DEE",
+        "purple-800": "inset 0 0 0 1px #6E0AD1",
+        "purple-900": "inset 0 0 0 1px #5603a7",
+        "purple-900-2": "inset 0 0 0 2px #5603a7",
+        "gray-300": "inset 0 0 0 1px #CCCCCC",
+        "gray-500": "inset 0 0 0 1px #555555",
+        "gray-800": "inset 0 0 0 1px #2B2B2B",
       },
     },
   },
@@ -83,5 +83,4 @@ export default {
       boxShadow: ["focus"],
     },
   },
-  plugins: [],
 };
