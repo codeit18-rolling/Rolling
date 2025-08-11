@@ -1,4 +1,5 @@
 import { cn } from "./utils";
+import Card from "./components/Card/Card";
 
 function App() {
   return (
@@ -8,6 +9,9 @@ function App() {
       >
         4팀 화이팅 &#x1F60A;
       </h1>
+      <div className="flex items-center justify-center">
+        <Card />
+      </div>
     </>
   );
 }
