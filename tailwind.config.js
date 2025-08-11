@@ -49,6 +49,7 @@ export default {
         },
         error: "#DC3A3A",
         surface: "#F6F8FF",
+        logo: "#4A494F",
       },
       fontSize: {
         12: ["0.75rem", { lineHeight: "1.5" }],
@@ -59,6 +60,9 @@ export default {
         20: ["1.25rem", { lineHeight: "1.5" }],
         24: ["1.5rem", { lineHeight: "1.5" }],
         28: ["1.75rem", { lineHeight: "1.5" }],
+      },
+      fontFamily: {
+        poppins: ["Poppins"],
       },
     },
   },
