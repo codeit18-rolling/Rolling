@@ -18,7 +18,7 @@ export const CardMockData = [
     user: "코드잇3",
     content: "목업 데이터입니다3",
     date: "2023.07.08",
-    onDelete: false,
+    onDelete: true,
   },
   {
     img: "",
@@ -32,6 +32,6 @@ export const CardMockData = [
     user: "코드잇5",
     content: "목업 데이터입니다5",
     date: "2023.07.08",
-    onDelete: false,
+    onDelete: true,
   },
 ]
