@@ -14,6 +14,8 @@ export default {
           700: "#3A3A3A",
           800: "#2B2B2B",
           900: "#181818",
+          headerLogo: "#4A494F",
+          headerBorder: "#EDEDED",
         },
         purple: {
           100: "#F8F0FF",
@@ -49,7 +51,6 @@ export default {
         },
         error: "#DC3A3A",
         surface: "#F6F8FF",
-        logo: "#4A494F",
       },
       fontSize: {
         12: ["0.75rem", { lineHeight: "1.5" }],
@@ -64,6 +65,11 @@ export default {
       fontFamily: {
         poppins: ["Poppins"],
       },
+    },
+    screens: {
+      mobile: "360px",
+      tablet: "768px",
+      desktop: "1200px",
     },
   },
   plugins: [],
