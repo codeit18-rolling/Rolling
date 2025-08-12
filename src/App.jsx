@@ -1,7 +1,6 @@
 import { cn } from "./utils";
-import Card from "./components/Card/Card";
-import AddCard from "./components/Card/AddCard";
-import { CardMockData } from "./MockData";
+import CardList from "./features/CardList/cardList";
+import { CardListMockData } from "./MockData";
 
 function App() {
   return (
@@ -12,18 +11,10 @@ function App() {
         4팀 화이팅 &#x1F60A;
       </h1>
 
-      {/* Card Components */}
-      <div className="grid grid-cols-3 grid-row-2 gap-[24px]">
-        <AddCard />
-        {CardMockData.map((data, index) => (
-          <Card
-            key={index}
-            img={data.img}
-            user={data.user}
-            content={data.content}
-            date={data.date}
-            onDelete={data.onDelete}
-          />
+      {/* CardList Components */}
+      <div className="grid grid-cols-3 gap-[24px]">
+        {CardListMockData.map((item) => (
+          <CardList key={item.id} item={item} />
         ))}
       </div>
     </div>

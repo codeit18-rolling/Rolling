@@ -16,6 +16,7 @@
     "postcss": "^8.5.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^7.8.0",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^3.4.1"
   },
