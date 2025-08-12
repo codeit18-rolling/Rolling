@@ -2,7 +2,7 @@ import { memo } from "react";
 import { cn } from "../../utils";
 import BadgeEmoji from "../Badge/BadgeEmoji";
 
-const DropdownEmoji = ({}) => {
+const DropdownEmoji = ({ data }) => {
   return (
     <>
       <div className={cn("flex")}>

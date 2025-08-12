@@ -14,23 +14,11 @@ const EmojiBadge = ({ reactions }) => {
         className={cn(
           "h-[36px] bg-black/60 rounded-[32px]",
           "flex justify-center items-center gap-x-0.5",
-          "px-[14px]"
+          "px-[14px] text-base leading-[26px] tracking-[-0.01em] m-0 font-normal"
         )}
       >
-        <div
-          className={cn(
-            "text-base font-normal leading-[26px] tracking-[-0.01em]"
-          )}
-        >
-          {emoji}
-        </div>
-        <p
-          className={cn(
-            "text-white text-base m-0 leading-[26px] font-normal tracking-[-0.01em]"
-          )}
-        >
-          {count}
-        </p>
+        <p>{emoji}</p>
+        <p className={cn("text-white")}>{count}</p>
       </div>
     </>
   );
