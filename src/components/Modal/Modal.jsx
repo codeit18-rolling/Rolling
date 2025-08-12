@@ -42,15 +42,17 @@ const Modal = ({
               className="size-10 rounded-full object-cover"
             />
             <div className="flex flex-col">
-              <div className="">
-                From. <span>{sender}</span>
+              <div className="text-20 font-normal">
+                From. <span className="text-24 font-bold">{sender}</span>
               </div>
               <span className="inline-flex w-fit px-2 py-0.5 mt-1 rounded-md">
                 {relationship}
               </span>
             </div>
           </div>
-          <span>{formattedDate}</span>
+          <span className="text-14 font-normal text-gray-400">
+            {formattedDate}
+          </span>
         </div>
 
         <div className="my-4 h-px bg-gray-200" />
