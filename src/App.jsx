@@ -5,6 +5,7 @@ import Card from "./components/Card/Card";
 import AddCard from "./components/Card/AddCard";
 import { CardMockData, REACTIONS_DATA } from "./MockData";
 import BadgeEmoji from "./components/Badge/BadgeEmoji";
+import DropdownEmoji from "./components/Dropdown/DropdownEmoji";
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
             return <BadgeEmoji key={result.id} reactions={result} />;
           })}
         </div>
+
+        <DropdownEmoji reactionData={REACTIONS_DATA} />
 
         {/* Card Components */}
         <div className="grid grid-cols-3 grid-row-2 gap-[24px]">
