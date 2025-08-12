@@ -49,5 +49,3 @@ const ToggleButton = ({ isActive = false, onClick, children, ...props }) => {
 };
 
 export default ToggleButton;
-
-

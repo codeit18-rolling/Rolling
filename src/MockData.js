@@ -34,4 +34,37 @@ export const CardMockData = [
     date: "2023.07.08",
     onDelete: true,
   },
-]
+];
+
+export const REACTIONS_DATA = {
+  count: 5,
+  next: null,
+  previous: null,
+  results: [
+    {
+      id: 13347,
+      emoji: "😀",
+      count: 2,
+    },
+    {
+      id: 13348,
+      emoji: "😆",
+      count: 3,
+    },
+    {
+      id: 13349,
+      emoji: "😌",
+      count: 1,
+    },
+    {
+      id: 13350,
+      emoji: "😝",
+      count: 1,
+    },
+    {
+      id: 13351,
+      emoji: "😘",
+      count: 1,
+    },
+  ],
+};

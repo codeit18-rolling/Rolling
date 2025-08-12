@@ -21,58 +21,45 @@ export const Header = () => {
   return (
     <>
       <header>
-        {isMobile && pathname !== "/" && pathname !== "/list" ? null : (
+        {!(isMobile && pathname !== "/" && pathname !== "/list") && (
           <div className={cn("border-b border-gray-headerBorder")}>
             <div
               className={cn(
+                "h-[64px] flex items-center justify-between m-auto px-6",
                 "mobile:w-[360px]",
-                "h-[64px]",
-                "flex",
-                "items-center",
-                "justify-between",
-                "m-auto",
                 "tablet:w-[768px]",
-                "desktop:w-[1248px]",
-                "px-6"
+                "desktop:w-[1248px]"
               )}
             >
-              <div className={cn("flex", "gap-x-2")}>
+              <div className={cn("flex gap-x-2")}>
                 <img
-                  className={cn("w-[27px]", "h-[27px]")}
+                  className={cn("w-[27px] h-[27px]")}
                   src={icRolling}
                   alt="로고이미지"
                 />
                 <p
                   className={cn(
-                    "font-[poppins]",
-                    "text-20",
-                    "font-semibold",
-                    "text-gray-headerLogo"
+                    "font-[poppins] text-20 font-semibold text-gray-headerLogo"
                   )}
                 >
                   Rolling
                 </p>
               </div>
               <div className={cn("text-center")}>
-                {pathname === "/" || pathname === "/list" ? (
+                {(pathname === "/" || pathname === "/list") && (
                   <button
-                    className={cn(
-                      "border-solid",
-                      "border-black",
-                      "border",
-                      "w-[157px]"
-                    )}
+                    className={cn("border-solid border-black border w-[157px]")}
                   >
                     버튼 들어갈 자리
                   </button>
-                ) : null}
+                )}
               </div>
             </div>
           </div>
         )}
-        {pathname !== "/" && pathname !== "/list" ? (
+        {pathname !== "/" && pathname !== "/list" && (
           <div>헤더 서비스 들어갈 자리</div>
-        ) : null}
+        )}
       </header>
     </>
   );
