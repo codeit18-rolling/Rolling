@@ -12,6 +12,10 @@ const Modal = ({
 }) => {
   if (!isOpen) return null;
 
+  const onBackdropMouseDown = (e) => {
+    if (e.target === e.currentTarget) onClose?.();
+  };
+
   const formattedDate = createdAt
     ? new Date(createdAt)
         .toLocaleDateString("ko-KR")
@@ -21,7 +25,7 @@ const Modal = ({
 
   return createPortal(
     <div
-      // onMouseDown={onBackdropMouseDown}
+      onMouseDown={onBackdropMouseDown}
       className="fixed inset-0 z-99 flex bg-black/40 items-center justify-center"
     >
       <div
@@ -29,7 +33,7 @@ const Modal = ({
         aria-modal="true"
         className="rounded-[20px] bg-white shadow-lg border border-gray-200 p-6 w-[600px] h-[476px] max-w-[90vw] max-h-[90vh]"
       >
-        <div className="flex items-start justify-between">
+        <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <img
               src={profileImageURL}
