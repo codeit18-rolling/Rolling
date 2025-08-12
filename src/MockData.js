@@ -67,7 +67,7 @@ export const CardListMockData = [
   {
     id: 12892,
     name: "†est2",
-    backgroundColor: "beige",
+    backgroundColor: "blue",
     backgroundImageURL: null,
     createdAt: "2025-08-11T11:04:43.760303Z",
     messageCount: 0,
@@ -77,8 +77,8 @@ export const CardListMockData = [
   },
   {
     id: 12881,
-    name: "swagger test",
-    backgroundColor: "beige",
+    name: "test test test test test",
+    backgroundColor: "green",
     backgroundImageURL: null,
     createdAt: "2025-08-09T05:13:12.261221Z",
     messageCount: 0,
@@ -92,7 +92,7 @@ export const CardListMockData = [
       },
       {
         id: 13347,
-        emoji: "string",
+        emoji: "😌",
         count: 1,
       },
     ],
