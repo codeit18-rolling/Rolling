@@ -14,7 +14,7 @@ const EmojiBadge = ({ reactions }) => {
         className={cn(
           "h-[36px] bg-black/60 rounded-[32px]",
           "flex justify-center items-center gap-x-0.5",
-          "p-3.5"
+          "px-3.5"
         )}
       >
         <div className={cn("text-base")}>{emoji}</div>
