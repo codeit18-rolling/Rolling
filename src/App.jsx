@@ -16,7 +16,11 @@ function App() {
         >
           4팀 화이팅 &#x1F60A;
         </h1>
-        <BadgeEmoji reactions={REACTIONS_DATA.results[0]} />
+        <div className="flex">
+          {REACTIONS_DATA.results.map((result) => {
+            return <BadgeEmoji key={result.id} reactions={result} />;
+          })}
+        </div>
 
         {/* Card Components */}
         <div className="grid grid-cols-3 grid-row-2 gap-[24px]">

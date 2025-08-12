@@ -2,8 +2,8 @@ import { memo } from "react";
 import { cn } from "../../utils";
 
 /**
- *
- * @param {Object[]} reactions emoji와 count가 들어있는 배열
+ * @author <hwitae>
+ * @param {Object{}} reactions emoji와 count가 들어있는 객체
  */
 const EmojiBadge = ({ reactions }) => {
   const { emoji, count } = reactions;
