@@ -44,7 +44,7 @@ export const REACTIONS_DATA = {
     {
       id: 13347,
       emoji: "😀",
-      count: 2,
+      count: 12,
     },
     {
       id: 13348,
