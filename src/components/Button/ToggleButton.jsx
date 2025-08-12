@@ -29,14 +29,15 @@ export const ToggleButtonWrapper = ({ children }) => {
  * <ToggleButton isActive={true} onClick={handleClick}>컬러</ToggleButton>
  */
 const ToggleButton = ({ isActive = false, onClick, children, ...props }) => {
-  const activeClass = isActive
-    ? "bg-white shadow-purple-600-2 text-purple-700 font-bold hover:bg-purple-100 active:bg-purple-200"
-    : "";
+  const activeClass =
+    isActive &&
+    "bg-white shadow-purple-600-2 text-purple-700 font-bold hover:bg-purple-100 active:bg-purple-200";
   return (
     <button
       type="button"
       className={cn(
-        "btn flex-auto py-2 px-4 rounded-md bg-gray-100",
+        "inline-flex justify-center items-center flex-auto",
+        "btn py-2 px-4 rounded-md bg-gray-100",
         "text-16 text-gray-900 font-normal",
         "hover:bg-gray-200 active:bg-gray-100",
         activeClass
@@ -49,5 +50,3 @@ const ToggleButton = ({ isActive = false, onClick, children, ...props }) => {
 };
 
 export default ToggleButton;
-
-
