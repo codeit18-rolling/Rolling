@@ -1,7 +1,8 @@
-import { useLocation } from "react-router";
+import { Link, useLocation } from "react-router";
 import icRolling from "../../assets/icon/ic-rolling-paperplain.svg";
 import { cn } from "../../utils";
 import useMediaQuery from "../../features/header/hooks/useMediaQuery";
+import Button from "../Button/Button";
 
 /**
  * 헤더 컴포넌트
@@ -31,27 +32,25 @@ export const Header = () => {
                 "desktop:w-[1248px]"
               )}
             >
-              <div className={cn("flex gap-x-2")}>
-                <img
-                  className={cn("w-[27px] h-[27px]")}
-                  src={icRolling}
-                  alt="로고이미지"
-                />
-                <p
-                  className={cn(
-                    "font-[poppins] text-20 font-semibold text-gray-headerLogo"
-                  )}
-                >
-                  Rolling
-                </p>
-              </div>
+              <Link to="/">
+                <div className={cn("flex gap-x-2")}>
+                  <img
+                    className={cn("w-[27px] h-[27px]")}
+                    src={icRolling}
+                    alt="로고이미지"
+                  />
+                  <p
+                    className={cn(
+                      "font-[poppins] text-20 font-semibold text-gray-headerLogo"
+                    )}
+                  >
+                    Rolling
+                  </p>
+                </div>
+              </Link>
               <div className={cn("text-center")}>
                 {(pathname === "/" || pathname === "/list") && (
-                  <button
-                    className={cn("border-solid border-black border w-[157px]")}
-                  >
-                    버튼 들어갈 자리
-                  </button>
+                  <Button>롤링 페이퍼 만들기</Button>
                 )}
               </div>
             </div>
