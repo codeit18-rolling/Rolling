@@ -3,7 +3,8 @@ import { Header } from "./components/Header/Header";
 
 import Card from "./components/Card/Card";
 import AddCard from "./components/Card/AddCard";
-import { CardMockData } from "./MockData";
+import { CardMockData, REACTIONS_DATA } from "./MockData";
+import BadgeEmoji from "./components/Badge/BadgeEmoji";
 
 function App() {
   return (
@@ -15,6 +16,11 @@ function App() {
         >
           4팀 화이팅 &#x1F60A;
         </h1>
+        <div className="flex">
+          {REACTIONS_DATA.results.map((result) => {
+            return <BadgeEmoji key={result.id} reactions={result} />;
+          })}
+        </div>
 
         {/* Card Components */}
         <div className="grid grid-cols-3 grid-row-2 gap-[24px]">
