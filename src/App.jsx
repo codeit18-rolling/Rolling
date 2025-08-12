@@ -1,11 +1,10 @@
 import { cn } from "./utils";
 import { Header } from "./components/Header/Header";
-
 import Card from "./components/Card/Card";
 import AddCard from "./components/Card/AddCard";
 import { CardMockData, REACTIONS_DATA } from "./MockData";
 import BadgeEmoji from "./components/Badge/BadgeEmoji";
-
+import Input from "./components/Input/Input";
 function App() {
   return (
     <>
@@ -21,7 +20,12 @@ function App() {
             return <BadgeEmoji key={result.id} reactions={result} />;
           })}
         </div>
-
+        {/* Input Components */}
+        <div className="flex flex-col gap-4 w-[400px] mt-4">
+          <Input></Input>
+          <Input disabled></Input>
+          <Input errorMsg="이름을 입력해 주세요"></Input>
+        </div>
         {/* Card Components */}
         <div className="grid grid-cols-3 grid-row-2 gap-[24px]">
           <AddCard />
