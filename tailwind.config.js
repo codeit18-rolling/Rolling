@@ -14,6 +14,8 @@ export default {
           700: "#3A3A3A",
           800: "#2B2B2B",
           900: "#181818",
+          headerLogo: "#4A494F",
+          headerBorder: "#EDEDED",
         },
         purple: {
           100: "#F8F0FF",
@@ -76,6 +78,14 @@ export default {
         "gray-500": "inset 0 0 0 1px #555555",
         "gray-800": "inset 0 0 0 1px #2B2B2B",
       },
+      fontFamily: {
+        poppins: ["Poppins"],
+      },
+    },
+    screens: {
+      mobile: "360px",
+      tablet: "768px",
+      desktop: "1200px",
     },
   },
   variants: {
