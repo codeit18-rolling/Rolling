@@ -39,13 +39,7 @@ const Button = ({
   return (
     <button
       type={type}
-      className={cn(
-        "btn inline-flex justify-center items-center",
-        sizeClass,
-        styleClass,
-        focusShadowClass,
-        className
-      )}
+      className={`btn inline-flex justify-center items-center ${sizeClass} ${styleClass} ${focusShadowClass} ${className}`}
       {...props}
     >
       {children}
