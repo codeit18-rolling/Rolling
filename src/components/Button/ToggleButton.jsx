@@ -43,6 +43,7 @@ const ToggleButton = ({ isActive = false, onClick, children, ...props }) => {
         activeClass
       )}
       onClick={onClick}
+      {...props}
     >
       {children}
     </button>
