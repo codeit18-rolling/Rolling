@@ -1,4 +1,5 @@
 import { createPortal } from "react-dom";
+import Button from "../Button/Button";
 
 const Modal = ({
   isOpen,
@@ -57,9 +58,15 @@ const Modal = ({
         <div className="h-[260px] overflow-y-auto pr-1">{content}</div>
 
         <div className="mt-6 flex justify-center">
-          <button type="button" onClick={onConfirm ?? onClose}>
+          <Button
+            type="button"
+            variant="primary"
+            btnSize="btn-40"
+            className="w-[120px]"
+            onClick={onConfirm ?? onClose}
+          >
             확인
-          </button>
+          </Button>
         </div>
       </div>
     </div>,
