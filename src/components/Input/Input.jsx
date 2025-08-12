@@ -1,4 +1,9 @@
 import { cn } from "../../utils";
+import {
+  baseInputClass,
+  activeInputClass,
+  errorInputClass,
+} from "./inputStyle";
 /**
  * 인풋 컴포넌트 wrapper
  *
@@ -16,18 +21,6 @@ export const InputWrapper = ({ children, className = "", ...props }) => {
     </div>
   );
 };
-const baseInputClass = [
-  "py-3 px-4 bg-white rounded-xl text-16 font-normal",
-  "shadow-gray-700 border border-gray-700",
-  "placeholder-shown:shadow-none placeholder-shown:border-gray-300 placeholder-shown:text-gray-500",
-  "focus:outline-none",
-  "disabled:bg-gray-100 disabled:shadow-none disabled:border-gray-300 disabled:text-gray-400",
-];
-const errorInputClass =
-  "border-error shadow-error placeholder-shown:border-error placeholder-shown:shadow-error";
-
-const activeInputClass =
-  "focus:shadow-gray-500 focus:border-gray-500 hover:border-gray-500";
 
 /**
  * 에러/활성 상태를 지원하는 input 컴포넌트
