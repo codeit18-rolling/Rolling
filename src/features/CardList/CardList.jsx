@@ -23,10 +23,11 @@ const CardList = ({ item }) => {
           )}
         />
       )}
+      {/*배경 이미지 있을시 검은색 필터 적용 */}
 
       {/*container*/}
       <div className="w-[125px] z-10">
-        <div className="">
+        <div>
           {/*to. ~ , 몇명이 작성 등등이 들어갈 곳 */}
           <div className="text-24">
             {/*받는사람 */}
@@ -39,7 +40,7 @@ const CardList = ({ item }) => {
             </span>
           </div>
           <div className="">
-            {/*프로필 이미지들 현재 참조하는 페이지를 몰라 제작 난항 겪는중....*/}
+            {/*프로필 이미지들 현재 참조하는 페이지를 몰라 제작 난항 겪는중..../ 컴포넌트 대체 예정*/}
           </div>
           <div
             className={` text-16 ${
