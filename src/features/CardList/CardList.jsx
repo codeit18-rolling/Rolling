@@ -13,7 +13,7 @@ const CardList = ({ item }) => {
   return (
     <div
       className={cn(
-        "w-[275px] h-[260px] pt-[30px] pb-[20px] px-[24px] rounded-[16px] border border-black/10 flex relative justify-start items-start flex-col bg-cover bg-center",
+        "w-[275px] h-[260px] pt-[30px] pb-[20px] px-[24px] rounded-[16px] border border-black/10 flex relative justify-start items-start flex-col bg-cover bg-center shadow-[0_2px_12px_rgba(0,0,0,0.08)]",
         !item.backgroundImageURL && BG_COLOR[item.backgroundColor]
       )}
       style={
@@ -22,8 +22,16 @@ const CardList = ({ item }) => {
         }
       }
     >
+      {item.backgroundImageURL && (
+        <div
+          className={cn(
+            "absolute inset-0 bg-black opacity-50 bg-cover bg-center"
+          )}
+        />
+      )}
+
       {/*container*/}
-      <div className="w-[125px]">
+      <div className="w-[125px] z-10">
         <div className="">
           {/*to. ~ , 몇명이 작성 등등이 들어갈 곳 */}
           <div className="text-24">
