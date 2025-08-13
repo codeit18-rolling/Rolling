@@ -32,9 +32,9 @@ export const DropdownAddEmoji = ({ setEmojiList }) => {
             <p>추가</p>
           </div>
         </Button>
-        <div className="absolute tablet:top-12 mobile:top-9 right-5">
+        <div className="absolute right-5 tablet:top-12 mobile:top-9">
           <EmojiPicker
-            className=" drop-shadow-dropdownBorder"
+            className="drop-shadow-dropdownBorder"
             open={isOpen}
             onEmojiClick={onClickAddEmoji}
           />
