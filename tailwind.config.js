@@ -86,11 +86,20 @@ export default {
       fontFamily: {
         poppins: ["Poppins"],
       },
-    },
-    screens: {
-      mobile: "360px",
-      tablet: "768px",
-      desktop: "1200px",
+      keyframes: {
+        "skeleton-shimmer": {
+          "0%": { backgroundPosition: "-400% 0" },
+          "100%": { backgroundPosition: "400% 0" },
+        },
+      },
+      animation: {
+        "skeleton-shimmer": "skeleton-shimmer 15s linear infinite",
+      },
+      screens: {
+        mobile: "360px",
+        tablet: "768px",
+        desktop: "1200px",
+      },
     },
   },
   variants: {
