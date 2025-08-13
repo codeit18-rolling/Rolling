@@ -161,7 +161,7 @@ export const REACTIONS_DATA = {
     },
   ],
 };
-
+//GET /18-4/recipients/ (offset limit 모두 없이 요청)
 export const ALL_CARD_LIST = {
   count: 7,
   next: null,
