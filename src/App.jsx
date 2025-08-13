@@ -4,13 +4,12 @@ import Card from "./components/Card/Card";
 import AddCard from "./components/Card/AddCard";
 import CardList from "./features/CardList/CardList";
 import { CardMockData, REACTIONS_DATA, CardListMockData } from "./MockData";
-import BadgeEmoji from "./components/Badge/BadgeEmoji";
 import DropdownEmoji from "./components/Dropdown/DropdownEmoji";
 
 import Input from "./components/Input/Input";
 import useService from "./hooks/useService";
 import { getRecipientsDetailData } from "./service/getRecipientsDetailData";
-
+import { DropdownAddEmoji } from "./components/Dropdown/DropdownAddEmoji";
 function App() {
   // API 호출 예시 주석
   const { data, isLoading, isError } = useService(() =>
@@ -29,7 +28,10 @@ function App() {
         </h1>
 
         {/* Emoji Dropdown component */}
-        <DropdownEmoji reactionData={REACTIONS_DATA} />
+        <div className="flex">
+          <DropdownEmoji reactionData={REACTIONS_DATA} />
+          <DropdownAddEmoji></DropdownAddEmoji>
+        </div>
 
         {/* Input Components */}
         <div className="flex flex-col gap-4 w-[400px] mt-4">
