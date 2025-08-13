@@ -8,11 +8,12 @@ const BG_COLOR = {
 };
 
 const CardList = ({ item }) => {
+  console.log(item);
   return (
     <div
       className={`w-[275px] h-[260px] pt-[30px] pb-[20px] px-[24px] rounded-[16px] border border-black/10 flex relative justify-start items-start flex-col ${
         !item.backgroundImageURL ? BG_COLOR[item.backgroundColor] : ""
-      }`}
+      } bg-[url("${item.backgroundImageURL}")] bg-cover bg-center`}
     >
       {/*container*/}
       <div className="w-[125px]">
@@ -28,7 +29,9 @@ const CardList = ({ item }) => {
               To. {item.name}
             </span>
           </div>
-          <div className="">{/*프로필 이미지들*/}</div>
+          <div className="">
+            {/*프로필 이미지들 현재 참조하는 페이지를 몰라 제작 난항 겪는중....*/}
+          </div>
           <div
             className={` text-16 ${
               item.backgroundURL ? "text-gray-200" : "text-gray-700"
