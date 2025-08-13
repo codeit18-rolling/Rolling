@@ -24,7 +24,7 @@ const Modal = ({
   return createPortal(
     <div
       onMouseDown={onBackdropMouseDown}
-      className="fixed inset-0 z-99 flex b g-black/40 items-center justify-center"
+      className="fixed inset-0 z-99 flex bg-black/40 items-center justify-center"
     >
       <div
         role="dialog"
@@ -39,7 +39,7 @@ const Modal = ({
           formattedDate={formattedDate}
         />
 
-        <div className="my-4 h-px bg-gray-200" />
+        <hr className="my-4 h-px bg-gray-200" />
 
         {/* Modal Content */}
         <ModalContent>{content}</ModalContent>

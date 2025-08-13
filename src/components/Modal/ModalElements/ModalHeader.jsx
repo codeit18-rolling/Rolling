@@ -5,7 +5,7 @@ const ModalHeader = ({
   formattedDate,
 }) => {
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex items-center justify-between font-sans">
       <div className="flex items-center gap-3">
         {/* 프로일 이미지 */}
         <img
@@ -14,11 +14,10 @@ const ModalHeader = ({
           className="size-10 rounded-full object-cover"
         />
 
-        {/* 발신자 이름 + 관계 뱃지 */}
         <div className="flex flex-col">
           {/* 발신자 이름 */}
           <div className="text-20 font-normal">
-            From. <span className="text-24 font-bold">{sender}</span>
+            From. <span className="text-20 font-bold">{sender}</span>
           </div>
           {/* 관계 뱃지 */}
           <span className="inline-flex w-fit px-2 py-0.5 mt-1 rounded-md">

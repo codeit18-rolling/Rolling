@@ -3,14 +3,8 @@ import Button from "../../Button/Button";
 
 const ModalFooter = ({ onClose }) => {
   return (
-    <div className="mt-6 flex justify-center">
-      <Button
-        type="button"
-        variant="primary"
-        btnSize="btn-40"
-        className="w-[120px]"
-        onClick={onClose}
-      >
+    <div className="mt-6 flex justify-center font-sans">
+      <Button btnSize="btn-40" className="w-[120px]" onClick={onClose}>
         확인
       </Button>
     </div>
