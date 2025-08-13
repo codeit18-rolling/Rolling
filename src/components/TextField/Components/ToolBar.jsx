@@ -1,3 +1,4 @@
+import { Font } from "./Font";
 export const toolbarOptions = [
   [{ font: Font.whitelist }],
   ["bold", "italic", "underline"],
