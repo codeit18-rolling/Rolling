@@ -1,19 +1,13 @@
 import React from "react";
 import { cn } from "../../utils";
 import BG_COLOR from "../../constants/backgroundcolor";
-
-const BG_PATTERN = {
-  purple: "",
-  beige: "",
-  blue: "",
-  green: "",
-};
+import BG_PATTERN from "../../constants/backgroundpattern";
 
 const CardList = ({ item }) => {
   return (
     <div
       className={cn(
-        "w-[275px] h-[260px] pt-[30px] pb-[20px] px-[24px] rounded-[16px] border border-black/10 flex relative justify-start items-start flex-col bg-cover bg-center shadow-[0_2px_12px_rgba(0,0,0,0.08)]",
+        "w-[275px] h-[260px] pt-[30px] pb-[20px] px-[24px] rounded-[16px] overflow-hidden border border-black/10 flex relative justify-start items-start flex-col bg-cover bg-center shadow-[0_2px_12px_rgba(0,0,0,0.08)]",
         !item.backgroundImageURL && BG_COLOR[item.backgroundColor]
       )}
       style={
@@ -59,7 +53,7 @@ const CardList = ({ item }) => {
         </div>
       </div>
 
-      <div className="bottom-5 gap-2 w-[227px] h-[53px] pt-[17px] absolute flex flex-row border-t border-black/[0.12]">
+      <div className="bottom-5 gap-2 w-[227px] h-[53px] z-10 pt-[17px] absolute flex flex-row border-t border-black/[0.12]">
         {/* emoji 들어갈 곳 (컴포넌트로 대체할 예정?)*/}
         {item.topReactions.map((reaction) => (
           <div
@@ -71,6 +65,13 @@ const CardList = ({ item }) => {
           </div>
         ))}
       </div>
+      {!item.backgroundImageURL && BG_PATTERN[item.backgroundColor] && (
+        <img
+          src={BG_PATTERN[item.backgroundColor]}
+          alt={`${item.backgroundColor} Pattern`}
+          className="absolute w-36 h-36 right-0 bottom-0"
+        />
+      )}
     </div>
   );
 };
