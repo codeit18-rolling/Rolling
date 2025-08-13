@@ -2,7 +2,7 @@ import { cn } from "./utils";
 import { Header } from "./components/Header/Header";
 import Card from "./components/Card/Card";
 import AddCard from "./components/Card/AddCard";
-import CardList from "./features/CardList/cardList";
+import CardList from "./features/CardList/CardList";
 import { CardMockData, REACTIONS_DATA, CardListMockData } from "./MockData";
 import BadgeEmoji from "./components/Badge/BadgeEmoji";
 import DropdownEmoji from "./components/Dropdown/DropdownEmoji";
