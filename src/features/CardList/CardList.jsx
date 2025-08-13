@@ -49,7 +49,7 @@ const CardList = ({ item }) => {
         {item.topReactions.map((reaction) => (
           <div
             key={reaction.id}
-            className="flex justify-center items-center px-2 py-1 w-[65px] h-[36px] rounded-[32px] bg-black/[0.54] space-x-[2px]"
+            className="flex justify-center items-center px-3 py-2 w-[65px] h-[36px] rounded-[32px] bg-black/[0.54] space-x-[2px]"
           >
             <span className="">{reaction.emoji}</span>
             <span className="text-white">{reaction.count}</span>
