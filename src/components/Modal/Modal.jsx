@@ -1,6 +1,8 @@
 import { createPortal } from "react-dom";
-import Button from "../Button/Button";
 import { dateFunc } from "../../utils/dateFunc";
+import ModalHeader from "./ModalElements/ModalHeader";
+import ModalContent from "./ModalElements/ModalContent";
+import ModalFooter from "./ModalElements/ModalFooter";
 
 const Modal = ({
   isOpen,
@@ -10,7 +12,6 @@ const Modal = ({
   relationship,
   content,
   createdAt,
-  onConfirm,
 }) => {
   if (!isOpen) return null;
 
@@ -30,42 +31,21 @@ const Modal = ({
         aria-modal="true"
         className="rounded-[20px] bg-white shadow-lg border border-gray-200 p-6 w-[600px] h-[476px] max-w-[90vw] max-h-[90vh]"
       >
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <img
-              src={profileImageURL}
-              alt={`${sender} 프로필`}
-              className="size-10 rounded-full object-cover"
-            />
-            <div className="flex flex-col">
-              <div className="text-20 font-normal">
-                From. <span className="text-24 font-bold">{sender}</span>
-              </div>
-              <span className="inline-flex w-fit px-2 py-0.5 mt-1 rounded-md">
-                {relationship}
-              </span>
-            </div>
-          </div>
-          <span className="text-14 font-normal text-gray-400">
-            {formattedDate}
-          </span>
-        </div>
+        {/* Modal Header */}
+        <ModalHeader
+          profileImageURL={profileImageURL}
+          sender={sender}
+          relationship={relationship}
+          formattedDate={formattedDate}
+        />
 
         <div className="my-4 h-px bg-gray-200" />
 
-        <div className="h-[260px] overflow-y-auto pr-1">{content}</div>
+        {/* Modal Content */}
+        <ModalContent>{content}</ModalContent>
 
-        <div className="mt-6 flex justify-center">
-          <Button
-            type="button"
-            variant="primary"
-            btnSize="btn-40"
-            className="w-[120px]"
-            onClick={onConfirm ?? onClose}
-          >
-            확인
-          </Button>
-        </div>
+        {/* Modal Footer */}
+        <ModalFooter onClose={onClose} />
       </div>
     </div>,
     document.body
