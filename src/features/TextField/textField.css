@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100..900&display=swap");
+
+.ql-editor {
+  font-size: 16px !important;
+  line-height: 1.5;
+  font-family: "Noto Sans KR";
+}
+
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value="noto-sans-kr"]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="noto-sans-kr"]::before {
+  content: "Noto Sans" !important;
+  font-family: "Noto Sans KR";
+}
+
+.ql-snow
+  .ql-picker.ql-font
+  .ql-picker-label[data-value="nanum-myeongjo"]::before,
+.ql-snow
+  .ql-picker.ql-font
+  .ql-picker-item[data-value="nanum-myeongjo"]::before {
+  content: "나눔 명조" !important;
+  font-family: "Nanum Myeongjo";
+}
+
+.ql-font-noto-sans-kr {
+  font-family: "Noto Sans KR", sans-serif;
+}
+.ql-font-nanum-myeongjo {
+  font-family: "Nanum Myeongjo", sans-serif;
+}
