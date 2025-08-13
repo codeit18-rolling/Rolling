@@ -3,10 +3,10 @@ import { Header } from "./components/Header/Header";
 import Card from "./components/Card/Card";
 import AddCard from "./components/Card/AddCard";
 import { CardMockData, REACTIONS_DATA } from "./MockData";
-import BadgeEmoji from "./components/Badge/BadgeEmoji";
 import DropdownEmoji from "./components/Dropdown/DropdownEmoji";
 
 import Input from "./components/Input/Input";
+import { DropdownAddEmoji } from "./components/Dropdown/DropdownAddEmoji";
 function App() {
   return (
     <>
@@ -19,7 +19,10 @@ function App() {
         </h1>
 
         {/* Emoji Dropdown component */}
-        <DropdownEmoji reactionData={REACTIONS_DATA} />
+        <div className="flex">
+          <DropdownEmoji reactionData={REACTIONS_DATA} />
+          <DropdownAddEmoji></DropdownAddEmoji>
+        </div>
 
         {/* Input Components */}
         <div className="flex flex-col gap-4 w-[400px] mt-4">
