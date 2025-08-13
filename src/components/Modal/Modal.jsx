@@ -1,5 +1,6 @@
 import { createPortal } from "react-dom";
 import Button from "../Button/Button";
+import { dateFunc } from "../../utils/dateFunc";
 
 const Modal = ({
   isOpen,
@@ -17,17 +18,12 @@ const Modal = ({
     if (e.target === e.currentTarget) onClose?.();
   };
 
-  const formattedDate = createdAt
-    ? new Date(createdAt)
-        .toLocaleDateString("ko-KR")
-        .replace(/\./g, ".")
-        .replace(/\s/g, "")
-    : "";
+  const formattedDate = createdAt ? dateFunc(createdAt) : "";
 
   return createPortal(
     <div
       onMouseDown={onBackdropMouseDown}
-      className="fixed inset-0 z-99 flex bg-black/40 items-center justify-center"
+      className="fixed inset-0 z-99 flex b g-black/40 items-center justify-center"
     >
       <div
         role="dialog"
