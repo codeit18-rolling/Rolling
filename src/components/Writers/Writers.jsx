@@ -31,9 +31,12 @@ const Writers = ({ messages = {}, useCard = false }) => {
         ))}
         {count > 3 && (
           <div
-            className={`flex justify-center items-center w-[28px] h-[28px] bg-white 
-                        border-solid border border-gray-230 rounded-[140px]
-                        text-center`}
+            className={cn(
+              "flex justify-center items-center w-[28px] h-[28px] bg-white",
+              "border-solid border border-gray-230 rounded-[140px]",
+              useCard && "border-white",
+              "text-center"
+            )}
           >
             <p className="font-medium text-gray-608 text-12 leading-[18px] tracking-normal">
               +{count - 3}
