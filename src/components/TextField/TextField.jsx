@@ -8,11 +8,6 @@ import "./font.css";
  * Editor 컴포넌트
  * @author <sejin5>
  */
-
-const Font = ReactQuill.Quill.import("formats/font");
-Font.whitelist = ["noto-sans-kr", "nanum-myeongjo"];
-ReactQuill.Quill.register(Font, true);
-
 const TextField = () => {
   const [value, setValue] = useState("");
   const modules = {
