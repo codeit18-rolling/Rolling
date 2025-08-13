@@ -36,6 +36,8 @@ export const DropdownAddEmoji = ({ setEmojiList }) => {
           <EmojiPicker
             className="drop-shadow-dropdownBorder"
             open={isOpen}
+            width={307}
+            height={393}
             onEmojiClick={onClickAddEmoji}
           />
         </div>
