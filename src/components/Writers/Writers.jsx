@@ -1,7 +1,4 @@
 import { memo } from "react";
-import WritersImgIcon from "./WritersElement/WritersImgIcon";
-import RemainingWriters from "./WritersElement/RemainingWriters";
-import CountWriters from "./WritersElement/CountWriters";
 import { cn } from "../../utils";
 
 /**
@@ -16,25 +13,38 @@ const Writers = ({ messages = {}, useCard = false }) => {
   const writerPreview = results.slice(0, 3);
 
   return (
-    <>
-      <div
-        className={cn(
-          "flex",
-          "items-center gap-3",
-          useCard && "flex-col items-start"
+    <div
+      className={cn(
+        "flex",
+        "items-center gap-3",
+        useCard && "flex-col items-start"
+      )}
+    >
+      <div className="flex -space-x-3">
+        {writerPreview.map((writer) => (
+          <img
+            key={writer.id}
+            className="w-[28px] h-[28px] border-solid border-[1.4px] border-white rounded-[140px]"
+            src={writer.profileImageURL}
+            alt="프로필 이미지"
+          />
+        ))}
+        {count > 3 && (
+          <div
+            className={`flex justify-center items-center w-[28px] h-[28px] bg-white 
+                          border-solid border border-gray-230 rounded-[140px]
+                          text-center`}
+          >
+            <p className="font-medium text-gray-608 text-12 leading-[18px] tracking-normal">
+              +{count - 3}
+            </p>
+          </div>
         )}
-      >
-        <div className="flex -space-x-3">
-          {writerPreview.map((writer) => {
-            return <WritersImgIcon key={writer.id} writerData={writer} />;
-          })}
-          <RemainingWriters count={count} />
-        </div>
-        <div>
-          <CountWriters count={count} />
-        </div>
       </div>
-    </>
+      <p className="text-18 leading-[27px]">
+        <span className="font-bold">{count}</span>명이 작성했어요!
+      </p>
+    </div>
   );
 };
 
