@@ -5,16 +5,18 @@ import { cn } from "../../utils";
  * @author <hwitae>
  * @param {Object{}} reactions emoji와 count가 들어있는 객체
  */
-const EmojiBadge = ({ reactions = {} }) => {
+const EmojiBadge = ({ reactions = {}, style = "" }) => {
   const { emoji, count } = reactions;
 
   return (
     <>
       <div
         className={cn(
-          "h-[36px] bg-black/60 rounded-[32px]",
-          "flex justify-center items-center gap-x-0.5",
-          "px-[13px] text-base leading-[26px] tracking-[-0.01em] m-0 font-normal"
+          "desktop:w-fit desktop:h-[38px]",
+          "bg-black/60 rounded-[32px] flex justify-center items-center gap-x-0.5",
+          "px-[13px] leading-[26px] tracking-[-0.01em] m-0",
+          "tablet:text-base mobile:text-14 font-normal",
+          style
         )}
       >
         <p>{emoji}</p>
