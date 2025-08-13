@@ -16,6 +16,7 @@ export default {
           900: "#181818",
           headerLogo: "#4A494F",
           headerBorder: "#EDEDED",
+          dropdownBorder: "#B6B6B6",
         },
         purple: {
           100: "#F8F0FF",
@@ -76,7 +77,11 @@ export default {
         "purple-900-2": "inset 0 0 0 2px #5603a7",
         "gray-300": "inset 0 0 0 1px #CCCCCC",
         "gray-500": "inset 0 0 0 1px #555555",
+        "gray-700": "inset 0 0 0 1px #3A3A3A",
         "gray-800": "inset 0 0 0 1px #2B2B2B",
+      },
+      dropShadow: {
+        dropdownBorder: "0 2px 12px rgba(0, 0, 0, 0.08)",
       },
       fontFamily: {
         poppins: ["Poppins"],

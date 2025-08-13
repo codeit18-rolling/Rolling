@@ -36,8 +36,71 @@ export const CardMockData = [
   },
 ];
 
+export const CardListMockData = [
+  {
+    id: 12896,
+    name: "test1",
+    backgroundColor: "purple",
+    backgroundImageURL: null,
+    createdAt: "2025-08-12T06:13:53.980842Z",
+    messageCount: 0,
+    recentMessages: [],
+    reactionCount: 11,
+    topReactions: [
+      {
+        id: 13350,
+        emoji: "😀",
+        count: 6,
+      },
+      {
+        id: 13351,
+        emoji: "😆",
+        count: 3,
+      },
+      {
+        id: 13352,
+        emoji: "😌",
+        count: 2,
+      },
+    ],
+  },
+  {
+    id: 12892,
+    name: "†est2",
+    backgroundColor: "blue",
+    backgroundImageURL: null,
+    createdAt: "2025-08-11T11:04:43.760303Z",
+    messageCount: 0,
+    recentMessages: [],
+    reactionCount: 0,
+    topReactions: [],
+  },
+  {
+    id: 12881,
+    name: "test test test test test",
+    backgroundColor: "green",
+    backgroundImageURL:
+      "https://2.img-dpreview.com/files/p/E~C1000x0S4000x4000T1200x1200~articles/3925134721/0266554465.jpeg",
+    createdAt: "2025-08-09T05:13:12.261221Z",
+    messageCount: 0,
+    recentMessages: [],
+    reactionCount: 3,
+    topReactions: [
+      {
+        id: 13348,
+        emoji: "😀",
+        count: 2,
+      },
+      {
+        id: 13347,
+        emoji: "😌",
+        count: 1,
+      },
+    ],
+  },
+];
 export const REACTIONS_DATA = {
-  count: 5,
+  count: 11,
   next: null,
   previous: null,
   results: [
@@ -63,6 +126,36 @@ export const REACTIONS_DATA = {
     },
     {
       id: 13351,
+      emoji: "😘",
+      count: 1,
+    },
+    {
+      id: 13352,
+      emoji: "😌",
+      count: 1,
+    },
+    {
+      id: 13353,
+      emoji: "😝",
+      count: 1,
+    },
+    {
+      id: 13354,
+      emoji: "😘",
+      count: 1,
+    },
+    {
+      id: 13355,
+      emoji: "😌",
+      count: 1,
+    },
+    {
+      id: 13356,
+      emoji: "😝",
+      count: 1,
+    },
+    {
+      id: 13357,
       emoji: "😘",
       count: 1,
     },
