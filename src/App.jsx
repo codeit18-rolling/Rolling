@@ -5,6 +5,8 @@ import AddCard from "./components/Card/AddCard";
 import CardList from "./features/CardList/cardList";
 import { CardMockData, REACTIONS_DATA, CardListMockData } from "./MockData";
 import BadgeEmoji from "./components/Badge/BadgeEmoji";
+import DropdownEmoji from "./components/Dropdown/DropdownEmoji";
+
 import Input from "./components/Input/Input";
 function App() {
   return (
@@ -16,17 +18,17 @@ function App() {
         >
           4팀 화이팅 &#x1F60A;
         </h1>
-        <div className="flex">
-          {REACTIONS_DATA.results.map((result) => {
-            return <BadgeEmoji key={result.id} reactions={result} />;
-          })}
-        </div>
+
+        {/* Emoji Dropdown component */}
+        <DropdownEmoji reactionData={REACTIONS_DATA} />
+
         {/* Input Components */}
         <div className="flex flex-col gap-4 w-[400px] mt-4">
           <Input></Input>
           <Input disabled></Input>
           <Input errorMsg="이름을 입력해 주세요"></Input>
         </div>
+
         {/* Card Components */}
         <div className="grid grid-cols-3 grid-row-2 gap-[24px]">
           <AddCard />

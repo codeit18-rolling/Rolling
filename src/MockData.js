@@ -100,7 +100,7 @@ export const CardListMockData = [
   },
 ];
 export const REACTIONS_DATA = {
-  count: 5,
+  count: 11,
   next: null,
   previous: null,
   results: [
@@ -126,6 +126,36 @@ export const REACTIONS_DATA = {
     },
     {
       id: 13351,
+      emoji: "😘",
+      count: 1,
+    },
+    {
+      id: 13352,
+      emoji: "😌",
+      count: 1,
+    },
+    {
+      id: 13353,
+      emoji: "😝",
+      count: 1,
+    },
+    {
+      id: 13354,
+      emoji: "😘",
+      count: 1,
+    },
+    {
+      id: 13355,
+      emoji: "😌",
+      count: 1,
+    },
+    {
+      id: 13356,
+      emoji: "😝",
+      count: 1,
+    },
+    {
+      id: 13357,
       emoji: "😘",
       count: 1,
     },
