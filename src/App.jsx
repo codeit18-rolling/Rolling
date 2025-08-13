@@ -9,7 +9,7 @@ import {
   BACKGROUND_IMG_DATA,
 } from "./MockData";
 import DropdownEmoji from "./components/Dropdown/DropdownEmoji";
-import TextField from "./components/TextField/TextField";
+import TextField from "./features/TextField/TextField";
 
 import Input from "./components/Input/Input";
 import { DropdownAddEmoji } from "./components/Dropdown/DropdownAddEmoji";
@@ -111,7 +111,13 @@ function App() {
             boxClassName="tablet:w-[calc((100%-(1rem*2))/3)]"
           />
         </div>
-          */}
+
+        {/* CardList Components */}
+        {/* <div className="grid grid-cols-3 gap-[24px]">
+          {CardListMockData.map((item) => (
+            <CardList key={item.id} item={item} />
+          ))}
+        </div> */}
       </div>
       <TextField />
     </>
