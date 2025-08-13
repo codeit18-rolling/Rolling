@@ -24,7 +24,7 @@ const OptionButton = ({
     <button
       type="button"
       className={cn(
-        "w-[calc(50%-1rem)] flex-auto aspect-square rounded-2xl relative ",
+        "w-[calc(50%-1rem)] flex-auto aspect-square rounded-2xl relative",
         "sm:w-auto",
         className
       )}
