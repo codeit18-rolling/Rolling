@@ -25,12 +25,6 @@ function App() {
   //   getRecipientsDetailData("18-1", "0")
   // );
   // console.log(data);
-  const BASE_URL = "https://rolling-api.vercel.app/";
-  const getBackgroundImage = async () => {
-    const res = await fetch(`${BASE_URL}background-images/`);
-    const data = await res.json();
-    return data;
-  };
   return (
     <>
       <Header />
