@@ -57,7 +57,7 @@ const DropdownEmoji = ({ reactionData = {}, dropdown = true }) => {
             <Icon
               iconName="arrow_down"
               iconSize="ic-24"
-              className={cn("bg-black cursor-pointer")}
+              className={cn("bg-black cursor-pointer", isOpen && "rotate-180")}
             />
           </div>
         )}
