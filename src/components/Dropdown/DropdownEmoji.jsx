@@ -3,6 +3,8 @@ import { cn } from "../../utils";
 import BadgeEmoji from "../Badge/BadgeEmoji";
 import Icon from "../Icon/Icon";
 import Button from "../Button/Button";
+import DropdownButton from "./DropdownElement/DropdownButton";
+import DropdownExpandEmoji from "./DropdownElement/DropdownExpandEmoji";
 
 /**
  * 이모지 리액션을 모아둔 드롭다운 리스트
@@ -50,44 +52,9 @@ const DropdownEmoji = ({ reactionData = {}, dropdown = true }) => {
           })}
         </div>
         {dropdown && count > 3 && (
-          <div
-            className={cn("flex items-center w-[36px]")}
-            onClick={onClickOpen}
-          >
-            <Icon
-              iconName="arrow_down"
-              iconSize="ic-24"
-              className={cn("bg-black cursor-pointer", isOpen && "rotate-180")}
-            />
-          </div>
+          <DropdownButton onClickOpen={onClickOpen} isOpen={isOpen} />
         )}
-        {isOpen && (
-          <div className={cn("absolute tablet:top-12 mobile:top-9 right-px")}>
-            <div
-              className={cn(
-                "desktop:w-[312px] bg-white",
-                "tablet:w-[248px] tablet:p-[24px]",
-                "mobile:w-[203px] p-4",
-                "border border-gray-dropdownBorder rounded-lg",
-                "drop-shadow-dropdownBorder"
-              )}
-            >
-              <div className={cn("flex flex-wrap gap-[10px]")}>
-                {results.map((reaction) => {
-                  return (
-                    <BadgeEmoji
-                      key={reaction.id}
-                      reactions={reaction}
-                      style={
-                        "tablet:w-fit tablet:h-[38px] mobile:w-[49px] mobile:h-[28px]"
-                      }
-                    />
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        )}
+        {isOpen && <DropdownExpandEmoji reactionList={results} />}
       </div>
     </>
   );

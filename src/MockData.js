@@ -37,7 +37,7 @@ export const CardMockData = [
 ];
 
 export const REACTIONS_DATA = {
-  count: 5,
+  count: 11,
   next: null,
   previous: null,
   results: [
