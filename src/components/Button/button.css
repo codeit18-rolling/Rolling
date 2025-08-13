@@ -1,0 +1,8 @@
+.btn.disabled,
+.btn:disabled {
+  @apply disabled:bg-gray-300 disabled:text-white disabled:shadow-none;
+}
+.btn.disabled .ic,
+.btn:disabled .ic {
+  background-color: #fff;
+}

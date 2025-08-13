@@ -14,6 +14,8 @@ export default {
           700: "#3A3A3A",
           800: "#2B2B2B",
           900: "#181818",
+          headerLogo: "#4A494F",
+          headerBorder: "#EDEDED",
         },
         purple: {
           100: "#F8F0FF",
@@ -49,18 +51,47 @@ export default {
         },
         error: "#DC3A3A",
         surface: "#F6F8FF",
+        white: "#FFFFFF",
+        black: "#000000",
       },
       fontSize: {
-        12: ["0.75rem", { lineHeight: "1.5" }],
-        14: ["0.875rem", { lineHeight: "1.4" }],
-        15: ["0.9375rem", { lineHeight: "1.4" }],
-        16: ["1rem", { lineHeight: "1.6" }],
-        18: ["1.125rem", { lineHeight: "1.5" }],
-        20: ["1.25rem", { lineHeight: "1.5" }],
-        24: ["1.5rem", { lineHeight: "1.5" }],
-        28: ["1.75rem", { lineHeight: "1.5" }],
+        12: ["0.75rem", { lineHeight: "1.5", letterSpacing: "-0.005em" }], // -0.5%
+        14: ["0.875rem", { lineHeight: "1.43", letterSpacing: "-0.005em" }],
+        15: ["0.9375rem", { lineHeight: "1.43", letterSpacing: "-0.01em" }], // -1%
+        16: ["1rem", { lineHeight: "1.6", letterSpacing: "-0.01em" }],
+        18: ["1.125rem", { lineHeight: "1.5", letterSpacing: "-0.01em" }],
+        20: ["1.25rem", { lineHeight: "1.5", letterSpacing: "-0.01em" }],
+        24: ["1.5rem", { lineHeight: "1.5", letterSpacing: "-0.01em" }],
+        28: ["1.75rem", { lineHeight: "1.5", letterSpacing: "-0.01em" }],
+      },
+      fontFamily: {
+        sans: ["Pretendard", "ui-sans-serif", "system-ui"],
+      },
+      boxShadow: {
+        "purple-600": "inset 0 0 0 1px #9935FF",
+        "purple-600-2": "inset 0 0 0 2px #9935FF",
+        "purple-700": "inset 0 0 0 1px #861DEE",
+        "purple-800": "inset 0 0 0 1px #6E0AD1",
+        "purple-900": "inset 0 0 0 1px #5603a7",
+        "purple-900-2": "inset 0 0 0 2px #5603a7",
+        "gray-300": "inset 0 0 0 1px #CCCCCC",
+        "gray-500": "inset 0 0 0 1px #555555",
+        "gray-700": "inset 0 0 0 1px #3A3A3A",
+        "gray-800": "inset 0 0 0 1px #2B2B2B",
+      },
+      fontFamily: {
+        poppins: ["Poppins"],
       },
     },
+    screens: {
+      mobile: "360px",
+      tablet: "768px",
+      desktop: "1200px",
+    },
   },
-  plugins: [],
+  variants: {
+    extend: {
+      boxShadow: ["focus"],
+    },
+  },
 };
