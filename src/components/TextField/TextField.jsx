@@ -1,20 +1,12 @@
 import React, { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { toolbarOptions } from "./Components/ToolBar";
 
 /**
  * Editor 컴포넌트
  * @author <sejin5>
  */
-
-const toolbarOptions = [
-  ["bold", "italic", "underline"],
-  [{ align: [] }],
-  [{ list: "ordered" }, { list: "bullet" }, { list: "check" }],
-  [{ header: [1, 2, 3, 4, 5, false] }],
-  ["image", "link"],
-  [{ color: [] }, { background: [] }],
-];
 
 const TextField = () => {
   const [value, setValue] = useState("");
