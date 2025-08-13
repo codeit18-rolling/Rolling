@@ -65,9 +65,9 @@ const DropdownEmoji = ({ reactionData = {}, dropdown = true }) => {
           <div className={cn("absolute tablet:top-12 mobile:top-9 right-px")}>
             <div
               className={cn(
-                "desktop:w-[312px] desktop:h-[134px] bg-white",
-                "tablet:w-[248px] tablet:h-[134px] tablet:p-[24px]",
-                "mobile:w-[203px] mobile:h-[98px] p-4",
+                "desktop:w-[312px] bg-white",
+                "tablet:w-[248px] tablet:p-[24px]",
+                "mobile:w-[203px] p-4",
                 "border border-gray-dropdownBorder rounded-lg",
                 "drop-shadow-dropdownBorder"
               )}

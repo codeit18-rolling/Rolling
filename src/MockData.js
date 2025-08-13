@@ -66,5 +66,35 @@ export const REACTIONS_DATA = {
       emoji: "😘",
       count: 1,
     },
+    {
+      id: 13352,
+      emoji: "😌",
+      count: 1,
+    },
+    {
+      id: 13353,
+      emoji: "😝",
+      count: 1,
+    },
+    {
+      id: 13354,
+      emoji: "😘",
+      count: 1,
+    },
+    {
+      id: 13355,
+      emoji: "😌",
+      count: 1,
+    },
+    {
+      id: 13356,
+      emoji: "😝",
+      count: 1,
+    },
+    {
+      id: 13357,
+      emoji: "😘",
+      count: 1,
+    },
   ],
 };
