@@ -30,14 +30,17 @@ const DropdownEmoji = ({ reactionData }) => {
 
   return (
     <>
-      <div className={cn("flex gap-x-2 items-center relative")}>
-        <div className={cn("flex justify-end gap-x-2 w-[208px]")}>
+      <div className={cn("flex items-center relative")}>
+        <div className={cn("flex justify-center gap-x-2 w-[208px]")}>
           {preview.map((reaction) => {
             return <BadgeEmoji key={reaction.id} reactions={reaction} />;
           })}
         </div>
         {count > 3 && (
-          <div className={cn("flex items-center")} onClick={onClickOpen}>
+          <div
+            className={cn("flex items-center w-[36px]")}
+            onClick={onClickOpen}
+          >
             <Icon
               iconName="arrow_down"
               iconSize="ic-24"
@@ -49,7 +52,8 @@ const DropdownEmoji = ({ reactionData }) => {
           <div className={cn("absolute top-12 right-px")}>
             <div
               className={cn(
-                "w-[312px] h-[134px] p-[24px] bg-white",
+                "tablet:w-[312px] tablet:h-[134px] p-[24px] bg-white",
+                "mobile:w-[248px] h-[134px]",
                 "border border-gray-dropdownBorder rounded-lg",
                 "drop-shadow-dropdownBorder"
               )}
