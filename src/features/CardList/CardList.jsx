@@ -1,4 +1,5 @@
 import React from "react";
+import { cn } from "../../utils";
 import BG_COLOR from "../../constants/backgroundcolor";
 
 const BG_PATTERN = {
@@ -11,9 +12,15 @@ const BG_PATTERN = {
 const CardList = ({ item }) => {
   return (
     <div
-      className={`w-[275px] h-[260px] pt-[30px] pb-[20px] px-[24px] rounded-[16px] border border-black/10 flex relative justify-start items-start flex-col ${
-        !item.backgroundImageURL ? BG_COLOR[item.backgroundColor] : ""
-      } bg-[url("${item.backgroundImageURL}")] bg-cover bg-center`}
+      className={cn(
+        "w-[275px] h-[260px] pt-[30px] pb-[20px] px-[24px] rounded-[16px] border border-black/10 flex relative justify-start items-start flex-col bg-cover bg-center",
+        !item.backgroundImageURL && BG_COLOR[item.backgroundColor]
+      )}
+      style={
+        item.backgroundImageURL && {
+          backgroundImage: `url(${item.backgroundImageURL})`,
+        }
+      }
     >
       {/*container*/}
       <div className="w-[125px]">
