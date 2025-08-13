@@ -1,11 +1,6 @@
 import React from "react";
+import BG_COLOR from "../../constants/backgroundcolor";
 
-const BG_COLOR = {
-  purple: "bg-purple-200",
-  beige: "bg-beige-200",
-  blue: "bg-blue-200",
-  green: "bg-green-200",
-};
 const BG_PATTERN = {
   purple: "",
   beige: "",
@@ -14,7 +9,6 @@ const BG_PATTERN = {
 };
 
 const CardList = ({ item }) => {
-  console.log(item);
   return (
     <div
       className={`w-[275px] h-[260px] pt-[30px] pb-[20px] px-[24px] rounded-[16px] border border-black/10 flex relative justify-start items-start flex-col ${
@@ -29,7 +23,7 @@ const CardList = ({ item }) => {
             {/*받는사람 */}
             <span
               className={`font-bold text-2xl ${
-                item.backgroundURL ? "text-white" : "text-gray-900"
+                item.backgroundImageURL ? "text-white" : "text-gray-900"
               }`}
             >
               To. {item.name}
@@ -40,7 +34,7 @@ const CardList = ({ item }) => {
           </div>
           <div
             className={` text-16 ${
-              item.backgroundURL ? "text-gray-200" : "text-gray-700"
+              item.backgroundImageURL ? "text-gray-200" : "text-gray-700"
             }`}
           >
             {/*~~명이 작성하셨습니다. */}
