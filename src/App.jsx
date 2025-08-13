@@ -14,7 +14,16 @@ import DropdownEmoji from "./components/Dropdown/DropdownEmoji";
 import Input from "./components/Input/Input";
 import { DropdownAddEmoji } from "./components/Dropdown/DropdownAddEmoji";
 import Writers from "./components/Writers/Writers";
+// import useService from "./hooks/useService";
+// import { getRecipientsDetailData } from "./service/getRecipientsDetailData";
+
 function App() {
+  // API 호출 예시 주석
+  // const { data, isLoading, isError } = useService(() =>
+  //   getRecipientsDetailData("18-1", "0")
+  // );
+  // console.log(data);
+
   return (
     <>
       <Header />
@@ -41,6 +50,12 @@ function App() {
         </div>
 
         {/* Card Components */}
+        {/* {isLoading && "로딩중..."}
+        {!isLoading && isError && "에러가 발생했습니다."}
+        {data?.length === 0 && "데이터가 없습니다."} */}
+
+        {/* 현재는 목업 데이터로 넣었기 때문에 "에러가 발생했습니다." 
+        문구랑 아래 카드 컴포넌트가 같이 나오고 있습니다. */}
         <div className="grid grid-cols-3 grid-row-2 gap-[24px]">
           <AddCard />
           {CardMockData.map((data, index) => (
