@@ -2,7 +2,8 @@ import { cn } from "./utils";
 import { Header } from "./components/Header/Header";
 import Card from "./components/Card/Card";
 import AddCard from "./components/Card/AddCard";
-import { CardMockData, REACTIONS_DATA } from "./MockData";
+import CardList from "./features/CardList/CardList";
+import { CardMockData, REACTIONS_DATA, CardListMockData } from "./MockData";
 import BadgeEmoji from "./components/Badge/BadgeEmoji";
 import DropdownEmoji from "./components/Dropdown/DropdownEmoji";
 
@@ -40,6 +41,12 @@ function App() {
               date={data.date}
               onDelete={data.onDelete}
             />
+          ))}
+        </div>
+        {/* CardList Components */}
+        <div className="grid grid-cols-3 gap-[24px]">
+          {CardListMockData.map((item) => (
+            <CardList key={item.id} item={item} />
           ))}
         </div>
       </div>
