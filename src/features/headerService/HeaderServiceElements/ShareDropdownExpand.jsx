@@ -1,7 +1,4 @@
-const SHARE_OPTION = [
-  { id: "kakao", name: "카카오톡 공유" },
-  { id: "url", name: "URL 공유" },
-];
+import { SHARE_MENU } from "../../../constants/shareMenu";
 
 /**
  * 공유 버튼 클릭시 표출되는 드롭다운
@@ -16,7 +13,7 @@ const ShareDropdownExpand = () => {
                     tablet:left-px
                     mobile:right-px`}
       >
-        {SHARE_OPTION.map((option) => {
+        {SHARE_MENU.map((option) => {
           return (
             <div key={option.id} className="hover:bg-gray-100">
               <button className="py-3 px-4">{option.name}</button>
