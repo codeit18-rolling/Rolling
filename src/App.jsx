@@ -17,7 +17,7 @@ import Option from "./features/Option/Option";
 import SkeletonUI from "./components/Skeleton/SkeletonUI";
 import { ShareButton } from "./features/HeaderService/HeaderServiceElements/ShareButton";
 import CardListSet from "./features/CardList/CardListSet";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router";
 import Home from "./pages/Home";
 import Lists from "./pages/Lists";
 import ListDetails from "./pages/ListDetails";
@@ -103,7 +103,7 @@ function App() {
           */}
         </div>
         {/* SkeletonUI Components */}
-        {/* className(컨테이너) 과 boxClassName(하위박스요소) 를 이용하여 반응형을 구현할 수 있습니다. */}
+        {/* className(컨테이너) 과 boxClassName(하위박스요소) 를 이용하여 반응형을 구현할 수 있습니다. 
         <div className="w-full max-w-[1200px]">
           <SkeletonUI count={4} className="tablet:flex-nowrap" />
           <SkeletonUI
@@ -111,6 +111,7 @@ function App() {
             boxClassName="tablet:w-[calc((100%-(1rem*2))/3)]"
           />
         </div>
+          */}
       </div>
     </>
   );
