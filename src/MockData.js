@@ -99,6 +99,7 @@ export const CardListMockData = [
     ],
   },
 ];
+
 export const REACTIONS_DATA = {
   count: 11,
   next: null,
@@ -161,6 +162,68 @@ export const REACTIONS_DATA = {
     },
   ],
 };
+
+export const MESSAGES_DATA = {
+  count: 10,
+  next: null,
+  previous: null,
+  results: [
+    {
+      id: 25066,
+      recipientId: 12896,
+      sender: "작성자테스트",
+      profileImageURL:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/FriedIII.jpg/120px-FriedIII.jpg",
+      relationship: "친구",
+      content: "롤페 남깁니다",
+      font: "Noto Sans",
+      createdAt: "2025-08-13T07:27:13.886463Z",
+    },
+    {
+      id: 25064,
+      recipientId: 12896,
+      sender: "그림같은사람",
+      profileImageURL:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Edouard_Manet_-_At_the_Caf%C3%A9_-_Google_Art_Project.jpg/250px-Edouard_Manet_-_At_the_Caf%C3%A9_-_Google_Art_Project.jpg",
+      relationship: "친구",
+      content: "안녕하세요",
+      font: "Noto Sans",
+      createdAt: "2025-08-13T07:29:28.036717Z",
+    },
+    {
+      id: 25062,
+      recipientId: 12896,
+      sender: "나는새",
+      profileImageURL:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Lilac-breasted_roller_%28Coracias_caudatus%29_Kruger.jpg/250px-Lilac-breasted_roller_%28Coracias_caudatus%29_Kruger.jpg",
+      relationship: "친구",
+      content: "놀러왔습니다",
+      font: "Noto Sans",
+      createdAt: "2025-08-13T07:30:29.083982Z",
+    },
+    {
+      id: 25059,
+      recipientId: 12896,
+      sender: "코딧",
+      profileImageURL: "src/assets/empty/img_null.png",
+      relationship: "지인",
+      content: "놀러왔습니다",
+      font: "Noto Sans",
+      createdAt: "2025-08-13T07:30:29.083982Z",
+    },
+    {
+      id: 25058,
+      recipientId: 12896,
+      sender: "코드잇",
+      profileImageURL: "src/assets/empty/img_null.png",
+      relationship: "동료",
+      content: "놀러왔습니다",
+      font: "Noto Sans",
+      createdAt: "2025-08-13T07:30:29.083982Z",
+    },
+  ],
+};
+
 export const BACKGROUND_IMG_DATA = {
   imageUrls: [
     "https://picsum.photos/id/683/3840/2160",
