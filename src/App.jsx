@@ -18,6 +18,7 @@ import Writers from "./components/Writers/Writers";
 import Option from "./features/option/Option";
 import SkeletonUI from "./components/Skeleton/SkeletonUI";
 import { ShareButton } from "./features/HeaderService/HeaderServiceElements/ShareButton";
+import HeaderService from "./features/HeaderService/HeaderService";
 
 // import useService from "./hooks/useService";
 // import { getRecipientsDetailData } from "./service/getRecipientsDetailData";
@@ -31,6 +32,7 @@ function App() {
   return (
     <>
       <Header />
+      <HeaderService />
       <div className="w-full h-screen flex flex-col p-20 items-center justify-around">
         <h1
           className={cn("font-bold text-2xl", "text-purple-800", "text-center")}
