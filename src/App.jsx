@@ -5,7 +5,6 @@ import AddCard from "./components/Card/AddCard";
 import {
   CardMockData,
   REACTIONS_DATA,
-  CardListMockData,
   MESSAGES_DATA,
   BACKGROUND_IMG_DATA,
 } from "./MockData";

@@ -1,7 +1,6 @@
 import CardList from "./CardListElements/CardList";
-import react, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import PureList from "./CardListElements/PureList";
-import { cn } from "../../utils";
 
 /**
  *sortOder 변수에 의해 정렬된 카드리스트를 보여준다.

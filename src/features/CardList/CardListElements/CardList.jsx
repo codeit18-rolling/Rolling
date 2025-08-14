@@ -1,4 +1,3 @@
-import React from "react";
 import { cn } from "../../../utils";
 import BG_COLOR from "../../../constants/backgroundcolor";
 import BG_PATTERN from "../../../constants/backgroundpattern";
@@ -69,7 +68,7 @@ const CardList = ({ item }) => {
       {!item.backgroundImageURL && BG_PATTERN[item.backgroundColor] && (
         <img
           src={BG_PATTERN[item.backgroundColor]}
-          alt={`${item.backgroundColor} Pattern`}
+          alt={`${item.backgroundColor} 색`}
           className="absolute w-36 h-36 right-0 bottom-0"
         />
       )}
