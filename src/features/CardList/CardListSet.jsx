@@ -1,6 +1,7 @@
 import CardList from "./CardListElements/CardList";
 import { useEffect, useState } from "react";
 import PureList from "./CardListElements/PureList";
+import { cn } from "../../utils";
 
 /**
  *sortOder 변수에 의해 정렬된 카드리스트를 보여준다.
@@ -33,19 +34,19 @@ const CardListSet = ({ sortOrder }) => {
   }, [sortOrder]);
   const totalIndex = Math.ceil(Lists.length / 4);
   const displayingCards = items.slice(index * 4, index * 4 + 4);
-
+  const btn_design = "absolute z-10 top-[110px] ";
   return (
     <div className="w-[1160px] h-[260px] p-0 flex flex-row justify-center relative">
       {index > 0 && (
         <button
           type="button"
           onClick={() => setIndex(index - 1)}
-          className="absolute top-[110px] left-[-20px] z-10"
+          className={cn("left-[-20px]", btn_design)}
         >
           <span>임시 좌방향 화살표</span>
         </button>
       )}
-      <div className="grid grid-cols-4 grid-row-1 gap-5">
+      <div className="grid grid-cols-4 grid-rows-1 gap-5">
         {/*카드 리스트 들어갈 곳 */}
         {displayingCards.map((item) => (
           <CardList key={item.id} item={item} />
@@ -55,7 +56,7 @@ const CardListSet = ({ sortOrder }) => {
         <button
           type="button"
           onClick={() => setIndex(index + 1)}
-          className="absolute top-[110px] right-[-20px] z-10"
+          className={cn("right-[-20px]", btn_design)}
         >
           <span>임시 우방향 화살표</span>
         </button>
