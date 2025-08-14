@@ -15,7 +15,7 @@ import DropdownEmoji from "./components/Dropdown/DropdownEmoji";
 import Input from "./components/Input/Input";
 import { DropdownAddEmoji } from "./components/Dropdown/DropdownAddEmoji";
 import Writers from "./components/Writers/Writers";
-import Option from "./features/option/option";
+import Option from "./features/option/Option";
 import SkeletonUI from "./components/Skeleton/SkeletonUI";
 
 // import useService from "./hooks/useService";

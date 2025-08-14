@@ -2,12 +2,19 @@ import defaultImage from "../../../assets/empty/img_null.png";
 
 const CardMeta = ({ img, user }) => {
   return (
-    <div className="flex items-center justify-start gap-[14px]">
+    <div className="flex items-center justify-start gap-[14px] cursor-pointer">
       {/* User Image */}
       <img
         src={img || defaultImage}
+        width={56}
+        height={56}
         alt="유저 이미지"
         className="w-[56px] h-[56px] rounded-full"
+        loading="eager"
+        fetchPriority="high"
+        onError={(e) => {
+          e.target.src = defaultImage;
+        }}
       />
 
       {/* User Info */}
