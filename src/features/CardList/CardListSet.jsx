@@ -42,6 +42,7 @@ const CardListSet = ({ sortOrder }) => {
           type="button"
           onClick={() => setIndex(index - 1)}
           className={cn("left-[-20px]", btn_design)}
+          aria-label="좌방향 버튼"
         >
           <span>임시 좌방향 화살표</span>
         </button>
@@ -57,6 +58,7 @@ const CardListSet = ({ sortOrder }) => {
           type="button"
           onClick={() => setIndex(index + 1)}
           className={cn("right-[-20px]", btn_design)}
+          aria-label="우방향 버튼"
         >
           <span>임시 우방향 화살표</span>
         </button>
