@@ -15,14 +15,13 @@ import { useState } from "react";
  *   value: string,                          // 현재 입력값
  *   errorMsg: string,                       // 에러 메시지 (blur 전에는 항상 빈 문자열)
  *   focused: boolean,                       // blur 이벤트가 발생했는지 여부
- *   setValue: (value: string) => void,       // 입력값 수동 설정 함수
  *   handleChange: (e) => void,               // onChange 핸들러
  *   handleBlur: () => void,                  // onBlur 핸들러
  * }}
  *
  * @example
 
- * const { value, errorMsg, handleChange, handleBlur } = useInputValidator("", validateName);
+ * const { errorMsg, handleChange, handleBlur } = useInputValidator(value, validateName);
  *
  * <input
  *   value={value}
@@ -31,14 +30,12 @@ import { useState } from "react";
  * />
  * {errorMsg && <span>{errorMsg}</span>}
  */
-const useInputValidator = (initialValue = "", validateFn) => {
-  const [value, setValue] = useState(initialValue);
+const useInputValidator = (value, validateFn) => {
   const [errorMsg, setErrorMsg] = useState("");
   const [focused, setFocused] = useState(false); // blur 이후 검증 표시 여부
 
   const handleChange = (e) => {
     const newValue = e.target.value;
-    setValue(newValue);
     // 입력 중에도 에러 상태는 유지하지만, blur 전에는 UI에 안 보이게
     if (focused) {
       setErrorMsg(validateFn(newValue));
@@ -51,10 +48,7 @@ const useInputValidator = (initialValue = "", validateFn) => {
   };
 
   return {
-    value,
     errorMsg: focused ? errorMsg : "",
-    focused,
-    setValue,
     handleChange,
     handleBlur,
   };
