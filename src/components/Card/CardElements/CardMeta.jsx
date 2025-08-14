@@ -11,7 +11,6 @@ const CardMeta = ({ img, user }) => {
         alt="유저 이미지"
         className="w-[56px] h-[56px] rounded-full"
         loading="eager"
-        fetchPriority="high"
         onError={(e) => {
           e.target.src = defaultImage;
         }}
