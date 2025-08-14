@@ -30,10 +30,7 @@ const Writers = ({ messages = {}, useCard = false }) => {
         {writerPreview.map((writer) => (
           <img
             key={writer.id}
-            className={cn(
-              "w-[28px] h-[28px] border-white rounded-full",
-              "border-[1.5px]"
-            )}
+            className="w-[28px] h-[28px] border-white rounded-full border-[1.5px]"
             src={writer.profileImageURL}
             alt="프로필 이미지"
             onError={handleError}
