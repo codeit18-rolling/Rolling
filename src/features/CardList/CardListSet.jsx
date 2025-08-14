@@ -29,11 +29,9 @@ const CardListSet = ({ sortOrder }) => {
     } else {
       throw new Error("정렬기준이 이상합니다.");
     }
-    console.log(sortOrder);
-    console.log(items);
+
     setItems(sortedLists);
   }, [sortOrder]);
-
   const totalIndex = Math.ceil(Lists.length / 4);
   const displayingCards = items.slice(index * 4, index * 4 + 4);
 
