@@ -1,5 +1,5 @@
 import { cn } from "../../utils";
-import SkeletonBox from "./SkeletonElement/SkeletonBox";
+import SkeletonBox from "./SkeletonElements/SkeletonBox";
 /**
  * Skeleton UI(로딩 박스) 컴포넌트
  *
