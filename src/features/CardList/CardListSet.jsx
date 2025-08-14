@@ -1,4 +1,4 @@
-import CardList from "./cardList";
+import CardList from "./CardList";
 import react, { useEffect, useState } from "react";
 import PureList from "./CardListElements/PureList";
 import { cn } from "../../utils";
