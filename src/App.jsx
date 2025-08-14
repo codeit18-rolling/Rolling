@@ -46,8 +46,6 @@ function App() {
 
         {/* Emoji Dropdown & writer component */}
         <div className="flex">
-          <Writers messages={MESSAGES_DATA} />
-          <Writers messages={MESSAGES_DATA} useCard={true} />
           <DropdownEmoji reactionData={REACTIONS_DATA} />
           <DropdownAddEmoji />
           <ShareButton />

@@ -7,7 +7,7 @@ const ShareDropdownExpand = () => {
   return (
     <>
       <div
-        className={`absolute top-11 w-[140px] py-[10px] bg-white
+        className={`absolute top-11 w-[140px] py-[10px] bg-white z-50
                     border border-gray-300 rounded-lg
                     drop-shadow-dropdownBorder
                     tablet:left-px
