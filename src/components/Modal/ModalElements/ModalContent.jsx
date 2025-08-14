@@ -1,4 +1,5 @@
 import styles from "./ModalContent.module.css";
+import { cn } from "../../../utils";
 
 const ModalContent = ({ children }) => {
   return (
