@@ -14,7 +14,7 @@ import { cn } from "../../utils";
 const CardListSet = ({ sortOrder }) => {
   const Lists = PureList();
 
-  const [index, setIndex] = useState(1);
+  const [index, setIndex] = useState(0);
   const [items, setItems] = useState([]);
   useEffect(() => {
     let sortedLists;
@@ -23,16 +23,19 @@ const CardListSet = ({ sortOrder }) => {
         (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
       );
     } else if (sortOrder == "reactionCount") {
-      sortedLists = [...Lists].sort((a, b) => b.messageCount - a.messageCount);
+      sortedLists = [...Lists].sort(
+        (a, b) => b.reactionCount - a.reactionCount
+      );
     } else {
       throw new Error("정렬기준이 이상합니다.");
     }
     setItems(sortedLists);
   }, [sortOrder]);
-
+  console.log(sortOrder);
+  console.log(items);
   const totalIndex = Math.ceil(Lists.length / 4);
   const displayingCards = items.slice(index * 4, index * 4 + 4);
-  console.log(displayingCards);
+
   return (
     <div className="w-[1160px] h-[260px] p-0 flex flex-row justify-center relative">
       {index > 0 && (

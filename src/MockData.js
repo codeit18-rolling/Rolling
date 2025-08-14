@@ -358,7 +358,7 @@ export const ALL_CARD_LIST = {
           createdAt: "2025-08-13T07:27:13.886463Z",
         },
       ],
-      reactionCount: 11,
+      reactionCount: 13,
       topReactions: [
         {
           id: 13350,
@@ -368,7 +368,7 @@ export const ALL_CARD_LIST = {
         {
           id: 13351,
           emoji: "😆",
-          count: 3,
+          count: 5,
         },
         {
           id: 13352,
@@ -397,12 +397,12 @@ export const ALL_CARD_LIST = {
       createdAt: "2025-08-09T05:13:12.261221Z",
       messageCount: 0,
       recentMessages: [],
-      reactionCount: 3,
+      reactionCount: 5,
       topReactions: [
         {
           id: 13348,
           emoji: "😀",
-          count: 2,
+          count: 4,
         },
         {
           id: 13347,
