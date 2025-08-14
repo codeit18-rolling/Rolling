@@ -2,7 +2,7 @@ import { useState } from "react";
 import Button from "../Button/Button";
 import Icon from "../Icon/Icon";
 import EmojiPicker from "emoji-picker-react";
-import { useToggle } from "../../features/headerService/hooks/useToggle";
+import { useToggle } from "../../hooks/useToggle";
 
 /**
  * 이미지를 추가할 수 있는 드롭다운

@@ -3,9 +3,9 @@ import { cn } from "../../utils";
 import BadgeEmoji from "../Badge/BadgeEmoji";
 import Icon from "../Icon/Icon";
 import Button from "../Button/Button";
-import DropdownButton from "./DropdownElement/DropdownButton";
-import DropdownExpandEmoji from "./DropdownElement/DropdownExpandEmoji";
-import { useToggle } from "../../features/headerService/hooks/useToggle";
+import DropdownButton from "./DropdownElements/DropdownButton";
+import DropdownExpandEmoji from "./DropdownElements/DropdownExpandEmoji";
+import { useToggle } from "../../hooks/useToggle";
 
 /**
  * 이모지 리액션을 모아둔 드롭다운 리스트

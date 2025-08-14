@@ -32,7 +32,7 @@ const Writers = ({ messages = {}, useCard = false }) => {
             key={writer.id}
             className={cn(
               "w-[28px] h-[28px] border-white rounded-full",
-              useCard ? "border-[1.5px]" : "border-[1.4px]"
+              "border-[1.5px]"
             )}
             src={writer.profileImageURL}
             alt="프로필 이미지"

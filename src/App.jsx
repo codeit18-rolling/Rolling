@@ -17,7 +17,7 @@ import { DropdownAddEmoji } from "./components/Dropdown/DropdownAddEmoji";
 import Writers from "./components/Writers/Writers";
 import Option from "./features/option/option";
 import SkeletonUI from "./components/Skeleton/SkeletonUI";
-import { ShareButton } from "./features/headerService/headerServiceElement/ShareButton";
+import { ShareButton } from "./features/HeaderService/HeaderServiceElements/ShareButton";
 
 // import useService from "./hooks/useService";
 // import { getRecipientsDetailData } from "./service/getRecipientsDetailData";

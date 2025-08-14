@@ -1,6 +1,6 @@
 import Button from "../../../components/Button/Button";
 import Icon from "../../../components/Icon/Icon";
-import { useToggle } from "../hooks/useToggle";
+import { useToggle } from "../../../hooks/useToggle";
 import ShareDropdownExpand from "./ShareDropdownExpand";
 
 /**
