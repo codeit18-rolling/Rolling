@@ -5,6 +5,7 @@ import Icon from "../Icon/Icon";
 import Button from "../Button/Button";
 import DropdownButton from "./DropdownElement/DropdownButton";
 import DropdownExpandEmoji from "./DropdownElement/DropdownExpandEmoji";
+import { useToggle } from "../../features/headerService/hooks/useToggle";
 
 /**
  * 이모지 리액션을 모아둔 드롭다운 리스트
@@ -14,23 +15,12 @@ import DropdownExpandEmoji from "./DropdownElement/DropdownExpandEmoji";
  */
 const DropdownEmoji = ({ reactionData = {}, dropdown = true }) => {
   const { count = 0, results = [] } = reactionData;
+  const { isOpen, onClickToggle } = useToggle();
 
   /**
    * 가장 많은 리액션을 받은 항목 최대 3개를 담는 배열
    */
   const preview = results.sort((a, b) => b.count - a.count).slice(0, 3);
-
-  /**
-   * 드롭다운 열림/닫힘 상태
-   */
-  const [isOpen, setIsOpen] = useState(false);
-
-  /**
-   * 버튼 클릭시 드롭다운 열림/닫힘 상태를 변경한다.
-   */
-  const onClickOpen = () => {
-    setIsOpen((prevState) => !prevState);
-  };
 
   return (
     <>
@@ -53,7 +43,7 @@ const DropdownEmoji = ({ reactionData = {}, dropdown = true }) => {
           })}
         </div>
         {dropdown && count > 3 && (
-          <DropdownButton onClickOpen={onClickOpen} isOpen={isOpen} />
+          <DropdownButton onClickOpen={onClickToggle} isOpen={isOpen} />
         )}
         {isOpen && <DropdownExpandEmoji reactionList={results} />}
       </div>

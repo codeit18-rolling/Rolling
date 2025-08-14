@@ -17,6 +17,7 @@ import { DropdownAddEmoji } from "./components/Dropdown/DropdownAddEmoji";
 import Writers from "./components/Writers/Writers";
 import Option from "./features/option/option";
 import SkeletonUI from "./components/Skeleton/SkeletonUI";
+import { ShareButton } from "./features/headerService/headerServiceElement/ShareButton";
 
 // import useService from "./hooks/useService";
 // import { getRecipientsDetailData } from "./service/getRecipientsDetailData";
@@ -42,7 +43,8 @@ function App() {
           <Writers messages={MESSAGES_DATA} />
           <Writers messages={MESSAGES_DATA} useCard={true} />
           <DropdownEmoji reactionData={REACTIONS_DATA} />
-          <DropdownAddEmoji></DropdownAddEmoji>
+          <DropdownAddEmoji />
+          <ShareButton />
         </div>
 
         {/* Input Components */}

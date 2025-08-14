@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from "../Button/Button";
 import Icon from "../Icon/Icon";
 import EmojiPicker from "emoji-picker-react";
+import { useToggle } from "../../features/headerService/hooks/useToggle";
 
 /**
  * 이미지를 추가할 수 있는 드롭다운
@@ -9,11 +10,7 @@ import EmojiPicker from "emoji-picker-react";
  * @param {React.SetStateAction} setEmojiList 이모지 드롭다운 리스트를 변경하기 위한 setter 함수
  */
 export const DropdownAddEmoji = ({ setEmojiList }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const onClickOpen = () => {
-    setIsOpen((prevState) => !prevState);
-  };
+  const { isOpen, onClickToggle } = useToggle();
 
   const onClickAddEmoji = (emojiData) => {
     console.log(emojiData);
@@ -21,10 +18,10 @@ export const DropdownAddEmoji = ({ setEmojiList }) => {
 
   return (
     <>
-      <div className="relative" onClick={onClickOpen}>
+      <div className="relative" onClick={onClickToggle}>
         <Button
           btnStyle={"outlined"}
-          className={"w-[88px] h-[36px] text-base font-medium rounded-md"}
+          className={"w-[88px] h-[36px] text-base font-medium"}
           btnSize={"btn-36"}
         >
           <div className="flex gap-x-1">
