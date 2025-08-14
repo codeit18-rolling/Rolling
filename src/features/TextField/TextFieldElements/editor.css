@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Nanum+Myeongjo&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+.ql-editor {
+  font-size: 16px !important;
+  line-height: 1.5;
+  font-family: "Noto Sans", "pretendard", "Nanum Myeongjo", "Nanum Brush Script";
+}
+
+.ql-toolbar {
+  background-color: #eeeeee;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  height: 49px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.ql-snow .ql-formats {
+  display: flex;
+}
+
+.ql-container {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top: 0;
+  height: calc(100% - 49px);
+}
+
+.ql-editor {
+  height: 100%;
+  overflow-y: auto;
+}
+/*Font 설정*/
+
+.ql-toolbar.ql-snow {
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-family: "Noto Sans", "pretendard", "Nanum Myeongjo", "Nanum Brush Script";
+  padding: 8px;
+}
+
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value="Noto Sans"]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="Noto Sans"]::before {
+  content: "Noto Sans" !important;
+  font-family: "Noto Sans";
+}
+
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value="pretendard"]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="pretendard"]::before {
+  content: "pretendard" !important;
+  font-family: "pretendard";
+}
+
+.ql-snow
+  .ql-picker.ql-font
+  .ql-picker-label[data-value="nanum-myeongjo"]::before,
+.ql-snow
+  .ql-picker.ql-font
+  .ql-picker-item[data-value="nanum-myeongjo"]::before {
+  content: "나눔 명조" !important;
+  font-family: "Nanum Myeongjo";
+}
+
+.ql-snow
+  .ql-picker.ql-font
+  .ql-picker-label[data-value="nanum-brush-script"]::before,
+.ql-snow
+  .ql-picker.ql-font
+  .ql-picker-item[data-value="nanum-brush-script"]::before {
+  content: "나눔 붓글씨체" !important;
+  font-family: "Nanum Brush Script";
+}
+
+.ql-font-noto-sans {
+  font-family: "Noto Sans", sans-serif;
+}
+
+.ql-font-pretendard {
+  font-family: "pretendard", sans-serif;
+}
+
+.ql-font-nanum-myeongjo {
+  font-family: "Nanum Myeongjo", sans-serif;
+}
+
+.ql-font-nanum-brush-script {
+  font-family: "Nanum Brush Script", sans-serif;
+}
