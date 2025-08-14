@@ -2,12 +2,12 @@ import { cn } from "./utils";
 import { Header } from "./components/Header/Header";
 import Card from "./components/Card/Card";
 import AddCard from "./components/Card/AddCard";
-import CardList from "./features/CardList/CardList";
 import { CardMockData, REACTIONS_DATA, CardListMockData } from "./MockData";
 import DropdownEmoji from "./components/Dropdown/DropdownEmoji";
 
 import Input from "./components/Input/Input";
 import { DropdownAddEmoji } from "./components/Dropdown/DropdownAddEmoji";
+import CardListSet from "./features/CardList/CardListSet";
 // import useService from "./hooks/useService";
 // import { getRecipientsDetailData } from "./service/getRecipientsDetailData";
 
@@ -62,10 +62,9 @@ function App() {
           ))}
         </div>
         {/* CardList Components */}
-        <div className="grid grid-cols-3 gap-[24px]">
-          {CardListMockData.map((item) => (
-            <CardList key={item.id} item={item} />
-          ))}
+        <div className="gap-8 flex flex-col">
+          <CardListSet sortOrder="createdAt" />
+          <CardListSet sortOrder="reactionCount" />
         </div>
       </div>
     </>

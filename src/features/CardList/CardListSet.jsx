@@ -1,23 +1,37 @@
 import CardList from "./cardList";
-import react, { useState } from "react";
-import { ALL_CARD_LIST } from "../../MockData";
+import react, { useEffect, useState } from "react";
+import PureList from "./CardListElements/PureList";
+import { cn } from "../../utils";
 
-const CardListSet = ({ sortOrder }) => {
-  const Lists = ALL_CARD_LIST.results;
+/**
+ *sortOder 변수에 의해 정렬된 카드리스트를 보여준다.
+ * @author <junghoon>
+ * @param {object} Lists -> api에서 받아온 객체(현재는 목데이터)에서 카드 리스트 정보만 빼온 것
+ * @param {object} Items -> lists를 sortOrder 프롭순으로 정렬한 객체
+ * @returns {jsx} 각각 prop에 의해 정렬된 4개의 객체 어레이를 CardList 컴포넌트로 시각화한걸 반환
+ */
+
+const CardListSet = ({ sortOrder = "reactionCount" }) => {
+  const Lists = PureList();
   let sortedLists;
-  const [index, setIndex] = useState("0");
+  const [index, setIndex] = useState("1");
   const [items, setItems] = useState([]);
-  if (sortOrder === "createdAt") {
-    sortedLists = Lists.sort(
-      (a, b) => new Date(b.createdAt) - new Date(a, createdAt)
-    );
-  } else if (sortOrder === "reactionCount") {
-    sortedLists = Lists.sort((a, b) => b.messageCount - a.messageCount);
-  } else {
-    throw new Error("정렬기준이 이상합니다.");
-  }
-  setItems(sortedLists);
+  useEffect(() => {
+    if (sortOrder == "createdAt") {
+      sortedLists = Lists.sort(
+        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+      );
+    } else if (sortOrder == "reactionCount") {
+      sortedLists = Lists.sort((a, b) => b.messageCount - a.messageCount);
+    } else {
+      throw new Error("정렬기준이 이상합니다.");
+    }
+    setItems(sortedLists);
+  }, []);
 
+  const totalIndex = Math.ceil(Lists.length / 4);
+  const displayingCards = items.slice(index * 4, index * 4 + 4);
+  console.log(displayingCards);
   return (
     <div className="w-[1160px], h-[260px] p-0 flex items-center">
       {index > 0 && (
@@ -29,6 +43,23 @@ const CardListSet = ({ sortOrder }) => {
           <span>임시 좌방향 화살표</span>
         </button>
       )}
+      <div>
+        {/*카드 리스트 들어갈 곳 */}
+        {displayingCards.map((item) => (
+          <CardList key={item.id} />
+        ))}
+      </div>
+      {index < totalIndex - 1 && (
+        <button
+          type="button"
+          onClick={() => setIndex(index + 1)}
+          className="absolute top-[110px] right-[-20px] z-10"
+        >
+          <span>임시 우방향 화살표</span>
+        </button>
+      )}
     </div>
   );
 };
+
+export default CardListSet;

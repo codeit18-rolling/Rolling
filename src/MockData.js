@@ -285,9 +285,10 @@ export const ALL_CARD_LIST = {
     },
     {
       id: 12881,
-      name: "swagger test",
-      backgroundColor: "beige",
-      backgroundImageURL: null,
+      name: "test test test test test",
+      backgroundColor: "green",
+      backgroundImageURL:
+        "https://2.img-dpreview.com/files/p/E~C1000x0S4000x4000T1200x1200~articles/3925134721/0266554465.jpeg",
       createdAt: "2025-08-09T05:13:12.261221Z",
       messageCount: 0,
       recentMessages: [],
@@ -300,7 +301,7 @@ export const ALL_CARD_LIST = {
         },
         {
           id: 13347,
-          emoji: "string",
+          emoji: "😌",
           count: 1,
         },
       ],
