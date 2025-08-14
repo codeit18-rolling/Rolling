@@ -164,7 +164,7 @@ export const REACTIONS_DATA = {
 };
 
 export const MESSAGES_DATA = {
-  count: 5,
+  count: 10,
   next: null,
   previous: null,
   results: [
