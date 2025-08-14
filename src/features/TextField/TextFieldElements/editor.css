@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Nanum+Myeongjo&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 
 .ql-editor {
   font-size: 16px !important;
@@ -51,7 +50,7 @@
 
 .ql-snow .ql-picker.ql-font .ql-picker-label[data-value="pretendard"]::before,
 .ql-snow .ql-picker.ql-font .ql-picker-item[data-value="pretendard"]::before {
-  content: "pretendard" !important;
+  content: "Pretendard" !important;
   font-family: "pretendard";
 }
 
