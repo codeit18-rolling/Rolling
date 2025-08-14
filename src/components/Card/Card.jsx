@@ -1,4 +1,4 @@
-import CardHeader from "./Components/CardHeader";
+import CardHeader from "./CardElements/CardHeader";
 
 // Card Component
 const Card = ({ img, user, content, date, onDelete }) => {
