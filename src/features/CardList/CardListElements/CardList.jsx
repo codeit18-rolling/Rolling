@@ -2,6 +2,7 @@ import { cn } from "../../../utils";
 import BG_COLOR from "../../../constants/backgroundColor";
 import BG_PATTERN from "../../../constants/backgroundPattern";
 import { useNavigate } from "react-router";
+import WritersMock from "./WritersMock";
 
 const CardList = ({ item }) => {
   const navigate = useNavigate();
@@ -44,6 +45,7 @@ const CardList = ({ item }) => {
           </div>
           <div className="flex justify-start">
             {/*프로필 이미지들 현재 참조하는 페이지를 몰라 제작 난항 겪는중..../ 컴포넌트 대체 예정*/}
+            <WritersMock item={item} useCard={true} />
           </div>
           <div
             className={` text-16 text-left ${
