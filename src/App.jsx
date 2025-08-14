@@ -6,15 +6,17 @@ import {
   CardMockData,
   REACTIONS_DATA,
   CardListMockData,
+  MESSAGES_DATA,
   BACKGROUND_IMG_DATA,
 } from "./MockData";
 import DropdownEmoji from "./components/Dropdown/DropdownEmoji";
 
 import Input from "./components/Input/Input";
 import { DropdownAddEmoji } from "./components/Dropdown/DropdownAddEmoji";
-import CardListSet from "./features/CardList/CardListSet";
-import Option from "./features/option/option";
+import Writers from "./components/Writers/Writers";
+import Option from "./features/option/Option";
 import SkeletonUI from "./components/Skeleton/SkeletonUI";
+import CardListSet from "./features/CardList/CardListSet";
 
 // import useService from "./hooks/useService";
 // import { getRecipientsDetailData } from "./service/getRecipientsDetailData";
@@ -39,8 +41,11 @@ function App() {
           <CardListSet sortOrder="createdAt" />
           <CardListSet sortOrder="reactionCount" />
         </div>
-        {/* Emoji Dropdown component */}
+
+        {/* Emoji Dropdown & writer component */}
         <div className="flex">
+          <Writers messages={MESSAGES_DATA} />
+          <Writers messages={MESSAGES_DATA} useCard={true} />
           <DropdownEmoji reactionData={REACTIONS_DATA} />
           <DropdownAddEmoji></DropdownAddEmoji>
         </div>
