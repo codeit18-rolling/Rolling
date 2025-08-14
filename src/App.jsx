@@ -13,7 +13,7 @@ import DropdownEmoji from "./components/Dropdown/DropdownEmoji";
 
 import Input from "./components/Input/Input";
 import { DropdownAddEmoji } from "./components/Dropdown/DropdownAddEmoji";
-import Option from "./features/option/option";
+import Option from "./features/option/Option";
 import SkeletonUI from "./components/Skeleton/SkeletonUI";
 
 // import useService from "./hooks/useService";
@@ -77,10 +77,7 @@ function App() {
         {/* Option Components */}
         <div className="w-full max-w-[1200px]">
           <Option type="color"></Option>
-          <Option
-            type="image"
-            bgImage={BACKGROUND_IMG_DATA}
-          ></Option>
+          <Option type="image" bgImage={BACKGROUND_IMG_DATA}></Option>
           {/* 
           실제 스켈레톤 UI 적용시엔 로딩상태를 받아서 적용
           <Option type="image" bgImage={bgImages} isLoading={isLoading}></Option> 
