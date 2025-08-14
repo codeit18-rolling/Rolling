@@ -1,6 +1,8 @@
 import OptionCheck from "./OptionCheck";
 import OptionButton from "./OptionButton";
+import defaultBgImage from "../../../assets/empty/img_background_null.png";
 import { cn } from "../../../utils";
+
 const whiteDimmedStyled =
   "after:absolute after:inset-0 after:bg-white/50 after:rounded-2xl after:z-[1]";
 /**
@@ -17,12 +19,22 @@ const whiteDimmedStyled =
 const OptionImageButton = ({ image, isActive, onClick }) => {
   return (
     <OptionButton
-      className={cn("bg-cover bg-center", isActive && whiteDimmedStyled)}
-      style={{ backgroundImage: `url(${image})` }}
+      className={cn("overflow-hidden", isActive && whiteDimmedStyled)}
       onClick={onClick}
       isActive={isActive}
     >
-      <OptionCheck />
+      <img
+        src={image}
+        alt="배경 이미지 옵션"
+        width={200}
+        height={200}
+        className="w-full h-full object-cover"
+        loading="eager" // 페이지 로드와 동시에 이미지를 최우선으로 다운로드
+        onError={(e) => {
+          e.target.src = defaultBgImage; // 이미지 로딩 실패 시
+        }}
+      />
+      {isActive && <OptionCheck />}
     </OptionButton>
   );
 };
