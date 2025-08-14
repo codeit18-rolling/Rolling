@@ -1,11 +1,12 @@
-import { memo } from "react";
-
 const SHARE_OPTION = [
   { id: "kakao", name: "카카오톡 공유" },
   { id: "url", name: "URL 공유" },
 ];
 
-const SharedExpand = () => {
+/**
+ * 공유 버튼 클릭시 표출되는 드롭다운
+ */
+const ShareDropdownExpand = () => {
   return (
     <>
       <div
@@ -26,4 +27,4 @@ const SharedExpand = () => {
     </>
   );
 };
-export default memo(SharedExpand);
+export default ShareDropdownExpand;

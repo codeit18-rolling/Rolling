@@ -1,7 +1,7 @@
 import Button from "../../../components/Button/Button";
 import Icon from "../../../components/Icon/Icon";
 import { useToggle } from "../hooks/useToggle";
-import ShareExpand from "./ShareExpand";
+import ShareDropdownExpand from "./ShareDropdownExpand";
 
 /**
  * 공유 하기 버튼
@@ -19,7 +19,7 @@ export const ShareButton = () => {
       >
         <Icon iconName={"share_24"} className="bg-black" />
       </Button>
-      {isOpen && <ShareExpand />}
+      {isOpen && <ShareDropdownExpand />}
     </div>
   );
 };
