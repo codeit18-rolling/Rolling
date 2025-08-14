@@ -12,7 +12,9 @@ const ShareDropdownExpand = () => {
       <div
         className={`absolute top-11 w-[140px] py-[10px] bg-white
                     border border-gray-300 rounded-lg
-                    drop-shadow-dropdownBorder`}
+                    drop-shadow-dropdownBorder
+                    tablet:left-px
+                    mobile:right-px`}
       >
         {SHARE_OPTION.map((option) => {
           return (
