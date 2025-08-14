@@ -1,10 +1,14 @@
 import { cn } from "../../../utils";
 import BG_COLOR from "../../../constants/backgroundColor";
 import BG_PATTERN from "../../../constants/backgroundPattern";
+import { useNavigate } from "react-router";
 
 const CardList = ({ item }) => {
+  const navigate = useNavigate();
   return (
-    <div
+    <button
+      type="button"
+      onClick={() => navigate(`/post/${item.id}`)}
       className={cn(
         "w-[275px] h-[260px] pt-[30px] pb-[20px] px-[24px] rounded-[16px] overflow-hidden border border-black/10 flex relative justify-start items-start flex-col bg-cover bg-center shadow-[0_2px_12px_rgba(0,0,0,0.08)]",
         !item.backgroundImageURL && BG_COLOR[item.backgroundColor]
@@ -25,10 +29,10 @@ const CardList = ({ item }) => {
       {/*배경 이미지 있을시 검은색 필터 적용 */}
 
       {/*container*/}
-      <div className="z-10">
+      <div className="z-10 flex justify-start items-start">
         <div>
           {/*to. ~ , 몇명이 작성 등등이 들어갈 곳 */}
-          <div className="text-24">
+          <div className="text-24 flex justify-start text-left">
             {/*받는사람 */}
             <span
               className={`font-bold text-2xl ${
@@ -38,11 +42,11 @@ const CardList = ({ item }) => {
               To. {item.name}
             </span>
           </div>
-          <div className="">
+          <div className="flex justify-start">
             {/*프로필 이미지들 현재 참조하는 페이지를 몰라 제작 난항 겪는중..../ 컴포넌트 대체 예정*/}
           </div>
           <div
-            className={` text-16 ${
+            className={` text-16 text-left ${
               item.backgroundImageURL ? "text-gray-200" : "text-gray-700"
             }`}
           >
@@ -72,7 +76,7 @@ const CardList = ({ item }) => {
           className="absolute w-36 h-36 right-0 bottom-0"
         />
       )}
-    </div>
+    </button>
   );
 };
 

@@ -17,7 +17,7 @@ import Option from "./features/option/Option";
 import SkeletonUI from "./components/Skeleton/SkeletonUI";
 import { ShareButton } from "./features/HeaderService/HeaderServiceElements/ShareButton";
 import CardListSet from "./features/CardList/CardListSet";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router";
 import Home from "./pages/Home";
 import Lists from "./pages/Lists";
 import ListDetails from "./pages/ListDetails";
