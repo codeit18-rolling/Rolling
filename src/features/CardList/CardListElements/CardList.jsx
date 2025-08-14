@@ -1,6 +1,6 @@
 import { cn } from "../../../utils";
-import BG_COLOR from "../../../constants/backgroundcolor";
-import BG_PATTERN from "../../../constants/backgroundpattern";
+import BG_COLOR from "../../../constants/backgroundColor";
+import BG_PATTERN from "../../../constants/backgroundPattern";
 
 const CardList = ({ item }) => {
   return (
