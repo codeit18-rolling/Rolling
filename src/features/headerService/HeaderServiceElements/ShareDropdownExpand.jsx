@@ -18,10 +18,8 @@ const ShareDropdownExpand = () => {
       >
         {SHARE_OPTION.map((option) => {
           return (
-            <div className="hover:bg-gray-100">
-              <button key={option.id} className="py-3 px-4">
-                {option.name}
-              </button>
+            <div key={option.id} className="hover:bg-gray-100">
+              <button className="py-3 px-4">{option.name}</button>
             </div>
           );
         })}
