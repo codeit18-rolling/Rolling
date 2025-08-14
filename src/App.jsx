@@ -17,7 +17,13 @@ import Option from "./features/Option/Option";
 import SkeletonUI from "./components/Skeleton/SkeletonUI";
 import { ShareButton } from "./features/HeaderService/HeaderServiceElements/ShareButton";
 import CardListSet from "./features/CardList/CardListSet";
-
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Lists from "./pages/Lists";
+import ListDetails from "./pages/ListDetails";
+import Message from "./pages/Message";
+import Post from "./pages/Post";
+import NotFound from "./pages/NotFound";
 // import useService from "./hooks/useService";
 // import { getRecipientsDetailData } from "./service/getRecipientsDetailData";
 
@@ -30,6 +36,14 @@ function App() {
   return (
     <>
       <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/list" element={<Lists />} />
+        <Route path="/post" element={<Post />} />
+        <Route path="/post/:id" element={<ListDetails />} />
+        <Route path="/post/:id/message" element={<Message />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
       <div className="w-full h-screen flex flex-col p-20 items-center justify-around">
         <h1
           className={cn("font-bold text-2xl", "text-purple-800", "text-center")}
