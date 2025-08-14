@@ -13,7 +13,7 @@ import DropdownEmoji from "./components/Dropdown/DropdownEmoji";
 import Input from "./components/Input/Input";
 import { DropdownAddEmoji } from "./components/Dropdown/DropdownAddEmoji";
 import Writers from "./components/Writers/Writers";
-import Option from "./features/option/Option";
+import Option from "./features/Option/Option";
 import SkeletonUI from "./components/Skeleton/SkeletonUI";
 import { ShareButton } from "./features/HeaderService/HeaderServiceElements/ShareButton";
 import CardListSet from "./features/CardList/CardListSet";
