@@ -1,0 +1,30 @@
+import OptionCheck from "./OptionCheck";
+import OptionButton from "./OptionButton";
+import { cn } from "../../../utils";
+const whiteDimmedStyled =
+  "after:absolute after:inset-0 after:bg-white/50 after:rounded-2xl after:z-[1]";
+/**
+ * 옵션 리스트 내부 버튼 컴포넌트 - 이미지
+ *
+ * @author <sohyun>
+ * @component
+ * @param {Object} props - 컴포넌트 props
+ * @param {string} props.image - 버튼에 표시할 배경 이미지 URL
+ * @param {boolean} props.isActive - 활성화 여부
+ * @param {function} props.onClick - 클릭 이벤트 핸들러
+ * @returns {JSX.Element} 이미지 옵션 버튼 요소
+ */
+const OptionImageButton = ({ image, isActive, onClick }) => {
+  return (
+    <OptionButton
+      className={cn("bg-cover bg-center", isActive && whiteDimmedStyled)}
+      style={{ backgroundImage: `url(${image})` }}
+      onClick={onClick}
+      isActive={isActive}
+    >
+      <OptionCheck />
+    </OptionButton>
+  );
+};
+
+export default OptionImageButton;
