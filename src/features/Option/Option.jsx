@@ -1,5 +1,5 @@
-import OptionColor from "./components/OptionColor";
-import OptionImageLoading from "./components/OptionImageLoading";
+import OptionColor from "./OptionElements/OptionColor";
+import OptionImageLoading from "./OptionElements/OptionImageLoading";
 
 /**
  * 배경 컬러/이미지 옵션을 선택할 수 있는 옵션 컴포넌트입니다.

@@ -16,7 +16,7 @@ import OptionButton from "./OptionButton";
 const OptionColor = ({ bgClass, isActive, onClick }) => {
   return (
     <OptionButton className={bgClass} onClick={onClick} isActive={isActive}>
-      <OptionCheck />
+      {isActive && <OptionCheck />}
     </OptionButton>
   );
 };
