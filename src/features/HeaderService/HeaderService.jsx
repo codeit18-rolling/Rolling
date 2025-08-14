@@ -24,7 +24,7 @@ const HeaderService = () => {
           <p className="flex-1 text-gray-800 text-28 font-bold leading-[42px] tablet:block mobile:hidden">
             To.{CardListMockData[0].name}
           </p>
-          <div className="desktop:block mobile:hidden">
+          <div className="desktop:block tablet:hidden">
             <Writers messages={MESSAGES_DATA} />
           </div>
           <div className="flex items-center h-[28px] pl-7 border-r desktop:block mobile:hidden"></div>

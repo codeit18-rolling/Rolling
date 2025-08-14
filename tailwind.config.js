@@ -68,7 +68,7 @@ export default {
         28: ["1.75rem", { lineHeight: "1.5", letterSpacing: "-0.01em" }],
       },
       fontFamily: {
-        sans: ["Pretendard", "ui-sans-serif", "system-ui"],
+        sans: ["Pretendard", "Poppins", "ui-sans-serif", "system-ui"],
       },
       boxShadow: {
         "purple-600": "inset 0 0 0 1px #9935FF",
@@ -85,9 +85,7 @@ export default {
       dropShadow: {
         dropdownBorder: "0 2px 12px rgba(0, 0, 0, 0.08)",
       },
-      fontFamily: {
-        poppins: ["Poppins"],
-      },
+
       keyframes: {
         "skeleton-shimmer": {
           "0%": { backgroundPosition: "-400% 0" },
