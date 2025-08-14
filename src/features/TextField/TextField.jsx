@@ -7,11 +7,7 @@ import Editor from "./TextFieldElements/Editor";
  */
 const TextField = () => {
   const quillRef = useRef();
-  return (
-    <>
-      <Editor ref={quillRef} />
-    </>
-  );
+  return <Editor ref={quillRef} />;
 };
 
 export default TextField;
