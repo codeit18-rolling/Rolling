@@ -3,11 +3,20 @@ import { Header } from "./components/Header/Header";
 import Card from "./components/Card/Card";
 import AddCard from "./components/Card/AddCard";
 import { CardMockData, REACTIONS_DATA, CardListMockData } from "./MockData";
+import {
+  CardMockData,
+  REACTIONS_DATA,
+  CardListMockData,
+  BACKGROUND_IMG_DATA,
+} from "./MockData";
 import DropdownEmoji from "./components/Dropdown/DropdownEmoji";
 
 import Input from "./components/Input/Input";
 import { DropdownAddEmoji } from "./components/Dropdown/DropdownAddEmoji";
 import CardListSet from "./features/CardList/CardListSet";
+import Option from "./features/option/option";
+import SkeletonUI from "./components/Skeleton/SkeletonUI";
+
 // import useService from "./hooks/useService";
 // import { getRecipientsDetailData } from "./service/getRecipientsDetailData";
 
@@ -17,7 +26,6 @@ function App() {
   //   getRecipientsDetailData("18-1", "0")
   // );
   // console.log(data);
-
   return (
     <>
       <Header />
@@ -65,6 +73,24 @@ function App() {
         <div className="gap-8 flex flex-col">
           <CardListSet sortOrder="createdAt" />
           <CardListSet sortOrder="reactionCount" />
+        </div>
+        {/* Option Components */}
+        <div className="w-full max-w-[1200px]">
+          <Option type="color"></Option>
+          <Option type="image" bgImage={BACKGROUND_IMG_DATA}></Option>
+          {/* 
+          실제 스켈레톤 UI 적용시엔 로딩상태를 받아서 적용
+          <Option type="image" bgImage={bgImages} isLoading={isLoading}></Option> 
+          */}
+        </div>
+        {/* SkeletonUI Components */}
+        {/* className(컨테이너) 과 boxClassName(하위박스요소) 를 이용하여 반응형을 구현할 수 있습니다. */}
+        <div className="w-full max-w-[1200px]">
+          <SkeletonUI count={4} className="tablet:flex-nowrap" />
+          <SkeletonUI
+            count={6}
+            boxClassName="tablet:w-[calc((100%-(1rem*2))/3)]"
+          />
         </div>
       </div>
     </>
