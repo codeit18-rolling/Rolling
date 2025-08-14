@@ -2,21 +2,18 @@ import { useState } from "react";
 
 /**
  * 커스텀 입력값 유효성 검사 훅
- *
- * 주어진 초기값과 검증 함수를 기반으로 입력값 상태를 관리하며,
- * blur(포커스 해제) 이후에만 에러 메시지를 UI에 표시합니다.
+ * 
+ * blur(포커스 해제) 이후에만 에러 메시지를 UI에 출력
  * 
  * @author <sohyun>
- * @param {string} [initialValue=""] - 초기 입력값
+ * @param {string} [value] -  입력값(외부에서 관리)
  * @param {(value: string) => string} validateFn - 입력값을 검증하는 함수
  *   - 유효하면 빈 문자열을 반환하고(에러메세지 제거), 유효하지 않으면 에러 메시지를 반환
  *
  * @returns {{
- *   value: string,                          // 현재 입력값
- *   errorMsg: string,                       // 에러 메시지 (blur 전에는 항상 빈 문자열)
- *   focused: boolean,                       // blur 이벤트가 발생했는지 여부
- *   handleChange: (e) => void,               // onChange 핸들러
- *   handleBlur: () => void,                  // onBlur 핸들러
+ *   errorMsg: string,             // 에러 메시지 (blur 전에는 항상 빈 문자열)
+ *   handleChange: (e) => void,    // onChange 핸들러
+ *   handleBlur: () => void,       // onBlur 핸들러
  * }}
  *
  * @example
