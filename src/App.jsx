@@ -9,7 +9,8 @@ import {
   BACKGROUND_IMG_DATA,
 } from "./MockData";
 import DropdownEmoji from "./components/Dropdown/DropdownEmoji";
-
+import ModalTestButton from "./components/Modal/ModalTestButton";
+import ToastTestButton from "./components/Toast/ToastTestButton";
 import Input from "./components/Input/Input";
 import { DropdownAddEmoji } from "./components/Dropdown/DropdownAddEmoji";
 import Writers from "./components/Writers/Writers";
@@ -111,6 +112,8 @@ function App() {
             boxClassName="tablet:w-[calc((100%-(1rem*2))/3)]"
           />
         </div>
+        <ModalTestButton />
+        <ToastTestButton />
       </div>
     </>
   );
