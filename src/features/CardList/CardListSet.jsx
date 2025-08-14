@@ -11,29 +11,30 @@ import { cn } from "../../utils";
  * @returns {jsx} 각각 prop에 의해 정렬된 4개의 객체 어레이를 CardList 컴포넌트로 시각화한걸 반환
  */
 
-const CardListSet = ({ sortOrder = "reactionCount" }) => {
+const CardListSet = ({ sortOrder }) => {
   const Lists = PureList();
-  let sortedLists;
-  const [index, setIndex] = useState("1");
+
+  const [index, setIndex] = useState(1);
   const [items, setItems] = useState([]);
   useEffect(() => {
+    let sortedLists;
     if (sortOrder == "createdAt") {
-      sortedLists = Lists.sort(
+      sortedLists = [...Lists].sort(
         (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
       );
     } else if (sortOrder == "reactionCount") {
-      sortedLists = Lists.sort((a, b) => b.messageCount - a.messageCount);
+      sortedLists = [...Lists].sort((a, b) => b.messageCount - a.messageCount);
     } else {
       throw new Error("정렬기준이 이상합니다.");
     }
     setItems(sortedLists);
-  }, []);
+  }, [sortOrder]);
 
   const totalIndex = Math.ceil(Lists.length / 4);
   const displayingCards = items.slice(index * 4, index * 4 + 4);
   console.log(displayingCards);
   return (
-    <div className="w-[1160px], h-[260px] p-0 flex items-center">
+    <div className="w-[1160px] h-[260px] p-0 flex flex-row justify-center relative">
       {index > 0 && (
         <button
           type="button"
@@ -43,10 +44,10 @@ const CardListSet = ({ sortOrder = "reactionCount" }) => {
           <span>임시 좌방향 화살표</span>
         </button>
       )}
-      <div>
+      <div className="grid grid-cols-4 grid-row-1 gap-5">
         {/*카드 리스트 들어갈 곳 */}
         {displayingCards.map((item) => (
-          <CardList key={item.id} />
+          <CardList key={item.id} item={item} />
         ))}
       </div>
       {index < totalIndex - 1 && (

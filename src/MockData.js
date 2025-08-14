@@ -163,14 +163,14 @@ export const REACTIONS_DATA = {
 };
 //GET /18-4/recipients/ (offset limit 모두 없이 요청)
 export const ALL_CARD_LIST = {
-  count: 7,
+  count: 10,
   next: null,
   previous: null,
   results: [
     {
       id: 12900,
       name: "test5",
-      backgroundColor: "beige",
+      backgroundColor: "green",
       backgroundImageURL: null,
       createdAt: "2025-08-12T07:54:58.769721Z",
       messageCount: 0,
@@ -181,7 +181,7 @@ export const ALL_CARD_LIST = {
     {
       id: 12899,
       name: "test4",
-      backgroundColor: "beige",
+      backgroundColor: "blue",
       backgroundImageURL: null,
       createdAt: "2025-08-12T07:54:52.398281Z",
       messageCount: 0,
@@ -286,6 +286,101 @@ export const ALL_CARD_LIST = {
     {
       id: 12881,
       name: "test test test test test",
+      backgroundColor: "green",
+      backgroundImageURL:
+        "https://2.img-dpreview.com/files/p/E~C1000x0S4000x4000T1200x1200~articles/3925134721/0266554465.jpeg",
+      createdAt: "2025-08-09T05:13:12.261221Z",
+      messageCount: 0,
+      recentMessages: [],
+      reactionCount: 3,
+      topReactions: [
+        {
+          id: 13348,
+          emoji: "😀",
+          count: 2,
+        },
+        {
+          id: 13347,
+          emoji: "😌",
+          count: 1,
+        },
+      ],
+    },
+    {
+      id: 22896,
+      name: "test12",
+      backgroundColor: "purple",
+      backgroundImageURL: null,
+      createdAt: "2025-08-03T06:13:53.980842Z",
+      messageCount: 3,
+      recentMessages: [
+        {
+          id: 25062,
+          recipientId: 12896,
+          sender: "나는새",
+          profileImageURL:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Lilac-breasted_roller_%28Coracias_caudatus%29_Kruger.jpg/250px-Lilac-breasted_roller_%28Coracias_caudatus%29_Kruger.jpg",
+          relationship: "친구",
+          content: "놀러왔습니다",
+          font: "Noto Sans",
+          createdAt: "2025-08-13T07:30:29.083982Z",
+        },
+        {
+          id: 25061,
+          recipientId: 12896,
+          sender: "그림같은사람",
+          profileImageURL:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Edouard_Manet_-_At_the_Caf%C3%A9_-_Google_Art_Project.jpg/250px-Edouard_Manet_-_At_the_Caf%C3%A9_-_Google_Art_Project.jpg",
+          relationship: "친구",
+          content: "안녕하세요",
+          font: "Noto Sans",
+          createdAt: "2025-08-13T07:29:28.036717Z",
+        },
+        {
+          id: 25059,
+          recipientId: 12896,
+          sender: "작성자테스트",
+          profileImageURL:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/FriedIII.jpg/120px-FriedIII.jpg",
+          relationship: "친구",
+          content: "롤페 남깁니다",
+          font: "Noto Sans",
+          createdAt: "2025-08-13T07:27:13.886463Z",
+        },
+      ],
+      reactionCount: 11,
+      topReactions: [
+        {
+          id: 13350,
+          emoji: "😀",
+          count: 6,
+        },
+        {
+          id: 13351,
+          emoji: "😆",
+          count: 3,
+        },
+        {
+          id: 13352,
+          emoji: "😌",
+          count: 2,
+        },
+      ],
+    },
+    {
+      id: 22892,
+      name: "†est12",
+      backgroundColor: "beige",
+      backgroundImageURL: null,
+      createdAt: "2025-08-05T11:04:43.760303Z",
+      messageCount: 0,
+      recentMessages: [],
+      reactionCount: 0,
+      topReactions: [],
+    },
+    {
+      id: 22881,
+      name: "test test",
       backgroundColor: "green",
       backgroundImageURL:
         "https://2.img-dpreview.com/files/p/E~C1000x0S4000x4000T1200x1200~articles/3925134721/0266554465.jpeg",

@@ -2,7 +2,6 @@ import { cn } from "./utils";
 import { Header } from "./components/Header/Header";
 import Card from "./components/Card/Card";
 import AddCard from "./components/Card/AddCard";
-import { CardMockData, REACTIONS_DATA, CardListMockData } from "./MockData";
 import {
   CardMockData,
   REACTIONS_DATA,
@@ -35,7 +34,11 @@ function App() {
         >
           4팀 화이팅 &#x1F60A;
         </h1>
-
+        {/* CardList Components */}
+        <div className="gap-8 flex flex-col">
+          <CardListSet sortOrder="createdAt" />
+          <CardListSet sortOrder="reactionCount" />
+        </div>
         {/* Emoji Dropdown component */}
         <div className="flex">
           <DropdownEmoji reactionData={REACTIONS_DATA} />
@@ -43,7 +46,7 @@ function App() {
         </div>
 
         {/* Input Components */}
-        <div className="flex flex-col gap-4 w-[400px] mt-4">
+        <div className="flex flex-col gap-5 w-[400px] mt-4">
           <Input></Input>
           <Input disabled></Input>
           <Input errorMsg="이름을 입력해 주세요"></Input>
@@ -69,11 +72,7 @@ function App() {
             />
           ))}
         </div>
-        {/* CardList Components */}
-        <div className="gap-8 flex flex-col">
-          <CardListSet sortOrder="createdAt" />
-          <CardListSet sortOrder="reactionCount" />
-        </div>
+
         {/* Option Components */}
         <div className="w-full max-w-[1200px]">
           <Option type="color"></Option>
