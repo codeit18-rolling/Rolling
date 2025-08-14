@@ -44,13 +44,6 @@ function App() {
           <CardListSet sortOrder="reactionCount" />
         </div>
 
-        {/* Emoji Dropdown & writer component */}
-        <div className="flex">
-          <DropdownEmoji reactionData={REACTIONS_DATA} />
-          <DropdownAddEmoji />
-          <ShareButton />
-        </div>
-
         {/* Input Components */}
         <div className="flex flex-col gap-5 w-[400px] mt-4">
           <Input></Input>
