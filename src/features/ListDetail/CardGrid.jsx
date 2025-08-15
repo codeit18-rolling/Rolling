@@ -6,16 +6,23 @@ import { getRecipientsDetailData } from "../../service/getRecipientsDetailData";
 
 // Mock Data
 import { CardMockData } from "../../MockData";
+import { cn } from "../../utils";
 
 const CardGrid = ({ id }) => {
   const { data: cardsData, isLoading } = useService(() =>
     getRecipientsDetailData("18-1", id)
   );
 
-  console.log(cardsData);
+  // console.log(cardsData);
 
   return (
-    <div className="grid grid-cols-3 grid-row-2 gap-[24px]">
+    <div
+      className={cn(
+        "grid gap-[16px] grid-cols-1 w-full justify-center",
+        "desktop:grid-cols-3 desktop:grid-row-2 desktop:gap-[24px]",
+        "tablet:grid-cols-2 tablet:grid-row-2"
+      )}
+    >
       <AddCard id={id} />
       {isLoading && <SkeletonUI count={5} />}
       {CardMockData?.map((data, index) => (

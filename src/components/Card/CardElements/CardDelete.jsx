@@ -6,7 +6,7 @@ const CardDelete = () => {
   return (
     <button
       className={cn(
-        "w-[40px] h-[40px] rounded-[6px] p-2 bg-white border-gray-300 border-[1px]",
+        "w-[40px] h-[40px] rounded-[6px] p-2 bg-white border-gray-300 border cursor-pointer",
         "hover:border-gray-500 hover:bg-gray-50 transition-all duration-150 ease-in-out"
       )}
       aria-label="삭제 버튼"
