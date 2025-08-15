@@ -2,20 +2,19 @@ import CardHeader from "./CardElements/CardHeader";
 import { cn } from "../../utils";
 
 // Card Component
-const Card = ({ img, user, content, date, onDelete }) => {
+const Card = ({ img, user, content, date, isDeleteMode = false }) => {
   const ErrMsg = "에러가 발생했습니다."; // 임시 에러 메시지
 
   return (
     <div
       className={cn(
-        "w-full h-full min-w-[320px] min-h-[230px] rounded-[16px] p-6 bg-white shadow-lg overflow-hidden",
-        "flex flex-col",
+        "flex flex-col w-full h-full min-w-[320px] min-h-[230px] rounded-[16px] p-6 bg-white shadow-lg overflow-hidden",
         "desktop:min-w-[384px] desktop:min-h-[280px]",
         "tablet:min-w-[352px] tablet:min-h-[284px]"
       )}
     >
       {/* User Meta */}
-      <CardHeader img={img} user={user} onDelete={onDelete} />
+      <CardHeader img={img} user={user} isDeleteMode={isDeleteMode} />
 
       {/* Divider */}
       <hr className="border-gray-200" />

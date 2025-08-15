@@ -8,7 +8,7 @@ import { getRecipientsDetailData } from "../../service/getRecipientsDetailData";
 import { CardMockData } from "../../MockData";
 import { cn } from "../../utils";
 
-const CardGrid = ({ id }) => {
+const CardGrid = ({ id, isDeleteMode = false }) => {
   const { data: cardsData, isLoading } = useService(() =>
     getRecipientsDetailData("18-1", id)
   );
@@ -23,7 +23,7 @@ const CardGrid = ({ id }) => {
         "tablet:grid-cols-2 tablet:grid-row-2"
       )}
     >
-      <AddCard id={id} />
+      {!isDeleteMode && <AddCard id={id} />}
       {isLoading && <SkeletonUI count={5} />}
       {CardMockData?.map((data, index) => (
         <Card
@@ -32,7 +32,7 @@ const CardGrid = ({ id }) => {
           user={data.user}
           content={data.content}
           date={data.date}
-          onDelete={data.onDelete}
+          isDeleteMode={isDeleteMode}
         />
       ))}
     </div>
