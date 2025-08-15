@@ -2,7 +2,7 @@ import { cn } from "../../../utils";
 import BG_COLOR from "../../../constants/backgroundColor";
 import BG_PATTERN from "../../../constants/backgroundPattern";
 import { useNavigate } from "react-router";
-import WritersMock from "./WritersMock";
+import Writers from "../../../components/Writers/Writers";
 
 const CardList = ({ item }) => {
   const navigate = useNavigate();
@@ -38,7 +38,7 @@ const CardList = ({ item }) => {
             {/*받는사람 */}
             <span
               className={cn(
-                "font-bold text-2xl",
+                "font-bold text-2xl pb-3",
                 item.backgroundImageURL ? "text-white" : "text-gray-900"
               )}
             >
@@ -47,7 +47,7 @@ const CardList = ({ item }) => {
           </div>
           <div className="flex justify-start">
             {/*프로필 이미지들 현재 참조하는 페이지를 몰라 제작 난항 겪는중..../ 컴포넌트 대체 예정*/}
-            <WritersMock
+            <Writers
               item={item}
               useCard={true}
               isBackgroundImage={item.backgroundImageURL}

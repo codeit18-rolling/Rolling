@@ -1,6 +1,8 @@
 import CardList from "./CardListElements/CardList";
 import { useEffect, useState } from "react";
 import PureList from "./CardListElements/PureList";
+import leftbutton from "../../assets/button/btn_arrow_left.svg";
+import rightbutton from "../../assets/button/btn_arrow_right.svg";
 import { cn } from "../../utils";
 
 /**
@@ -34,17 +36,19 @@ const CardListSet = ({ sortOrder }) => {
   }, [sortOrder]);
   const totalIndex = Math.ceil(Lists.length / 4);
   const displayingCards = items.slice(index * 4, index * 4 + 4);
-  const btn_design = "absolute z-10 top-[110px] ";
+  const btn_design = "absolute z-10 top-[110px]";
   return (
     <div className="w-[1160px] h-[260px] p-0 flex flex-row justify-center relative">
       {index > 0 && (
         <button
           type="button"
           onClick={() => setIndex(index - 1)}
-          className={cn("left-[-20px]", btn_design)}
+          className={cn("left-[-28px]", btn_design)}
           aria-label="좌방향 버튼"
         >
-          <span>임시 좌방향 화살표</span>
+          <span>
+            <img src={leftbutton} />
+          </span>
         </button>
       )}
       <div className="grid grid-cols-4 grid-rows-1 gap-5">
@@ -57,10 +61,12 @@ const CardListSet = ({ sortOrder }) => {
         <button
           type="button"
           onClick={() => setIndex(index + 1)}
-          className={cn("right-[-20px]", btn_design)}
+          className={cn("right-[-28px]", btn_design)}
           aria-label="우방향 버튼"
         >
-          <span>임시 우방향 화살표</span>
+          <span>
+            <img src={rightbutton} />
+          </span>
         </button>
       )}
     </div>
