@@ -13,7 +13,7 @@ const CardList = ({ item }) => {
       type="button"
       onClick={() => navigate(`/post/${item.id}`)}
       className={cn(
-        "w-[275px] h-[260px] pt-[30px] pb-[20px] px-[24px] rounded-[16px] overflow-hidden border border-black/10 flex relative justify-start items-start flex-col bg-cover bg-center shadow-[0_2px_12px_rgba(0,0,0,0.08)]",
+        "mobile:w-[275px] mobile:h-[260px] w-[208px] shrink-0 h-[232px] pt-[30px] pb-[20px] px-[24px] rounded-[16px] overflow-hidden border border-black/10 flex relative justify-start items-start flex-col bg-cover bg-center shadow-[0_2px_12px_rgba(0,0,0,0.08)]",
         !item.backgroundImageURL && BG_COLOR[item.backgroundColor]
       )}
       style={
@@ -57,7 +57,7 @@ const CardList = ({ item }) => {
         </div>
       </div>
 
-      <div className="bottom-5 gap-2 w-[227px] h-[53px] z-10 pt-[17px] absolute flex flex-row border-t border-black/[0.12]">
+      <div className="bottom-5 gap-2 w-[162px] h-[49px] mobile:w-[227px] mobile:h-[53px] z-10 pt-[17px] absolute flex flex-row border-t border-black/[0.12]">
         {/* emoji 들어갈 곳 (컴포넌트로 대체 완료)*/}
         {item.topReactions.map((reaction) => (
           <BadgeEmoji

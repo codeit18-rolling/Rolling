@@ -38,46 +38,50 @@ const CardListSet = ({ sortOrder }) => {
   const totalIndex = Math.ceil(Lists.length / 4);
   const displayingCards = items.slice(index * 4, index * 4 + 4);
   const btn_design = "absolute z-10 top-[110px]";
+  const design_for_PC = "w-[1200px] h-[260px] p-0";
   return (
-    <div className="w-[1160px] h-[260px] p-0 flex flex-row justify-center relative">
-      {index > 0 && (
-        <div
-          className={cn("left-[-20px]", btn_design)}
-          aria-label="좌방향 버튼"
-        >
-          <Button
-            btnStyle="outlined"
-            btnSize="btn-icon-40"
-            onClick={() => setIndex(index - 1)}
-          >
-            <span>
-              <img src={leftbutton} />
-            </span>
-          </Button>
+    <div className="flex justify-center relative">
+      <div className={cn("hidden tablet:flex", design_for_PC)}>
+        {/*PC가 아닐땐 모두 숨겨버리자! */}
+        {index > 0 && (
+          <div className={cn("left-0", btn_design)} aria-label="좌방향 버튼">
+            <Button
+              btnStyle="outlined"
+              btnSize="btn-icon-40"
+              onClick={() => setIndex(index - 1)}
+            >
+              <span>
+                <img src={leftbutton} />
+              </span>
+            </Button>
+          </div>
+        )}
+        <div className="grid grid-cols-4 grid-rows-1 gap-5 mx-5">
+          {/*카드 리스트 들어갈 곳 */}
+          {displayingCards.map((item) => (
+            <CardList key={item.id} item={item} />
+          ))}
         </div>
-      )}
-      <div className="grid grid-cols-4 grid-rows-1 gap-5">
-        {/*카드 리스트 들어갈 곳 */}
-        {displayingCards.map((item) => (
+        {index < totalIndex - 1 && (
+          <div className={cn("right-0", btn_design)} aria-label="우방향 버튼">
+            <Button
+              btnStyle="outlined"
+              btnSize="btn-icon-40"
+              onClick={() => setIndex(index + 1)}
+            >
+              <span>
+                <img src={rightbutton} />
+              </span>
+            </Button>
+          </div>
+        )}
+      </div>
+      <div className="flex flex-row gap-3 overflow-x-auto scrollbar-hide tablet:hidden mobile:gap-5 pl-5 mobile:pl-6 ">
+        {/*모바일/태블릿용 CardList를 새로 뽑아봅시다. */}
+        {items.map((item) => (
           <CardList key={item.id} item={item} />
         ))}
       </div>
-      {index < totalIndex - 1 && (
-        <div
-          className={cn("right-[-20px]", btn_design)}
-          aria-label="우방향 버튼"
-        >
-          <Button
-            btnStyle="outlined"
-            btnSize="btn-icon-40"
-            onClick={() => setIndex(index + 1)}
-          >
-            <span>
-              <img src={rightbutton} />
-            </span>
-          </Button>
-        </div>
-      )}
     </div>
   );
 };
