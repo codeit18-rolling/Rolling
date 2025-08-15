@@ -3,6 +3,7 @@ import BG_COLOR from "../../../constants/backgroundColor";
 import BG_PATTERN from "../../../constants/backgroundPattern";
 import { useNavigate } from "react-router";
 import Writers from "../../../components/Writers/Writers";
+import BadgeEmoji from "../../../components/Badge/BadgeEmoji";
 
 const CardList = ({ item }) => {
   const navigate = useNavigate();
@@ -57,15 +58,15 @@ const CardList = ({ item }) => {
       </div>
 
       <div className="bottom-5 gap-2 w-[227px] h-[53px] z-10 pt-[17px] absolute flex flex-row border-t border-black/[0.12]">
-        {/* emoji 들어갈 곳 (컴포넌트로 대체할 예정?)*/}
+        {/* emoji 들어갈 곳 (컴포넌트로 대체 완료)*/}
         {item.topReactions.map((reaction) => (
-          <div
+          <BadgeEmoji
             key={reaction.id}
-            className="flex justify-center items-center px-3 py-2 h-[36px] rounded-[32px] bg-black/[0.54] space-x-[2px]"
-          >
-            <span className="">{reaction.emoji}</span>
-            <span className="text-white">{reaction.count}</span>
-          </div>
+            reactions={reaction}
+            style={
+              "tablet:w-fit tablet:h-[36px] mobile:w-[55px] mobile:h-[28px]"
+            }
+          />
         ))}
       </div>
       {!item.backgroundImageURL && BG_PATTERN[item.backgroundColor] && (
