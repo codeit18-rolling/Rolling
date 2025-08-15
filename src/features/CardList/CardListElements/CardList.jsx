@@ -47,7 +47,7 @@ const CardList = ({ item }) => {
             </span>
           </div>
           <div className="flex justify-start">
-            {/*프로필 이미지들 현재 참조하는 페이지를 몰라 제작 난항 겪는중..../ 컴포넌트 대체 예정*/}
+            {/* 컴포넌트 대체 완료*/}
             <Writers
               item={item}
               useCard={true}
