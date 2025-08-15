@@ -47,7 +47,7 @@ const CardList = ({ item }) => {
             </span>
           </div>
           <div className="flex justify-start">
-            {/* 컴포넌트 대체 완료*/}
+            {/* 작성자 이미지, ~~명이 작성 하셨습니다.! 나오는곳 컴포넌트 대체 완료*/}
             <Writers
               item={item}
               useCard={true}
