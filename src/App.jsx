@@ -93,15 +93,6 @@ function App() {
           ))}
         </div>
 
-        {/* Option Components */}
-        <div className="w-full max-w-[1200px]">
-          <Option type="color"></Option>
-          <Option type="image" bgImage={BACKGROUND_IMG_DATA}></Option>
-          {/* 
-          실제 스켈레톤 UI 적용시엔 로딩상태를 받아서 적용
-          <Option type="image" bgImage={bgImages} isLoading={isLoading}></Option> 
-          */}
-        </div>
         {/* SkeletonUI Components */}
         {/* className(컨테이너) 과 boxClassName(하위박스요소) 를 이용하여 반응형을 구현할 수 있습니다. 
         <div className="w-full max-w-[1200px]">
