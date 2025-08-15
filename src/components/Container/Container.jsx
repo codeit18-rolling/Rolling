@@ -12,22 +12,24 @@ import { cn } from "../../utils";
  * @returns {JSX.Element} 컨테이너 요소
  *
  * @example
- * <Container>/Container> -- 기본 
+ * <Container>/Container> -- 기본
  * <Container isInnerBox ></Container> -- To / from
- * <Container isInnerBox innerBoxClassName="bg-white"></Container> --  To / from 커스텀 
+ * <Container isInnerBox innerBoxClassName="bg-white"></Container> --  To / from 커스텀
  */
 const Container = ({
   children,
   className = "",
   isInnerBox = false,
   innerBoxClassName = "",
+  isFull = true,
 }) => {
   return (
     <main
       className={cn(
-        "w-full mx-auto max-w-[1248px] px-[20px] py-[40px]",
+        "w-full px-[20px] py-[40px]",
         "tablet:px-[24px] tablet:py-[50px]",
         "desktop:py-[60px]",
+        isFull && "mx-auto max-w-[1248px]",
         className
       )}
     >
