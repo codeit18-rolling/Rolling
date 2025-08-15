@@ -10,6 +10,8 @@ import defaultImg from "../../assets/empty/img_null.png";
  * @param {boolean} useCard 롤링페이퍼 카드에서 사용할 경우 해당 옵션을 true로 설정합니다.
  */
 const Writers = ({ messages = {}, useCard = false }) => {
+  // CardList에서는 배열만 가져와서 사용하는 것 같음.
+  // 따라서 배열의 개수를 카운팅해서 초기 변수로 지정한다면 해결될 것 같음
   const { count = 0, results = [] } = messages;
 
   const writerPreview = results.slice(0, 3);

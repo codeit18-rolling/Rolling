@@ -27,8 +27,8 @@ export const Header = () => {
             <div
               className={cn(
                 "h-[64px] flex items-center justify-between m-auto px-6",
-                "mobile:w-[360px]",
-                "tablet:w-[768px]",
+                "mobile:w-[408px]",
+                "tablet:w-[816px]",
                 "desktop:w-[1248px]"
               )}
             >
