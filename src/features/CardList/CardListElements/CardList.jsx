@@ -37,9 +37,10 @@ const CardList = ({ item }) => {
           <div className="text-24 flex justify-start text-left">
             {/*받는사람 */}
             <span
-              className={`font-bold text-2xl ${
+              className={cn(
+                "font-bold text-2xl",
                 item.backgroundImageURL ? "text-white" : "text-gray-900"
-              }`}
+              )}
             >
               To. {item.name}
             </span>
