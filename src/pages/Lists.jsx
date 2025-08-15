@@ -21,7 +21,7 @@ function Lists() {
           <CardListSet sortOrder="createdAt" />
         </div>
         <Link to="/post">
-          <div className="mt-16 text-center w-full px-5 mobile:px-6 tablet:w-[280px]">
+          <div className="mt-16 text-center w-full px-5 mobile:px-6 tablet:px-0 tablet:w-[280px]">
             <Button className="w-full tablet:w-[280px] text-18">
               나도 만들어 보기
             </Button>
