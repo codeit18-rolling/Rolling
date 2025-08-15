@@ -21,15 +21,13 @@ const Container = ({
   className = "",
   isInnerBox = false,
   innerBoxClassName = "",
-  isFull = true,
 }) => {
   return (
     <main
       className={cn(
-        "w-full px-[20px] py-[40px]",
+        "w-full mx-auto max-w-[1248px] px-[20px] py-[40px]",
         "tablet:px-[24px] tablet:py-[50px]",
         "desktop:py-[60px]",
-        isFull && "mx-auto max-w-[1248px]",
         className
       )}
     >
