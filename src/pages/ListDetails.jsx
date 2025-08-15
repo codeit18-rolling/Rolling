@@ -11,7 +11,7 @@ function ListDetails() {
   const location = useLocation();
   const isDeleteMode = location.search.includes("delete=true");
 
-  // navigate to edit or back
+  // navigate to edit or back hook
   const { navigateToEdit, navigateToBack } = useNavigateToEdit(id);
 
   return (
@@ -24,7 +24,7 @@ function ListDetails() {
             "desktop:static desktop:inset-auto desktop:self-end desktop:mx-0 desktop:w-[92px] desktop:h-[39px] desktop:rounded-[6px]",
             "tablet:left-6 tablet:right-6"
           )}
-          aria-label="삭제하기"
+          aria-label={isDeleteMode ? "돌아가기" : "삭제하기"}
           onClick={isDeleteMode ? navigateToBack : navigateToEdit}
         >
           {isDeleteMode ? "돌아가기" : "삭제하기"}
