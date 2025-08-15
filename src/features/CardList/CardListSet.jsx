@@ -1,9 +1,10 @@
 import CardList from "./CardListElements/CardList";
 import { useEffect, useState } from "react";
 import PureList from "./CardListElements/PureList";
-import leftbutton from "../../assets/button/btn_arrow_left.svg";
-import rightbutton from "../../assets/button/btn_arrow_right.svg";
+import leftbutton from "../../assets/icon/ic_arrow_left.svg";
+import rightbutton from "../../assets/icon/ic_arrow_right.svg";
 import { cn } from "../../utils";
+import Button from "../../components/Button/Button";
 
 /**
  *sortOder 변수에 의해 정렬된 카드리스트를 보여준다.
@@ -40,16 +41,20 @@ const CardListSet = ({ sortOrder }) => {
   return (
     <div className="w-[1160px] h-[260px] p-0 flex flex-row justify-center relative">
       {index > 0 && (
-        <button
-          type="button"
-          onClick={() => setIndex(index - 1)}
-          className={cn("left-[-28px]", btn_design)}
+        <div
+          className={cn("left-[-20px]", btn_design)}
           aria-label="좌방향 버튼"
         >
-          <span>
-            <img src={leftbutton} />
-          </span>
-        </button>
+          <Button
+            btnStyle="outlined"
+            btnSize="btn-icon-40"
+            onClick={() => setIndex(index - 1)}
+          >
+            <span>
+              <img src={leftbutton} />
+            </span>
+          </Button>
+        </div>
       )}
       <div className="grid grid-cols-4 grid-rows-1 gap-5">
         {/*카드 리스트 들어갈 곳 */}
@@ -58,16 +63,20 @@ const CardListSet = ({ sortOrder }) => {
         ))}
       </div>
       {index < totalIndex - 1 && (
-        <button
-          type="button"
-          onClick={() => setIndex(index + 1)}
-          className={cn("right-[-28px]", btn_design)}
+        <div
+          className={cn("right-[-20px]", btn_design)}
           aria-label="우방향 버튼"
         >
-          <span>
-            <img src={rightbutton} />
-          </span>
-        </button>
+          <Button
+            btnStyle="outlined"
+            btnSize="btn-icon-40"
+            onClick={() => setIndex(index + 1)}
+          >
+            <span>
+              <img src={rightbutton} />
+            </span>
+          </Button>
+        </div>
       )}
     </div>
   );
