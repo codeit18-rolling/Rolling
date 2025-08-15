@@ -6,6 +6,7 @@ import WritersMock from "./WritersMock";
 
 const CardList = ({ item }) => {
   const navigate = useNavigate();
+
   return (
     <button
       type="button"
@@ -31,7 +32,7 @@ const CardList = ({ item }) => {
 
       {/*container*/}
       <div className="z-10 flex justify-start items-start">
-        <div>
+        <div className="gap-3">
           {/*to. ~ , 몇명이 작성 등등이 들어갈 곳 */}
           <div className="text-24 flex justify-start text-left">
             {/*받는사람 */}
@@ -45,16 +46,11 @@ const CardList = ({ item }) => {
           </div>
           <div className="flex justify-start">
             {/*프로필 이미지들 현재 참조하는 페이지를 몰라 제작 난항 겪는중..../ 컴포넌트 대체 예정*/}
-            <WritersMock item={item} useCard={true} />
-          </div>
-          <div
-            className={` text-16 text-left ${
-              item.backgroundImageURL ? "text-gray-200" : "text-gray-700"
-            }`}
-          >
-            {/*~~명이 작성하셨습니다. */}
-            <span className="font-[700]">{item.messageCount}</span>
-            <span className="font-[400]">명이 작성했어요!</span>
+            <WritersMock
+              item={item}
+              useCard={true}
+              isBackgroundImage={item.backgroundImageURL}
+            />
           </div>
         </div>
       </div>

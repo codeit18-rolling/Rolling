@@ -1,15 +1,16 @@
 import defaultImg from "../../../assets/empty/img_null.png";
 import RemainWriter from "../../../components/Writers/RemainWriter";
+import WriterPreview from "./WriterPreview";
+import WriterCount from "./WriterCount";
 import { cn } from "../../../utils";
 
-const WritersMock = ({ item, useCard = false }) => {
-  const writerPreview = item.recentMessages;
-  const count = item.messageCount;
+const WritersMock = ({ item, useCard = false, isBackgroundImage = false }) => {
+  const writerPreview = WriterPreview(item, useCard);
+  const count = WriterCount(item, useCard);
   const handleError = (e) => {
     e.target.onError = null;
     e.target.src = defaultImg;
   };
-
   return (
     <div
       className={cn(
@@ -29,7 +30,13 @@ const WritersMock = ({ item, useCard = false }) => {
         ))}
         {count > 3 && <RemainWriter count={count} useCard={useCard} />}
       </div>
-      <p className="text-18 text-gray-900 leading-[27px]">
+      <p
+        className={cn(
+          "leading-[27px]",
+          useCard ? "text-16" : "text-18 text-gray-900 ",
+          isBackgroundImage ? "text-gray-200" : "text-gray-700"
+        )}
+      >
         <span className="font-bold">{count}</span>명이 작성했어요!
       </p>
     </div>
