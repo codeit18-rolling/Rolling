@@ -4,7 +4,7 @@ const useNavigateToEdit = (id) => {
   const navigate = useNavigate();
 
   const navigateToEdit = () => {
-    navigate(`/post/${id}?edit=true`);
+    navigate(`/post/${id}?delete=true`);
   };
 
   const navigateToBack = () => {

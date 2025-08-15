@@ -9,7 +9,7 @@ import { cn } from "../utils";
 function ListDetails() {
   const id = useParams().id;
   const location = useLocation();
-  const isDeleteMode = location.search.includes("edit=true");
+  const isDeleteMode = location.search.includes("delete=true");
 
   // navigate to edit or back
   const { navigateToEdit, navigateToBack } = useNavigateToEdit(id);
