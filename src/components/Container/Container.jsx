@@ -12,9 +12,9 @@ import { cn } from "../../utils";
  * @returns {JSX.Element} 컨테이너 요소
  *
  * @example
- * <Container>/Container> -- 기본 
+ * <Container>/Container> -- 기본
  * <Container isInnerBox ></Container> -- To / from
- * <Container isInnerBox innerBoxClassName="bg-white"></Container> --  To / from 커스텀 
+ * <Container isInnerBox innerBoxClassName="bg-white"></Container> --  To / from 커스텀
  */
 const Container = ({
   children,
