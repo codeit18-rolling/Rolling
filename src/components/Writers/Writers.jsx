@@ -9,12 +9,8 @@ import defaultImg from "../../assets/empty/img_null.png";
  * @param {Object{}} messages 롤링페이퍼 작성자 정보 데이터
  * @param {boolean} useCard 롤링페이퍼 카드에서 사용할 경우 해당 옵션을 true로 설정합니다.
  */
-const Writers = ({ messages = {}, useCard = false }) => {
-  // CardList에서는 배열만 가져와서 사용하는 것 같음.
-  // 따라서 배열의 개수를 카운팅해서 초기 변수로 지정한다면 해결될 것 같음
-  const { count = 0, results = [] } = messages;
-
-  const writerPreview = results.slice(0, 3);
+const Writers = ({ item = {}, useCard = false, isBackgroundImage = false }) => {
+  const { messageCount = 0, recentMessages = [] } = item;
 
   const handleError = (e) => {
     e.target.onError = null;
@@ -24,24 +20,34 @@ const Writers = ({ messages = {}, useCard = false }) => {
   return (
     <div
       className={cn(
-        "flex gap-3",
+        "flex justify-start",
         useCard ? "flex-col items-start" : "items-center"
       )}
     >
-      <div className="flex -space-x-3">
-        {writerPreview.map((writer) => (
-          <img
-            key={writer.id}
-            className="w-[28px] h-[28px] border-white rounded-full border-[1.5px]"
-            src={writer.profileImageURL}
-            alt="프로필 이미지"
-            onError={handleError}
-          />
-        ))}
-        {count > 3 && <RemainWriter count={count} useCard={useCard} />}
-      </div>
-      <p className="text-18 text-gray-900 leading-[27px]">
-        <span className="font-bold">{count}</span>명이 작성했어요!
+      {messageCount > 1 && (
+        <div className="flex -space-x-3">
+          {recentMessages.map((writer) => (
+            <img
+              key={writer.id}
+              className="w-[28px] h-[28px] border-white rounded-full border-[1.5px]"
+              src={writer.profileImageURL}
+              alt="프로필 이미지"
+              onError={handleError}
+            />
+          ))}
+          {messageCount > 3 && (
+            <RemainWriter count={messageCount} useCard={useCard} />
+          )}
+        </div>
+      )}
+      <p
+        className={cn(
+          "leading-[27px]",
+          useCard ? "text-16 gap-3" : "text-18 text-gray-900 pl-[11px]",
+          isBackgroundImage ? "text-gray-200" : "text-gray-700"
+        )}
+      >
+        <span className="font-bold">{messageCount}</span>명이 작성했어요!
       </p>
     </div>
   );

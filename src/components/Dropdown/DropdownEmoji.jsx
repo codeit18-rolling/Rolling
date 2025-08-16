@@ -14,20 +14,20 @@ import { useToggle } from "../../hooks/useToggle";
  * @param {boolean} dropdown 드롭다운 아이콘 표기 여부
  */
 const DropdownEmoji = ({ reactionData = {}, dropdown = true }) => {
-  const { count = 0, results = [] } = reactionData;
+  const { reactionCount = 0, results = [] } = reactionData;
   const { isOpen, onClickToggle } = useToggle();
 
   /**
    * 가장 많은 리액션을 받은 항목 최대 3개를 담는 배열
    */
-  const preview = results.sort((a, b) => b.count - a.count).slice(0, 3);
+  const preview = results.slice(0, 3);
 
   return (
     <>
       <div className={cn("flex items-center relative")}>
         <div
           className={cn(
-            "flex justify-center gap-x-2 tablet:w-[208px] mobile:w-[177px]"
+            "flex justify-center gap-x-2 tablet:w-[246px] mobile:w-[215px]"
           )}
         >
           {preview.map((reaction) => {
@@ -41,10 +41,11 @@ const DropdownEmoji = ({ reactionData = {}, dropdown = true }) => {
               />
             );
           })}
-        </div>
-        {dropdown && count > 3 && (
           <DropdownButton onClickOpen={onClickToggle} isOpen={isOpen} />
-        )}
+          {/* {dropdown && reactionCount > 2 && (
+            
+          )} */}
+        </div>
         {isOpen && <DropdownExpandEmoji reactionList={results} />}
       </div>
     </>

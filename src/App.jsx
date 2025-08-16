@@ -7,6 +7,7 @@ import {
   REACTIONS_DATA,
   MESSAGES_DATA,
   BACKGROUND_IMG_DATA,
+  ALL_CARD_LIST,
 } from "./MockData";
 import DropdownEmoji from "./components/Dropdown/DropdownEmoji";
 
@@ -37,7 +38,7 @@ function App() {
   return (
     <>
       <Header />
-      <HeaderService />
+      <HeaderService recipients={ALL_CARD_LIST.results[4]} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/list" element={<Lists />} />
