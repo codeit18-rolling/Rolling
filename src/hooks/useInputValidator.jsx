@@ -14,11 +14,13 @@ import { useState } from "react";
  *   errorMsg: string,             // 에러 메시지 (blur 전에는 항상 빈 문자열)
  *   handleChange: (e) => void,    // onChange 핸들러
  *   handleBlur: () => void,       // onBlur 핸들러
+ *   handleValidateSubmit: () => boolean, // 제출 시 유효성 검증 및 결과 반환
+ * 
  * }}
  *
  * @example
 
- * const { errorMsg, handleChange, handleBlur } = useInputValidator(value, validateName);
+ * const { errorMsg, handleChange, handleBlur, handleValidateSubmit } = useInputValidator(value, validateName);
  *
  * <input
  *   value={value}
@@ -26,6 +28,7 @@ import { useState } from "react";
  *   onBlur={handleBlur}
  * />
  * {errorMsg && <span>{errorMsg}</span>}
+ * <button onSubmit={handleValidateSubmit} />
  */
 const useInputValidator = (value, validateFn) => {
   const [errorMsg, setErrorMsg] = useState("");
@@ -44,10 +47,18 @@ const useInputValidator = (value, validateFn) => {
     setErrorMsg(validateFn(value));
   };
 
+  const handleValidateSubmit = () => {
+    setFocused(true); // UI에도 표시
+    const error = validateFn(value);
+    setErrorMsg(error);
+    return !error;
+  };
+
   return {
     errorMsg: focused ? errorMsg : "",
     handleChange,
     handleBlur,
+    handleValidateSubmit,
   };
 };
 
