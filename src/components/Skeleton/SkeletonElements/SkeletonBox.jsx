@@ -16,7 +16,7 @@ const SkeletonBox = ({ className = "" }) => {
   return (
     <div
       className={cn(
-        "w-[100%] flex-0 aspect-square rounded-2xl",
+        "w-full flex-0 aspect-square rounded-2xl",
         "bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200",
         "bg-[length:400%_100%]",
         "animate-skeleton-shimmer",
