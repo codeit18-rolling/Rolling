@@ -13,15 +13,15 @@ import SkeletonBox from "./SkeletonElements/SkeletonBox";
  *
  * @example
  * <SkeletonUI count={3} />
+ * <SkeletonUI count="5" boxClassName="w-[100%] sm:w-[calc((100%-1rem)/2)] tablet:w-[calc((100%-(1rem*2))/3)]" ></SkeletonUI> 
+ * 
+ * 반응형 작성시 개인 페이지에 맞개 수정이 필요합니다! 
+ * 모든 페이지가 4칸/3칸/2칸/1칸 다 다르기때문에 모바일 기준 2칸으로만 작성되었습니다. 
+ * example 코드를 참고해서 적용 부탁드립니다.
  */
 const SkeletonUI = ({ count, className = "", boxClassName = "" }) => {
   return (
-    <div
-      className={cn(
-        "flex flex-row flex-wrap justify-between gap-4 w-full",
-        className
-      )}
-    >
+    <div className={cn("flex flex-row flex-wrap gap-4 w-full", className)}>
       {Array.from({ length: count }).map((_, i) => (
         <SkeletonBox key={i} className={boxClassName} />
       ))}
