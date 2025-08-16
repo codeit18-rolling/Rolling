@@ -1,8 +1,12 @@
 import deleteIcon from "../../../assets/icon/ic_deleted.svg";
 import { cn } from "../../../utils";
+import deleteMessage from "../../../service/ListDetails/deleteMessageData";
 
 // Delete Button
-const CardDelete = () => {
+const CardDelete = ({ id }) => {
+  // 메세지 삭제 함수
+  const deleteMessageHandler = () => deleteMessage(id);
+
   return (
     <button
       className={cn(
@@ -10,6 +14,7 @@ const CardDelete = () => {
         "hover:border-gray-500 hover:bg-gray-50 transition-all duration-150 ease-in-out"
       )}
       aria-label="삭제 버튼"
+      onClick={deleteMessageHandler}
     >
       <img src={deleteIcon} alt="삭제 아이콘" />
     </button>

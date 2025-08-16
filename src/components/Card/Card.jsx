@@ -3,7 +3,7 @@ import { cn } from "../../utils";
 import { ERROR_MESSAGE } from "../../features/ListDetail/constants/ERROR_MESSAGE";
 
 // Card Component
-const Card = ({ img, user, content, date, isDeleteMode = false }) => {
+const Card = ({ img, user, content, date, isDeleteMode = false, id }) => {
   return (
     <div
       className={cn(
@@ -13,7 +13,7 @@ const Card = ({ img, user, content, date, isDeleteMode = false }) => {
       )}
     >
       {/* User Meta */}
-      <CardHeader img={img} user={user} isDeleteMode={isDeleteMode} />
+      <CardHeader img={img} user={user} isDeleteMode={isDeleteMode} id={id} />
 
       {/* Divider */}
       <hr className="border-gray-200" />
