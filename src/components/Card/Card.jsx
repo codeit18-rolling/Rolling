@@ -1,6 +1,7 @@
 import CardHeader from "./CardElements/CardHeader";
 import { cn } from "../../utils";
 import { ERROR_MESSAGE } from "../../features/ListDetail/constants/ERROR_MESSAGE";
+import { dateFunc } from "../../utils/dateFunc";
 
 // Card Component
 const Card = ({ img, user, content, date, isDeleteMode = false, id }) => {
@@ -23,7 +24,7 @@ const Card = ({ img, user, content, date, isDeleteMode = false, id }) => {
 
       {/* Date */}
       <span className="font-normal text-12 leading-[18px] tracking-[-0.05em] text-gray-400">
-        {date || ERROR_MESSAGE}
+        {dateFunc(date) || ERROR_MESSAGE}
       </span>
     </div>
   );
