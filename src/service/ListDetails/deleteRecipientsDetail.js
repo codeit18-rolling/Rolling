@@ -3,7 +3,6 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 // 카드 전체 삭제 함수
 async function deleteRecipient(recipientId) {
   try {
-    console.log(recipientId);
     const res = await fetch(`${API_BASE_URL}/18-4/recipients/${recipientId}/`, {
       method: "DELETE",
       headers: {

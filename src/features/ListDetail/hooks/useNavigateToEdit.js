@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router";
 const useNavigateToEdit = (id) => {
   const location = useLocation();
   const isDeleteMode = location.search.includes("delete=true");
+
   const navigate = useNavigate();
 
   const navigateToEdit = () => {
@@ -11,7 +12,7 @@ const useNavigateToEdit = (id) => {
   };
 
   const navigateToBack = () => {
-    navigate(`/post/${id}`);
+    navigate(-1);
   };
 
   return { isDeleteMode, navigateToEdit, navigateToBack };

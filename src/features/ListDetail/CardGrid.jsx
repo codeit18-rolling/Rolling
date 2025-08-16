@@ -4,7 +4,6 @@ import useService from "../../hooks/fetcher/useService";
 import { getRecipientsDetailData } from "../../service/ListDetails/getRecipientsDetailData";
 import { cn } from "../../utils";
 import CardGridLoading from "./CardGridLoading";
-// import deleteRecipient from "../../service/ListDetails/deleteRecipientsDetail";
 
 const CardGrid = ({ id, isDeleteMode = false }) => {
   const { data: cardDetailData, isLoading } = useService(() =>
@@ -12,9 +11,6 @@ const CardGrid = ({ id, isDeleteMode = false }) => {
   );
 
   // console.log(cardData);
-
-  // 카드 전체 삭제 함수
-  // const deleteButtonHandler = () => deleteRecipient(id);
 
   return (
     <>
