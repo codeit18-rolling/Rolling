@@ -1,9 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Nanum+Myeongjo&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@font-face {
+  font-family: "Handletter";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/naverfont_05@1.0/Handletter.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 
 .ql-editor {
   font-size: 16px !important;
   line-height: 1.5;
-  font-family: "Noto Sans", "pretendard", "Nanum Myeongjo", "Nanum Brush Script";
+  font-family: "Noto Sans", "pretendard", "Nanum Myeongjo", "Handletter";
 }
 
 .ql-toolbar {
@@ -64,14 +71,10 @@
   font-family: "Nanum Myeongjo";
 }
 
-.ql-snow
-  .ql-picker.ql-font
-  .ql-picker-label[data-value="nanum-brush-script"]::before,
-.ql-snow
-  .ql-picker.ql-font
-  .ql-picker-item[data-value="nanum-brush-script"]::before {
-  content: "나눔 붓글씨체" !important;
-  font-family: "Nanum Brush Script";
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value="handletter"]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="handletter"]::before {
+  content: "나눔손글씨 손편지체" !important;
+  font-family: "Handletter";
 }
 
 .ql-font-noto-sans {
@@ -86,6 +89,6 @@
   font-family: "Nanum Myeongjo", sans-serif;
 }
 
-.ql-font-nanum-brush-script {
-  font-family: "Nanum Brush Script", sans-serif;
+.ql-font-handletter {
+  font-family: "Handletter", sans-serif;
 }
