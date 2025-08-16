@@ -9,6 +9,7 @@ import {
   BACKGROUND_IMG_DATA,
 } from "./MockData";
 import DropdownEmoji from "./components/Dropdown/DropdownEmoji";
+import TextField from "./features/TextField/TextField";
 
 import Input from "./components/Input/Input";
 import { DropdownAddEmoji } from "./components/Dropdown/DropdownAddEmoji";
@@ -92,7 +93,6 @@ function App() {
             />
           ))}
         </div>
-
         {/* Option Components */}
         <div className="w-full max-w-[1200px]">
           <Option type="color"></Option>
@@ -111,8 +111,15 @@ function App() {
             boxClassName="tablet:w-[calc((100%-(1rem*2))/3)]"
           />
         </div>
-          */}
+
+        {/* CardList Components */}
+        {/* <div className="grid grid-cols-3 gap-[24px]">
+          {CardListMockData.map((item) => (
+            <CardList key={item.id} item={item} />
+          ))}
+        </div> */}
       </div>
+      <TextField />
     </>
   );
 }
