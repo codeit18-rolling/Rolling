@@ -1,4 +1,4 @@
-import { useParams, useLocation } from "react-router";
+import { useParams } from "react-router";
 import Container from "../components/Container/Container";
 import Button from "../components/Button/Button";
 import CardGrid from "../features/ListDetail/CardGrid";
@@ -8,11 +8,10 @@ import { cn } from "../utils";
 // Card List Page
 function ListDetails() {
   const id = useParams().id;
-  const location = useLocation();
-  const isDeleteMode = location.search.includes("delete=true");
 
   // navigate to edit or back hook
-  const { navigateToEdit, navigateToBack } = useNavigateToEdit(id);
+  const { isDeleteMode, navigateToEdit, navigateToBack } =
+    useNavigateToEdit(id);
 
   return (
     <div className="w-full min-h-[100vh] flex flex-col gap-[18px] bg-beige-200">
