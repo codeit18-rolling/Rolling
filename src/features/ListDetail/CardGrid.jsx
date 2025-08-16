@@ -1,19 +1,14 @@
 import AddCard from "../../components/Card/AddCard";
 import Card from "../../components/Card/Card";
 import SkeletonUI from "../../components/Skeleton/SkeletonUI";
-import useService from "../../hooks/useService";
-import { getRecipientsDetailData } from "../../service/getRecipientsDetailData";
-
-// Mock Data
-import { CardMockData } from "../../MockData";
+import useService from "../../hooks/fetcher/useService";
+import { getRecipientsDetailData } from "../../service/ListDetails/getRecipientsDetailData";
 import { cn } from "../../utils";
 
 const CardGrid = ({ id, isDeleteMode = false }) => {
   const { data: cardData, isLoading } = useService(() =>
     getRecipientsDetailData(id)
   );
-
-  console.log(cardData);
 
   return (
     <div
