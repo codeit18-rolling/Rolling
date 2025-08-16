@@ -1,3 +1,5 @@
+import RelationshipBadge from "../../Badge/BadgeRelationship";
+
 const ModalHeader = ({
   profileImageURL,
   sender,
@@ -20,9 +22,9 @@ const ModalHeader = ({
             From. <span className="text-20 font-bold">{sender}</span>
           </div>
           {/* 관계 뱃지 */}
-          <span className="inline-flex w-fit px-2 py-0.5 mt-1 rounded-md">
-            {relationship}
-          </span>
+          <div>
+            <RelationshipBadge relationship={relationship} />
+          </div>
         </div>
       </div>
 
