@@ -41,10 +41,10 @@ const DropdownEmoji = ({ reactionData = {}, dropdown = true }) => {
               />
             );
           })}
-          <DropdownButton onClickOpen={onClickToggle} isOpen={isOpen} />
           {/* {dropdown && reactionCount > 2 && (
             
           )} */}
+          <DropdownButton onClickOpen={onClickToggle} isOpen={isOpen} />
         </div>
         {isOpen && <DropdownExpandEmoji reactionList={results} />}
       </div>

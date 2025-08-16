@@ -11,7 +11,6 @@ function App() {
   return (
     <>
       <Header />
-      <HeaderService recipients={ALL_CARD_LIST.results[4]} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/list" element={<Lists />} />
