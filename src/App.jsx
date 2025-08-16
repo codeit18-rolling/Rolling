@@ -9,6 +9,7 @@ import {
   BACKGROUND_IMG_DATA,
 } from "./MockData";
 import DropdownEmoji from "./components/Dropdown/DropdownEmoji";
+import TextField from "./features/TextField/TextField";
 import ModalTestButton from "./components/Modal/ModalTestButton";
 import ToastTestButton from "./components/Toast/ToastTestButton";
 import Input from "./components/Input/Input";
@@ -93,7 +94,6 @@ function App() {
             />
           ))}
         </div>
-
         {/* Option Components */}
         <div className="w-full max-w-[1200px]">
           <Option type="color"></Option>
@@ -113,9 +113,8 @@ function App() {
           />
         </div>
           */}
-        <ModalTestButton />
-        <ToastTestButton />
       </div>
+      <TextField />
     </>
   );
 }
