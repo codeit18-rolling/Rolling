@@ -1,8 +1,9 @@
 import defaultImage from "../../../assets/empty/img_null.png";
+import { cn } from "../../../utils";
 
 const CardMeta = ({ img, user }) => {
   return (
-    <div className="flex items-center justify-start gap-[14px] cursor-pointer">
+    <div className="flex items-center justify-start gap-[14px]">
       {/* User Image */}
       <img
         src={img || defaultImage}
@@ -17,7 +18,12 @@ const CardMeta = ({ img, user }) => {
       />
 
       {/* User Info */}
-      <div className="flex flex-col items-start gap-[6px] text-20 leading-6">
+      <div
+        className={cn(
+          "flex flex-col items-start gap-[6px] text-20 leading-6 tracking-[-0.01em]",
+          "mobile:text-16 mobile:leading-5"
+        )}
+      >
         <p className="font-normal text-black">
           From. <span className="font-bold ">{user || "코드잇"}</span>
         </p>
