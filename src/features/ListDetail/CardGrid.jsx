@@ -7,7 +7,7 @@ import CardGridLoading from "./CardGridLoading";
 // import deleteRecipient from "../../service/ListDetails/deleteRecipientsDetail";
 
 const CardGrid = ({ id, isDeleteMode = false }) => {
-  const { data: cardData, isLoading } = useService(() =>
+  const { data: cardDetailData, isLoading } = useService(() =>
     getRecipientsDetailData(id)
   );
 
@@ -27,7 +27,7 @@ const CardGrid = ({ id, isDeleteMode = false }) => {
         )}
       >
         {!isDeleteMode && <AddCard id={id} />}
-        {cardData?.recentMessages?.map((data, index) => (
+        {cardDetailData?.results?.map((data, index) => (
           <Card key={index} isDeleteMode={isDeleteMode} data={data} />
         ))}
       </div>
