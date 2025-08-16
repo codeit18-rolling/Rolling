@@ -8,9 +8,11 @@ import { cn } from "../../utils";
  * @param {React.ReactNode} props.children - 자식 컴포넌트들
  * @returns {JSX.Element} 토글 버튼 그룹 래퍼
  */
-export const ToggleButtonWrapper = ({ children }) => {
+export const ToggleButtonWrapper = ({ children, className = "" }) => {
   return (
-    <div className={cn("w-[244px] flex flex-row bg-gray-100")}>{children}</div>
+    <div className={cn("flex flex-row bg-gray-100", className)}>
+      {children}
+    </div>
   );
 };
 
