@@ -2,7 +2,7 @@ import { useParams } from "react-router";
 import Container from "../components/Container/Container";
 import Button from "../components/Button/Button";
 import CardGrid from "../features/ListDetail/CardGrid";
-import useNavigateToEdit from "../features/CardList/hooks/useNavigateToEdit";
+import useNavigateToEdit from "../features/ListDetail/hooks/useNavigateToEdit";
 import { cn } from "../utils";
 
 // Card List Page
