@@ -1,7 +1,6 @@
 import React, { forwardRef, useEffect, useRef } from "react";
 import { Quill } from "react-quill";
 import { toolbarOptions } from "./ToolBar";
-import { cn } from "../../../utils";
 import "react-quill/dist/quill.snow.css";
 import "./editor.css";
 
@@ -39,12 +38,7 @@ const Editor = forwardRef(({ defaultValue }, ref) => {
     };
   }, [ref]);
 
-  return (
-    <div
-      ref={containerRef}
-      className={cn("w-[720px]", "h-[260px]", "m-auto")}
-    ></div>
-  );
+  return <div ref={containerRef} className="w-[720px] h-[260px] m-auto"></div>;
 });
 
 Editor.displayName = "Editor";
