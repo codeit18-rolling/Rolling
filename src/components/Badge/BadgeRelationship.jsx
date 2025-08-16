@@ -13,7 +13,7 @@ const RelationshipBadge = ({ relationship }) => {
   return (
     <div
       className={cn(
-        "rounded-[4px] w-[40px] h-[21px] gap-10 text-14 justify-center items-center inline-flex font-sans",
+        "inline-flex rounded-[4px] text-14 px-[8px] font-sans",
         RELATIONSHIP_COLOR[relationship]
       )}
     >
