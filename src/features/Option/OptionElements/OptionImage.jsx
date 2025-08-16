@@ -30,25 +30,23 @@ const OptionImage = ({ bgImages, onImageSelect, isLoading }) => {
   const showSkeleton = isLoading || loadedCount < imageUrlCount;
 
   return (
-    <>
-      <OptionWrapper className="relative">
-        {showSkeleton && (
-          <SkeletonUI
-            count={imageUrlCount}
-            className="tablet:flex-nowrap absolute z-20"
-          />
-        )}
-        {bgImages.imageUrls.map((image, index) => (
-          <OptionImageButton
-            key={index}
-            image={image}
-            isActive={selectedImage === image}
-            onClick={() => setSelectedImage(image)}
-            onLoad={() => setLoadedCount((prev) => prev + 1)} // 이미지 로딩 체크
-          />
-        ))}
-      </OptionWrapper>
-    </>
+    <OptionWrapper className="relative">
+      {showSkeleton && (
+        <SkeletonUI
+          count={imageUrlCount}
+          className="tablet:flex-nowrap absolute z-20"
+        />
+      )}
+      {bgImages.imageUrls.map((image, index) => (
+        <OptionImageButton
+          key={index}
+          image={image}
+          isActive={selectedImage === image}
+          onClick={() => setSelectedImage(image)}
+          onLoad={() => setLoadedCount((prev) => prev + 1)} // 이미지 로딩 체크
+        />
+      ))}
+    </OptionWrapper>
   );
 };
 

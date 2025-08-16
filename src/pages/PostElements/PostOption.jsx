@@ -36,7 +36,7 @@ const PostOption = ({ bgImages, isLoading, onColorSelect, onImageSelect }) => {
           isLoading={isLoading}
           onColorSelect={onColorSelect}
           onImageSelect={onImageSelect}
-        ></Option>
+        />
       </div>
     </div>
   );
