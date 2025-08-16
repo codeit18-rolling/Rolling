@@ -26,8 +26,7 @@ const Option = ({
   onColorSelect,
   onImageSelect,
 }) => {
-  if (type === "image") {
-    if (!bgImages?.imageUrls?.length) return null;
+  if (type === "image" && bgImages?.imageUrls?.length) {
     return (
       <OptionImage
         bgImages={bgImages}
@@ -36,6 +35,7 @@ const Option = ({
       />
     );
   }
+
   return <OptionColor onColorSelect={onColorSelect} />;
 };
 
