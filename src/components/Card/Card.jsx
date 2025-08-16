@@ -22,8 +22,8 @@ const Card = ({ data, isDeleteMode = false }) => {
       className={cn(
         "flex flex-col w-full h-full min-w-[320px] min-h-[230px] rounded-[16px] p-6 bg-white shadow-lg overflow-hidden cursor-pointer",
         "hover:bg-gray-100 transition-all duration-150 ease-in-out",
-        "desktop:min-w-[384px] desktop:min-h-[280px]",
-        "tablet:min-w-[352px] tablet:min-h-[284px]"
+        "desktop:min-w-[384px] desktop:h-[280px]",
+        "tablet:min-w-[352px] tablet:h-[284px]"
       )}
       onClick={handleCardClick}
     >
