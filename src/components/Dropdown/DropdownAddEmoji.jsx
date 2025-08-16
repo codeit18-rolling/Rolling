@@ -25,9 +25,9 @@ export const DropdownAddEmoji = ({ setEmojiList }) => {
           className={cn(
             "text-base font-medium",
             "tablet:w-[88px] tablet:h-[36px]",
-            "mobile:w-[36px] mobile:h-[32px]"
+            "mobile:h-[32px]"
           )}
-          btnSize={"btn-36"}
+          btnSize={"btn-icon-36"}
         >
           <div className="flex gap-x-1">
             <Icon

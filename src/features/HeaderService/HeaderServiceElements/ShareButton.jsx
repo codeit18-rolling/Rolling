@@ -14,10 +14,8 @@ export const ShareButton = () => {
     <div onClick={onClickToggle} className="relative">
       <Button
         btnStyle="outlined"
-        btnSize={"btn-36"}
-        className={
-          "tablet:w-[56px] tablet:h-[36px] mobile:w-[36px] mobile:h-[32px] text-base font-medium"
-        }
+        btnSize={"btn-icon-36"}
+        className={"tablet:w-[56px] tablet:h-[36px] mobile:h-[32px]"}
       >
         <Icon
           iconName={"share_24"}
