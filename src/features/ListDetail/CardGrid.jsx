@@ -9,11 +9,11 @@ import { CardMockData } from "../../MockData";
 import { cn } from "../../utils";
 
 const CardGrid = ({ id, isDeleteMode = false }) => {
-  const { data: cardsData, isLoading } = useService(() =>
-    getRecipientsDetailData("18-1", id)
+  const { data: cardData, isLoading } = useService(() =>
+    getRecipientsDetailData(id)
   );
 
-  // console.log(cardsData);
+  console.log(cardData);
 
   return (
     <div
@@ -25,13 +25,13 @@ const CardGrid = ({ id, isDeleteMode = false }) => {
     >
       {!isDeleteMode && <AddCard id={id} />}
       {isLoading && <SkeletonUI count={5} />}
-      {CardMockData?.map((data, index) => (
+      {cardData?.recentMessages?.map((data, index) => (
         <Card
           key={index}
-          img={data.img}
-          user={data.user}
+          img={data.profileImageURL}
+          user={data.sender}
           content={data.content}
-          date={data.date}
+          date={data.createdAt}
           isDeleteMode={isDeleteMode}
         />
       ))}

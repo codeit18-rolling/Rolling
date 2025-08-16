@@ -1,10 +1,9 @@
 import CardHeader from "./CardElements/CardHeader";
 import { cn } from "../../utils";
+import { ERROR_MESSAGE } from "../../features/ListDetail/constants/ERROR_MESSAGE";
 
 // Card Component
 const Card = ({ img, user, content, date, isDeleteMode = false }) => {
-  const ErrMsg = "에러가 발생했습니다."; // 임시 에러 메시지
-
   return (
     <div
       className={cn(
@@ -20,11 +19,11 @@ const Card = ({ img, user, content, date, isDeleteMode = false }) => {
       <hr className="border-gray-200" />
 
       {/* Content */}
-      <p className="flex-1 overflow-y-auto my-4">{content || ErrMsg}</p>
+      <p className="flex-1 overflow-y-auto my-4">{content || ERROR_MESSAGE}</p>
 
       {/* Date */}
       <span className="font-normal text-12 leading-[18px] tracking-[-0.05em] text-gray-400">
-        {date || ErrMsg}
+        {date || ERROR_MESSAGE}
       </span>
     </div>
   );
