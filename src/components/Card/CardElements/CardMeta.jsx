@@ -1,7 +1,8 @@
 import defaultImage from "../../../assets/empty/img_null.png";
 import { cn } from "../../../utils";
+import RelationshipBadge from "../../Badge/BadgeRelationship";
 
-const CardMeta = ({ img, user }) => {
+const CardMeta = ({ img, user, relationship }) => {
   return (
     <div className="flex items-center justify-start gap-[14px]">
       {/* User Image */}
@@ -29,9 +30,7 @@ const CardMeta = ({ img, user }) => {
         </p>
 
         {/* Badge Component */}
-        <div className="rounded-[4px] px-2 bg-purple-100 font-normal text-[14px] leading-5 tracking-[-0.05em] text-purple-600">
-          동료
-        </div>
+        <RelationshipBadge relationship={relationship} />
       </div>
     </div>
   );

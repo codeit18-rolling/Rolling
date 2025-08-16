@@ -4,9 +4,21 @@ import SkeletonUI from "../../components/Skeleton/SkeletonUI";
 import useService from "../../hooks/fetcher/useService";
 import { getRecipientsDetailData } from "../../service/ListDetails/getRecipientsDetailData";
 import { cn } from "../../utils";
+import { useState } from "react";
+import Modal from "../../components/Modal/Modal";
 // import deleteRecipient from "../../service/ListDetails/deleteRecipientsDetail";
 
 const CardGrid = ({ id, isDeleteMode = false }) => {
+  const [selectedCard, setSelectedCard] = useState(null);
+
+  const handleCardClick = (cardData) => {
+    setSelectedCard(cardData);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedCard(null);
+  };
+
   const { data: cardData, isLoading } = useService(() =>
     getRecipientsDetailData(id)
   );
@@ -31,12 +43,25 @@ const CardGrid = ({ id, isDeleteMode = false }) => {
           key={index}
           img={data.profileImageURL}
           user={data.sender}
+          relationship={data.relationship}
           content={data.content}
           date={data.createdAt}
           isDeleteMode={isDeleteMode}
           id={data.id}
+          onModalOpen={() => handleCardClick(data)}
         />
       ))}
+      {selectedCard && (
+        <Modal
+          isOpen={!!selectedCard}
+          onClose={handleCloseModal}
+          sender={selectedCard.sender}
+          profileImageURL={selectedCard.profileImageURL}
+          relationship={selectedCard.relationship}
+          content={selectedCard.content}
+          createdAt={selectedCard.createdAt}
+        />
+      )}
     </div>
   );
 };
