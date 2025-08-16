@@ -3,9 +3,12 @@ import { cn } from "../../../utils";
 import deleteMessage from "../../../service/ListDetails/deleteMessageData";
 
 // Delete Button
-const CardDelete = ({ id }) => {
+const CardDelete = ({ cardId }) => {
   // 메세지 삭제 함수
-  const deleteMessageHandler = () => deleteMessage(id);
+  const deleteMessageHandler = (e) => {
+    e.stopPropagation();
+    deleteMessage(cardId);
+  };
 
   return (
     <button

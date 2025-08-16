@@ -41,13 +41,8 @@ const CardGrid = ({ id, isDeleteMode = false }) => {
       {cardData?.recentMessages?.map((data, index) => (
         <Card
           key={index}
-          img={data.profileImageURL}
-          user={data.sender}
-          relationship={data.relationship}
-          content={data.content}
-          date={data.createdAt}
           isDeleteMode={isDeleteMode}
-          id={data.id}
+          data={data}
           onModalOpen={() => handleCardClick(data)}
         />
       ))}

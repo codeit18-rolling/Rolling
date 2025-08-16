@@ -8,6 +8,8 @@ const RELATIONSHIP_COLOR = {
 };
 
 const RelationshipBadge = ({ relationship }) => {
+  const color = RELATIONSHIP_COLOR[relationship];
+
   return (
     <div
       className={cn(
@@ -15,9 +17,7 @@ const RelationshipBadge = ({ relationship }) => {
         RELATIONSHIP_COLOR[relationship]
       )}
     >
-      <span className="font-normal text-14 leading-5 tracking-[-0.05em]">
-        {relationship}
-      </span>
+      {relationship}
     </div>
   );
 };

@@ -4,16 +4,7 @@ import { ERROR_MESSAGE } from "../../features/ListDetail/constants/ERROR_MESSAGE
 import { dateFunc } from "../../utils/dateFunc";
 
 // Card Component
-const Card = ({
-  img,
-  user,
-  relationship,
-  content,
-  date,
-  isDeleteMode = false,
-  id,
-  onModalOpen,
-}) => {
+const Card = ({ data, isDeleteMode = false, onModalOpen }) => {
   return (
     <div
       className={cn(
@@ -25,23 +16,19 @@ const Card = ({
       onClick={onModalOpen}
     >
       {/* User Meta */}
-      <CardHeader
-        img={img}
-        user={user}
-        relationship={relationship}
-        isDeleteMode={isDeleteMode}
-        id={id}
-      />
+      <CardHeader data={data} isDeleteMode={isDeleteMode} />
 
       {/* Divider */}
       <hr className="border-gray-200" />
 
       {/* Content */}
-      <p className="flex-1 overflow-y-auto my-4">{content || ERROR_MESSAGE}</p>
+      <p className="flex-1 overflow-y-auto my-4">
+        {data?.content || ERROR_MESSAGE}
+      </p>
 
       {/* Date */}
       <span className="font-normal text-12 leading-[18px] tracking-[-0.05em] text-gray-400">
-        {dateFunc(date) || ERROR_MESSAGE}
+        {dateFunc(data?.createdAt) || ERROR_MESSAGE}
       </span>
     </div>
   );

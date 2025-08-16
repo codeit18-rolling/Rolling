@@ -2,12 +2,12 @@ import defaultImage from "../../../assets/empty/img_null.png";
 import { cn } from "../../../utils";
 import RelationshipBadge from "../../Badge/BadgeRelationship";
 
-const CardMeta = ({ img, user, relationship }) => {
+const CardMeta = ({ data }) => {
   return (
     <div className="flex items-center justify-start gap-[14px]">
       {/* User Image */}
       <img
-        src={img || defaultImage}
+        src={data?.profileImageURL || defaultImage}
         width={56}
         height={56}
         alt="유저 이미지"
@@ -26,11 +26,11 @@ const CardMeta = ({ img, user, relationship }) => {
         )}
       >
         <p className="font-normal text-black">
-          From. <span className="font-bold ">{user || "코드잇"}</span>
+          From. <span className="font-bold ">{data?.sender || "코드잇"}</span>
         </p>
 
         {/* Badge Component */}
-        <RelationshipBadge relationship={relationship} />
+        <RelationshipBadge relationship={data?.relationship} />
       </div>
     </div>
   );
