@@ -10,7 +10,8 @@ import {
 } from "./MockData";
 import DropdownEmoji from "./components/Dropdown/DropdownEmoji";
 import TextField from "./features/TextField/TextField";
-
+import ModalTestButton from "./components/Modal/ModalTestButton";
+import ToastTestButton from "./components/Toast/ToastTestButton";
 import Input from "./components/Input/Input";
 import { DropdownAddEmoji } from "./components/Dropdown/DropdownAddEmoji";
 import Writers from "./components/Writers/Writers";
@@ -111,13 +112,7 @@ function App() {
             boxClassName="tablet:w-[calc((100%-(1rem*2))/3)]"
           />
         </div>
-
-        {/* CardList Components */}
-        {/* <div className="grid grid-cols-3 gap-[24px]">
-          {CardListMockData.map((item) => (
-            <CardList key={item.id} item={item} />
-          ))}
-        </div> */}
+          */}
       </div>
       <TextField />
     </>
