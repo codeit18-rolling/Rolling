@@ -14,7 +14,7 @@ function ListDetails() {
     useNavigateToEdit(id);
 
   return (
-    <div className="w-full min-h-[100vh] bg-beige-200">
+    <div className="w-full min-h-[calc(100vh-132px)] bg-beige-200">
       <Container className="h-full flex flex-col gap-[18px]">
         {/* Delete Button */}
         <Button

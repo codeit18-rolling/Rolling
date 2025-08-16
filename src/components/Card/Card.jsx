@@ -2,9 +2,21 @@ import CardHeader from "./CardElements/CardHeader";
 import { cn } from "../../utils";
 import { ERROR_MESSAGE } from "../../features/ListDetail/constants/ERROR_MESSAGE";
 import { dateFunc } from "../../utils/dateFunc";
+import { useState } from "react";
+import Modal from "../Modal/Modal";
 
 // Card Component
-const Card = ({ data, isDeleteMode = false, onModalOpen }) => {
+const Card = ({ data, isDeleteMode = false }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleCardClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div
       className={cn(
@@ -13,7 +25,7 @@ const Card = ({ data, isDeleteMode = false, onModalOpen }) => {
         "desktop:min-w-[384px] desktop:min-h-[280px]",
         "tablet:min-w-[352px] tablet:min-h-[284px]"
       )}
-      onClick={onModalOpen}
+      onClick={handleCardClick}
     >
       {/* User Meta */}
       <CardHeader data={data} isDeleteMode={isDeleteMode} />
@@ -30,6 +42,19 @@ const Card = ({ data, isDeleteMode = false, onModalOpen }) => {
       <span className="font-normal text-12 leading-[18px] tracking-[-0.05em] text-gray-400">
         {dateFunc(data?.createdAt) || ERROR_MESSAGE}
       </span>
+
+      {/* Modal */}
+      {isModalOpen && (
+        <Modal
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          sender={data?.sender}
+          profileImageURL={data?.profileImageURL}
+          relationship={data?.relationship}
+          content={data?.content}
+          createdAt={data?.createdAt}
+        />
+      )}
     </div>
   );
 };
