@@ -9,6 +9,7 @@ import Modal from "../Modal/Modal";
 const Card = ({ data, isDeleteMode = false }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  // TODO(지권): 리팩터링 필요, 모달 스크롤 방지 및 확인 버튼 기능 수정 필요
   const handleCardClick = () => {
     setIsModalOpen(true);
   };

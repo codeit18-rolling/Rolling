@@ -8,6 +8,7 @@ const CardDelete = ({ cardId }) => {
   const deleteMessageHandler = (e) => {
     e.stopPropagation();
     deleteMessage(cardId);
+    // TODO(지권): 삭제 실행 후 새로고침 해야 API가 다시 호출됨
   };
 
   return (

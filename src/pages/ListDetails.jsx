@@ -4,6 +4,8 @@ import CardGrid from "../features/ListDetail/CardGrid";
 import CardButton from "../features/ListDetail/CardButton";
 import useNavigateToEdit from "../features/ListDetail/hooks/useNavigateToEdit";
 
+// TODO(지권): 버튼이 모달이랑 같은 높이에 위치함 수정 필요
+
 // Card List Page
 function ListDetails() {
   const id = useParams().id;

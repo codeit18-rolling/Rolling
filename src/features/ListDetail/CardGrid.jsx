@@ -10,7 +10,7 @@ const CardGrid = ({ id, isDeleteMode = false }) => {
     getRecipientsDetailData(id)
   );
 
-  // console.log(cardData);
+  // console.log(cardDetailData);
 
   return (
     <>
