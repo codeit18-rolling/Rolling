@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import { cn } from "../../../utils";
 import Icon from "../../../components/Icon/Icon";
+import useDefaultValue from "../hooks/useDefaultValue";
+import useClickOutside from "../hooks/useClickOutside";
 
 const style = {
   boxSelect: "bg-white rounded-lg cursor-pointer border border-gray-300",
@@ -10,34 +12,12 @@ const style = {
 
 const CustomSelect = ({ options, defaultValue, onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState("");
+  const [selectedValue, setSelectedValue] = useState(
+    useDefaultValue(defaultValue, options)
+  );
   const selectRef = useRef(null);
 
-  // defaultValue 설정
-  useEffect(() => {
-    if (defaultValue) {
-      const defaultOption = options.find(
-        (option) => option.value === defaultValue
-      );
-      if (defaultOption) {
-        setSelectedValue(defaultOption.label);
-      }
-    }
-  }, []);
-
-  // 외부 클릭 시 드롭다운 닫기
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (selectRef.current && !selectRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+  useClickOutside(selectRef, () => setIsOpen(false));
 
   const handleSelect = (option) => {
     setSelectedValue(option.label);
