@@ -11,8 +11,7 @@ import { useToggle } from "../../hooks/useToggle";
  * @param {Object{}} reactionData API로 받아온 reactions 데이터
  * @param {boolean} dropdown 드롭다운 아이콘 표기 여부
  */
-const DropdownEmoji = ({ reactionData = {}, dropdown = true }) => {
-  const { topReactions = [] } = reactionData;
+const DropdownEmoji = ({ reactions = [] }) => {
   const { isOpen, onClickToggle } = useToggle();
   // API로 변경 예정
   const tempCount = 3;
@@ -21,7 +20,7 @@ const DropdownEmoji = ({ reactionData = {}, dropdown = true }) => {
     <>
       <div className={cn("flex items-center relative")}>
         <div className={cn("flex gap-x-2")}>
-          {topReactions.map((reaction) => {
+          {reactions.map((reaction) => {
             return (
               <BadgeEmoji
                 key={reaction.id}
