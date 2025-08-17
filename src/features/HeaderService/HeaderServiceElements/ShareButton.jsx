@@ -17,14 +17,11 @@ export const ShareButton = () => {
         btnSize={"btn-icon-36"}
         className={"tablet:w-[56px] tablet:h-[36px] mobile:h-[32px]"}
       >
-        <Icon
-          iconName={"share_24"}
-          className="bg-black tablet:block mobile:hidden"
-        />
+        <Icon iconName={"share_24"} className="bg-black hidden tablet:block" />
         <Icon
           iconName={"share_20"}
           iconSize="ic-20"
-          className="bg-black tablet:hidden mobile:block"
+          className="bg-black block tablet:hidden"
         />
       </Button>
       {isOpen && <ShareDropdownExpand />}

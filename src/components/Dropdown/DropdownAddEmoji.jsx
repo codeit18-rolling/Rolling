@@ -32,21 +32,20 @@ export const DropdownAddEmoji = ({ setEmojiList }) => {
           <div className="flex gap-x-1">
             <Icon
               iconName={"add_24"}
-              className={"bg-black tablet:block mobile:hidden"}
+              className={"bg-black hidden tablet:block"}
             />
             <Icon
               iconName={"add_24"}
               iconSize={"ic-20"}
-              className={"bg-black tablet:hidden mobile:block"}
+              className={"bg-black block tablet:hidden"}
             />
-            <p className="tablet:block mobile:hidden">추가</p>
+            <p className="hidden tablet:block">추가</p>
           </div>
         </Button>
         <div
           className={cn(
-            "absolute z-50",
-            "tablet:top-12 tablet:right-5",
-            "mobile:top-9 mobile:right-px"
+            "absolute z-50 -right-12 top-10",
+            "tablet:top-12 tablet:right-5"
           )}
           onClick={(e) => e.stopPropagation()}
         >

@@ -20,19 +20,13 @@ const DropdownEmoji = ({ reactionData = {}, dropdown = true }) => {
   return (
     <>
       <div className={cn("flex items-center relative")}>
-        <div
-          className={cn(
-            "flex justify-center gap-x-2 tablet:w-[246px] mobile:w-[215px]"
-          )}
-        >
+        <div className={cn("flex gap-x-2")}>
           {topReactions.map((reaction) => {
             return (
               <BadgeEmoji
                 key={reaction.id}
                 reactions={reaction}
-                style={
-                  "tablet:w-fit tablet:h-[36px] mobile:w-[55px] mobile:h-[28px]"
-                }
+                style={"w-[50px] h-[28px] tablet:w-fit tablet:h-[36px]"}
               />
             );
           })}

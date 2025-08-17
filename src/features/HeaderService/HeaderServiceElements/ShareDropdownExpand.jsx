@@ -9,10 +9,9 @@ const ShareDropdownExpand = () => {
     <>
       <div
         className={cn(
-          "absolute top-11 w-[140px] py-[10px] bg-white z-50",
+          "absolute top-11 w-[140px] py-[10px] bg-white z-50 right-px",
           "border border-gray-300 rounded-lg",
-          "drop-shadow-dropdownBorder",
-          "mobile:right-px"
+          "drop-shadow-dropdownBorder"
         )}
       >
         {SHARE_MENU.map((option) => {

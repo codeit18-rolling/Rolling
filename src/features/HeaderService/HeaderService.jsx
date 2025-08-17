@@ -16,46 +16,47 @@ const HeaderService = ({ recipients }) => {
     <>
       <div
         className={cn(
-          "flex justify-center bg-white z-50",
-          "tablet:items-center tablet:h-[68px]",
-          "mobile:h-[104px]"
+          "flex justify-center h-[104px] bg-white z-50",
+          "tablet:items-center tablet:h-[68px]"
         )}
       >
         <div
           className={cn(
-            "justify-between",
-            "desktop:w-[1248px] px-7",
-            "tablet:flex-row tablet:w-[816px] tablet:items-center tablet:h-[42px]",
-            "mobile:w-[408px] mobile:flex mobile:flex-col"
+            "justify-between flex flex-col",
+            "w-full mx-auto max-w-[1248px]",
+            "tablet:flex-row tablet:items-center tablet:h-[42px] tablet:px-[24px]"
           )}
         >
           <p
             className={cn(
-              "text-gray-800 font-bold leading-[42px] flex",
-              "tablet:w-[227px] tablet:border-none tablet:h-[42px] tablet:text-28",
-              "mobile:h-[52px] mobile:items-center mobile:border-b border-gray-200 mobile:text-18 mobile:px-5"
+              "h-[52px] flex items-center border-b border-gray-200",
+              "text-18 px-5 text-gray-800 font-bold leading-[42px]",
+              "tablet:w-[227px] tablet:border-none tablet:h-[42px] tablet:text-28"
             )}
           >
             To.{recipients.name}
           </p>
-          <div className="flex items-center justify-center">
-            <div className="justify-start pr-7 desktop:block mobile:hidden">
+          <div className={cn("flex items-center justify-center")}>
+            <div className="justify-start pr-7 hidden desktop:block mobile:hidden">
               <Writers item={recipients} />
             </div>
             <div
               className={cn(
-                "flex items-center h-[28px] border-r",
-                "desktop:block",
-                "mobile:hidden"
+                "hidden items-center h-[28px] border-r",
+                "desktop:block"
               )}
             ></div>
             <div
-              className={cn("flex items-center", "tablet:px-0", "mobile:px-5")}
+              className={cn(
+                "flex items-center px-5 w-full justify-between",
+                "tablet:px-0 tablet:justify-center tablet:w-fit",
+                ""
+              )}
             >
               <div className="desktop:pl-7">
                 <DropdownEmoji reactionData={recipients} />
               </div>
-              <div className="flex items-center tablet:h-[0px] mobile:h-[52px]">
+              <div className="flex items-center h-[52px] tablet:h-[0px]">
                 <DropdownAddEmoji />
                 <div
                   className={cn(

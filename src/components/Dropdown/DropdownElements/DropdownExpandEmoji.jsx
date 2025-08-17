@@ -4,7 +4,7 @@ import BadgeEmoji from "../../Badge/BadgeEmoji";
 
 const DropdownExpandEmoji = ({ reactionList }) => {
   return (
-    <div className={"absolute tablet:top-12 mobile:top-9 right-px z-50"}>
+    <div className={"absolute right-px tablet:top-12 mobile:top-9 z-50"}>
       <div
         className={cn(
           "desktop:w-[312px] bg-white",
