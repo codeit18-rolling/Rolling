@@ -1,12 +1,9 @@
-import { ALL_CARD_LIST } from "../MockData";
-import HeaderService from "../features/HeaderService/HeaderService";
-
+/**
+ * 메인 페이지 컴포넌트
+ * @author <hwitae>
+ */
 function Home() {
-  return (
-    <>
-      <HeaderService recipients={ALL_CARD_LIST.results[4]} />
-    </>
-  );
+  return <></>;
 }
 
 export default Home;
