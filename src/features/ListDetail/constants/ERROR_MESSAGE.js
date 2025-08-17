@@ -1,0 +1,1 @@
+export const ERROR_MESSAGE = "에러가 발생했습니다."
