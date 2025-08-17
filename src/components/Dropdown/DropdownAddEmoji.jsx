@@ -43,7 +43,11 @@ export const DropdownAddEmoji = ({ setEmojiList }) => {
           </div>
         </Button>
         <div
-          className="absolute right-5 tablet:top-12 mobile:top-9 z-50"
+          className={cn(
+            "absolute z-50",
+            "tablet:top-12 tablet:right-5",
+            "mobile:top-9 mobile:right-px"
+          )}
           onClick={(e) => e.stopPropagation()}
         >
           <EmojiPicker

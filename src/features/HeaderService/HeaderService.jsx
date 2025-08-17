@@ -1,10 +1,6 @@
 import { memo } from "react";
 import { cn } from "../../utils";
-import {
-  CardListMockData,
-  MESSAGES_DATA,
-  REACTIONS_DATA,
-} from "../../MockData";
+import { REACTIONS_DATA } from "../../MockData";
 import Writers from "../../components/Writers/Writers";
 import DropdownEmoji from "../../components/Dropdown/DropdownEmoji";
 import { DropdownAddEmoji } from "../../components/Dropdown/DropdownAddEmoji";
@@ -13,20 +9,26 @@ import { ShareButton } from "./HeaderServiceElements/ShareButton";
 const HeaderService = ({ recipients }) => {
   return (
     <>
-      <div className="flex justify-center items-center h-[68px] bg-white z-50">
+      <div
+        className={cn(
+          "flex justify-center bg-white z-50",
+          "tablet:items-center tablet:h-[68px]",
+          "mobile:h-[104px]"
+        )}
+      >
         <div
           className={cn(
-            "flex items-center justify-between h-[42px]",
-            "desktop:w-[1200px]",
-            "tablet:w-[768px]",
-            "mobile:w-[360px]"
+            "justify-between",
+            "desktop:w-[1248px] px-7",
+            "tablet:flex-row tablet:w-[816px] tablet:items-center tablet:h-[42px]",
+            "mobile:w-[360px] mobile:flex mobile:flex-col"
           )}
         >
           <p
             className={cn(
-              "w-[227px] text-gray-800 text-28 font-bold leading-[42px]",
-              "tablet:block",
-              "mobile:hidden"
+              "text-gray-800 font-bold leading-[42px] flex",
+              "tablet:w-[227px] tablet:border-none tablet:h-[42px] tablet:text-28",
+              "mobile:h-[52px] mobile:items-center mobile:border-b border-gray-200 mobile:text-18"
             )}
           >
             To.{recipients.name}
@@ -42,11 +44,17 @@ const HeaderService = ({ recipients }) => {
                 "mobile:hidden"
               )}
             ></div>
-            <div className="flex items-center tablet:px-0 mobile:px-[21px]">
+            <div
+              className={cn(
+                "flex items-center",
+                "tablet:px-0",
+                "mobile:px-[21px]"
+              )}
+            >
               <div className="desktop:pl-7">
                 <DropdownEmoji reactionData={REACTIONS_DATA} />
               </div>
-              <div className="flex items-center">
+              <div className="flex items-center tablet:h-[0px] mobile:h-[52px]">
                 <DropdownAddEmoji />
                 <div
                   className={cn(
