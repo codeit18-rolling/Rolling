@@ -6,7 +6,7 @@ const ModalContent = ({ children }) => {
     <div
       className={cn(
         styles.scroll,
-        "h-full w-full overflow-y-auto pr-4 text-18 font-normal text-[#5A5A5A] font-sans"
+        "h-full w-full overflow-y-auto pr-4 text-18 text-gray-550"
       )}
     >
       {children}
