@@ -1,14 +1,14 @@
 import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router";
-import PostInput from "./PostElements/PostInput";
-import PostOption from "./PostElements/PostOption";
+import PostInput from "../features/Post/PostElements/PostInput";
+import PostOption from "../features/Post/PostElements/PostOption";
 import Container from "../components/Container/Container";
 import Button from "../components/Button/Button";
 import FloatingButton from "../components/Button/FloatingButton";
 import useInputValidator from "../hooks/useInputValidator";
 import { validateName } from "../utils/validate";
-import getBackgroundImage from "../service/getBackgroundImages";
-import createRecipient from "../service/createRecipient";
+import getBackgroundImage from "../service/Post/getBackgroundImages";
+import createRecipient from "../service/Post/createRecipient";
 const DEFAULT_COLOR = "beige";
 const Post = () => {
   const [createPostData, setCreatePostData] = useState({
