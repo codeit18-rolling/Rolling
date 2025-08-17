@@ -1,7 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
 import { cn } from "../../../utils";
 import Icon from "../../../components/Icon/Icon";
-import { boxSelectClass, fontSelectClass } from "./selectStyle";
+
+const style = {
+  boxSelect: "bg-white rounded-lg cursor-pointer border border-gray-300",
+  fontSelect:
+    "font-['Pretendard'] font-normal text-base leading-[26px] tracking-[-0.01em]",
+};
 
 const CustomSelect = ({ options, defaultValue, onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,9 +52,9 @@ const CustomSelect = ({ options, defaultValue, onChange }) => {
       <div
         className={cn(
           "h-[50px] py-3 px-4 flex justify-between items-center text-gray-500",
-          boxSelectClass,
-          fontSelectClass,
-          isOpen ? "border-[2px] border-gray-500 text-gray-900" : ""
+          style.boxSelect,
+          style.fontSelect,
+          isOpen && "border-[2px] border-gray-500 text-gray-900"
         )}
         onClick={() => setIsOpen(!isOpen)}
       >
@@ -57,7 +62,7 @@ const CustomSelect = ({ options, defaultValue, onChange }) => {
         <div
           className={cn(
             "flex items-center justify-center transition-transform duration-200",
-            isOpen ? "rotate-180" : ""
+            isOpen && "rotate-180"
           )}
         >
           <Icon
@@ -72,7 +77,7 @@ const CustomSelect = ({ options, defaultValue, onChange }) => {
         <div
           className={cn(
             "absolute top-[60px] left-0 right-0 z-40 shadow-[0_2px_12px_rgb(0_0_0_/_8%)]",
-            boxSelectClass
+            style.boxSelect
           )}
         >
           {options.map((option, index) => (
@@ -80,7 +85,7 @@ const CustomSelect = ({ options, defaultValue, onChange }) => {
               key={index}
               className={cn(
                 "py-3 px-4 hover:bg-gray-100 text-gray-900",
-                fontSelectClass
+                style.fontSelect
               )}
               onClick={() => handleSelect(option)}
             >
