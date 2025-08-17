@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import icCompleted from "../../assets/icon/ic_completed.svg";
 import icClosed from "../../assets/icon/ic_close.svg";
+import { cn } from "../../utils";
 
 const Toast = ({
   isOpen,
@@ -19,19 +20,21 @@ const Toast = ({
 
   return (
     <div
-      className="fixed bg-black/80 text-white text-16 
-        flex items-center justify-between
-        px-[30px] py-[19px] rounded-lg
-        mobile:w-[320px] mobile:h-[64px] mobile:bottom-[88px]
-        tablet:w-[524px] tablet:h-[64px] tablet:bottom-[50px]
-        desktop:w-[524px] desktop:h-[64px] desktop:bottom-[50px]"
+      className={cn(
+        "fixed bg-black/80 text-16 text-white left-1/2 -translate-x-1/2",
+        "flex items-center justify-between",
+        "px-[30px] py-[19px] rounded-lg",
+        "w-[70vw] bottom-[88px]",
+        "tablet:w-[524px] tablet:bottom-[50px]",
+        "desktop:w-[524px] desktop:bottom-[50px]"
+      )}
     >
       <div className="flex items-center gap-[12px]">
-        <img src={icCompleted} alt="완료" />
+        <img src={icCompleted} alt="완료 아이콘" />
         <span className="text-[14px]">{message}</span>
       </div>
       <button onClick={onClose} className="flex items-center">
-        <img src={icClosed} alt="닫기" />
+        <img src={icClosed} alt="닫기 아이콘" />
       </button>
     </div>
   );
