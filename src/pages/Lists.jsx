@@ -10,7 +10,6 @@ function Lists() {
 
   return (
     <div className="w-full flex flex-col">
-      <Header />
       <div className="flex flex-col tablet:w-[1200] justify-start tablet:items-center ">
         <div className={`${LIST_DESIGN}`}>
           <span className={`${MSG_DESIGN}`}>인기 롤링 페이퍼 🔥</span>
