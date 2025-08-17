@@ -32,10 +32,10 @@ const Card = ({ data, isDeleteMode = false }) => {
       <CardHeader data={data} isDeleteMode={isDeleteMode} />
 
       {/* Divider */}
-      <hr className="border-gray-200" />
+      <hr className="border-gray-200 mt-[15px]" />
 
       {/* Content */}
-      <p className="flex-1 overflow-y-auto my-4">
+      <p className="flex-1 my-4 w-full overflow-hidden truncate font-normal text-18 leading-7 tracking-[-0.01em] text-gray-600">
         {data?.content || ERROR_MESSAGE}
       </p>
 

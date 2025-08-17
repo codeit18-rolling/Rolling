@@ -34,7 +34,8 @@ const OptionImage = ({ bgImages, onImageSelect, isLoading }) => {
       {showSkeleton && (
         <SkeletonUI
           count={imageUrlCount}
-          className="w-[calc(50%-1rem)] tablet:flex-nowrap absolute z-20"
+          className="tablet:flex-nowrap absolute z-20"
+          boxClassName="w-[calc((100%-(1rem))/2)]"
         />
       )}
       {bgImages.imageUrls.map((image, index) => (
