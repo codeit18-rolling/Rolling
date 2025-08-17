@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
-
-const usePostData = (defaultTeam, defaultColor) => {
+const DEFAULT_COLOR = "beige";
+const usePostData = (defaultTeam = "18-4", defaultColor = DEFAULT_COLOR) => {
   const [createPostData, setCreatePostData] = useState({
     team: defaultTeam,
     name: "",
@@ -15,7 +15,7 @@ const usePostData = (defaultTeam, defaultColor) => {
   const resetName = () => {
     setCreatePostData((prev) => ({ ...prev, name: "" }));
   };
-  
+
   const handleColorSelect = useCallback((color) => {
     setCreatePostData((prev) => ({
       ...prev,

@@ -8,7 +8,6 @@ import { validateName } from "../utils/validate";
 import usePostData from "../features/Post/hooks/usePostData";
 import usePostImages from "../features/Post/hooks/usePostImages";
 import usePostSubmit from "../features/Post/hooks/usePostSubmit";
-const DEFAULT_COLOR = "beige";
 const Post = () => {
   const {
     createPostData,
@@ -16,7 +15,7 @@ const Post = () => {
     handleColorSelect,
     handleImageSelect,
     resetName,
-  } = usePostData("18-4", DEFAULT_COLOR);
+  } = usePostData();
   const { images, isLoading } = usePostImages();
   const { errorMsg, handleChange, handleBlur, handleValidateSubmit } =
     useInputValidator(createPostData.name, validateName);
