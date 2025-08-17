@@ -4,7 +4,7 @@ import CardDelete from "./CardDelete";
 // Card Header Component
 const CardHeader = ({ data, isDeleteMode = false }) => {
   return (
-    <div className="w-full h-[100px] flex items-center justify-between">
+    <div className="w-full h-[56px] flex justify-between">
       {/* Card Meta */}
       <CardMeta data={data} />
 
