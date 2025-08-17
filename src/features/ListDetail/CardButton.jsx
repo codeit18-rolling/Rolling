@@ -1,6 +1,6 @@
 import useMediaQuery from "../../features/HeaderService/Hooks/useMediaQuery";
 import deleteRecipient from "../../service/ListDetails/deleteRecipientsDetail";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import ButtonGroup from "./ListDetailElements/ButtonGroup";
 import {
   EditButton,
