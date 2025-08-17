@@ -3,6 +3,7 @@ import { cn } from "../../../utils";
 import Icon from "../../../components/Icon/Icon";
 import useDefaultValue from "../hooks/useDefaultValue";
 import useClickOutside from "../hooks/useClickOutside";
+import SelectOptions from "./SelectOptions";
 
 const style = {
   boxSelect: "bg-white rounded-lg cursor-pointer border border-gray-300",
@@ -53,27 +54,12 @@ const CustomSelect = ({ options, defaultValue, onChange }) => {
         </div>
       </div>
 
-      {isOpen && (
-        <div
-          className={cn(
-            "absolute top-[60px] left-0 right-0 z-40 shadow-[0_2px_12px_rgb(0_0_0_/_8%)]",
-            style.boxSelect
-          )}
-        >
-          {options.map((option, index) => (
-            <div
-              key={index}
-              className={cn(
-                "py-3 px-4 hover:bg-gray-100 text-gray-900",
-                style.fontSelect
-              )}
-              onClick={() => handleSelect(option)}
-            >
-              {option.label}
-            </div>
-          ))}
-        </div>
-      )}
+      <SelectOptions
+        isOpen={isOpen}
+        options={options}
+        onSelect={handleSelect}
+        style={style}
+      />
     </div>
   );
 };
