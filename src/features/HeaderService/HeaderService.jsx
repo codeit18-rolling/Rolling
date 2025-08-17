@@ -6,6 +6,11 @@ import DropdownEmoji from "../../components/Dropdown/DropdownEmoji";
 import { DropdownAddEmoji } from "../../components/Dropdown/DropdownAddEmoji";
 import { ShareButton } from "./HeaderServiceElements/ShareButton";
 
+/**
+ * 헤더 밑 부분에 표출되는 헤더 서비스 컴포넌트
+ * @author <hwitae>
+ * @param {Object{}} recipients
+ */
 const HeaderService = ({ recipients }) => {
   return (
     <>
@@ -21,14 +26,14 @@ const HeaderService = ({ recipients }) => {
             "justify-between",
             "desktop:w-[1248px] px-7",
             "tablet:flex-row tablet:w-[816px] tablet:items-center tablet:h-[42px]",
-            "mobile:w-[360px] mobile:flex mobile:flex-col"
+            "mobile:w-[408px] mobile:flex mobile:flex-col"
           )}
         >
           <p
             className={cn(
               "text-gray-800 font-bold leading-[42px] flex",
               "tablet:w-[227px] tablet:border-none tablet:h-[42px] tablet:text-28",
-              "mobile:h-[52px] mobile:items-center mobile:border-b border-gray-200 mobile:text-18"
+              "mobile:h-[52px] mobile:items-center mobile:border-b border-gray-200 mobile:text-18 mobile:px-5"
             )}
           >
             To.{recipients.name}
@@ -45,14 +50,10 @@ const HeaderService = ({ recipients }) => {
               )}
             ></div>
             <div
-              className={cn(
-                "flex items-center",
-                "tablet:px-0",
-                "mobile:px-[21px]"
-              )}
+              className={cn("flex items-center", "tablet:px-0", "mobile:px-5")}
             >
               <div className="desktop:pl-7">
-                <DropdownEmoji reactionData={REACTIONS_DATA} />
+                <DropdownEmoji reactionData={recipients} />
               </div>
               <div className="flex items-center tablet:h-[0px] mobile:h-[52px]">
                 <DropdownAddEmoji />
