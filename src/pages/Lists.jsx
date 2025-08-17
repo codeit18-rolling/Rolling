@@ -1,12 +1,12 @@
-import { Header } from "../components/Header/Header";
 import CardListSet from "../features/CardList/CardListSet";
 import Button from "../components/Button/Button";
 import { Link } from "react-router";
 
 function Lists() {
-  const LIST_DESIGN = "flex flex-col gap-4 mt-[50px]";
+  const LIST_DESIGN =
+    "flex flex-col gap-3 mobile:gap-4 mt-[40px] mobile:mt-[50px]";
   const MSG_DESIGN =
-    "text-24 font-bold text-black ml-5 mobile:ml-6 tablet:ml-5";
+    "text-20 mobile:text-24 font-bold text-black ml-5 mobile:ml-6 tablet:ml-5";
 
   return (
     <div className="w-full flex flex-col">

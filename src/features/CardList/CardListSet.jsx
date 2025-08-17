@@ -43,7 +43,7 @@ const CardListSet = ({ sortOrder }) => {
     <div className="flex justify-center relative">
       <div className={cn("hidden tablet:flex", design_for_PC)}>
         {/*PC가 아닐땐 모두 숨겨버리자! */}
-        {index > 0 && (
+        {index != 0 && (
           <div className={cn("left-0", btn_design)} aria-label="좌방향 버튼">
             <Button
               btnStyle="outlined"
@@ -62,7 +62,7 @@ const CardListSet = ({ sortOrder }) => {
             <CardList key={item.id} item={item} />
           ))}
         </div>
-        {index < totalIndex - 1 && (
+        {index != totalIndex - 1 && (
           <div className={cn("right-0", btn_design)} aria-label="우방향 버튼">
             <Button
               btnStyle="outlined"
