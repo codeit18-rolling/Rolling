@@ -35,10 +35,7 @@ const Card = ({ data, isDeleteMode = false }) => {
 
       {/* Content */}
       <p className="flex-1 my-4 w-full overflow-hidden truncate font-normal text-18 leading-7 tracking-[-0.01em] text-gray-600">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, expedita
-        perspiciatis ab laboriosam tempore possimus quisquam ut assumenda
-        accusamus animi porro a veniam, nemo libero quaerat? Eum iusto voluptate
-        aperiam illum accusantium neque magni. Maiores.
+        {data?.content || ERROR_MESSAGE}
       </p>
 
       {/* Date */}
