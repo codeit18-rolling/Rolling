@@ -13,7 +13,7 @@ import OptionButton from "./OptionButton";
  * @returns {JSX.Element} 컬러 옵션 버튼 요소
  */
 
-const OptionColor = ({ bgClass, isActive, onClick }) => {
+const OptionColorButton = ({ bgClass, isActive, onClick }) => {
   return (
     <OptionButton className={bgClass} onClick={onClick} isActive={isActive}>
       {isActive && <OptionCheck />}
@@ -21,4 +21,4 @@ const OptionColor = ({ bgClass, isActive, onClick }) => {
   );
 };
 
-export default OptionColor;
+export default OptionColorButton;
