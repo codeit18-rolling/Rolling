@@ -3,6 +3,7 @@ import { cn } from "../../../utils";
 import Icon from "../../../components/Icon/Icon";
 import useDefaultValue from "../hooks/useDefaultValue";
 import useClickOutside from "../hooks/useClickOutside";
+import useSelectHandler from "../hooks/useSelectHandler";
 import SelectOptions from "./SelectOptions";
 
 const style = {
@@ -20,13 +21,14 @@ const CustomSelect = ({ options, defaultValue, onChange }) => {
 
   useClickOutside(selectRef, () => setIsOpen(false));
 
-  const handleSelect = (option) => {
-    setSelectedValue(option.label);
-    setIsOpen(false);
-    if (onChange) {
-      onChange(option);
-    }
-  };
+  const handleSelect = useSelectHandler(setSelectedValue, setIsOpen, onChange);
+  // const handleSelect = (option) => {
+  //   setSelectedValue(option.label);
+  //   setIsOpen(false);
+  //   if (onChange) {
+  //     onChange(option);
+  //   }
+  // };
 
   return (
     <div className="relative w-full" ref={selectRef}>
