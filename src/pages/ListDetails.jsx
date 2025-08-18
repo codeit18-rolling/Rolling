@@ -21,7 +21,7 @@ function ListDetails() {
     getRecipientsDetailData(id)
   );
 
-  // console.log(cardDetailData);
+  console.log(cardDetailData);
 
   return (
     <>
@@ -30,9 +30,9 @@ function ListDetails() {
         className={cn(
           "w-full min-h-[calc(100vh-132px)]",
           cardDetailData?.backgroundImageURL
-            ? `bg-[url('${cardDetailData.backgroundImageURL}')] bg-cover bg-center`
+            ? `bg-[url('${cardDetailData?.backgroundImageURL}')] bg-cover bg-center`
             : cardDetailData?.backgroundColor &&
-                `bg-${cardDetailData.backgroundColor}-200`
+                `bg-${cardDetailData?.backgroundColor}-200`
         )}
       >
         <Container className="h-full flex flex-col gap-[18px]">

@@ -13,7 +13,7 @@ export const HeaderServiceContents = ({ recipients }) => {
   return (
     <div className={cn("flex items-center justify-center")}>
       <div className="justify-start pr-7 hidden desktop:block mobile:hidden">
-        <Writers item={recipients} />
+        <Writers data={recipients} />
       </div>
       <div
         className={cn("hidden items-center h-[28px] border-r", "desktop:block")}
@@ -24,7 +24,7 @@ export const HeaderServiceContents = ({ recipients }) => {
           "tablet:px-0 tablet:justify-center tablet:w-fit"
         )}
       >
-        <HeaderServiceActions topReactions={recipients.topReactions} />
+        <HeaderServiceActions topReactions={recipients?.topReactions} />
       </div>
     </div>
   );
