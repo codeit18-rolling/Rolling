@@ -1,9 +1,7 @@
 import { memo } from "react";
-import DropdownEmoji from "../../../components/Dropdown/DropdownEmoji";
 import Writers from "../../../components/Writers/Writers";
-import { DropdownAddEmoji } from "../../../components/Dropdown/DropdownAddEmoji";
-import { ShareButton } from "./ShareButton";
 import { cn } from "../../../utils";
+import HeaderServiceActions from "./HeaderServiceActions";
 
 /**
  * 작성자, 이모지, 이모지 추가, 공유 버튼을 모아둔 컴포넌트
@@ -26,22 +24,7 @@ export const HeaderServiceContents = ({ recipients }) => {
           "tablet:px-0 tablet:justify-center tablet:w-fit"
         )}
       >
-        <div className="desktop:pl-7">
-          <DropdownEmoji reactions={recipients.topReactions} />
-        </div>
-        <div className="flex items-center h-[52px] tablet:h-[0px]">
-          <DropdownAddEmoji />
-          <div
-            className={cn(
-              "flex items-center border-r h-[28px]",
-              "tablet:pl-[13px]",
-              "mobile:pl-[15px]"
-            )}
-          ></div>
-          <div className="tablet:pl-[13px] mobile:pl-[15px]">
-            <ShareButton />
-          </div>
-        </div>
+        <HeaderServiceActions topReactions={recipients.topReactions} />
       </div>
     </div>
   );

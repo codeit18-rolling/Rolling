@@ -11,7 +11,7 @@ import { useToggle } from "../../hooks/useToggle";
  * @param {Object{}} reactionData API로 받아온 reactions 데이터
  * @param {boolean} dropdown 드롭다운 아이콘 표기 여부
  */
-const DropdownEmoji = ({ reactions = [] }) => {
+const DropdownEmoji = ({ reactions = [], allReactions = [] }) => {
   const { isOpen, onClickToggle } = useToggle();
   // API로 변경 예정
   const tempCount = 3;
@@ -31,7 +31,7 @@ const DropdownEmoji = ({ reactions = [] }) => {
           })}
           <DropdownButton onClickOpen={onClickToggle} isOpen={isOpen} />
         </div>
-        {isOpen && tempCount > 3 && <DropdownExpandEmoji reactionList={[]} />}
+        {isOpen && tempCount > 3 && <DropdownExpandEmoji allReactions={[]} />}
       </div>
     </>
   );
