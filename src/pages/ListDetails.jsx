@@ -6,6 +6,7 @@ import useNavigateToEdit from "../features/ListDetail/hooks/useNavigateToEdit";
 import useService from "../hooks/fetcher/useService";
 import { getRecipientsDetailData } from "../service/ListDetails/getRecipientsDetailData";
 import { cn } from "../utils";
+import HeaderService from "../features/HeaderService/HeaderService";
 
 // Card List Page
 function ListDetails() {
@@ -23,33 +24,36 @@ function ListDetails() {
   // console.log(cardDetailData);
 
   return (
-    <div
-      className={cn(
-        "w-full min-h-[calc(100vh-132px)]",
-        cardDetailData?.backgroundImageURL
-          ? `bg-[url('${cardDetailData.backgroundImageURL}')] bg-cover bg-center`
-          : cardDetailData?.backgroundColor &&
-              `bg-${cardDetailData.backgroundColor}`
-      )}
-    >
-      <Container className="h-full flex flex-col gap-[18px]">
-        {/* Delete Button */}
-        <CardButton
-          isDeleteMode={isDeleteMode}
-          navigateToEdit={navigateToEdit}
-          navigateToBack={navigateToBack}
-          id={id}
-        />
+    <>
+      <HeaderService recipients={cardDetailData} />
+      <div
+        className={cn(
+          "w-full min-h-[calc(100vh-132px)]",
+          cardDetailData?.backgroundImageURL
+            ? `bg-[url('${cardDetailData.backgroundImageURL}')] bg-cover bg-center`
+            : cardDetailData?.backgroundColor &&
+                `bg-${cardDetailData.backgroundColor}-200`
+        )}
+      >
+        <Container className="h-full flex flex-col gap-[18px]">
+          {/* Delete Button */}
+          <CardButton
+            isDeleteMode={isDeleteMode}
+            navigateToEdit={navigateToEdit}
+            navigateToBack={navigateToBack}
+            id={id}
+          />
 
-        {/* Card Grid */}
-        <CardGrid
-          id={id}
-          data={cardDetailData}
-          isLoading={isLoading}
-          isDeleteMode={isDeleteMode}
-        />
-      </Container>
-    </div>
+          {/* Card Grid */}
+          <CardGrid
+            id={id}
+            data={cardDetailData}
+            isLoading={isLoading}
+            isDeleteMode={isDeleteMode}
+          />
+        </Container>
+      </div>
+    </>
   );
 }
 
