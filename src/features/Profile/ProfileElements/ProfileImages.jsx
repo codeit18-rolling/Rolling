@@ -1,11 +1,11 @@
 import { cn } from "../../../utils";
 
-export const ImageList = ({ text, imageList }) => {
+export const ImageList = ({ text, imageUrlLists }) => {
   return (
     <>
       <p className="text-gray-500 mb-1">{text}</p>
       <div className="flex gap-[5px]">
-        {imageList.map((url) => {
+        {imageUrlLists.map((url) => {
           const bgUrl = `bg-[url("` + url + `")]`;
           return (
             <button
