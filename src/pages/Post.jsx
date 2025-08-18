@@ -37,7 +37,7 @@ const Post = () => {
         isLoading={isLoading}
         onColorSelect={handleColorSelect}
         onImageSelect={handleImageSelect}
-      ></PostOption>
+      />
       <FloatingButton>
         <Button
           className="w-full"
