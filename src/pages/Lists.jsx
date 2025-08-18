@@ -1,7 +1,6 @@
 import CardListSet from "../features/CardList/CardListSet";
 import Button from "../components/Button/Button";
 import { Link } from "react-router";
-import { Header } from "../components/Header/Header";
 
 function Lists() {
   const DESIGN = {
@@ -20,8 +19,7 @@ function Lists() {
   ];
 
   return (
-    <div className="w-full flex flex-col items-center">
-      <Header />
+    <div className="w-full flex flex-col">
       <div className="flex flex-col tablet:w-[1200px] justify-start tablet:items-center">
         {ListPageMap.map(({ title, sortOrder }) => (
           <div className={`${DESIGN.List}`} key={title}>
