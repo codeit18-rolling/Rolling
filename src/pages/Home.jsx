@@ -3,6 +3,7 @@ import { cn } from "../utils";
 import Button from "../components/Button/Button";
 import { HOME_DATA } from "../constants/HomeData";
 import HomeSection from "../components/Home/HomeSection";
+import { Link } from "react-router";
 
 /**
  * 메인 페이지 컴포넌트
@@ -26,16 +27,18 @@ function Home() {
           );
         })}
         <div className="mt-[37px] py-6 desktop:flex desktop:justify-center">
-          <Button
-            btnSize="none"
-            className={cn(
-              "w-full px-6 py-[14px] rounded-xl",
-              "text-18 leading-7 -tracking-[-0.01em] font-bold",
-              "desktop:w-[280px]"
-            )}
-          >
-            구경해보기
-          </Button>
+          <Link to="/list">
+            <Button
+              btnSize="none"
+              className={cn(
+                "w-full px-6 py-[14px] rounded-xl",
+                "text-18 leading-7 -tracking-[-0.01em] font-bold",
+                "desktop:w-[280px]"
+              )}
+            >
+              구경해보기
+            </Button>
+          </Link>
         </div>
       </Container>
     </>

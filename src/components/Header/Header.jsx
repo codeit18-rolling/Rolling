@@ -48,16 +48,18 @@ export const Header = () => {
               </Link>
               <div className={cn("text-center")}>
                 {(pathname === "/" || pathname === "/list") && (
-                  <Button
-                    btnSize="none"
-                    className={cn(
-                      "h-[40px] px-4 py-4 rounded-md",
-                      "font-bold text-14 leading-5 -tracking-[0.005em]",
-                      "tablet:text-16 tablet:leading-[26px] -tracking-[0.01em]"
-                    )}
-                  >
-                    롤링 페이퍼 만들기
-                  </Button>
+                  <Link to="/post">
+                    <Button
+                      btnSize="none"
+                      className={cn(
+                        "h-[40px] px-4 py-4 rounded-md",
+                        "font-bold text-14 leading-5 -tracking-[0.005em]",
+                        "tablet:text-16 tablet:leading-[26px] -tracking-[0.01em]"
+                      )}
+                    >
+                      롤링 페이퍼 만들기
+                    </Button>
+                  </Link>
                 )}
               </div>
             </div>
