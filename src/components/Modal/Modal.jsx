@@ -1,4 +1,5 @@
 import { createPortal } from "react-dom";
+import { useEffect } from "react";
 import { dateFunc } from "../../utils/dateFunc";
 import ModalHeader from "./ModalElements/ModalHeader";
 import ModalContent from "./ModalElements/ModalContent";
@@ -14,6 +15,15 @@ const Modal = ({
   content,
   createdAt,
 }) => {
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   const onBackdropMouseDown = (e) => {
@@ -25,11 +35,12 @@ const Modal = ({
   return createPortal(
     <div
       onMouseDown={onBackdropMouseDown}
-      className="fixed inset-0 z-99 flex bg-black/40 items-center justify-center"
+      className="fixed inset-0 z-50 flex bg-black/40 items-center justify-center"
     >
       <div
         role="dialog"
         aria-modal="true"
+        onClick={(e) => e.stopPropagation()}
         className={cn(
           "rounded-[20px] bg-white shadow-lg border border-gray-200 p-6",
           "flex flex-col overflow-hidden",
