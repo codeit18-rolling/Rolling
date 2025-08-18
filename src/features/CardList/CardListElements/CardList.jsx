@@ -13,8 +13,8 @@ const CardList = ({ item }) => {
       type="button"
       onClick={() => navigate(`/post/${item.id}`)}
       className={cn(
-        "mobile:w-[275px] mobile:h-[260px]",
-        "w-[208px] h-[232px] shrink-0 pt-[30px] pb-[20px] px-[24px] rounded-[16px] overflow-hidden border border-black/10 flex relative justify-start items-start flex-col bg-cover bg-center shadow-[0_2px_12px_rgba(0,0,0,0.08)]",
+        "w-[208px] h-[232px] shrink-0 pt-[30px] pb-[20px] pl-[24px] pr-[22px] rounded-[16px] overflow-hidden border border-black/10 flex relative justify-start items-start flex-col bg-cover bg-center shadow-[0_2px_12px_rgba(0,0,0,0.08)]",
+        "mobile:w-[275px] mobile:h-[260px] mobile:pr-[24px]",
         !item.backgroundImageURL && BG_COLOR[item.backgroundColor]
       )}
       style={

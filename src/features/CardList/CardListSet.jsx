@@ -37,7 +37,6 @@ const CardListSet = ({ sortOrder }) => {
   const totalIndex = Math.ceil(Lists.length / 4);
   const displayingCards = items.slice(index * 4, index * 4 + 4);
   const btn_design = "absolute z-10 top-[110px]";
-  const design_for_PC = "";
   return (
     <div className="flex justify-center relative">
       <div className="w-[1200px] h-[260px] p-0 hidden tablet:flex ">

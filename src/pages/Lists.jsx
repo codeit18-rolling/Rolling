@@ -27,7 +27,6 @@ function Lists() {
             <CardListSet sortOrder={sortOrder} />
           </div>
         ))}
-
         <Link
           to="/post"
           className="mt-[66px] mobile:mt-[156px] tablet:mt-16 text-center w-full px-5 mobile:px-6 tablet:px-0 tablet:w-[280px]"
