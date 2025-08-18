@@ -2,14 +2,14 @@ import CardMeta from "./CardMeta";
 import CardDelete from "./CardDelete";
 
 // Card Header Component
-const CardHeader = ({ img, user, isDeleteMode = false }) => {
+const CardHeader = ({ data, isDeleteMode = false }) => {
   return (
-    <div className="w-full h-[100px] flex items-center justify-between">
+    <div className="w-full h-[56px] flex justify-between">
       {/* Card Meta */}
-      <CardMeta img={img} user={user} />
+      <CardMeta data={data} />
 
       {/* Card Delete Button */}
-      {isDeleteMode && <CardDelete />}
+      {isDeleteMode && <CardDelete cardId={data.id} />}
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import RelationshipBadge from "../../Badge/BadgeRelationship";
+import defaultImage from "../../../assets/empty/img_null.png";
 
 const ModalHeader = ({
   profileImageURL,
@@ -11,9 +12,12 @@ const ModalHeader = ({
       <div className="flex items-center gap-3">
         {/* 프로일 이미지 */}
         <img
-          src={profileImageURL}
+          src={profileImageURL || defaultImage}
           alt={`${sender} 프로필`}
           className="size-10 rounded-full object-cover"
+          onError={(e) => {
+            e.target.src = defaultImage;
+          }}
         />
 
         <div className="flex flex-col">

@@ -23,6 +23,15 @@ const HeaderService = ({ recipients }) => {
             "tablet:flex-row tablet:items-center tablet:h-[42px] tablet:px-[24px]"
           )}
         >
+          <p
+            className={cn(
+              "h-[52px] flex items-center border-b border-gray-200",
+              "text-18 px-5 text-gray-800 font-bold leading-[42px]",
+              "tablet:w-[227px] tablet:border-none tablet:h-[42px] tablet:text-28"
+            )}
+          >
+            To.{recipients.name}
+          </p>
           <HeaderServiceContents recipients={recipients} />
         </div>
       </div>

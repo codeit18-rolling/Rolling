@@ -1,8 +1,8 @@
 import { useState } from "react";
 import ToggleButton, {
   ToggleButtonWrapper,
-} from "../../components/Button/ToggleButton";
-import Option from "../../features/Option/Option";
+} from "../../../components/Button/ToggleButton";
+import Option from "../../Option/Option";
 
 const PostOption = ({ bgImages, isLoading, onColorSelect, onImageSelect }) => {
   const [toggleOption, setToggleOption] = useState("color");
