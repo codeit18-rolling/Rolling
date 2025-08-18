@@ -1,6 +1,5 @@
 import { memo } from "react";
 import { cn } from "../../utils";
-import RecipientName from "./HeaderServiceElements/RecipientName";
 import HeaderServiceContents from "./HeaderServiceElements/HeaderServiceContents";
 
 /**
@@ -24,7 +23,6 @@ const HeaderService = ({ recipients }) => {
             "tablet:flex-row tablet:items-center tablet:h-[42px] tablet:px-[24px]"
           )}
         >
-          <RecipientName name={recipients.name} />
           <HeaderServiceContents recipients={recipients} />
         </div>
       </div>
