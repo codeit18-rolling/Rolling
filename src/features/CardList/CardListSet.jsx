@@ -1,8 +1,7 @@
 import CardList from "./CardListElements/CardList";
 import { useEffect, useState } from "react";
 import PureList from "./CardListElements/PureList";
-import leftbutton from "../../assets/icon/ic_arrow_left.svg";
-import rightbutton from "../../assets/icon/ic_arrow_right.svg";
+import Icon from "../../components/Icon/Icon";
 import { cn } from "../../utils";
 import Button from "../../components/Button/Button";
 
@@ -38,12 +37,12 @@ const CardListSet = ({ sortOrder }) => {
   const totalIndex = Math.ceil(Lists.length / 4);
   const displayingCards = items.slice(index * 4, index * 4 + 4);
   const btn_design = "absolute z-10 top-[110px]";
-  const design_for_PC = "w-[1200px] h-[260px] p-0";
+  const design_for_PC = "";
   return (
     <div className="flex justify-center relative">
-      <div className={cn("hidden tablet:flex", design_for_PC)}>
+      <div className="w-[1200px] h-[260px] p-0 hidden tablet:flex ">
         {/*PC가 아닐땐 모두 숨겨버리자! */}
-        {index != 0 && (
+        {index !== 0 && (
           <div className={cn("left-0", btn_design)} aria-label="좌방향 버튼">
             <Button
               btnStyle="outlined"
@@ -51,7 +50,11 @@ const CardListSet = ({ sortOrder }) => {
               onClick={() => setIndex(index - 1)}
             >
               <span>
-                <img src={leftbutton} />
+                <Icon
+                  iconName="arrow_left"
+                  iconSize="ic-16"
+                  className="bg-gray-900 btn-icon"
+                />
               </span>
             </Button>
           </div>
@@ -62,7 +65,7 @@ const CardListSet = ({ sortOrder }) => {
             <CardList key={item.id} item={item} />
           ))}
         </div>
-        {index != totalIndex - 1 && (
+        {index !== totalIndex - 1 && (
           <div className={cn("right-0", btn_design)} aria-label="우방향 버튼">
             <Button
               btnStyle="outlined"
@@ -70,7 +73,11 @@ const CardListSet = ({ sortOrder }) => {
               onClick={() => setIndex(index + 1)}
             >
               <span>
-                <img src={rightbutton} />
+                <Icon
+                  iconName="arrow_right"
+                  iconSize="ic-16"
+                  className="bg-gray-900 btn-icon"
+                />
               </span>
             </Button>
           </div>
