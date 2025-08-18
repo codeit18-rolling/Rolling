@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import OptionImageButton from "./OptionImageButton";
 import OptionWrapper from "./OptionWrapper";
+import OptionFile from "./OptionFile";
 import SkeletonUI from "../../../components/Skeleton/SkeletonUI";
 /**
  * 옵션 리스트 컴포넌트 - 이미지 버튼 리스트
@@ -21,7 +22,11 @@ const OptionImage = ({ bgImages, onImageSelect, isLoading }) => {
   const imageUrlCount = bgImages.imageUrls.length;
   const [selectedImage, setSelectedImage] = useState(firstImage);
   const [loadedCount, setLoadedCount] = useState(0); // 브라우저 이미지 로딩 완료 체크
+  const [uploadedImages, setUploadedImages] = useState([]); // 파일 업로드
 
+  const handleUpload = (newImages) => {
+    setUploadedImages((prev) => [...newImages, ...prev]);
+  };
   useEffect(() => {
     onImageSelect(selectedImage);
   }, [selectedImage, onImageSelect]);
@@ -30,14 +35,25 @@ const OptionImage = ({ bgImages, onImageSelect, isLoading }) => {
   const showSkeleton = isLoading || loadedCount < imageUrlCount;
 
   return (
-    <OptionWrapper className="relative">
+    <OptionWrapper className="relative sm:flex-wrap">
       {showSkeleton && (
         <SkeletonUI
-          count={imageUrlCount}
+          count={imageUrlCount + 1}
           className="tablet:flex-nowrap absolute z-20"
           boxClassName="w-[calc((100%-(1rem))/2)]"
         />
       )}
+      <OptionFile onUpload={handleUpload} />
+      {/* 업로드한 이미지 */}
+      {uploadedImages.map((image, index) => (
+        <OptionImageButton
+          key={`upload-${index}`}
+          image={image}
+          isActive={selectedImage === image}
+          onClick={() => setSelectedImage(image)}
+        />
+      ))}
+      {/* API에서 받은 이미지 */}
       {bgImages.imageUrls.map((image, index) => (
         <OptionImageButton
           key={index}

@@ -14,7 +14,7 @@ const OptionWrapper = ({ className = "", children, ...props }) => {
   return (
     <div
       className={cn(
-        "flex flex-row flex-wrap justify-between gap-4 w-full",
+        "flex flex-row flex-wrap gap-4 w-full",
         "sm:flex-nowrap",
         className
       )}

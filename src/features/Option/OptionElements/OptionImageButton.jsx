@@ -20,7 +20,7 @@ const whiteDimmedStyled =
 const OptionImageButton = ({ image, isActive, onClick, onLoad, ...props }) => {
   return (
     <OptionButton
-      className={cn("overflow-hidden", isActive && whiteDimmedStyled)}
+      className={cn("overflow-hidden tablet:w-[calc((100%-(1rem*4))/5)] sm:w-[calc((100%-(1rem*2))/3)]", isActive && whiteDimmedStyled)}
       onClick={onClick}
       isActive={isActive}
     >
