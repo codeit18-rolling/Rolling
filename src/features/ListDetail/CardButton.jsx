@@ -8,6 +8,7 @@ import {
   BackButton,
 } from "./ListDetailElements/ActionButton";
 
+// TODO(지권): 버튼 퍼블리싱 수정
 const CardButton = ({ isDeleteMode, navigateToEdit, navigateToBack, id }) => {
   const navigate = useNavigate();
   const isTablet = useMediaQuery("(max-width: 1199px)");

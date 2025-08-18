@@ -4,7 +4,7 @@ import deleteMessage from "../../../service/ListDetails/deleteMessageData";
 
 // Delete Button
 const CardDelete = ({ cardId }) => {
-  // 메세지 삭제 함수
+  // TODO(지권): 메세지 삭제 함수 수정
   const deleteMessageHandler = (e) => {
     e.stopPropagation();
     deleteMessage(cardId);
