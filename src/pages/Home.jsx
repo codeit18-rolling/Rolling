@@ -1,6 +1,8 @@
 import Container from "../components/Container/Container";
-import imgMainMobile from "../assets/img/img_main_01_2x.png";
 import { cn } from "../utils";
+import Button from "../components/Button/Button";
+import { HOME_DATA } from "../constants/HomeData";
+import HomeSection from "../components/Home/HomeSection";
 
 /**
  * 메인 페이지 컴포넌트
@@ -9,37 +11,31 @@ import { cn } from "../utils";
 function Home() {
   return (
     <>
-      <Container>
-        <div
-          className={cn(
-            "w-[320px] h-[352px] rounded-[20px] bg-surface overflow-x-hidden"
-          )}
-        >
-          <div className="pt-6 px-6">
-            <div
-              className={cn(
-                "bg-purple-600 w-[80px] px-3 py-1 rounded-[50px]",
-                " text-[14px] font-bold text-white leading-[20px] -tracking-[0.005em]"
-              )}
-            >
-              Point. 01
-            </div>
-            <div className="mt-4">
-              <p className="text-18 font-bold leading-[28px] -tracking-[0.01em]">
-                누구나 손쉽게, 온라인 롤링 페이퍼를 만들 수 있어요
-              </p>
-              <p className="text-[15px] font-normal leading-[22px] -tracking-[-0.01em] text-gray-500">
-                로그인 없이 자유롭게 만들어요
-              </p>
-            </div>
-            <div className="flex mt-[50px] justify-center">
-              <img
-                src={imgMainMobile}
-                alt="메인이미지1"
-                className="max-w-none w-[400px] object-cover"
-              />
-            </div>
-          </div>
+      <Container className="pb-0 tablet:pb-0">
+        {HOME_DATA.map((section) => {
+          return (
+            <HomeSection
+              key={section.point}
+              point={section.point}
+              title={section.title}
+              subtitle={section.subtitle}
+              img={section.img}
+              imgAlt={section.imgAlt}
+              desktopLayout={section.desktopLayout}
+            />
+          );
+        })}
+        <div className="mt-[37px] py-6 desktop:flex desktop:justify-center">
+          <Button
+            btnSize="none"
+            className={cn(
+              "w-full px-6 py-[14px] rounded-xl",
+              "text-18 leading-7 -tracking-[-0.01em] font-bold",
+              "desktop:w-[280px]"
+            )}
+          >
+            구경해보기
+          </Button>
         </div>
       </Container>
     </>
