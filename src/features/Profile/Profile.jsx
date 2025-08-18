@@ -15,22 +15,20 @@ const Profile = () => {
   };
 
   return (
-    <>
-      <div className="flex justify-between h-[95px] items-center">
-        <div
-          className="bg-gray-300 rounded-full w-[80px] h-[80px] bg-cover bg-center"
-          style={{ backgroundImage: `url("${selectedProfile}")` }}
-        ></div>
-        <div>
-          <ProfileOptions
-            text={SUB_TEXT}
-            imageUrlLists={imageUrlLists}
-            onClick={selectHandler}
-            selectedProfile={selectedProfile}
-          />
-        </div>
+    <div className="flex justify-between h-[95px] items-center">
+      <div
+        className="bg-gray-300 rounded-full w-[80px] h-[80px] bg-cover bg-center"
+        style={{ backgroundImage: `url("${selectedProfile}")` }}
+      ></div>
+      <div>
+        <ProfileOptions
+          text={SUB_TEXT}
+          imageUrlLists={imageUrlLists}
+          onClick={selectHandler}
+          selectedProfile={selectedProfile}
+        />
       </div>
-    </>
+    </div>
   );
 };
 
