@@ -25,6 +25,7 @@ const Container = ({
   return (
     <main
       className={cn(
+        "relative z-[1]",
         "w-full mx-auto max-w-[1248px] px-[20px] py-[40px]",
         "tablet:px-[24px] tablet:py-[50px]",
         "desktop:py-[60px]",
