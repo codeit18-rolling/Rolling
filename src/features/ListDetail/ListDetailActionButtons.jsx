@@ -1,6 +1,14 @@
 import { Link } from "react-router";
 import Icon from "../../components/Icon/Icon";
 
+const style = {
+  container: "group relative",
+  tooltip:
+    "absolute right-full mr-2 top-1/2 -translate-y-1/2 hidden group-hover:block whitespace-nowrap bg-black text-white text-sm px-2 py-1 rounded",
+  button:
+    "w-12 h-12 flex items-center justify-center rounded-full bg-white p-[10px] cursor-pointer",
+};
+
 const ListDetailActionButtons = ({
   isDeleteMode,
   navigateToEdit,
@@ -9,33 +17,31 @@ const ListDetailActionButtons = ({
   return (
     <div className="flex flex-col gap-4 absolute bottom-8 right-8">
       {!isDeleteMode && (
-        <div className="group relative">
-          <span className="absolute right-full mr-2 top-1/2 -translate-y-1/2 hidden group-hover:block whitespace-nowrap bg-black text-white text-sm px-2 py-1 rounded">
-            리스트 페이지로 돌아가기
-          </span>
+        <div className={style.container}>
+          <span className={style.tooltip}>리스트 페이지로 돌아가기</span>
           <Link
             to="/list"
             aria-label="리스트로 돌아가기"
-            className="w-12 h-12 flex items-center justify-center rounded-full bg-white p-[10px]"
+            className={style.button}
           >
             <Icon iconName={"back"} className="bg-black" />
           </Link>
         </div>
       )}
-      <div className="group relative">
-        <span className="absolute right-full mr-2 top-1/2 -translate-y-1/2 hidden group-hover:block whitespace-nowrap bg-black text-white text-sm px-2 py-1 rounded">
+      <div className={style.container}>
+        <span className={style.tooltip}>
           {!isDeleteMode ? "수정하기" : "돌아가기"}
         </span>
-        <div
+        <button
           onClick={!isDeleteMode ? navigateToEdit : navigateToBack}
           aria-label={!isDeleteMode ? "수정하기" : "돌아가기"}
-          className="w-12 h-12 flex items-center justify-center rounded-full bg-white p-[10px] cursor-pointer"
+          className={style.button}
         >
           <Icon
             iconName={!isDeleteMode ? "icListEdit" : "back"}
             className="bg-black"
           />
-        </div>
+        </button>
       </div>
     </div>
   );
