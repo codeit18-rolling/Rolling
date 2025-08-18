@@ -30,7 +30,7 @@ const HeaderService = ({ recipients }) => {
               "tablet:w-[227px] tablet:border-none tablet:h-[42px] tablet:text-28"
             )}
           >
-            To.{recipients.name}
+            To.{recipients?.name}
           </p>
           <HeaderServiceContents recipients={recipients} />
         </div>
