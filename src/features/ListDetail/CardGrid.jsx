@@ -1,17 +1,9 @@
 import AddCard from "../../components/Card/AddCard";
 import Card from "../../components/Card/Card";
-import useService from "../../hooks/fetcher/useService";
-import { getRecipientsDetailData } from "../../service/ListDetails/getRecipientsDetailData";
 import { cn } from "../../utils";
 import CardGridLoading from "./CardGridLoading";
 
-const CardGrid = ({ id, isDeleteMode = false }) => {
-  const { data: cardDetailData, isLoading } = useService(() =>
-    getRecipientsDetailData(id)
-  );
-
-  // console.log(cardDetailData);
-
+const CardGrid = ({ id, data, isLoading, isDeleteMode = false }) => {
   return (
     <>
       {isLoading && <CardGridLoading />}
@@ -23,7 +15,7 @@ const CardGrid = ({ id, isDeleteMode = false }) => {
         )}
       >
         {!isDeleteMode && <AddCard id={id} />}
-        {cardDetailData?.results?.map((data, index) => (
+        {data?.recentMessages?.map((data, index) => (
           <Card key={index} isDeleteMode={isDeleteMode} data={data} />
         ))}
       </div>
