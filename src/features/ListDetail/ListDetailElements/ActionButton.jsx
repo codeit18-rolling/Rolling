@@ -6,11 +6,9 @@ import Icon from "../../../components/Icon/Icon";
 export const EditButton = ({ navigateToEdit }) => {
   return (
     <Button
+      btnStyle="outlined"
       onClick={navigateToEdit}
-      className={cn(
-        "w-[56px] h-[56px] flex items-center justify-center rounded-full shadow-md border border-gray-200 bg-white hover:bg-purple-50 hover:shadow-lg transition-all duration-200",
-        "hover:bg-purple-50 hover:text-purple-600 focus:bg-purple-50 focus:text-purple-600 active:bg-purple-50 active:text-purple-600 active:border-none"
-      )}
+      className="w-[56px] h-[56px] flex items-center justify-center rounded-full shadow-md border border-gray-200 bg-white hover:bg-purple-50 hover:shadow-lg transition-all duration-200"
     >
       <Icon iconName={"icListEdit"} className="bg-purple-600" />
     </Button>
@@ -37,6 +35,7 @@ export const DeleteButton = ({ deleteButtonHandler, isTablet }) => {
 export const BackButton = ({ navigateToBack, isTablet }) => {
   return (
     <Button
+      btnStyle="outlined"
       className={cn(
         "w-[56px] h-[56px] rounded-[12px] font-normal text-[16px] leading-[26px] tracking-[-0.01em] !text-purple-600 bg-white border border-purple-600 transition-all duration-150 ease-in-out",
         "desktop:w-[92px] desktop:h-[39px] desktop:rounded-[6px]"

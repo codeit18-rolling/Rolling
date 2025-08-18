@@ -6,7 +6,7 @@ import { useState } from "react";
 import Modal from "../Modal/Modal";
 
 // Card Component
-const Card = ({ data, isDeleteMode = false }) => {
+const Card = ({ data, isDeleteMode = false, id }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (

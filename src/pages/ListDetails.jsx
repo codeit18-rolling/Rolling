@@ -22,14 +22,15 @@ function ListDetails() {
     getRecipientsDetailData(id)
   );
 
-  console.log(cardDetailData);
+  // console.log(cardDetailData);
 
   return (
     <>
       <HeaderService recipients={cardDetailData} />
       <div
         className={cn(
-          "w-full min-h-[calc(100vh-132px)]",
+          "w-full min-h-[calc(100vh-104px)]",
+          "desktop:min-h-[calc(100vh-133px)]",
           cardDetailData?.backgroundImageURL
             ? "bg-cover bg-center"
             : BG_COLORS[cardDetailData?.backgroundColor] || "bg-beige-200"
