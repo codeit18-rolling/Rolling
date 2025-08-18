@@ -1,11 +1,13 @@
 import CardList from "./CardListElements/CardList";
 import { useEffect, useState } from "react";
 import PureList from "./CardListElements/PureList";
+import Icon from "../../components/Icon/Icon";
 import { cn } from "../../utils";
+import Button from "../../components/Button/Button";
 
 /**
  *sortOder 변수에 의해 정렬된 카드리스트를 보여준다.
- * @author <junghoon>
+ * @author <Junghoon>
  * @param {object} Lists -> api에서 받아온 객체(현재는 목데이터)에서 카드 리스트 정보만 빼온 것
  * @param {object} Items -> lists를 sortOrder 프롭순으로 정렬한 객체
  * @returns {jsx} 각각 prop에 의해 정렬된 4개의 객체 어레이를 CardList 컴포넌트로 시각화한걸 반환
@@ -34,35 +36,58 @@ const CardListSet = ({ sortOrder }) => {
   }, [sortOrder]);
   const totalIndex = Math.ceil(Lists.length / 4);
   const displayingCards = items.slice(index * 4, index * 4 + 4);
-  const btn_design = "absolute z-10 top-[110px] ";
+  const btn_design = "absolute z-10 top-[110px]";
   return (
-    <div className="w-[1160px] h-[260px] p-0 flex flex-row justify-center relative">
-      {index > 0 && (
-        <button
-          type="button"
-          onClick={() => setIndex(index - 1)}
-          className={cn("left-[-20px]", btn_design)}
-          aria-label="좌방향 버튼"
-        >
-          <span>임시 좌방향 화살표</span>
-        </button>
-      )}
-      <div className="grid grid-cols-4 grid-rows-1 gap-5">
-        {/*카드 리스트 들어갈 곳 */}
-        {displayingCards.map((item) => (
+    <div className="flex justify-center relative">
+      <div className="w-[1200px] h-[260px] p-0 hidden tablet:flex ">
+        {/*PC가 아닐땐 모두 숨겨버리자! */}
+        {index !== 0 && (
+          <div className={cn("left-0", btn_design)} aria-label="좌방향 버튼">
+            <Button
+              btnStyle="outlined"
+              btnSize="btn-icon-40"
+              onClick={() => setIndex(index - 1)}
+            >
+              <span>
+                <Icon
+                  iconName="arrow_left"
+                  iconSize="ic-16"
+                  className="bg-gray-900 btn-icon"
+                />
+              </span>
+            </Button>
+          </div>
+        )}
+        <div className="grid grid-cols-4 grid-rows-1 gap-5 mx-5">
+          {/*카드 리스트 들어갈 곳 */}
+          {displayingCards.map((item) => (
+            <CardList key={item.id} item={item} />
+          ))}
+        </div>
+        {index !== totalIndex - 1 && (
+          <div className={cn("right-0", btn_design)} aria-label="우방향 버튼">
+            <Button
+              btnStyle="outlined"
+              btnSize="btn-icon-40"
+              onClick={() => setIndex(index + 1)}
+            >
+              <span>
+                <Icon
+                  iconName="arrow_right"
+                  iconSize="ic-16"
+                  className="bg-gray-900 btn-icon"
+                />
+              </span>
+            </Button>
+          </div>
+        )}
+      </div>
+      <div className="flex flex-row gap-3 overflow-x-auto scrollbar-hide tablet:hidden mobile:gap-5 pl-5 mobile:pl-6 ">
+        {/*모바일/태블릿용 CardList를 새로 뽑아봅시다. */}
+        {items.map((item) => (
           <CardList key={item.id} item={item} />
         ))}
       </div>
-      {index < totalIndex - 1 && (
-        <button
-          type="button"
-          onClick={() => setIndex(index + 1)}
-          className={cn("right-[-20px]", btn_design)}
-          aria-label="우방향 버튼"
-        >
-          <span>임시 우방향 화살표</span>
-        </button>
-      )}
     </div>
   );
 };
