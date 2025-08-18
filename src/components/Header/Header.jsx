@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router";
 import icRolling from "../../assets/icon/ic-rolling-paperplain.svg";
 import { cn } from "../../utils";
-import useMediaQuery from "../../features/header/hooks/useMediaQuery";
+import useMediaQuery from "../../features/HeaderService/Hooks/useMediaQuery";
 import Button from "../Button/Button";
 
 /**
@@ -23,13 +23,11 @@ export const Header = () => {
     <>
       <header>
         {!(isMobile && pathname !== "/" && pathname !== "/list") && (
-          <div className={cn("border-b border-gray-headerBorder")}>
+          <div className={cn("flex border-b border-gray-headerBorder")}>
             <div
               className={cn(
                 "h-[64px] flex items-center justify-between m-auto px-6",
-                "mobile:w-[360px]",
-                "tablet:w-[768px]",
-                "desktop:w-[1248px]"
+                "w-full mx-auto max-w-[1248px] px-[20px]"
               )}
             >
               <Link to="/">
@@ -50,14 +48,23 @@ export const Header = () => {
               </Link>
               <div className={cn("text-center")}>
                 {(pathname === "/" || pathname === "/list") && (
-                  <Button>롤링 페이퍼 만들기</Button>
+                  <Link to="/post">
+                    <Button
+                      btnStyle="secondary"
+                      btnSize="none"
+                      className={cn(
+                        "h-[40px] px-4 py-4 rounded-md",
+                        "font-semibold text-14 leading-5 -tracking-[0.005em]",
+                        "tablet:text-16 tablet:leading-[26px] -tracking-[0.01em]"
+                      )}
+                    >
+                      롤링 페이퍼 만들기
+                    </Button>
+                  </Link>
                 )}
               </div>
             </div>
           </div>
-        )}
-        {pathname !== "/" && pathname !== "/list" && (
-          <div>헤더 서비스 들어갈 자리</div>
         )}
       </header>
     </>

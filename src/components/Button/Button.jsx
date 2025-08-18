@@ -19,6 +19,7 @@ const getFocusShadowClass = (btnStyle, btnSize) => {
  * @param {string} [props.btnSize="btn-56"] - 버튼 크기 (BTN_SIZES 객체의 key)
  * @param {string} [props.className=""] - 추가로 적용할 CSS 클래스명
  * @param {React.ReactNode} props.children - 버튼 내부에 렌더링할 요소
+ * @param {Function} props.onClick - 버튼 클릭 이벤트 핸들러
  * @param {...Object} props - 기타 button 엘리먼트에 전달할 속성
  * @returns {JSX.Element} 버튼 요소
  *
@@ -31,6 +32,7 @@ const Button = ({
   btnSize = "btn-56",
   className = "",
   children,
+  onClick,
   ...props
 }) => {
   const sizeClass = BTN_SIZES[btnSize] || "";
@@ -39,13 +41,8 @@ const Button = ({
   return (
     <button
       type={type}
-      className={cn(
-        "btn inline-flex justify-center items-center",
-        sizeClass,
-        styleClass,
-        focusShadowClass,
-        className
-      )}
+      className={`btn inline-flex justify-center items-center ${sizeClass} ${styleClass} ${focusShadowClass} ${className}`}
+      onClick={onClick}
       {...props}
     >
       {children}

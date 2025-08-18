@@ -1,8 +1,8 @@
 export const BTN_SIZES = {
-  "btn-28": "py-0.5 px-4 text-14 font-normal rounded-md",
-  "btn-36": "py-1.5 px-4 text-16 font-medium rounded-md",
-  "btn-40": "py-2 px-4 text-16 font-normal rounded-md",
-  "btn-56": "py-3.5 px-4 text-18 font-bold rounded-xl",
+  "btn-28": "h-7 px-4 text-14 font-normal rounded-md",
+  "btn-36": "h-9 px-4 text-16 font-medium rounded-md",
+  "btn-40": "h-10 px-4 text-16 font-normal rounded-md",
+  "btn-56": "h-14 px-4 text-18 font-bold rounded-xl",
   "btn-icon-32": "w-8 h-8 rounded-md relative",
   "btn-icon-36": "w-9 h-9 rounded-md relative",
   "btn-icon-40": "w-10 h-10 rounded-full relative",

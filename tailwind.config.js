@@ -7,10 +7,13 @@ export default {
         gray: {
           100: "#F6F6F6",
           200: "#EEEEEE",
+          230: "#E3E3E3",
           300: "#CCCCCC",
           400: "#999999",
           500: "#555555",
+          550: "#5A5A5A",
           600: "#4A4A4A",
+          608: "#484848",
           700: "#3A3A3A",
           800: "#2B2B2B",
           900: "#181818",
@@ -57,8 +60,8 @@ export default {
       },
       fontSize: {
         12: ["0.75rem", { lineHeight: "1.5", letterSpacing: "-0.005em" }], // -0.5%
-        14: ["0.875rem", { lineHeight: "1.4", letterSpacing: "-0.005em" }],
-        15: ["0.9375rem", { lineHeight: "1.4", letterSpacing: "-0.01em" }], // -1%
+        14: ["0.875rem", { lineHeight: "1.43", letterSpacing: "-0.005em" }],
+        15: ["0.9375rem", { lineHeight: "1.43", letterSpacing: "-0.01em" }], // -1%
         16: ["1rem", { lineHeight: "1.6", letterSpacing: "-0.01em" }],
         18: ["1.125rem", { lineHeight: "1.5", letterSpacing: "-0.01em" }],
         20: ["1.25rem", { lineHeight: "1.5", letterSpacing: "-0.01em" }],
@@ -66,7 +69,7 @@ export default {
         28: ["1.75rem", { lineHeight: "1.5", letterSpacing: "-0.01em" }],
       },
       fontFamily: {
-        sans: ["Pretendard", "ui-sans-serif", "system-ui"],
+        sans: ["Pretendard", "Poppins", "ui-sans-serif", "system-ui"],
       },
       boxShadow: {
         "purple-600": "inset 0 0 0 1px #9935FF",
@@ -77,19 +80,27 @@ export default {
         "purple-900-2": "inset 0 0 0 2px #5603a7",
         "gray-300": "inset 0 0 0 1px #CCCCCC",
         "gray-500": "inset 0 0 0 1px #555555",
+        "gray-700": "inset 0 0 0 1px #3A3A3A",
         "gray-800": "inset 0 0 0 1px #2B2B2B",
       },
       dropShadow: {
         dropdownBorder: "0 2px 12px rgba(0, 0, 0, 0.08)",
       },
-      fontFamily: {
-        poppins: ["Poppins"],
+
+      keyframes: {
+        "skeleton-shimmer": {
+          "0%": { backgroundPosition: "-400% 0" },
+          "100%": { backgroundPosition: "400% 0" },
+        },
       },
-    },
-    screens: {
-      mobile: "360px",
-      tablet: "768px",
-      desktop: "1200px",
+      animation: {
+        "skeleton-shimmer": "skeleton-shimmer 15s linear infinite",
+      },
+      screens: {
+        mobile: "360px",
+        tablet: "768px",
+        desktop: "1200px",
+      },
     },
   },
   variants: {
