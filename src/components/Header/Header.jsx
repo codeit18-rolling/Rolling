@@ -23,12 +23,12 @@ export const Header = () => {
     <>
       <header>
         {!(isMobile && pathname !== "/" && pathname !== "/list") && (
-          <div className={cn("border-b border-gray-headerBorder")}>
+          <div className={cn("flex border-b border-gray-headerBorder")}>
             <div
               className={cn(
                 "h-[64px] flex items-center justify-between m-auto px-6",
-                "mobile:w-[360px]",
-                "tablet:w-[768px]",
+                "mobile:w-[408px]",
+                "tablet:w-[816px]",
                 "desktop:w-[1248px]"
               )}
             >
@@ -55,9 +55,6 @@ export const Header = () => {
               </div>
             </div>
           </div>
-        )}
-        {pathname !== "/" && pathname !== "/list" && (
-          <div>헤더 서비스 들어갈 자리</div>
         )}
       </header>
     </>
