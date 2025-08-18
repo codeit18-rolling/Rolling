@@ -7,6 +7,7 @@ import useService from "../hooks/fetcher/useService";
 import { getRecipientsDetailData } from "../service/ListDetails/getRecipientsDetailData";
 import { cn } from "../utils";
 import HeaderService from "../features/HeaderService/HeaderService";
+import { BG_COLORS } from "../constants/backgroundColor";
 
 // Card List Page
 function ListDetails() {
@@ -30,10 +31,14 @@ function ListDetails() {
         className={cn(
           "w-full min-h-[calc(100vh-132px)]",
           cardDetailData?.backgroundImageURL
-            ? `bg-[url('${cardDetailData?.backgroundImageURL}')] bg-cover bg-center`
-            : cardDetailData?.backgroundColor &&
-                `bg-${cardDetailData?.backgroundColor}-200`
+            ? "bg-cover bg-center"
+            : BG_COLORS[cardDetailData?.backgroundColor] || "bg-beige-200"
         )}
+        style={
+          cardDetailData?.backgroundImageURL && {
+            backgroundImage: `url(${cardDetailData.backgroundImageURL})`,
+          }
+        }
       >
         <Container className="h-full flex flex-col gap-[18px]">
           {/* Delete Button */}
