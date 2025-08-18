@@ -1,4 +1,5 @@
 import { SHARE_MENU } from "../../../constants/shareMenu";
+import { cn } from "../../../utils";
 
 /**
  * 공유 버튼 클릭시 표출되는 드롭다운
@@ -7,11 +8,11 @@ const ShareDropdownExpand = () => {
   return (
     <>
       <div
-        className={`absolute top-11 w-[140px] py-[10px] bg-white
-                    border border-gray-300 rounded-lg
-                    drop-shadow-dropdownBorder
-                    tablet:left-px
-                    mobile:right-px`}
+        className={cn(
+          "absolute top-11 w-[140px] py-[10px] bg-white z-50 right-px",
+          "border border-gray-300 rounded-lg",
+          "drop-shadow-dropdownBorder"
+        )}
       >
         {SHARE_MENU.map((option) => {
           return (

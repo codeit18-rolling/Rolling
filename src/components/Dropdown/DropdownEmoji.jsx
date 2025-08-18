@@ -1,8 +1,6 @@
 import { memo, useState } from "react";
 import { cn } from "../../utils";
 import BadgeEmoji from "../Badge/BadgeEmoji";
-import Icon from "../Icon/Icon";
-import Button from "../Button/Button";
 import DropdownButton from "./DropdownElements/DropdownButton";
 import DropdownExpandEmoji from "./DropdownElements/DropdownExpandEmoji";
 import { useToggle } from "../../hooks/useToggle";
@@ -13,39 +11,27 @@ import { useToggle } from "../../hooks/useToggle";
  * @param {Object{}} reactionData API로 받아온 reactions 데이터
  * @param {boolean} dropdown 드롭다운 아이콘 표기 여부
  */
-const DropdownEmoji = ({ reactionData = {}, dropdown = true }) => {
-  const { count = 0, results = [] } = reactionData;
+const DropdownEmoji = ({ reactions = [], allReactions = [] }) => {
   const { isOpen, onClickToggle } = useToggle();
-
-  /**
-   * 가장 많은 리액션을 받은 항목 최대 3개를 담는 배열
-   */
-  const preview = results.sort((a, b) => b.count - a.count).slice(0, 3);
+  // API로 변경 예정
+  const tempCount = 3;
 
   return (
     <>
       <div className={cn("flex items-center relative")}>
-        <div
-          className={cn(
-            "flex justify-center gap-x-2 tablet:w-[208px] mobile:w-[177px]"
-          )}
-        >
-          {preview.map((reaction) => {
+        <div className={cn("flex gap-x-2")}>
+          {reactions.map((reaction) => {
             return (
               <BadgeEmoji
                 key={reaction.id}
                 reactions={reaction}
-                style={
-                  "tablet:w-fit tablet:h-[36px] mobile:w-[55px] mobile:h-[28px]"
-                }
+                style={"w-[50px] h-[28px] tablet:w-fit tablet:h-[36px]"}
               />
             );
           })}
-        </div>
-        {dropdown && count > 3 && (
           <DropdownButton onClickOpen={onClickToggle} isOpen={isOpen} />
-        )}
-        {isOpen && <DropdownExpandEmoji reactionList={results} />}
+        </div>
+        {isOpen && tempCount > 3 && <DropdownExpandEmoji allReactions={[]} />}
       </div>
     </>
   );
