@@ -1,31 +1,61 @@
 import CardHeader from "./CardElements/CardHeader";
 import { cn } from "../../utils";
+import { ERROR_MESSAGE } from "../../features/ListDetail/constants/ERROR_MESSAGE";
+import { dateFunc } from "../../utils/dateFunc";
+import { useState } from "react";
+import Modal from "../Modal/Modal";
 
 // Card Component
-const Card = ({ img, user, content, date, isDeleteMode = false }) => {
-  const ErrMsg = "에러가 발생했습니다."; // 임시 에러 메시지
+const Card = ({ data, isDeleteMode = false }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // TODO(지권): 리팩터링 필요, 모달 스크롤 방지 및 확인 버튼 기능 수정 필요
+  const handleCardClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <div
       className={cn(
-        "flex flex-col w-full h-full min-w-[320px] min-h-[230px] rounded-[16px] p-6 bg-white shadow-lg overflow-hidden",
-        "desktop:min-w-[384px] desktop:min-h-[280px]",
-        "tablet:min-w-[352px] tablet:min-h-[284px]"
+        "flex flex-col w-full h-full min-w-[320px] min-h-[230px] rounded-[16px] p-6 bg-white shadow-lg overflow-hidden cursor-pointer",
+        "hover:bg-gray-100 transition-all duration-150 ease-in-out",
+        "desktop:min-w-[384px] desktop:h-[280px]",
+        "tablet:min-w-[352px] tablet:h-[284px]"
       )}
+      onClick={handleCardClick}
     >
       {/* User Meta */}
-      <CardHeader img={img} user={user} isDeleteMode={isDeleteMode} />
+      <CardHeader data={data} isDeleteMode={isDeleteMode} />
 
       {/* Divider */}
-      <hr className="border-gray-200" />
+      <hr className="border-gray-200 mt-[15px]" />
 
       {/* Content */}
-      <p className="flex-1 overflow-y-auto my-4">{content || ErrMsg}</p>
+      <p className="flex-1 my-4 w-full overflow-hidden truncate font-normal text-18 leading-7 tracking-[-0.01em] text-gray-600">
+        {data?.content || ERROR_MESSAGE}
+      </p>
 
       {/* Date */}
       <span className="font-normal text-12 leading-[18px] tracking-[-0.05em] text-gray-400">
-        {date || ErrMsg}
+        {dateFunc(data?.createdAt) || ERROR_MESSAGE}
       </span>
+
+      {/* Modal */}
+      {isModalOpen && (
+        <Modal
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          sender={data?.sender}
+          profileImageURL={data?.profileImageURL}
+          relationship={data?.relationship}
+          content={data?.content}
+          createdAt={data?.createdAt}
+        />
+      )}
     </div>
   );
 };
