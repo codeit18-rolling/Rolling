@@ -473,5 +473,66 @@ export const ALL_CARD_LIST = {
         },
       ],
     },
+    {
+      id: 32896,
+      name: "test1",
+      backgroundColor: "purple",
+      backgroundImageURL: null,
+      createdAt: "2025-08-12T06:13:53.980842Z",
+      messageCount: 4,
+      recentMessages: [
+        {
+          id: 25118,
+          recipientId: 32896,
+          sender: "string",
+          profileImageURL:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Lilac-breasted_roller_%28Coracias_caudatus%29_Kruger.jpg/250px-Lilac-breasted_roller_%28Coracias_caudatus%29_Kruger.jpg",
+          relationship: "친구",
+          content: "웨옹",
+          font: "Noto Sans",
+          createdAt: "2025-08-14T12:00:58.029104Z",
+        },
+        {
+          id: 25062,
+          recipientId: 32896,
+          sender: "나는새",
+          profileImageURL:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Lilac-breasted_roller_%28Coracias_caudatus%29_Kruger.jpg/250px-Lilac-breasted_roller_%28Coracias_caudatus%29_Kruger.jpg",
+          relationship: "친구",
+          content: "놀러왔습니다",
+          font: "Noto Sans",
+          createdAt: "2025-08-13T07:30:29.083982Z",
+        },
+        {
+          id: 25061,
+          recipientId: 32896,
+          sender: "그림같은사람",
+          profileImageURL:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Edouard_Manet_-_At_the_Caf%C3%A9_-_Google_Art_Project.jpg/250px-Edouard_Manet_-_At_the_Caf%C3%A9_-_Google_Art_Project.jpg",
+          relationship: "친구",
+          content: "안녕하세요",
+          font: "Noto Sans",
+          createdAt: "2025-08-13T07:29:28.036717Z",
+        },
+      ],
+      reactionCount: 15,
+      topReactions: [
+        {
+          id: 13350,
+          emoji: "😀",
+          count: 6,
+        },
+        {
+          id: 13351,
+          emoji: "😆",
+          count: 5,
+        },
+        {
+          id: 13352,
+          emoji: "😌",
+          count: 4,
+        },
+      ],
+    },
   ],
 };
