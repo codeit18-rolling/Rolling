@@ -3,6 +3,7 @@ import Button from "../Button/Button";
 import Icon from "../Icon/Icon";
 import EmojiPicker from "emoji-picker-react";
 import { useToggle } from "../../hooks/useToggle";
+import { cn } from "../../utils";
 
 /**
  * 이미지를 추가할 수 있는 드롭다운
@@ -21,16 +22,31 @@ export const DropdownAddEmoji = ({ setEmojiList }) => {
       <div className="relative" onClick={onClickToggle}>
         <Button
           btnStyle={"outlined"}
-          className={"w-[88px] h-[36px] text-base font-medium"}
-          btnSize={"btn-36"}
+          className={cn(
+            "text-base font-medium",
+            "tablet:w-[88px] tablet:h-[36px]",
+            "mobile:h-[32px]"
+          )}
+          btnSize={"btn-icon-36"}
         >
           <div className="flex gap-x-1">
-            <Icon iconName={"add_24"} className={"bg-black"} />
-            <p>추가</p>
+            <Icon
+              iconName={"add_24"}
+              className={"bg-black hidden tablet:block"}
+            />
+            <Icon
+              iconName={"add_24"}
+              iconSize={"ic-20"}
+              className={"bg-black block tablet:hidden"}
+            />
+            <p className="hidden tablet:block">추가</p>
           </div>
         </Button>
         <div
-          className="absolute right-5 tablet:top-12 mobile:top-9"
+          className={cn(
+            "absolute z-50 -right-12 top-10",
+            "tablet:top-12 tablet:right-5"
+          )}
           onClick={(e) => e.stopPropagation()}
         >
           <EmojiPicker
