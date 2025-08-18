@@ -3,14 +3,21 @@ import Container from "../components/Container/Container";
 import CardGrid from "../features/ListDetail/CardGrid";
 import CardButton from "../features/ListDetail/CardButton";
 import useNavigateToEdit from "../features/ListDetail/hooks/useNavigateToEdit";
-
-// TODO(지권): 버튼이 모달이랑 같은 높이에 위치함 수정 필요
+import useService from "../hooks/fetcher/useService";
+import { getRecipientsDetailData } from "../service/ListDetails/getRecipientsDetailData";
 
 // Card List Page
 function ListDetails() {
   const id = useParams().id;
+
+  // 삭제 커스텀 훅
   const { isDeleteMode, navigateToEdit, navigateToBack } =
     useNavigateToEdit(id);
+
+  // 카드 리스트 데이터
+  const { data: cardDetailData, isLoading } = useService(() =>
+    getRecipientsDetailData(id)
+  );
 
   return (
     <div className="w-full min-h-[calc(100vh-132px)] bg-beige-200">
@@ -24,7 +31,12 @@ function ListDetails() {
         />
 
         {/* Card Grid */}
-        <CardGrid id={id} isDeleteMode={isDeleteMode} />
+        <CardGrid
+          id={id}
+          data={cardDetailData}
+          isLoading={isLoading}
+          isDeleteMode={isDeleteMode}
+        />
       </Container>
     </div>
   );
