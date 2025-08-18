@@ -32,7 +32,7 @@ function Home() {
               btnSize="none"
               className={cn(
                 "w-full px-6 py-[14px] rounded-xl",
-                "text-18 leading-7 -tracking-[-0.01em] font-bold",
+                "text-18 leading-7 -tracking-[-0.01em] font-semibold",
                 "desktop:w-[280px]"
               )}
             >

@@ -50,10 +50,11 @@ export const Header = () => {
                 {(pathname === "/" || pathname === "/list") && (
                   <Link to="/post">
                     <Button
+                      btnStyle="secondary"
                       btnSize="none"
                       className={cn(
                         "h-[40px] px-4 py-4 rounded-md",
-                        "font-bold text-14 leading-5 -tracking-[0.005em]",
+                        "font-semibold text-14 leading-5 -tracking-[0.005em]",
                         "tablet:text-16 tablet:leading-[26px] -tracking-[0.01em]"
                       )}
                     >
