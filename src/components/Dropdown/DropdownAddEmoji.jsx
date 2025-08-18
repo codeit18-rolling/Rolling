@@ -50,7 +50,7 @@ export const DropdownAddEmoji = ({ setEmojiList }) => {
           onClick={(e) => e.stopPropagation()}
         >
           <EmojiPicker
-            className="drop-shadow-dropdownBorder"
+            className="drop-shadow-dropdownBorder z-50"
             open={isOpen}
             width={307}
             height={393}
