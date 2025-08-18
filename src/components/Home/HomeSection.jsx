@@ -1,12 +1,12 @@
 import { cn } from "../../utils";
 
 const HomeSection = ({
-  point,
-  title,
-  subtitle,
-  img,
-  imgAlt,
-  desktopLayout,
+  point = "",
+  title = "",
+  subtitle = "",
+  img = "",
+  imgAlt = "",
+  desktopLayout = "default",
 }) => {
   const isReversed = desktopLayout === "reverse";
 
