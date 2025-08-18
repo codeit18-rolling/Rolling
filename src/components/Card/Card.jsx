@@ -9,15 +9,6 @@ import Modal from "../Modal/Modal";
 const Card = ({ data, isDeleteMode = false }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // TODO(지권): 리팩터링 필요, 모달 스크롤 방지 및 확인 버튼 기능 수정 필요
-  const handleCardClick = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
-
   return (
     <div
       className={cn(
@@ -26,7 +17,7 @@ const Card = ({ data, isDeleteMode = false }) => {
         "desktop:min-w-[384px] desktop:h-[280px]",
         "tablet:min-w-[352px] tablet:h-[284px]"
       )}
-      onClick={handleCardClick}
+      onClick={() => setIsModalOpen(true)}
     >
       {/* User Meta */}
       <CardHeader data={data} isDeleteMode={isDeleteMode} />
@@ -48,7 +39,7 @@ const Card = ({ data, isDeleteMode = false }) => {
       {isModalOpen && (
         <Modal
           isOpen={isModalOpen}
-          onClose={handleCloseModal}
+          onClose={() => setIsModalOpen(false)}
           sender={data?.sender}
           profileImageURL={data?.profileImageURL}
           relationship={data?.relationship}
