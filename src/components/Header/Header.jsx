@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router";
 import icRolling from "../../assets/icon/ic-rolling-paperplain.svg";
 import { cn } from "../../utils";
-import useMediaQuery from "../../features/HeaderService/Hooks/useMediaQuery";
+import useMediaQuery from "../../features/HeaderService/hooks/useMediaQuery";
 import Button from "../Button/Button";
 
 /**
