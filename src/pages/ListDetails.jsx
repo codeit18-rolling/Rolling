@@ -42,7 +42,7 @@ function ListDetails() {
           }
         }
       >
-        <Container className="h-full flex flex-col gap-[18px]">
+        <Container className="h-full flex flex-col justify-end gap-[18px]">
           {/* Delete Button */}
           {isDeleteMode && <DeleteButton id={id} />}
 

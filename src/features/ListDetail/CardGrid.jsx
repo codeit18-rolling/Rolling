@@ -9,8 +9,8 @@ const CardGrid = ({ id, data, isLoading, isDeleteMode = false }) => {
       {isLoading && <CardGridLoading />}
       <div
         className={cn(
-          "grid gap-[16px] grid-cols-1 w-full justify-center",
-          "desktop:grid-cols-3 desktop:grid-row-2 desktop:gap-[24px]",
+          "grid gap-[16px] grid-cols-1 w-full justify-center order-2",
+          "desktop:grid-cols-3 desktop:grid-row-2 desktop:gap-[24px] desktop:order-2",
           "tablet:grid-cols-2 tablet:grid-row-2"
         )}
       >
