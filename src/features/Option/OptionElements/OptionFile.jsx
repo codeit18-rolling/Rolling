@@ -1,5 +1,4 @@
 import { useState, useCallback } from "react";
-import Icon from "../../../components/Icon/Icon";
 import { cn } from "../../../utils";
 import { validateFile } from "../../../utils/validate";
 import useCloudinaryUpload from "../../Post/hooks/useCloudinaryUpload";
@@ -11,15 +10,11 @@ const labelClasses = [
   "after:w-full after:h-full after:relative after:z-[1]",
   "focus:shadow-purple-500 focus:border-purple-500 hover:border-purple-500",
 ];
-const iconClasses = "bg-gray-400 group-hover:bg-purple-500";
 const LIMIT_SIZE = 15;
 
 const OptionFile = ({ onUpload }) => {
   const { uploadFiles, isUploading } = useCloudinaryUpload();
   const [isActive, setIsActive] = useState(false);
-  const handleDragStart = () => setIsActive(true);
-  const handleDragEnd = () => setIsActive(false);
-  const handleDragOver = (e) => e.preventDefault(); // 파일 드롭시 새창 이슈
   const handleDrag = {
     start: () => setIsActive(true),
     end: () => setIsActive(false),
