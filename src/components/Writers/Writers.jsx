@@ -45,7 +45,14 @@ const Writers = ({ data = {}, useCard = false, isBackgroundImage = false }) => {
           isBackgroundImage ? "text-gray-200" : "text-gray-700"
         )}
       >
-        <span className="font-bold">{data?.messageCount}</span>명이 작성했어요!
+        {data?.messageCount > 0 ? (
+          <>
+            <span className="font-bold">{data?.messageCount}</span>명이
+            작성했어요!
+          </>
+        ) : (
+          <>아직 작성한 사람이 없어요!</>
+        )}
       </p>
     </div>
   );

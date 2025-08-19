@@ -4,10 +4,20 @@ import BG_PATTERN from "../../../constants/backgroundPattern";
 import { useNavigate } from "react-router";
 import Writers from "../../../components/Writers/Writers";
 import BadgeEmoji from "../../../components/Badge/BadgeEmoji";
+import { useEffect, useState } from "react";
+import defaultBgImage from "../../../assets/empty/img_background_null.png";
 
 const CardList = ({ item }) => {
   const navigate = useNavigate();
+  const [bgURL, setBgURL] = useState(item.backgroundImageURL);
 
+  useEffect(() => {
+    if (item.backgroundImageURL) {
+      const img = new Image();
+      img.src = item.backgroundImageURL;
+      img.onerror = () => setBgURL(defaultBgImage); // 로드 실패 시 대체 이미지로 변경
+    }
+  }, [item.backgroundImageURL]);
   return (
     <button
       type="button"
@@ -19,7 +29,7 @@ const CardList = ({ item }) => {
       )}
       style={
         item.backgroundImageURL && {
-          backgroundImage: `url(${item.backgroundImageURL})`,
+          backgroundImage: `url(${bgURL})`,
         }
       }
     >
