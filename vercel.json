@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    { "source": "/Home", "destination": "/" },
+    { "source": "/list", "destination": "/Lists" },
+    { "source": "/post", "destination": "/Post" },
+    { "source": "/post/:id", "destination": "/ListDetail/:id" },
+    { "source": "/post/:id/message", "destination": "/Message" }
+  ]
+}
