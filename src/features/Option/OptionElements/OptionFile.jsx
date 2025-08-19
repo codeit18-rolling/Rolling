@@ -2,18 +2,23 @@ import { useState } from "react";
 import Icon from "../../../components/Icon/Icon";
 import { cn } from "../../../utils";
 import { validateFile } from "../../../utils/validate";
-const LIMIT_SIZE = 2;
+import useCloudinaryUpload from "../../Post/hooks/useCloudinaryUpload";
+
+const LIMIT_SIZE = 5;
 const OptionFile = ({ onUpload }) => {
+  const { uploadFiles, isUploading } = useCloudinaryUpload();
   const [isActive, setIsActive] = useState(false);
   const handleDragStart = () => setIsActive(true);
   const handleDragEnd = () => setIsActive(false);
   const handleDragOver = (e) => e.preventDefault(); // 파일 드롭시 새창 이슈
 
-  const getFileInfo = (files) => {
+  const getFileInfo = async (files) => {
     const validFiles = validateFile(files, LIMIT_SIZE);
-    const newPreviews = validFiles.map((file) => URL.createObjectURL(file));
-    onUpload(newPreviews);
+    const uploadedUrls = await uploadFiles(validFiles); // 멀티업로드 후 URL 배열 반환
+
+    onUpload(uploadedUrls);
   };
+
   const handleDrop = (e) => {
     e.preventDefault();
     setIsActive(false);
@@ -25,6 +30,7 @@ const OptionFile = ({ onUpload }) => {
     const files = Array.from(e.target.files);
     getFileInfo(files);
   };
+
   return (
     <label
       htmlFor="imageUpload"
@@ -56,7 +62,9 @@ const OptionFile = ({ onUpload }) => {
           isActive && "text-purple-500"
         )}
       >
-        {LIMIT_SIZE}MB 이하만 업로드 가능합니다
+        {isUploading
+          ? "업로드 중..."
+          : `${LIMIT_SIZE}MB 이하만 업로드 가능합니다`}
       </p>
       <input
         type="file"
