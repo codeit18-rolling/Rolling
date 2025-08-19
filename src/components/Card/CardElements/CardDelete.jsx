@@ -4,29 +4,15 @@ import deleteMessage from "../../../service/ListDetails/deleteMessageData";
 import { useQueryClient } from "@tanstack/react-query";
 
 // Delete Button
-const CardDelete = ({ cardId, id }) => {
+const CardDelete = ({ cardId }) => {
   const queryClient = useQueryClient();
 
   const deleteMessageHandler = async (e) => {
     e.stopPropagation();
-    try {
-      await deleteMessage(cardId); // 삭제 API 완료 대기
-      if (!id) {
-        // id 누락 시 전체 키 부분매칭으로 invalidate
-        queryClient.invalidateQueries({
-          queryKey: ["getRecipientsDetailData"],
-          exact: false,
-        });
-        return;
-      }
-      // 정확히 해당 상세 쿼리 무효화
-      await queryClient.invalidateQueries({
-        queryKey: ["getRecipientsDetailData"],
-        // exact: false,
-      });
-    } catch (error) {
-      console.error("삭제 실패:", error);
-    }
+    await deleteMessage(cardId); // 삭제 API 완료 대기
+    await queryClient.invalidateQueries({
+      queryKey: ["getRecipientsDetailData"],
+    });
   };
 
   return (

@@ -15,7 +15,7 @@ const CardGrid = ({ id, data, isLoading, isDeleteMode = false }) => {
         )}
       >
         {!isDeleteMode && <AddCard id={id} />}
-        {data?.recentMessages?.map((data, index) => (
+        {data?.results?.map((data, index) => (
           <Card key={index} isDeleteMode={isDeleteMode} data={data} />
         ))}
       </div>

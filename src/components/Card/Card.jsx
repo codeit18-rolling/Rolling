@@ -6,7 +6,7 @@ import { useState } from "react";
 import Modal from "../Modal/Modal";
 
 // Card Component
-const Card = ({ data, isDeleteMode = false, id }) => {
+const Card = ({ data, isDeleteMode = false }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -20,7 +20,7 @@ const Card = ({ data, isDeleteMode = false, id }) => {
       onClick={() => setIsModalOpen(true)}
     >
       {/* User Meta */}
-      <CardHeader data={data} isDeleteMode={isDeleteMode} id={id} />
+      <CardHeader data={data} isDeleteMode={isDeleteMode} />
 
       {/* Divider */}
       <hr className="border-gray-200 mt-[15px]" />
