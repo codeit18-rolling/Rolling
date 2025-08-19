@@ -1,10 +1,11 @@
 import CardList from "./CardListElements/CardList";
-import { useEffect, useState } from "react";
-import PureList from "./CardListElements/PureList";
+import { useEffect, useState, useCallback } from "react";
 import Icon from "../../components/Icon/Icon";
 import { cn } from "../../utils";
 import Button from "../../components/Button/Button";
-
+import getLists from "../../service/Lists/getLists";
+import useService from "../../hooks/fetcher/useService";
+import useList from "./hooks/useList";
 /**
  *sortOder 변수에 의해 정렬된 카드리스트를 보여준다.
  * @author <Junghoon>
@@ -14,29 +15,21 @@ import Button from "../../components/Button/Button";
  */
 
 const CardListSet = ({ sortOrder }) => {
-  const Lists = PureList();
-
   const [index, setIndex] = useState(0);
   const [items, setItems] = useState([]);
-  useEffect(() => {
-    let sortedLists;
-    if (sortOrder == "createdAt") {
-      sortedLists = [...Lists].sort(
-        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-      );
-    } else if (sortOrder == "reactionCount") {
-      sortedLists = [...Lists].sort(
-        (a, b) => b.reactionCount - a.reactionCount
-      );
-    } else {
-      throw new Error("정렬기준이 이상합니다.");
-    }
 
-    setItems(sortedLists);
-  }, [sortOrder]);
-  const totalIndex = Math.ceil(Lists.length / 4);
-  const displayingCards = items.slice(index * 4, index * 4 + 4);
+  const { isLoading, isError, data } = useList(index, sortOrder);
+  console.log(data);
+  useEffect(() => {
+    if (data?.results) {
+      setItems(data.results);
+    }
+  }, [data]);
+
+  const totalIndex = data ? Math.ceil(data.count / 4) : 1;
+  const displayingCards = items;
   const btn_design = "absolute z-10 top-[110px]";
+
   return (
     <div className="flex justify-center relative">
       <div className="w-[1200px] h-[260px] p-0 hidden tablet:flex ">
@@ -60,7 +53,7 @@ const CardListSet = ({ sortOrder }) => {
         )}
         <div className="grid grid-cols-4 grid-rows-1 gap-5 mx-5">
           {/*카드 리스트 들어갈 곳 */}
-          {displayingCards.map((item) => (
+          {items.map((item) => (
             <CardList key={item.id} item={item} />
           ))}
         </div>
@@ -82,8 +75,9 @@ const CardListSet = ({ sortOrder }) => {
           </div>
         )}
       </div>
+
       <div className="flex flex-row gap-3 overflow-x-auto scrollbar-hide tablet:hidden mobile:gap-5 pl-5 mobile:pl-6 ">
-        {/*모바일/태블릿용 CardList를 새로 뽑아봅시다. */}
+        {/*모바일/태블릿용 CardList를 새로 뽑아봅시다.*/}
         {items.map((item) => (
           <CardList key={item.id} item={item} />
         ))}
