@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router";
 import icRolling from "../../assets/icon/ic-rolling-paperplain.svg";
 import { cn } from "../../utils";
 import Button from "../Button/Button";
-import useMediaQuery from "../../features/HeaderService/hooks/useMediaQuery";
+import useMediaQuery from "../../features/HeaderService/hooksEdited/useMediaQuery";
 
 /**
  * 헤더 컴포넌트
