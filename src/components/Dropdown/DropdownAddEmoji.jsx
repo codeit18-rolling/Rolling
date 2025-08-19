@@ -1,11 +1,10 @@
-import { memo, useState } from "react";
+import { memo } from "react";
 import Button from "../Button/Button";
 import Icon from "../Icon/Icon";
 import EmojiPicker from "emoji-picker-react";
 import { useToggle } from "../../hooks/useToggle";
 import { cn } from "../../utils";
 import { postEmoji } from "../../service/Emoji/postEmoji";
-import { data } from "react-router";
 
 /**
  * 이미지를 추가할 수 있는 드롭다운

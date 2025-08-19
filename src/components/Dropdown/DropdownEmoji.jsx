@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo } from "react";
 import { cn } from "../../utils";
 import BadgeEmoji from "../Badge/BadgeEmoji";
 import DropdownButton from "./DropdownElements/DropdownButton";
@@ -30,7 +30,7 @@ const DropdownEmoji = ({ reactions = [], allReactions = {} }) => {
           {allReactions?.count > 3 ? (
             <DropdownButton onClickOpen={onClickToggle} isOpen={isOpen} />
           ) : (
-            <div className="w-[20px]"></div>
+            <div className="w-[20px] desktop:w-0"></div>
           )}
         </div>
         {isOpen && <DropdownExpandEmoji allEmojis={allReactions?.results} />}
