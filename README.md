@@ -7,6 +7,8 @@ VS Code 설치 필요 확장프로그램
 - EditorConfig from VS Code
 - Prettier - Code Formatter
 
+# vercel 배포
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
