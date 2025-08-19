@@ -24,6 +24,7 @@ const DeleteButton = ({ id }) => {
         btnStyle="primary"
         className={cn(
           "flex justify-end w-[calc(100vw-130px)] h-[44px] rounded-[8px] font-normal text-[16px] leading-[26px] tracking-[-0.01em] text-white bg-purple-600",
+          "tablet:w-[200px] tablet:h-[46px]",
           "desktop:w-[92px] desktop:h-[42px]"
         )}
       >
