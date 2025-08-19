@@ -1,9 +1,8 @@
 import { memo } from "react";
 import { cn } from "../../utils";
-import BadgeEmoji from "../Badge/BadgeEmoji";
-import DropdownButton from "./DropdownElements/DropdownButton";
 import DropdownExpandEmoji from "./DropdownElements/DropdownExpandEmoji";
 import { useToggle } from "../../hooks/useToggle";
+import ReactionBar from "./DropdownElements/ReactionBar";
 
 /**
  * 이모지 리액션을 모아둔 드롭다운 리스트
@@ -17,22 +16,12 @@ const DropdownEmoji = ({ reactions = [], allReactions = {} }) => {
   return (
     <>
       <div className={cn("flex items-center relative")}>
-        <div className={cn("flex gap-x-2")}>
-          {reactions.map((reaction) => {
-            return (
-              <BadgeEmoji
-                key={reaction.id}
-                reactions={reaction}
-                style={"w-[50px] h-[28px] tablet:w-fit tablet:h-[36px]"}
-              />
-            );
-          })}
-          {allReactions?.count > 3 ? (
-            <DropdownButton onClickOpen={onClickToggle} isOpen={isOpen} />
-          ) : (
-            <div className="w-[20px] desktop:w-0"></div>
-          )}
-        </div>
+        <ReactionBar
+          reactions={reactions}
+          allReactions={allReactions}
+          isOpen={isOpen}
+          onClickOpen={onClickToggle}
+        />
         {isOpen && <DropdownExpandEmoji allEmojis={allReactions?.results} />}
       </div>
     </>
