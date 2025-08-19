@@ -11,7 +11,7 @@ const OptionFileLoadContent = ({ isUploading, isActive, size }) => {
   return (
     <>
       {isUploading ? (
-        <div className="text-purple-500 ">
+        <div className={cn(textStyle, "text-purple-500")}>
           업로드 중 <span className={loadingSpinner}></span>
         </div>
       ) : (
