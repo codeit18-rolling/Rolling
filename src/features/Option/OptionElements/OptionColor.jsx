@@ -15,7 +15,7 @@ import OptionWrapper from "./OptionWrapper";
  * @example
  * <OptionColor />
  */
-const OptionColor = ({ onColorSelect }) => {
+const OptionColor = ({ onColorSelect, className }) => {
   const firstColor = Object.keys(BG_COLORS)[0]; // 기본 선택 컬러는 첫번째 고정
   const [selectedColor, setSelectedColor] = useState(firstColor);
 
@@ -23,7 +23,7 @@ const OptionColor = ({ onColorSelect }) => {
     onColorSelect(selectedColor);
   }, [selectedColor, onColorSelect]);
   return (
-    <OptionWrapper>
+    <OptionWrapper className={className}>
       {Object.entries(BG_COLORS).map(([color, bgClass]) => (
         <OptionColorButton
           key={color}

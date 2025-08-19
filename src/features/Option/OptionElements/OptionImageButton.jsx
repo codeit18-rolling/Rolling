@@ -20,15 +20,15 @@ const whiteDimmedStyled =
 const OptionImageButton = ({ image, isActive, onClick, onLoad, ...props }) => {
   return (
     <OptionButton
-      className={cn("overflow-hidden tablet:w-[calc((100%-(1rem*4))/5)] sm:w-[calc((100%-(1rem*2))/3)]", isActive && whiteDimmedStyled)}
+      className={cn("overflow-hidden sm:w-[calc((100%-(1rem*3))/4)]", isActive && whiteDimmedStyled)}
       onClick={onClick}
       isActive={isActive}
     >
       <img
         src={image}
         alt="배경 이미지 옵션"
-        width={200}
-        height={200}
+        width={300}
+        height={300}
         className="w-full h-full object-cover"
         loading="eager" // 페이지 로드와 동시에 이미지를 최우선으로 다운로드
         onError={(e) => {
