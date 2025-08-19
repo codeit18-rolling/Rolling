@@ -50,7 +50,7 @@ const DeleteModal = ({ isOpen, onClose, onConfirm }) => {
           />
           <div className="flex-1">
             <h2 className="text-[18px] font-semibold leading-7 tracking-[-0.01em] text-gray-900">
-              정말 롤링페이퍼를 삭제할까요?
+              메세지를 포함하여 롤링페이퍼 전체가 삭제됩니다. 진행하시겠습니까?
             </h2>
             <p className="mt-1 text-[14px] leading-6 text-gray-600">
               삭제하면 되돌릴 수 없습니다.
