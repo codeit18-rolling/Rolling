@@ -3,8 +3,6 @@ import { useEffect, useState, useCallback } from "react";
 import Icon from "../../components/Icon/Icon";
 import { cn } from "../../utils";
 import Button from "../../components/Button/Button";
-import getLists from "../../service/Lists/getLists";
-import useService from "../../hooks/fetcher/useService";
 import useList from "./hooks/useList";
 /**
  *sortOder 변수에 의해 정렬된 카드리스트를 보여준다.
@@ -19,15 +17,13 @@ const CardListSet = ({ sortOrder }) => {
   const [items, setItems] = useState([]);
 
   const { isLoading, isError, data } = useList(index, sortOrder);
-  console.log(data);
   useEffect(() => {
     if (data?.results) {
       setItems(data.results);
     }
   }, [data]);
 
-  const totalIndex = data ? Math.ceil(data.count / 4) : 1;
-  const displayingCards = items;
+  const totalIndex = data ? Math.ceil(data?.count / 4) : 1;
   const btn_design = "absolute z-10 top-[110px]";
 
   return (
