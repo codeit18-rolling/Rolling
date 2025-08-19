@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import defaultBgImage from "../../../assets/empty/img_background_null.png";
 
 const CardList = ({ item }) => {
+  console.log("CardList에서 찍힌 아이템", item);
   const navigate = useNavigate();
   const [bgURL, setBgURL] = useState(item.backgroundImageURL);
 
