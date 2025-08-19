@@ -1,4 +1,4 @@
-import useMediaQuery from "../HeaderService/hooksEdited/useMediaQuery";
+import useMediaQuery from "../HeaderService/hooks/useMediaQuery";
 import deleteRecipient from "../../service/ListDetails/deleteRecipientsDetail";
 import { Link, useNavigate } from "react-router";
 import ButtonGroup from "./ListDetailElements/ButtonGroup";
