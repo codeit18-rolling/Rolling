@@ -15,7 +15,7 @@ export const postEmoji = async (postId, data) => {
 
     if (!response.ok) {
       const errMsg = await response.text();
-      throw new Error(`이모지를 등록하지 못했습니다. ${errMsg}`);
+      throw new Error(`이모지를 남기지 못했습니다. ${errMsg}`);
     }
   } catch (error) {
     console.error(error);
