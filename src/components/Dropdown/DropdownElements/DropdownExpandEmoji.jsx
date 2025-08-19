@@ -2,7 +2,7 @@ import { memo } from "react";
 import { cn } from "../../../utils";
 import BadgeEmoji from "../../Badge/BadgeEmoji";
 
-const DropdownExpandEmoji = ({ reactionList: allReactions }) => {
+const DropdownExpandEmoji = ({ allEmojis }) => {
   return (
     <div className={"absolute right-px tablet:top-12 mobile:top-9 z-50"}>
       <div
@@ -15,11 +15,11 @@ const DropdownExpandEmoji = ({ reactionList: allReactions }) => {
         )}
       >
         <div className="flex flex-wrap gap-[10px]">
-          {allReactions.map((reaction) => {
+          {allEmojis.map((emojiData) => {
             return (
               <BadgeEmoji
-                key={reaction.id}
-                reactions={reaction}
+                key={emojiData.id}
+                reactions={emojiData}
                 style={
                   "tablet:w-fit tablet:h-[38px] mobile:w-[49px] mobile:h-[28px]"
                 }
