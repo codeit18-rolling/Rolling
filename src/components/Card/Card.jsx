@@ -20,7 +20,7 @@ const Card = ({ data, isDeleteMode = false, id }) => {
       onClick={() => setIsModalOpen(true)}
     >
       {/* User Meta */}
-      <CardHeader data={data} isDeleteMode={isDeleteMode} />
+      <CardHeader data={data} isDeleteMode={isDeleteMode} id={id} />
 
       {/* Divider */}
       <hr className="border-gray-200 mt-[15px]" />
