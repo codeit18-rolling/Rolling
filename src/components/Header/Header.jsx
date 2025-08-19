@@ -1,12 +1,14 @@
 import { Link, useLocation } from "react-router";
 import icRolling from "../../assets/icon/ic-rolling-paperplain.svg";
 import { cn } from "../../utils";
-import useMediaQuery from "../../features/HeaderService/Hooks/useMediaQuery";
 import Button from "../Button/Button";
+import useMediaQuery from "../../features/HeaderService/hooks/useMediaQuery";
 
 /**
  * 헤더 컴포넌트
  * @author <hwitae>
+ *
+ * vercel 배포를 위한 crack
  */
 export const Header = () => {
   /**
