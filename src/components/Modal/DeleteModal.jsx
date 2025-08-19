@@ -5,11 +5,6 @@ import Button from "../Button/Button";
 import useModalLockAndEsc from "./hooks/useModalLockAndESC";
 import useModalBackdrop from "./hooks/useModalBackdrop";
 
-const style = {
-  buttonBase:
-    "flex-1 h-9 px-4 rounded-lg text-[14px] leading-[44px] tablet:min-w-[120px]",
-};
-
 const DeleteModal = ({ isOpen, onClose, onConfirm }) => {
   useModalLockAndEsc(isOpen, onClose);
   const onBackdropMouseDown = useModalBackdrop(onClose);
@@ -20,13 +15,11 @@ const DeleteModal = ({ isOpen, onClose, onConfirm }) => {
     {
       btnStyle: "outlined",
       onClick: onClose,
-      className: cn(style.buttonBase, "border border-gray-100 text-gray-700"),
       children: "취소",
     },
     {
       btnStyle: "primary",
       onClick: onConfirm,
-      className: cn(style.buttonBase, "font-semibold text-white"),
       children: "삭제하기",
     },
   ];
@@ -73,7 +66,7 @@ const DeleteModal = ({ isOpen, onClose, onConfirm }) => {
               key={button.children}
               btnStyle={button.btnStyle}
               onClick={button.onClick}
-              className={button.className}
+              className="flex-1 h-9 text-[14px]"
             >
               {button.children}
             </Button>
