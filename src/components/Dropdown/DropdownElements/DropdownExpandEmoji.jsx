@@ -2,7 +2,7 @@ import { memo } from "react";
 import { cn } from "../../../utils";
 import BadgeEmoji from "../../Badge/BadgeEmoji";
 
-const DropdownExpandEmoji = ({ allEmojis }) => {
+const DropdownExpandEmoji = ({ allEmojis = [] }) => {
   return (
     <div className={"absolute right-px tablet:top-12 mobile:top-9 z-50"}>
       <div

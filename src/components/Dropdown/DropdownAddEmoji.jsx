@@ -11,7 +11,7 @@ import { data } from "react-router";
  * 이미지를 추가할 수 있는 드롭다운
  * @author <hwitae>
  */
-const DropdownAddEmoji = ({ postId, setIsUpdate }) => {
+const DropdownAddEmoji = ({ postId, setIsUpdated }) => {
   const { isOpen, onClickToggle } = useToggle();
 
   /**
@@ -27,6 +27,7 @@ const DropdownAddEmoji = ({ postId, setIsUpdate }) => {
     };
 
     await postEmoji(postId, reactionData);
+    setIsUpdated(true);
   };
 
   return (
