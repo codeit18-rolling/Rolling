@@ -22,7 +22,10 @@ const DeleteButton = ({ id }) => {
       <Button
         onClick={deleteButtonHandler}
         btnStyle="primary"
-        className="flex justify-end h-[39px] rounded-[8px] font-normal text-[16px] leading-[26px] tracking-[-0.01em] text-white bg-purple-600 desktop:w-[92px]"
+        className={cn(
+          "flex justify-end w-[calc(100vw-130px)] h-[44px] rounded-[8px] font-normal text-[16px] leading-[26px] tracking-[-0.01em] text-white bg-purple-600",
+          "desktop:w-[92px] desktop:h-[42px]"
+        )}
       >
         삭제하기
       </Button>
