@@ -1,5 +1,4 @@
 import { memo } from "react";
-import { cn } from "../../utils";
 import HeaderServiceContents from "./HeaderServiceElements/HeaderServiceContents";
 import { useGetHeaderService } from "./hooks/useGetHeaderService";
 import RecipientName from "./HeaderServiceElements/RecipientName";

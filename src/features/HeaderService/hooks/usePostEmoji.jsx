@@ -1,5 +1,8 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { postEmoji } from "../../../service/HeaderService/postEmoji";
+import { ALL_EMOJI_DATA_KEY } from "./useGetAllEmojiData";
+
+export const HEADER_SERVICE_KEY = "headerService";
 
 /**
  * 이모지를 남긴다.
@@ -13,10 +16,10 @@ export const usePostEmoji = () => {
     mutationFn: (reactionData) => postEmoji(reactionData),
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({
-        queryKey: ["allEmojiData", variables.id],
+        queryKey: [ALL_EMOJI_DATA_KEY, variables.id],
       });
       queryClient.invalidateQueries({
-        queryKey: ["headerService"],
+        queryKey: [HEADER_SERVICE_KEY],
       });
     },
     onError: (error) => console.error(error),
