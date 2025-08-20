@@ -7,6 +7,7 @@ import MessageSelect from "../features/Message/MessageElements/MessageSelect";
 import MessageEditor from "../features/Message/MessageElements/MessageEditor";
 import Button from "../components/Button/Button";
 import useMessageProfile from "../features/Message/hooks/useMessageProfile";
+import useMessageSubmit from "../features/Message/hooks/useMessageSubmit";
 
 const style = {
   font: "text-24 font-bold text-gray-900 mb-[10px]",
@@ -30,7 +31,7 @@ const Message = () => {
     profileImageURL: "",
     relationship: "지인",
     content: "",
-    font: "",
+    font: "Noto Sans",
   });
 
   useEffect(() => {
@@ -76,7 +77,7 @@ const Message = () => {
   const handleSelectChange = (selectedOption) => {
     setPostMessageData((prev) => ({
       ...prev,
-      relationship: selectedOption,
+      relationship: selectedOption.value,
     }));
   };
 
@@ -93,20 +94,24 @@ const Message = () => {
 
   const handleSelectionChange = useCallback((range, oldRange, source) => {
     if (range && editorRef.current) {
-      const format = editorRef.current.getFormat(range);
-      let fontNames = "";
+      const format = editorRef.current.getFormat();
+      let fontName = format.font;
 
-      const fontName = format.font || "Noto Sans";
-
-      if (typeof fontName !== "string") {
-        fontNames = [...new Set(fontName)].join(", ");
+      if (
+        !fontName ||
+        Array.isArray(fontName) ||
+        typeof fontName !== "string"
+      ) {
+        fontName = "Noto Sans";
       } else {
-        fontNames = fontName;
+        fontName = fontName.replace(/^['"]+|['"]+$/g, "");
+
+        if (!fontName) fontName = "Noto Sans";
       }
 
       setPostMessageData((prev) => ({
         ...prev,
-        font: fontNames,
+        font: "Noto Sans",
       }));
     }
   }, []);
@@ -130,6 +135,8 @@ const Message = () => {
       }
     }
   };
+
+  const { handleSubmit } = useMessageSubmit(postMessageData);
 
   return (
     <Container
@@ -169,7 +176,7 @@ const Message = () => {
       <Button
         className="w-full"
         disabled={isDisable}
-        onClick={() => handleSubmit(handleValidateSubmit)}
+        onClick={() => handleSubmit()}
       >
         생성하기
       </Button>
