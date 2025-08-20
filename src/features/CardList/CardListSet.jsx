@@ -1,10 +1,7 @@
-import CardList from "./CardListElements/CardList";
 import { useEffect, useState } from "react";
-import PureList from "./CardListElements/PureList";
-import Icon from "../../components/Icon/Icon";
-import { cn } from "../../utils";
-import Button from "../../components/Button/Button";
-
+import useGetList from "./hooks/useGetList";
+import DesktopGrid from "./CardListElements/desktopGrid";
+import MobileGrid from "./CardListElements/MobileGrid";
 /**
  *sortOder 변수에 의해 정렬된 카드리스트를 보여준다.
  * @author <Junghoon>
@@ -14,80 +11,27 @@ import Button from "../../components/Button/Button";
  */
 
 const CardListSet = ({ sortOrder }) => {
-  const Lists = PureList();
-
   const [index, setIndex] = useState(0);
   const [items, setItems] = useState([]);
-  useEffect(() => {
-    let sortedLists;
-    if (sortOrder == "createdAt") {
-      sortedLists = [...Lists].sort(
-        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-      );
-    } else if (sortOrder == "reactionCount") {
-      sortedLists = [...Lists].sort(
-        (a, b) => b.reactionCount - a.reactionCount
-      );
-    } else {
-      throw new Error("정렬기준이 이상합니다.");
-    }
 
-    setItems(sortedLists);
-  }, [sortOrder]);
-  const totalIndex = Math.ceil(Lists.length / 4);
-  const displayingCards = items.slice(index * 4, index * 4 + 4);
-  const btn_design = "absolute z-10 top-[110px]";
+  const { isLoading, isError, data } = useGetList(index, sortOrder);
+  useEffect(() => {
+    if (data?.results) {
+      setItems(data.results);
+    }
+  }, [data]);
+
+  const totalIndex = data ? Math.ceil(data?.count / 4) : 1;
   return (
     <div className="flex justify-center relative">
-      <div className="w-[1200px] h-[260px] p-0 hidden tablet:flex ">
-        {/*PC가 아닐땐 모두 숨겨버리자! */}
-        {index !== 0 && (
-          <div className={cn("left-0", btn_design)} aria-label="좌방향 버튼">
-            <Button
-              btnStyle="outlined"
-              btnSize="btn-icon-40"
-              onClick={() => setIndex(index - 1)}
-            >
-              <span>
-                <Icon
-                  iconName="arrow_left"
-                  iconSize="ic-16"
-                  className="bg-gray-900 btn-icon"
-                />
-              </span>
-            </Button>
-          </div>
-        )}
-        <div className="grid grid-cols-4 grid-rows-1 gap-5 mx-5">
-          {/*카드 리스트 들어갈 곳 */}
-          {displayingCards.map((item) => (
-            <CardList key={item.id} item={item} />
-          ))}
-        </div>
-        {index !== totalIndex - 1 && (
-          <div className={cn("right-0", btn_design)} aria-label="우방향 버튼">
-            <Button
-              btnStyle="outlined"
-              btnSize="btn-icon-40"
-              onClick={() => setIndex(index + 1)}
-            >
-              <span>
-                <Icon
-                  iconName="arrow_right"
-                  iconSize="ic-16"
-                  className="bg-gray-900 btn-icon"
-                />
-              </span>
-            </Button>
-          </div>
-        )}
-      </div>
-      <div className="flex flex-row gap-3 overflow-x-auto scrollbar-hide tablet:hidden mobile:gap-5 pl-5 mobile:pl-6 ">
-        {/*모바일/태블릿용 CardList를 새로 뽑아봅시다. */}
-        {items.map((item) => (
-          <CardList key={item.id} item={item} />
-        ))}
-      </div>
+      <DesktopGrid
+        items={items}
+        clickNext={() => setIndex(index + 1)}
+        clickLast={() => setIndex(index - 1)}
+        isNext={index !== totalIndex - 1}
+        isLast={index !== 0}
+      />
+      <MobileGrid items={items} />
     </div>
   );
 };
