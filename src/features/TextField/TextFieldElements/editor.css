@@ -23,6 +23,7 @@
   align-items: center;
   scroll-behavior: smooth;
   scrollbar-width: none;
+  overflow-x: scroll;
 }
 
 .ql-snow .ql-formats {
