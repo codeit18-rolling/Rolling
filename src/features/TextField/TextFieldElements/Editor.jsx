@@ -1,5 +1,5 @@
-import React, { forwardRef, useEffect, useRef } from "react";
-import { Quill } from "react-quill";
+import React, { forwardRef, useEffect, useLayoutEffect, useRef } from "react";
+import ReactQuill, { Quill } from "react-quill";
 import { toolbarOptions } from "./ToolBar";
 import "react-quill/dist/quill.snow.css";
 import "./editor.css";
@@ -9,12 +9,18 @@ import "./editor.css";
  * @author <sejin5>
  */
 
-const Editor = forwardRef(({ defaultValue }, ref) => {
+const Editor = forwardRef(({ defaultValue, onTextChange }, ref) => {
   const containerRef = useRef(null);
-  const defaultValueRef = useRef(defaultValue);
+  const onTextChangeRef = useRef(onTextChange);
+
+  useLayoutEffect(() => {
+    onTextChangeRef.current = onTextChange;
+  });
 
   useEffect(() => {
     const container = containerRef.current;
+    if (!container) return;
+
     const editorContainer = container.appendChild(
       container.ownerDocument.createElement("div")
     );
@@ -26,19 +32,42 @@ const Editor = forwardRef(({ defaultValue }, ref) => {
       placeholder: "메세지를 입력하세요",
     });
 
+    quill.format("font", "noto-sans");
+
     ref.current = quill;
 
-    if (defaultValueRef.current) {
-      quill.setContents(defaultValueRef.current);
+    if (defaultValue) {
+      quill.clipboard.dangerouslyPasteHTML(defaultValue);
     }
+
+    quill.on("text-change", () => {
+      const text = quill.getText().trim();
+      if (text === "") {
+        quill.format("font", "noto-sans");
+        quill.setSelection(0, 0);
+
+        const toolbar = document.querySelector(".ql-font");
+
+        if (toolbar) {
+          toolbar.childNodes[0].dataset.value = "noto-sans";
+        }
+      }
+
+      onTextChangeRef.current?.();
+    });
 
     return () => {
       ref.current = null;
       container.innerHTML = "";
     };
-  }, [ref]);
+  }, []);
 
-  return <div ref={containerRef} className="w-[720px] h-[260px] m-auto"></div>;
+  return (
+    <div
+      ref={containerRef}
+      className="w-full min-w-[320px] h-[260px] m-auto tablet:w-[720px]"
+    ></div>
+  );
 });
 
 Editor.displayName = "Editor";

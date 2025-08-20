@@ -1,10 +1,10 @@
 import { useParams } from "react-router";
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import Container from "../components/Container/Container";
 import MessageInput from "../features/Message/MessageElements/MessageInput";
 import MessageProfile from "../features/Message/MessageElements/MessageProfile";
 import MessageSelect from "../features/Message/MessageElements/MessageSelect";
-import TextField from "../features/TextField/TextField";
+import MessageEditor from "../features/Message/MessageElements/MessageEditor";
 import Button from "../components/Button/Button";
 
 const style = {
@@ -13,6 +13,7 @@ const style = {
 
 const Message = () => {
   const { id } = useParams();
+  const editorRef = useRef(null);
   const [errorMsg, setErrorMsg] = useState("");
   const [postMessageData, setPostMessageData] = useState({
     team: "18-4",
@@ -53,6 +54,17 @@ const Message = () => {
     }));
   };
 
+  const handleTextChange = useCallback(() => {
+    if (editorRef.current) {
+      const html = editorRef.current.root.innerHTML;
+
+      setPostMessageData((prev) => ({
+        ...prev,
+        content: html,
+      }));
+    }
+  }, []);
+
   return (
     <Container
       isInnerBox={true}
@@ -71,10 +83,12 @@ const Message = () => {
         value={postMessageData.relationship}
         onChange={handleSelectChange}
       />
-      <div>
-        <h2 className={style.font}>내용을 입력해 주세요</h2>
-        <TextField />
-      </div>
+      <MessageEditor
+        style={style}
+        ref={editorRef}
+        value={postMessageData.content}
+        onChange={handleTextChange}
+      />
       <Button
         className="w-full"
         onClick={() => handleSubmit(handleValidateSubmit)}

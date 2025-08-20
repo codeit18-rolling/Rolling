@@ -10,7 +10,7 @@
 .ql-editor {
   font-size: 16px !important;
   line-height: 1.5;
-  font-family: "Noto Sans", "pretendard", "Nanum Myeongjo", "Handletter";
+  font-family: "Noto Sans";
 }
 
 .ql-toolbar {
@@ -49,8 +49,8 @@
   padding: 8px;
 }
 
-.ql-snow .ql-picker.ql-font .ql-picker-label[data-value="Noto Sans"]::before,
-.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="Noto Sans"]::before {
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value="noto-sans"]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="noto-sans"]::before {
   content: "Noto Sans" !important;
   font-family: "Noto Sans";
 }

@@ -1,13 +1,16 @@
-import React, { useRef } from "react";
+import React, { forwardRef, useRef, useState } from "react";
 import Editor from "./TextFieldElements/Editor";
 
 /**
  * Editor 컴포넌트
  * @author <sejin5>
  */
-const TextField = () => {
-  const quillRef = useRef();
-  return <Editor ref={quillRef} />;
-};
+const TextField = forwardRef(({ value, onChange }, ref) => {
+  return (
+    <>
+      <Editor ref={ref} defaultValue={value} onTextChange={onChange} />
+    </>
+  );
+});
 
 export default TextField;
