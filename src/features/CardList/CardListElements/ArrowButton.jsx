@@ -9,8 +9,13 @@ const ArrowButton = ({ direction, onClick }) => {
   const ariaLabel = direction === "right" ? "다음페이지" : "이전페이지";
 
   return (
-    <div className={cn(btn_design, position)} aria-label={ariaLabel}>
-      <Button btnStyle="outlined" btnSize="btn-icon-40" onClick={onClick}>
+    <div className={cn(btn_design, position)}>
+      <Button
+        btnStyle="outlined"
+        btnSize="btn-icon-40"
+        onClick={onClick}
+        aria-label={ariaLabel}
+      >
         <Icon
           iconName={iconName}
           iconSize="ic-16"
