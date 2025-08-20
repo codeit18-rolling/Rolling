@@ -1,9 +1,9 @@
 import BackGround from "../assets/img/img_not_found_background.png";
 import Paper from "../assets/img/img_not_found_paper.png";
-import { Link, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import { cn } from "../utils";
-import Button from "../components/Button/Button";
 import Img404 from "../assets/img/img_not_found_404.png";
+import NotFoundButtons from "../components/NotFound/NotFoundButtons";
 
 function NotFound() {
   const navigate = useNavigate();
@@ -51,34 +51,7 @@ function NotFound() {
         >
           페이지를 찾을 수 없어요
         </div>
-
-        <div
-          className={cn(
-            "text-[3vw] py-4 flex flex-col gap-4 justify-center items-center",
-            "tablet:flex-row", //
-            "tablet:text-[21px]",
-            "desktop:text-[21px]"
-          )}
-        >
-          <Link to="/" className="w-full tablet:w-auto">
-            <Button
-              btnStyle="primary"
-              btnSize="btn-40"
-              className="w-full tablet:w-auto"
-            >
-              홈으로 돌아가기
-            </Button>
-          </Link>
-
-          <Button
-            btnStyle="secondary"
-            btnSize="btn-40"
-            className="w-full tablet:w-auto"
-            onClick={() => navigate(-1)}
-          >
-            뒤로가기
-          </Button>
-        </div>
+        <NotFoundButtons />
       </div>
     </div>
   );
