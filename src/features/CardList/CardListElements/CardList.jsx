@@ -24,8 +24,8 @@ const CardList = ({ item }) => {
       type="button"
       onClick={() => navigate(`/post/${item.id}`)}
       className={cn(
-        "w-[208px] h-[232px] shrink-0 pt-[30px] pb-[20px] pl-[24px] pr-[22px] rounded-[16px] overflow-hidden border border-black/10 flex relative justify-start items-start flex-col bg-cover bg-center shadow-[0_2px_12px_rgba(0,0,0,0.08)]",
-        "mobile:w-[275px] mobile:h-[260px] mobile:pr-[24px]",
+        "min-w-[208px] w-fit h-[232px] shrink-0 pt-[30px] pb-[20px] pl-[24px] pr-[22px] rounded-[16px] overflow-hidden border border-black/10 flex relative justify-start items-start flex-col bg-cover bg-center shadow-[0_2px_12px_rgba(0,0,0,0.08)]",
+        "mobile:min-w-[275px] mobile:h-[260px] mobile:pr-[24px]",
         !item.backgroundImageURL && BG_COLOR[item.backgroundColor]
       )}
       style={
@@ -44,7 +44,7 @@ const CardList = ({ item }) => {
       {/*배경 이미지 있을시 검은색 필터 적용 */}
 
       {/*container*/}
-      <div className="z-10 flex justify-start items-start">
+      <div className="z-10 flex flex-1 justify-start items-start gap-3">
         <div className="gap-3">
           {/*to. ~ , 몇명이 작성 등등이 들어갈 곳 */}
           <div className="text-24 flex justify-start text-left">
@@ -69,7 +69,7 @@ const CardList = ({ item }) => {
         </div>
       </div>
 
-      <div className="bottom-5 gap-2 w-[162px] h-[49px] mobile:w-[227px] mobile:h-[53px] z-10 pt-[17px] absolute flex flex-row border-t border-black/[0.12]">
+      <div className="gap-2 min-w-[162px] w-fit h-[49px] mobile:w-[227px] mobile:h-[53px] z-10 pt-[17px] flex flex-row border-t border-black/[0.12]">
         {/* emoji 들어가는 곳*/}
         {item.topReactions.map((reaction) => (
           <BadgeEmoji
