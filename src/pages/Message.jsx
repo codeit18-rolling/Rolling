@@ -10,7 +10,7 @@ import useMessageProfile from "../features/Message/hooks/useMessageProfile";
 import useMessageSubmit from "../features/Message/hooks/useMessageSubmit";
 
 const style = {
-  font: "text-24 font-bold text-gray-900 mb-[10px]",
+  font: "text-24 font-bold text-gray-900 mb-[15px]",
 };
 
 const Message = () => {
