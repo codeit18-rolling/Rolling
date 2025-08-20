@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import getLists from "../../../service/Lists/getLists";
 
-const useList = (list, sort) => {
+const useList = (index, sort) => {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState(null);
   const [isError, setIsError] = useState(null);
@@ -11,7 +11,7 @@ const useList = (list, sort) => {
       setIsLoading(true);
 
       try {
-        const data = await getLists(list, sort);
+        const data = await getLists(index, sort);
         setData(data);
       } catch (e) {
         setIsError(e);
@@ -21,7 +21,7 @@ const useList = (list, sort) => {
     };
 
     fetchData();
-  }, [list, sort]);
+  }, [index, sort]);
 
   return {
     isLoading,

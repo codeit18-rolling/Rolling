@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import useGetList from "./hooks/useGetList";
 import DesktopGrid from "./CardListElements/desktopGrid";
 import MobileGrid from "./CardListElements/MobileGrid";
+import useQueryList from "./hooks/useQueryList";
+import usePrefetchQueryList from "./hooks/usePrefetchQueryList";
 /**
  *sortOder 변수에 의해 정렬된 카드리스트를 보여준다.
  * @author <Junghoon>
@@ -13,15 +14,14 @@ import MobileGrid from "./CardListElements/MobileGrid";
 const CardListSet = ({ sortOrder }) => {
   const [index, setIndex] = useState(0);
   const [items, setItems] = useState([]);
-
-  const { isLoading, isError, data } = useGetList(index, sortOrder);
+  const { isLoading, isError, data } = useQueryList(index, sortOrder);
+  const totalIndex = data ? Math.ceil(data?.count / 4) : 1;
+  usePrefetchQueryList(index, sortOrder, totalIndex);
   useEffect(() => {
     if (data?.results) {
       setItems(data.results);
     }
   }, [data]);
-
-  const totalIndex = data ? Math.ceil(data?.count / 4) : 1;
   return (
     <div className="flex justify-center relative">
       <DesktopGrid

@@ -9,12 +9,13 @@ import defaultBgImage from "../../../assets/empty/img_background_null.png";
 
 const CardList = ({ item }) => {
   const navigate = useNavigate();
-  const [bgURL, setBgURL] = useState(item.backgroundImageURL);
+  const [bgURL, setBgURL] = useState(null);
 
   useEffect(() => {
     if (item.backgroundImageURL) {
       const img = new Image();
       img.src = item.backgroundImageURL;
+      img.onload = () => setBgURL(item.backgroundImageURL);
       img.onerror = () => setBgURL(defaultBgImage); // 로드 실패 시 대체 이미지로 변경
     }
   }, [item.backgroundImageURL]);
