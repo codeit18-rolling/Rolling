@@ -14,8 +14,8 @@ const CardGrid = ({ id, data, isLoading, isDeleteMode = false }) => {
           "desktop:grid-cols-3 desktop:gap-[24px] desktop:order-2"
         )}
       >
-        {!isDeleteMode && <AddCard id={id} />}
-        {data?.results?.map((data, index) => (
+        {!isDeleteMode || (!isLoading && <AddCard id={id} />)}
+        {data?.[0]?.results?.map((data, index) => (
           <Card key={index} isDeleteMode={isDeleteMode} data={data} />
         ))}
       </div>

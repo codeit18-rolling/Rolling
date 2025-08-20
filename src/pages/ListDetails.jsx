@@ -18,7 +18,11 @@ function ListDetails() {
     useNavigateToEdit(id);
 
   // 카드 리스트 데이터
-  const { data: cardDetailData, isLoading } = useGetRecipientsDetailData(id);
+  const { data: cardDetailData, isLoading } = useGetRecipientsDetailData({
+    id,
+    offset: 1,
+    limit: 10,
+  });
   // console.log(cardDetailData);
 
   return (
@@ -45,7 +49,7 @@ function ListDetails() {
           {/* Card Grid */}
           <CardGrid
             id={id}
-            data={cardDetailData}
+            data={cardDetailData?.pages}
             isLoading={isLoading}
             isDeleteMode={isDeleteMode}
           />
