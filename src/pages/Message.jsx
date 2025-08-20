@@ -18,7 +18,9 @@ const Message = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const [selectedProfile, setSelectedProfile] = useState("");
   const [profileOptions, setProfileOptions] = useState([]);
-
+  const [isDisable, setIsDisable] = useState(true);
+  const [inputSender, setInputSender] = useState("");
+  const [inputText, setInputText] = useState("");
   const { images } = useMessageProfile();
 
   const [postMessageData, setPostMessageData] = useState({
@@ -31,17 +33,6 @@ const Message = () => {
     font: "",
   });
 
-  const handleInputChange = (e) => {
-    const inputValue = e.target.value;
-    setPostMessageData((prev) => ({
-      ...prev,
-      sender: inputValue,
-    }));
-    if (errorMsg) {
-      setErrorMsg("");
-    }
-  };
-
   useEffect(() => {
     if (images.imageUrls) {
       setPostMessageData((prev) => ({
@@ -52,13 +43,33 @@ const Message = () => {
     }
   }, [images]);
 
+  const handleInputChange = useCallback((e) => {
+    const inputValue = e.target.value;
+    setPostMessageData((prev) => ({
+      ...prev,
+      sender: inputValue,
+    }));
+    if (errorMsg) {
+      setErrorMsg("");
+    }
+  }, []);
+
   const handleInputBlur = (e) => {
     const inputValue = e.target.value.trim();
     const errorMsg = "값을 입력해 주세요.";
+
     if (!inputValue) {
       setErrorMsg(errorMsg);
     } else {
       setErrorMsg("");
+    }
+
+    //test
+    setInputSender(inputValue);
+    if (inputValue && inputText) {
+      setIsDisable(false);
+    } else {
+      setIsDisable(true);
     }
   };
 
@@ -80,6 +91,14 @@ const Message = () => {
   const handleTextChange = useCallback(() => {
     if (editorRef.current) {
       const html = editorRef.current.root.innerHTML;
+      const text = editorRef.current.getText().trim();
+      //test
+      setInputText(text);
+      if (inputSender && text) {
+        setIsDisable(false);
+      } else {
+        setIsDisable(true);
+      }
 
       setPostMessageData((prev) => ({
         ...prev,
@@ -120,6 +139,7 @@ const Message = () => {
       />
       <Button
         className="w-full"
+        disabled={isDisable}
         onClick={() => handleSubmit(handleValidateSubmit)}
       >
         생성하기
