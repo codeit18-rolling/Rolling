@@ -1,17 +1,18 @@
 import { useParams } from "react-router";
 import Container from "../components/Container/Container";
 import CardGrid from "../features/ListDetail/CardGrid";
-import CardButton from "../features/ListDetail/CardButton";
 import useNavigateToEdit from "../features/ListDetail/hooks/useNavigateToEdit";
 import useService from "../hooks/fetcher/useService";
 import { getRecipientsDetailData } from "../service/ListDetails/getRecipientsDetailData";
 import { cn } from "../utils";
 import HeaderService from "../features/HeaderService/HeaderService";
 import { BG_COLORS } from "../constants/backgroundColor";
+import ListDetailActionButtons from "../features/ListDetail/ListDetailActionButtons";
+import DeleteButton from "../features/ListDetail/ListDetailElements/DeleteButton";
 
 // Card List Page
 function ListDetails() {
-  const id = useParams().id;
+  const { id } = useParams();
 
   // 삭제 커스텀 훅
   const { isDeleteMode, navigateToEdit, navigateToBack } =
@@ -41,14 +42,9 @@ function ListDetails() {
           }
         }
       >
-        <Container className="h-full flex flex-col gap-[18px]">
+        <Container className="h-full flex flex-col justify-end gap-[18px]">
           {/* Delete Button */}
-          <CardButton
-            isDeleteMode={isDeleteMode}
-            navigateToEdit={navigateToEdit}
-            navigateToBack={navigateToBack}
-            id={id}
-          />
+          {isDeleteMode && <DeleteButton id={id} />}
 
           {/* Card Grid */}
           <CardGrid
@@ -58,6 +54,11 @@ function ListDetails() {
             isDeleteMode={isDeleteMode}
           />
         </Container>
+        <ListDetailActionButtons
+          isDeleteMode={isDeleteMode}
+          navigateToEdit={navigateToEdit}
+          navigateToBack={navigateToBack}
+        />
       </div>
     </>
   );
