@@ -19,9 +19,9 @@ import { cn } from "../../../utils";
  * <OptionImage bgImages={BACKGROUND_IMG_DATA} />
  */
 const OptionImage = ({ bgImages, onImageSelect, isLoading, className }) => {
-  const getImages = bgImages?.imageUrls;
-  const firstImage = getImages?.[0] || null; // 기본 선택 이미지는 첫번째 고정
-  const imageUrlCount = getImages?.length;
+  const imageList = bgImages?.imageUrls ?? [];
+  const firstImage = imageList?.[0] || null; // 기본 선택 이미지는 첫번째 고정
+  const imageUrlCount = imageList?.length;
   const [selectedImage, setSelectedImage] = useState(firstImage);
   const [loadedCount, setLoadedCount] = useState(0); // 브라우저 이미지 로딩 완료 체크
   const [uploadedImages, setUploadedImages] = useState([]); // 파일 업로드
@@ -49,7 +49,7 @@ const OptionImage = ({ bgImages, onImageSelect, isLoading, className }) => {
           />
         )}
         {/* API에서 받은 이미지 */}
-        {getImages.map((image, index) => (
+        {imageList.map((image, index) => (
           <OptionImageButton
             key={index}
             image={image}

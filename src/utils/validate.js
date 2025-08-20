@@ -15,7 +15,7 @@ export const validateName = (value) => {
   if (value[0] === " ") return "이름은 첫 글자가 공백일 수 없습니다";
   return "";
 };
-export const validateFile = (value, limit = 2) => {
+export const validateFile = (value, limit) => {
   const validFiles = value.filter((file) => {
     if (file.size > limit * 1024 * 1024) {
       alert(`${limit}MB 이하만 업로드 가능합니다.`);
