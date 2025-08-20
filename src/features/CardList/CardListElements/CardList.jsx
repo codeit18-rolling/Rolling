@@ -69,7 +69,7 @@ const CardList = ({ item }) => {
         </div>
       </div>
 
-      <div className="gap-2 min-w-[162px] w-fit h-[49px] mobile:w-[227px] mobile:h-[53px] z-10 pt-[17px] flex flex-row border-t border-black/[0.12]">
+      <div className="gap-2 w-[162px] flex-wrap overflow-y-hidden h-[49px] mobile:w-[227px] mobile:h-[53px] z-10 pt-[17px] flex flex-row border-t border-black/[0.12]">
         {/* emoji 들어가는 곳*/}
         {item.topReactions.map((reaction) => (
           <BadgeEmoji
