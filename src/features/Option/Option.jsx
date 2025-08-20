@@ -26,17 +26,23 @@ const Option = ({
   onColorSelect,
   onImageSelect,
 }) => {
-  if (type === "image" && bgImages?.imageUrls?.length) {
-    return (
-      <OptionImage
-        bgImages={bgImages}
-        onImageSelect={onImageSelect}
-        isLoading={isLoading}
-      />
-    );
-  }
+  if (!bgImages?.imageUrls?.length) return null;
 
-  return <OptionColor onColorSelect={onColorSelect} />;
+  return (
+    <>
+      <OptionColor
+        onColorSelect={onColorSelect}
+        className={type === "color" ? "flex" : "hidden"}
+      />
+      <div className={type === "image" ? "block" : "hidden"}>
+        <OptionImage
+          bgImages={bgImages}
+          onImageSelect={onImageSelect}
+          isLoading={isLoading}
+        />
+      </div>
+    </>
+  );
 };
 
 export default Option;

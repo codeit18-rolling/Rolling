@@ -25,13 +25,14 @@ const DeleteButton = ({ id }) => {
       <Button
         onClick={() => setIsDeleteModalOpen(true)}
         btnStyle="primary"
+        btnSize="btn-40"
         className={cn(
-          "flex justify-end w-[calc(100vw-130px)] h-[44px] rounded-[8px] font-normal text-[16px] leading-[26px] tracking-[-0.01em] text-white bg-purple-600",
+          "flex justify-end w-[calc(100vw-130px)] h-[44px] leading-[26px] tracking-[-0.01em] text-nowrap",
           "tablet:w-[200px] tablet:h-[46px]",
-          "desktop:w-[92px] desktop:h-[42px]"
+          "desktop:h-[42px]"
         )}
       >
-        삭제하기
+        롤링페이퍼 삭제하기
       </Button>
 
       {isDeleteModalOpen && (

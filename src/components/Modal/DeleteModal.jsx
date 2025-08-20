@@ -5,11 +5,6 @@ import Button from "../Button/Button";
 import useModalLockAndEsc from "./hooks/useModalLockAndESC";
 import useModalBackdrop from "./hooks/useModalBackdrop";
 
-const style = {
-  buttonBase:
-    "flex-1 h-9 px-4 rounded-lg text-[14px] leading-[44px] tablet:min-w-[120px]",
-};
-
 const DeleteModal = ({ isOpen, onClose, onConfirm }) => {
   useModalLockAndEsc(isOpen, onClose);
   const onBackdropMouseDown = useModalBackdrop(onClose);
@@ -20,13 +15,11 @@ const DeleteModal = ({ isOpen, onClose, onConfirm }) => {
     {
       btnStyle: "outlined",
       onClick: onClose,
-      className: cn(style.buttonBase, "border border-gray-100 text-gray-700"),
       children: "취소",
     },
     {
       btnStyle: "primary",
       onClick: onConfirm,
-      className: cn(style.buttonBase, "font-semibold text-white"),
       children: "삭제하기",
     },
   ];
@@ -57,7 +50,7 @@ const DeleteModal = ({ isOpen, onClose, onConfirm }) => {
           />
           <div className="flex-1">
             <h2 className="text-[18px] font-semibold leading-7 tracking-[-0.01em] text-gray-900">
-              정말 롤링페이퍼를 삭제할까요?
+              메세지를 포함하여 롤링페이퍼 전체가 삭제됩니다. 진행하시겠습니까?
             </h2>
             <p className="mt-1 text-[14px] leading-6 text-gray-600">
               삭제하면 되돌릴 수 없습니다.
@@ -73,7 +66,7 @@ const DeleteModal = ({ isOpen, onClose, onConfirm }) => {
               key={button.children}
               btnStyle={button.btnStyle}
               onClick={button.onClick}
-              className={button.className}
+              className="flex-1 h-9 text-[14px]"
             >
               {button.children}
             </Button>

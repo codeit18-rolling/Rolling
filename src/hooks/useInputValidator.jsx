@@ -2,7 +2,6 @@ import { useState } from "react";
 
 /**
  * 커스텀 입력값 유효성 검사 훅
- * 
  * blur(포커스 해제) 이후에만 에러 메시지를 UI에 출력
  * 
  * @author <sohyun>
@@ -15,20 +14,8 @@ import { useState } from "react";
  *   handleChange: (e) => void,    // onChange 핸들러
  *   handleBlur: () => void,       // onBlur 핸들러
  *   handleValidateSubmit: () => boolean, // 제출 시 유효성 검증 및 결과 반환
- * 
  * }}
  *
- * @example
-
- * const { errorMsg, handleChange, handleBlur, handleValidateSubmit } = useInputValidator(value, validateName);
- *
- * <input
- *   value={value}
- *   onChange={handleChange}
- *   onBlur={handleBlur}
- * />
- * {errorMsg && <span>{errorMsg}</span>}
- * <button onSubmit={handleValidateSubmit} />
  */
 const useInputValidator = (value, validateFn) => {
   const [errorMsg, setErrorMsg] = useState("");
