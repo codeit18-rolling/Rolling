@@ -1,4 +1,10 @@
-import React, { forwardRef, useEffect, useLayoutEffect, useRef } from "react";
+import React, {
+  forwardRef,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useMemo,
+} from "react";
 import ReactQuill, { Quill } from "react-quill";
 import { toolbarOptions } from "./ToolBar";
 import "react-quill/dist/quill.snow.css";
@@ -15,9 +21,15 @@ const Editor = forwardRef(
     const onTextChangeRef = useRef(onTextChange);
     const onSelectionChangeRef = useRef(onSelectionChange);
     const onBlurRef = useRef(onBlur);
+    const modules = useMemo(() => {
+      return {
+        toolbar: toolbarOptions,
+      };
+    });
 
     useLayoutEffect(() => {
       onTextChangeRef.current = onTextChange;
+      onSelectionChangeRef.current = onSelectionChange;
       onBlurRef.current = onBlur;
     });
 
@@ -30,9 +42,7 @@ const Editor = forwardRef(
       );
       const quill = new Quill(editorContainer, {
         theme: "snow",
-        modules: {
-          toolbar: toolbarOptions,
-        },
+        modules: modules,
         placeholder: "메세지를 입력하세요",
       });
 
@@ -63,7 +73,6 @@ const Editor = forwardRef(
       quill.on("selection-change", (range, oldRange, source) => {
         onSelectionChangeRef.current?.(range, oldRange, source);
 
-        // range가 null이면 에디터에서 포커스가 벗어난 것 (blur)
         if (!range && oldRange && onBlurRef.current) {
           onBlurRef.current();
         }

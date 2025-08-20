@@ -63,14 +63,6 @@ const Message = () => {
     } else {
       setErrorMsg("");
     }
-
-    //test
-    setInputSender(inputValue);
-    if (inputValue && inputText) {
-      setIsDisable(false);
-    } else {
-      setIsDisable(true);
-    }
   };
 
   const handleProfile = (imageUrl) => {
@@ -95,6 +87,26 @@ const Message = () => {
       setPostMessageData((prev) => ({
         ...prev,
         content: html,
+      }));
+    }
+  }, []);
+
+  const handleSelectionChange = useCallback((range, oldRange, source) => {
+    if (range && editorRef.current) {
+      const format = editorRef.current.getFormat(range);
+      let fontNames = "";
+
+      const fontName = format.font || "Noto Sans";
+
+      if (typeof fontName !== "string") {
+        fontNames = [...new Set(fontName)].join(", ");
+      } else {
+        fontNames = fontName;
+      }
+
+      setPostMessageData((prev) => ({
+        ...prev,
+        font: fontNames,
       }));
     }
   }, []);
@@ -151,6 +163,7 @@ const Message = () => {
         ref={editorRef}
         value={postMessageData.content}
         onChange={handleTextChange}
+        onSelectionChange={handleSelectionChange}
         onBlur={handleButtonDisable}
       />
       <Button
