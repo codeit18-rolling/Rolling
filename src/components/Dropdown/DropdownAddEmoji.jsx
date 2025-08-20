@@ -4,29 +4,29 @@ import Icon from "../Icon/Icon";
 import EmojiPicker from "emoji-picker-react";
 import { useToggle } from "../../hooks/useToggle";
 import { cn } from "../../utils";
-import { postEmoji } from "../../service/Emoji/postEmoji";
+import { usePostEmoji } from "../../features/HeaderService/hooks/usePostEmoji";
 
 /**
  * 이미지를 추가할 수 있는 드롭다운
  * @author <hwitae>
  */
-const DropdownAddEmoji = ({ postId, setIsUpdated }) => {
+const DropdownAddEmoji = ({ postId }) => {
   const { isOpen, onClickToggle } = useToggle();
+  const { mutate, isPending, isSuccess } = usePostEmoji();
 
   /**
-   * 이모지 클릭 시 이모지 등록 요청을 보낸다.
+   * 이모지 클릭 시 이모지 등록 요청을 한다.
    * @param {Object{}} emojiData 이모지 클릭시 주어지는 객체
    */
   const onClickAddEmoji = async (emojiData) => {
     if (!emojiData) return;
 
     const reactionData = {
-      emoji: emojiData.emoji,
-      type: "increase",
+      id: postId,
+      reaction: { emoji: emojiData.emoji, type: "increase" },
     };
 
-    await postEmoji(postId, reactionData);
-    setIsUpdated(true);
+    mutate(reactionData);
   };
 
   return (
