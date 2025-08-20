@@ -13,6 +13,7 @@ const style = {
 
 const Message = () => {
   const { id } = useParams();
+  const [errorMsg, setErrorMsg] = useState("");
   const [postMessageData, setPostMessageData] = useState({
     team: "18-4",
     recipientId: id,
@@ -23,11 +24,32 @@ const Message = () => {
     font: "",
   });
 
-  const handleRelationshipChange = (selectedOption) => {
+  const handleInputChange = (e) => {
+    const inputValue = e.target.value;
+    setPostMessageData((prev) => ({
+      ...prev,
+      sender: inputValue,
+    }));
+    if (errorMsg) {
+      setErrorMsg("");
+    }
+  };
+
+  const handleInputBlur = (e) => {
+    const inputValue = e.target.value.trim();
+    const errorMsg = "값을 입력해 주세요.";
+    if (!inputValue) {
+      setErrorMsg(errorMsg);
+    } else {
+      setErrorMsg("");
+    }
+  };
+
+  const handleSelectChange = (selectedOption) => {
     console.log(selectedOption);
     setPostMessageData((prev) => ({
       ...prev,
-      relationship: selectedOption, // 또는 selectedOption.value (옵션 구조에 따라)
+      relationship: selectedOption,
     }));
   };
 
@@ -36,12 +58,18 @@ const Message = () => {
       isInnerBox={true}
       innerBoxClassName="flex flex-col gap-[32px] tablet:gap-[50px]"
     >
-      <MessageInput style={style} />
+      <MessageInput
+        style={style}
+        value={setPostMessageData.sender}
+        onChange={handleInputChange}
+        onBlur={handleInputBlur}
+        errorMsg={errorMsg}
+      />
       <MessageProfile style={style} />
       <MessageSelect
         style={style}
         value={postMessageData.relationship}
-        onChange={handleRelationshipChange}
+        onChange={handleSelectChange}
       />
       <div>
         <h2 className={style.font}>내용을 입력해 주세요</h2>
