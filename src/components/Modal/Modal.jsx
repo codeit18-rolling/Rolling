@@ -1,10 +1,11 @@
 import { createPortal } from "react-dom";
-import { useEffect } from "react";
 import { dateFunc } from "../../utils/dateFunc";
 import ModalHeader from "./ModalElements/ModalHeader";
 import ModalContent from "./ModalElements/ModalContent";
 import ModalFooter from "./ModalElements/ModalFooter";
 import { cn } from "../../utils";
+import useModalLockAndEsc from "./hooks/useModalLockAndESC";
+import useModalBackdrop from "./hooks/useModalBackdrop";
 
 const Modal = ({
   isOpen,
@@ -15,20 +16,8 @@ const Modal = ({
   content,
   createdAt,
 }) => {
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isOpen]);
-
-  if (!isOpen) return null;
-
-  const onBackdropMouseDown = (e) => {
-    if (e.target === e.currentTarget) onClose?.();
-  };
+  useModalLockAndEsc(isOpen, onClose);
+  const onBackdropMouseDown = useModalBackdrop(onClose);
 
   const formattedDate = createdAt ? dateFunc(createdAt) : "";
 
