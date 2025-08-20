@@ -21,11 +21,11 @@ const CardMeta = ({ data }) => {
       {/* User Info */}
       <div
         className={cn(
-          "flex flex-col items-start gap-[6px] text-20 leading-6 tracking-[-0.01em]",
+          "flex flex-col items-start gap-[6px] text-20 leading-6 tracking-[-0.01em] flex-1 min-w-0",
           "mobile:text-16 mobile:leading-5"
         )}
       >
-        <p className="font-normal text-black">
+        <p className="font-normal text-black truncate w-full">
           From. <span className="font-bold ">{data?.sender || "코드잇"}</span>
         </p>
 
