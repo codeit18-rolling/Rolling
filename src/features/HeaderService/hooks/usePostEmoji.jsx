@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { postEmoji } from "../../../service/Emoji/postEmoji";
+import { postEmoji } from "../../../service/HeaderService/postEmoji";
 
 /**
  * 이모지를 남긴다.
@@ -16,7 +16,7 @@ export const usePostEmoji = () => {
         queryKey: ["allEmojiData", variables.id],
       });
       queryClient.invalidateQueries({
-        queryKey: ["getRecipientsDetailData"],
+        queryKey: ["headerService"],
       });
     },
     onError: (error) => console.error(error),

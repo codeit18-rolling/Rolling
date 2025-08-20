@@ -33,6 +33,7 @@ const DropdownAddEmoji = ({ postId }) => {
     <>
       <div className="relative" onClick={onClickToggle}>
         <Button
+          aria-label="이모지 추가 버튼"
           btnStyle={"outlined"}
           className={cn(
             "text-base font-medium",

@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getAllEmojiData } from "../../../service/Emoji/getAllEmojiData";
+import { getAllEmojiData } from "../../../service/HeaderService/getAllEmojiData";
 
 /**
  * 모든 이모지 데이터를 요청하고 결과를 반환한다.

@@ -23,7 +23,7 @@ function ListDetails() {
 
   return (
     <>
-      <HeaderService recipients={cardDetailData} />
+      <HeaderService recipientId={id} />
       <div
         className={cn(
           "w-full min-h-[calc(100vh-104px)]",
