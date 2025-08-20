@@ -12,11 +12,14 @@ export const ProfileOptions = ({ imageUrlLists, onClick, selectedProfile }) => {
     <div>
       <p className="text-gray-500 mb-1">{SUB_TEXT}</p>
       <div className="flex gap-[5px] flex-wrap">
-        <ProfileUpload style={style} />
-        <button className={style.option}>사용자 사진</button>
-        {imageUrlLists.map((url) => (
+        <ProfileUpload
+          style={style}
+          onClick={onClick}
+          selectedProfile={selectedProfile}
+        />
+        {imageUrlLists.map((url, index) => (
           <button
-            key={url}
+            key={`image-${index}`}
             onClick={() => onClick(url)}
             className={cn(
               style.option,
