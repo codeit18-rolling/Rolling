@@ -1,15 +1,18 @@
 import deleteIcon from "../../../assets/icon/ic_deleted.svg";
 import { cn } from "../../../utils";
 import deleteMessage from "../../../service/ListDetails/deleteMessageData";
+import { useQueryClient } from "@tanstack/react-query";
 
 // Delete Button
 const CardDelete = ({ cardId }) => {
-  // TODO(지권): 메세지 삭제 함수 수정
-  const deleteMessageHandler = (e) => {
+  const queryClient = useQueryClient();
+
+  const deleteMessageHandler = async (e) => {
     e.stopPropagation();
-    deleteMessage(cardId);
-    // 화면 깜빡임 발생
-    window.location.reload();
+    await deleteMessage(cardId); // 삭제 API 완료 대기
+    await queryClient.invalidateQueries({
+      queryKey: ["getRecipientsDetailData"],
+    });
   };
 
   return (

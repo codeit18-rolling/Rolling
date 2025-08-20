@@ -24,7 +24,7 @@ const OptionButton = ({
     <button
       type="button"
       className={cn(
-        "w-[calc(50%-1rem)] flex-auto aspect-square rounded-2xl relative",
+        "w-[calc((100%-1rem)/2)] aspect-square rounded-2xl relative",
         className
       )}
       onClick={onClick}
@@ -36,4 +36,3 @@ const OptionButton = ({
   );
 };
 export default OptionButton;
-
