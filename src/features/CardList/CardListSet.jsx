@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import useGetList from "./hooks/useGetList";
-import DesktopGrid from "./CardListElements/desktopGrid";
 import MobileGrid from "./CardListElements/MobileGrid";
 /**
  *sortOder 변수에 의해 정렬된 카드리스트를 보여준다.
