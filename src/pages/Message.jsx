@@ -1,11 +1,12 @@
 import { useParams } from "react-router";
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import Container from "../components/Container/Container";
 import MessageInput from "../features/Message/MessageElements/MessageInput";
 import MessageProfile from "../features/Message/MessageElements/MessageProfile";
 import MessageSelect from "../features/Message/MessageElements/MessageSelect";
 import MessageEditor from "../features/Message/MessageElements/MessageEditor";
 import Button from "../components/Button/Button";
+import useMessageProfile from "../features/Message/hooks/useMessageProfile";
 
 const style = {
   font: "text-24 font-bold text-gray-900 mb-[10px]",
@@ -15,6 +16,11 @@ const Message = () => {
   const { id } = useParams();
   const editorRef = useRef(null);
   const [errorMsg, setErrorMsg] = useState("");
+  const [selectedProfile, setSelectedProfile] = useState("");
+  const [profileOptions, setProfileOptions] = useState([]);
+
+  const { images } = useMessageProfile();
+
   const [postMessageData, setPostMessageData] = useState({
     team: "18-4",
     recipientId: id,
@@ -36,6 +42,16 @@ const Message = () => {
     }
   };
 
+  useEffect(() => {
+    if (images.imageUrls) {
+      setPostMessageData((prev) => ({
+        ...prev,
+        profileImageURL: images.imageUrls[0],
+      }));
+      setProfileOptions(images.imageUrls.slice(1));
+    }
+  }, [images]);
+
   const handleInputBlur = (e) => {
     const inputValue = e.target.value.trim();
     const errorMsg = "값을 입력해 주세요.";
@@ -46,8 +62,15 @@ const Message = () => {
     }
   };
 
+  const handleProfile = (imageUrl) => {
+    setSelectedProfile(imageUrl);
+    setPostMessageData((prev) => ({
+      ...prev,
+      profileImageURL: imageUrl,
+    }));
+  };
+
   const handleSelectChange = (selectedOption) => {
-    console.log(selectedOption);
     setPostMessageData((prev) => ({
       ...prev,
       relationship: selectedOption,
@@ -77,7 +100,13 @@ const Message = () => {
         onBlur={handleInputBlur}
         errorMsg={errorMsg}
       />
-      <MessageProfile style={style} />
+      <MessageProfile
+        style={style}
+        value={postMessageData.profileImageURL}
+        options={profileOptions}
+        onClick={handleProfile}
+        selectedProfile={selectedProfile}
+      />
       <MessageSelect
         style={style}
         value={postMessageData.relationship}
