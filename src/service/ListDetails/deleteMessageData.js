@@ -3,7 +3,6 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 // 메세지 삭제 함수
 async function deleteMessage(messageId) {
   try {
-    console.log(messageId);
     const res = await fetch(`${API_BASE_URL}/18-4/messages/${messageId}/`, {
       method: "DELETE",
       headers: {
