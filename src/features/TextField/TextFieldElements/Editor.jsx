@@ -9,66 +9,80 @@ import "./editor.css";
  * @author <sejin5>
  */
 
-const Editor = forwardRef(({ defaultValue, onTextChange }, ref) => {
-  const containerRef = useRef(null);
-  const onTextChangeRef = useRef(onTextChange);
+const Editor = forwardRef(
+  ({ defaultValue, onTextChange, onSelectionChange, onBlur }, ref) => {
+    const containerRef = useRef(null);
+    const onTextChangeRef = useRef(onTextChange);
+    const onSelectionChangeRef = useRef(onSelectionChange);
+    const onBlurRef = useRef(onBlur);
 
-  useLayoutEffect(() => {
-    onTextChangeRef.current = onTextChange;
-  });
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const editorContainer = container.appendChild(
-      container.ownerDocument.createElement("div")
-    );
-    const quill = new Quill(editorContainer, {
-      theme: "snow",
-      modules: {
-        toolbar: toolbarOptions,
-      },
-      placeholder: "메세지를 입력하세요",
+    useLayoutEffect(() => {
+      onTextChangeRef.current = onTextChange;
+      onBlurRef.current = onBlur;
     });
 
-    quill.format("font", "noto-sans");
+    useEffect(() => {
+      const container = containerRef.current;
+      if (!container) return;
 
-    ref.current = quill;
+      const editorContainer = container.appendChild(
+        container.ownerDocument.createElement("div")
+      );
+      const quill = new Quill(editorContainer, {
+        theme: "snow",
+        modules: {
+          toolbar: toolbarOptions,
+        },
+        placeholder: "메세지를 입력하세요",
+      });
 
-    if (defaultValue) {
-      quill.clipboard.dangerouslyPasteHTML(defaultValue);
-    }
+      quill.format("font", "noto-sans");
 
-    quill.on("text-change", () => {
-      const text = quill.getText().trim();
-      if (text === "") {
-        quill.format("font", "noto-sans");
-        quill.setSelection(0, 0);
+      ref.current = quill;
 
-        const toolbar = document.querySelector(".ql-font");
-
-        if (toolbar) {
-          toolbar.childNodes[0].dataset.value = "noto-sans";
-        }
+      if (defaultValue) {
+        quill.clipboard.dangerouslyPasteHTML(defaultValue);
       }
 
-      onTextChangeRef.current?.();
-    });
+      quill.on("text-change", () => {
+        const text = quill.getText().trim();
+        if (text === "") {
+          quill.format("font", "noto-sans");
+          quill.setSelection(0, 0);
 
-    return () => {
-      ref.current = null;
-      container.innerHTML = "";
-    };
-  }, []);
+          const toolbar = document.querySelector(".ql-font");
 
-  return (
-    <div
-      ref={containerRef}
-      className="w-full min-w-[320px] h-[260px] m-auto tablet:w-[720px]"
-    ></div>
-  );
-});
+          if (toolbar) {
+            toolbar.childNodes[0].dataset.value = "noto-sans";
+          }
+        }
+
+        onTextChangeRef.current?.();
+      });
+
+      quill.on("selection-change", (range, oldRange, source) => {
+        onSelectionChangeRef.current?.(range, oldRange, source);
+
+        // range가 null이면 에디터에서 포커스가 벗어난 것 (blur)
+        if (!range && oldRange && onBlurRef.current) {
+          onBlurRef.current();
+        }
+      });
+
+      return () => {
+        ref.current = null;
+        container.innerHTML = "";
+      };
+    }, []);
+
+    return (
+      <div
+        ref={containerRef}
+        className="w-full min-w-[320px] h-[260px] m-auto tablet:w-[720px]"
+      ></div>
+    );
+  }
+);
 
 Editor.displayName = "Editor";
 

@@ -91,14 +91,6 @@ const Message = () => {
   const handleTextChange = useCallback(() => {
     if (editorRef.current) {
       const html = editorRef.current.root.innerHTML;
-      const text = editorRef.current.getText().trim();
-      //test
-      setInputText(text);
-      if (inputSender && text) {
-        setIsDisable(false);
-      } else {
-        setIsDisable(true);
-      }
 
       setPostMessageData((prev) => ({
         ...prev,
@@ -106,6 +98,26 @@ const Message = () => {
       }));
     }
   }, []);
+
+  const handleButtonDisable = (type = "", e) => {
+    if (type === "input") {
+      const input = e.target.value.trim();
+      setInputSender(input);
+      if (input && inputText) {
+        setIsDisable(false);
+      } else {
+        setIsDisable(true);
+      }
+    } else if (type === "" && editorRef.current) {
+      const text = editorRef.current.getText().trim();
+      setInputText(text);
+      if (inputSender && text) {
+        setIsDisable(false);
+      } else {
+        setIsDisable(true);
+      }
+    }
+  };
 
   return (
     <Container
@@ -116,7 +128,10 @@ const Message = () => {
         style={style}
         value={setPostMessageData.sender}
         onChange={handleInputChange}
-        onBlur={handleInputBlur}
+        onBlur={(e) => {
+          handleInputBlur(e);
+          handleButtonDisable("input", e);
+        }}
         errorMsg={errorMsg}
       />
       <MessageProfile
@@ -136,6 +151,7 @@ const Message = () => {
         ref={editorRef}
         value={postMessageData.content}
         onChange={handleTextChange}
+        onBlur={handleButtonDisable}
       />
       <Button
         className="w-full"
