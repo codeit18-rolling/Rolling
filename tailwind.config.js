@@ -82,6 +82,7 @@ export default {
         "gray-500": "inset 0 0 0 1px #555555",
         "gray-700": "inset 0 0 0 1px #3A3A3A",
         "gray-800": "inset 0 0 0 1px #2B2B2B",
+        "loading-spinner": "-24px 0 #F8F0FF, 24px 0 #F8F0FF",
       },
       dropShadow: {
         dropdownBorder: "0 2px 12px rgba(0, 0, 0, 0.08)",
@@ -92,9 +93,24 @@ export default {
           "0%": { backgroundPosition: "-400% 0" },
           "100%": { backgroundPosition: "400% 0" },
         },
+        "loading-spinner": {
+          "33%": {
+            background: "#F8F0FF",
+            "box-shadow": "-12px 0 #AB57FF, 12px 0 #F8F0FF",
+          },
+          "66%": {
+            background: "#AB57FF",
+            "box-shadow": "-12px 0 #F8F0FF, 12px 0 #F8F0FF",
+          },
+          "100%": {
+            background: "#F8F0FF",
+            "box-shadow": "-12px 0 #F8F0FF, 12px 0 #AB57FF",
+          },
+        },
       },
       animation: {
         "skeleton-shimmer": "skeleton-shimmer 15s linear infinite",
+        "loading-spinner": "loading-spinner 3s linear infinite alternate",
       },
       screens: {
         mobile: "360px",

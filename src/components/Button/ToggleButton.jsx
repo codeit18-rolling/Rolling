@@ -10,7 +10,7 @@ import { cn } from "../../utils";
  */
 export const ToggleButtonWrapper = ({ children, className = "" }) => {
   return (
-    <div className={cn("flex flex-row bg-gray-100", className)}>
+    <div className={cn("flex flex-row bg-gray-100 rounded-md", className)}>
       {children}
     </div>
   );
