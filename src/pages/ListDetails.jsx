@@ -2,13 +2,12 @@ import { useParams } from "react-router";
 import Container from "../components/Container/Container";
 import CardGrid from "../features/ListDetail/CardGrid";
 import useNavigateToEdit from "../features/ListDetail/hooks/useNavigateToEdit";
-import useService from "../hooks/fetcher/useService";
-import { getRecipientsDetailData } from "../service/ListDetails/getRecipientsDetailData";
 import { cn } from "../utils";
 import HeaderService from "../features/HeaderService/HeaderService";
 import { BG_COLORS } from "../constants/backgroundColor";
 import ListDetailActionButtons from "../features/ListDetail/ListDetailActionButtons";
 import DeleteButton from "../features/ListDetail/ListDetailElements/DeleteButton";
+import useGetRecipientsDetailData from "../hooks/fetcher/ListDetails/useGetRecipientsDetailData.js";
 
 // Card List Page
 function ListDetails() {
@@ -19,10 +18,7 @@ function ListDetails() {
     useNavigateToEdit(id);
 
   // 카드 리스트 데이터
-  const { data: cardDetailData, isLoading } = useService(() =>
-    getRecipientsDetailData(id)
-  );
-
+  const { data: cardDetailData, isLoading } = useGetRecipientsDetailData(id);
   // console.log(cardDetailData);
 
   return (

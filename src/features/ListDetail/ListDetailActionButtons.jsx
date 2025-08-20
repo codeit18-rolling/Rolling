@@ -1,6 +1,8 @@
 import { Link } from "react-router";
 import Icon from "../../components/Icon/Icon";
 
+// TODO(지권): 퍼블리싱 수정 필요
+
 const style = {
   container: "group relative",
   tooltip:
