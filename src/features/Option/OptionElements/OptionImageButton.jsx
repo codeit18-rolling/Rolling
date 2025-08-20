@@ -2,7 +2,6 @@ import OptionCheck from "./OptionCheck";
 import OptionButton from "./OptionButton";
 import defaultBgImage from "../../../assets/empty/img_background_null.png";
 import { cn } from "../../../utils";
-import getFetchCloudinary from "../../../service/Post/getFetchCloudinary";
 const whiteDimmedStyled =
   "after:absolute after:inset-0 after:bg-white/50 after:rounded-2xl after:z-[1]";
 /**
@@ -19,7 +18,6 @@ const whiteDimmedStyled =
  * @returns {JSX.Element} 이미지 옵션 버튼 요소
  */
 const OptionImageButton = ({ image, isActive, onClick, onLoad, ...props }) => {
-  const optimizedUrl = getFetchCloudinary(image);
   return (
     <OptionButton
       className={cn(
@@ -31,7 +29,7 @@ const OptionImageButton = ({ image, isActive, onClick, onLoad, ...props }) => {
       ariaLabel="배경 이미지"
     >
       <img
-        src={optimizedUrl}
+        src={image}
         alt="배경 이미지 옵션"
         width={300}
         height={300}
