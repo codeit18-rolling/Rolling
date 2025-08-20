@@ -14,6 +14,7 @@ const whiteDimmedStyled =
  * @param {string} props.image - 버튼에 표시할 배경 이미지 URL
  * @param {boolean} props.isActive - 활성화 여부
  * @param {function} props.onClick - 클릭 이벤트 핸들러
+ * @param {function} props.onLoad - 이미지 로딩 이벤트 핸들러
  * @param {...Object} props - 기타 img 엘리먼트에 전달할 속성
  * @returns {JSX.Element} 이미지 옵션 버튼 요소
  */
@@ -27,6 +28,7 @@ const OptionImageButton = ({ image, isActive, onClick, onLoad, ...props }) => {
       )}
       onClick={onClick}
       isActive={isActive}
+      ariaLabel="배경 이미지"
     >
       <img
         src={optimizedUrl}
