@@ -31,7 +31,7 @@ const Toast = ({
       )}
     >
       <div className="flex items-center gap-[12px]">
-        <img src={icCompleted} alt="완료 아이콘" />
+        <img src={icCompleted} alt="상태 아이콘" />
         <span className="text-[14px]">{message}</span>
       </div>
       <button onClick={onClose} className="flex items-center">
