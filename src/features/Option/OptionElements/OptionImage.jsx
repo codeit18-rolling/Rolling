@@ -13,6 +13,7 @@ import { cn } from "../../../utils";
  * @param {Object} props.bgImages - 배경 이미지 데이터 객체 (imageUrls 배열 포함)
  * @param {function} props.onImageSelect - 선택된 이미지 전달
  * @param {boolean} props.isLoading - API 로딩 여부
+ * @param {string} [props.className=""] - 추가로 적용할 CSS 클래스명
  * @returns {JSX.Element} 이미지 옵션 버튼 그룹
  *
  * @example
@@ -48,7 +49,6 @@ const OptionImage = ({ bgImages, onImageSelect, isLoading, className }) => {
             boxClassName="w-[calc((100%-(1rem))/2)]"
           />
         )}
-        {/* API에서 받은 이미지 */}
         {imageList.map((image, index) => (
           <OptionImageButton
             key={index}
@@ -58,8 +58,6 @@ const OptionImage = ({ bgImages, onImageSelect, isLoading, className }) => {
             onLoad={() => setLoadedCount((prev) => prev + 1)} // 이미지 로딩 체크
           />
         ))}
-        {/* TODO : 이미지 호스팅 연결 필요 */}
-        {/* 업로드한 이미지 */}
         {uploadedImages.map((image, index) => (
           <OptionImageButton
             key={`upload-${index}`}
@@ -69,7 +67,7 @@ const OptionImage = ({ bgImages, onImageSelect, isLoading, className }) => {
           />
         ))}
       </OptionWrapper>
-      <OptionFile onUpload={handleUpload} />
+      {showSkeleton || <OptionFile onUpload={handleUpload} />}
     </>
   );
 };
