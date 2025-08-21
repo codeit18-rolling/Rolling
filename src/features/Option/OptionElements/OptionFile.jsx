@@ -50,7 +50,6 @@ const OptionFile = ({ onUpload }) => {
           className="hidden "
         />
       </label>
-      {console.log(toastIcons[toast.type])}
       <Toast
         isOpen={toast.isOpen}
         icon={toastIcons[toast.type]}
