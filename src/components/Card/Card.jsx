@@ -26,7 +26,10 @@ const Card = ({ data, isDeleteMode = false }) => {
       <hr className="border-gray-200 mt-[15px]" />
 
       {/* Content */}
-      <p className="flex-1 my-4 w-full overflow-hidden truncate font-normal text-18 leading-7 tracking-[-0.01em] text-gray-600">
+      <p
+        style={{ fontFamily: data?.font }}
+        className="flex-1 my-4 w-full overflow-hidden truncate font-normal text-18 leading-7 tracking-[-0.01em] text-gray-600"
+      >
         {data?.content || ERROR_MESSAGE}
       </p>
 
