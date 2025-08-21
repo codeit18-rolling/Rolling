@@ -30,7 +30,7 @@ const OptionImageButton = ({ image, isActive, onClick, onLoad, ...props }) => {
     >
       <img
         src={image}
-        alt="배경 이미지 옵션"
+        alt=""
         width={300}
         height={300}
         className="w-full h-full object-cover"
