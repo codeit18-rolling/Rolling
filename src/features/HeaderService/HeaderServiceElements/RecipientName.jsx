@@ -7,15 +7,22 @@ import { cn } from "../../../utils";
  */
 const RecipientName = ({ recipients }) => {
   return (
-    <p
+    <div
       className={cn(
-        "h-[52px] flex items-center border-b border-gray-200",
-        "text-18 px-5 text-gray-800 font-bold leading-[42px]",
-        "tablet:border-none tablet:h-[42px] tablet:text-28"
+        "h-[52px] min-w-0 flex items-center w-full border-b border-gray-200",
+        "tablet:border-none",
+        "desktop:w-[450px]"
       )}
     >
-      To. {recipients?.name || "Codeit"}
-    </p>
+      <p
+        className={cn(
+          "text-18 px-5 text-gray-800 font-bold leading-[42px] truncate",
+          "tablet:border-none tablet:h-[42px] tablet:text-28"
+        )}
+      >
+        To. {recipients?.name || "Codeit"}
+      </p>
+    </div>
   );
 };
 export default memo(RecipientName);
