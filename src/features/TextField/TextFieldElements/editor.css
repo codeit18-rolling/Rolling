@@ -11,19 +11,17 @@
   font-size: 16px !important;
   line-height: 1.5;
   font-family: "Noto Sans";
+  height: 100%;
+  overflow-y: auto;
 }
 
 .ql-toolbar {
   background-color: #eeeeee;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  height: 49px;
-  white-space: nowrap;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-  overflow-x: scroll;
 }
 
 .ql-snow .ql-formats {
@@ -37,10 +35,11 @@
   height: calc(100% - 49px);
 }
 
-.ql-editor {
-  height: 100%;
-  overflow-y: auto;
+.ql-formats {
+  display: flex;
+  flex-shrink: 0; /* 요소들이 줄어들지 않도록 */
 }
+
 /*Font 설정*/
 
 .ql-toolbar.ql-snow {
