@@ -7,7 +7,24 @@ const style = {
   loadingSpinner:
     "inline-block w-2 h-2 ml-6 rounded-full bg-purple-500 shadow-loading-spinner animate-loading-spinner",
 };
-
+const UPLOAD_TEXT = {
+  default: (
+    <>
+      배경으로 쓰고 싶은 사진 있나요?
+      <br />
+      클릭 또는 드래그해서 올려주세요 😎
+      <span className="block text-12 font-medium text-gray-400">
+        (최대 용량 5MB)
+      </span>
+    </>
+  ),
+  uploading: (
+    <>
+      멋진 배경을 불러오는 중이에요 🎨
+      <span className={style.loadingSpinner}></span>
+    </>
+  ),
+};
 /**
  * 옵션 이미지 파일 업로드
  *
@@ -23,27 +40,15 @@ const style = {
 const OptionFileLoadContent = ({ isUploading, isActive }) => {
   return (
     <>
-      {isUploading ? (
-        <div className={cn(style.textStyle, "text-purple-500")}>
-          멋진 배경을 불러오는 중이에요 🎨
-          <span className={style.loadingSpinner}></span>
-        </div>
-      ) : (
-        <>
-          <Icon
-            iconName="file"
-            className={cn(style.iconStyle, isActive && "bg-purple-500")}
-          />
-          <div className={cn(style.textStyle, isActive && "text-purple-500")}>
-            배경으로 쓰고 싶은 사진 있나요?
-            <br />
-            클릭 또는 드래그해서 올려주세요 😎
-            <span className="block text-12 font-medium text-gray-400">
-              (최대 용량 5MB)
-            </span>
-          </div>
-        </>
+      {!isUploading && (
+        <Icon
+          iconName="file"
+          className={cn(style.iconStyle, isActive && "bg-purple-500")}
+        />
       )}
+      <div className={cn(style.textStyle, "text-purple-500")}>
+        {isUploading ? UPLOAD_TEXT.uploading : UPLOAD_TEXT.default}
+      </div>
     </>
   );
 };

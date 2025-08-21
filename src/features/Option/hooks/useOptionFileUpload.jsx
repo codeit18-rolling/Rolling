@@ -9,13 +9,26 @@ const TOAST_INIT = {
   type: "success", // "success" | "error"
   message: "",
 };
-
+const TOAST_MESSAGES = {
+  fileTooLarge: {
+    type: "error",
+    message: `파일이 너무 커요. ${LIMIT_SIZE}MB 이하로 준비해주세요 😉`,
+  },
+  duplicateFile: {
+    type: "error",
+    message: "이미 올린 이미지예요. 다른 이미지를 선택해볼까요? 🧐",
+  },
+  uploadSuccess: {
+    type: "success",
+    message: "배경 이미지가 등록됐습니다 🎉",
+  },
+};
 const useOptionFileUpload = (onUpload) => {
   const { uploadFiles, isUploading } = useCloudinaryUpload();
   const [isActive, setIsActive] = useState(false);
   const [uploadedImages, setUploadedImages] = useState([]); // 파일 업로드
   const [toast, setToast] = useState(TOAST_INIT);
-  const showToast = (type, message) => {
+  const showToast = ({ type, message }) => {
     setToast({ isOpen: true, type, message });
   };
   const closeToast = () => {
@@ -27,10 +40,7 @@ const useOptionFileUpload = (onUpload) => {
       const validFiles = validateFile(files, LIMIT_SIZE);
 
       if (validFiles.length === 0) {
-        showToast(
-          "error",
-          `파일이 너무 커요. ${LIMIT_SIZE}MB 이하로 준비해주세요 😉`
-        );
+        showToast(TOAST_MESSAGES.fileTooLarge);
         return;
       }
 
@@ -39,15 +49,12 @@ const useOptionFileUpload = (onUpload) => {
         (url) => !uploadedImages.includes(url)
       );
       if (newImages.length === 0) {
-        showToast(
-          "error",
-          "이미 올린 이미지예요. 다른 이미지를 선택해볼까요? 🧐"
-        );
+        showToast(TOAST_MESSAGES.duplicateFile);
         return;
       }
       setUploadedImages((prev) => [...prev, ...newImages]);
       onUpload(newImages);
-      showToast("success", "배경 이미지가 등록됐습니다 🎉");
+      showToast(TOAST_MESSAGES.uploadSuccess);
     },
     [uploadFiles, uploadedImages, onUpload]
   );
