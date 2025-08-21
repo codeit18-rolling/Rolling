@@ -16,7 +16,7 @@ export const ToggleButtonWrapper = ({
 }) => {
   return (
     <div
-      className={cn("flex flex-row bg-gray-100 rounded-md", className)}
+      className={cn("flex flex-row bg-gray-200 border border-gray-300 rounded-md", className)}
       aria-label={ariaLabel}
     >
       {children}

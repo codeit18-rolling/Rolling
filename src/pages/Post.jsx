@@ -7,6 +7,7 @@ import { validateName } from "../utils/validate";
 import usePostData from "../features/Post/hooks/usePostData";
 import usePostImages from "../features/Post/hooks/usePostImages";
 import usePostSubmit from "../features/Post/hooks/usePostSubmit";
+import Theme from "../features/Theme/Theme";
 const Post = () => {
   const {
     createPostData,
@@ -21,7 +22,11 @@ const Post = () => {
   const { handleSubmit } = usePostSubmit(createPostData, resetName);
 
   return (
-    <Container isInnerBox={true} innerBoxClassName="flex flex-col gap-[32px] tablet:gap-[50px]">
+    <Container
+      isInnerBox={true}
+      innerBoxClassName="flex flex-col gap-[32px] tablet:gap-[50px]"
+    >
+      <Theme />
       <PostInput
         value={createPostData.name}
         errorMsg={errorMsg}
