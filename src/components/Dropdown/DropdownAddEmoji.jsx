@@ -1,20 +1,32 @@
-import { useState } from "react";
+import { memo } from "react";
 import Button from "../Button/Button";
 import Icon from "../Icon/Icon";
 import EmojiPicker from "emoji-picker-react";
 import { useToggle } from "../../hooks/useToggle";
 import { cn } from "../../utils";
+import { postEmoji } from "../../service/Emoji/postEmoji";
 
 /**
  * 이미지를 추가할 수 있는 드롭다운
  * @author <hwitae>
- * @param {React.SetStateAction} setEmojiList 이모지 드롭다운 리스트를 변경하기 위한 setter 함수
  */
-export const DropdownAddEmoji = ({ setEmojiList }) => {
+const DropdownAddEmoji = ({ postId, setIsUpdated }) => {
   const { isOpen, onClickToggle } = useToggle();
 
-  const onClickAddEmoji = (emojiData) => {
-    console.log(emojiData);
+  /**
+   * 이모지 클릭 시 이모지 등록 요청을 보낸다.
+   * @param {Object{}} emojiData 이모지 클릭시 주어지는 객체
+   */
+  const onClickAddEmoji = async (emojiData) => {
+    if (!emojiData) return;
+
+    const reactionData = {
+      emoji: emojiData.emoji,
+      type: "increase",
+    };
+
+    await postEmoji(postId, reactionData);
+    setIsUpdated(true);
   };
 
   return (
@@ -62,3 +74,5 @@ export const DropdownAddEmoji = ({ setEmojiList }) => {
     </>
   );
 };
+
+export default memo(DropdownAddEmoji);

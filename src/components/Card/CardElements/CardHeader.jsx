@@ -9,7 +9,7 @@ const CardHeader = ({ data, isDeleteMode = false }) => {
       <CardMeta data={data} />
 
       {/* Card Delete Button */}
-      {isDeleteMode && <CardDelete cardId={data.id} />}
+      {isDeleteMode && <CardDelete cardId={data?.id} />}
     </div>
   );
 };

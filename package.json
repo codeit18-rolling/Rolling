@@ -10,6 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.85.4",
+    "@tanstack/react-query-devtools": "^5.85.4",
+    "@cloudinary/react": "^1.14.3",
+    "@cloudinary/url-gen": "^1.21.0",
     "autoprefixer": "^10.4.21",
     "clsx": "^2.1.1",
     "emoji-picker-react": "^4.13.2",
