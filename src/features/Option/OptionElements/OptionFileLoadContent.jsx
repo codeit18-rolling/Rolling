@@ -17,25 +17,30 @@ const style = {
  * @param {string} props.image - 버튼에 표시할 배경 이미지 URL
  * @param {boolean} props.isUploading - 업로드 여부
  * @param {boolean} props.isActive - 활성화 여부 (hover , drag)
- * @param {number} props.size - 허용 가능한 용량
  * @returns {JSX.Element} 이미지 옵션 버튼 요소
  */
 
-const OptionFileLoadContent = ({ isUploading, isActive, size }) => {
+const OptionFileLoadContent = ({ isUploading, isActive }) => {
   return (
     <>
       {isUploading ? (
         <div className={cn(style.textStyle, "text-purple-500")}>
-          업로드 중 <span className={style.loadingSpinner}></span>
+          멋진 배경을 불러오는 중이에요 🎨
+          <span className={style.loadingSpinner}></span>
         </div>
       ) : (
         <>
           <Icon
-            iconName="plus"
+            iconName="file"
             className={cn(style.iconStyle, isActive && "bg-purple-500")}
           />
           <div className={cn(style.textStyle, isActive && "text-purple-500")}>
-            {`${size}MB 이하만 업로드 가능합니다`}
+            배경으로 쓰고 싶은 사진 있나요?
+            <br />
+            클릭 또는 드래그해서 올려주세요 😎
+            <span className="block text-12 font-medium text-gray-400">
+              (최대 용량 5MB)
+            </span>
           </div>
         </>
       )}
