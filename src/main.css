@@ -60,7 +60,7 @@
   --white: #f4f4f4;
   --black: #181b28;
   --bgColor: #f8f9fa;
-  
+
   --black-opacity-1: rgba(0, 0, 0, 0.1);
   --black-opacity-2: rgba(0, 0, 0, 0.2);
   --black-opacity-3: rgba(0, 0, 0, 0.3);
@@ -120,6 +120,24 @@
   --green-300: #29662f;
   --green-400: #3b8c40;
   --green-500: #60cf37;
+  /*  */
+  --beige-100: #3c2a21;
+  --beige-200: #6d4b35;
+  --beige-300: #8d5e44;
+  --beige-400: #ab7758;
+  --beige-500: #e18b46;
+
+  --blue-100: #16354d;
+  --blue-200: #1d4668;
+  --blue-300: #24628a;
+  --blue-400: #2c7eaf;
+  --blue-500: #4cc0ff;
+
+  --green-100: #164a28;
+  --green-200: #275933;
+  --green-300: #32773f;
+  --green-400: #45a04e;
+  --green-500: #58e073;
 
   /* Etc */
   --error: #ff6b6b;
