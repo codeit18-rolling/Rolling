@@ -36,7 +36,6 @@ function ListDetails() {
           backgroundImage:
             recipients?.backgroundImageURL &&
             `url(${recipients.backgroundImageURL})`,
-          backgroundColor: "#FFE2AD",
         }}
       >
         <Container className="h-full flex flex-col justify-end gap-[18px]">
