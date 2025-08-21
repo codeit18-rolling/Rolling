@@ -41,7 +41,7 @@ export const useEditor = ({
     quillRef.current = quill;
 
     // 이벤트 등록
-    useQuillEvent(quill);
+    useQuillEvent(quill, { onTextChangeRef, onSelectionChangeRef, onBlurRef });
 
     return () => useCleanUpHandler(container, quillRef);
   }, [defaultValue]);

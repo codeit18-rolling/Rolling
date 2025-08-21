@@ -22,7 +22,10 @@ export const useCreateEditor = (container, modules, { defaultValue }) => {
   return quill;
 };
 
-export const useQuillEvent = (quill) => {
+export const useQuillEvent = (
+  quill,
+  { onTextChangeRef, onSelectionChangeRef, onBlurRef }
+) => {
   //font 초기화 이벤트
   quill.on("text-change", () => {
     const text = quill.getText().trim();
