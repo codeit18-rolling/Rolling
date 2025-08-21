@@ -1,6 +1,5 @@
 import Icon from "../../../components/Icon/Icon";
 import { cn } from "../../../utils";
-
 const style = {
   iconStyle: "bg-gray-400 group-hover:bg-purple-500",
   textStyle:
@@ -8,6 +7,19 @@ const style = {
   loadingSpinner:
     "inline-block w-2 h-2 ml-6 rounded-full bg-purple-500 shadow-loading-spinner animate-loading-spinner",
 };
+
+/**
+ * 옵션 이미지 파일 업로드
+ *
+ * @author <sohyun>
+ * @component
+ * @param {Object} props - 컴포넌트 props
+ * @param {string} props.image - 버튼에 표시할 배경 이미지 URL
+ * @param {boolean} props.isUploading - 업로드 여부
+ * @param {boolean} props.isActive - 활성화 여부 (hover , drag)
+ * @param {number} props.size - 허용 가능한 용량
+ * @returns {JSX.Element} 이미지 옵션 버튼 요소
+ */
 
 const OptionFileLoadContent = ({ isUploading, isActive, size }) => {
   return (

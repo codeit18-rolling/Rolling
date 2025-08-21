@@ -9,6 +9,7 @@ import { cn } from "../../../utils";
  * @param {boolean} props.isActive - 활성화 여부
  * @param {function} props.onClick - 클릭 이벤트 핸들러
  * @param {string} [props.className] - 추가로 적용할 CSS 클래스명
+ * @param {string} props.ariaLabel - 접근성 라벨
  * @param {React.ReactNode} props.children - 버튼 내부에 렌더링할 요소(활성화 시)
  * @returns {JSX.Element} 옵션 버튼 요소
  */
@@ -17,6 +18,7 @@ const OptionButton = ({
   isActive,
   onClick,
   className = "",
+  ariaLabel,
   children,
   ...props
 }) => {
@@ -29,6 +31,7 @@ const OptionButton = ({
       )}
       onClick={onClick}
       aria-pressed={isActive}
+      aria-label={ariaLabel}
       {...props}
     >
       {children}
