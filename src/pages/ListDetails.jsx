@@ -8,6 +8,13 @@ import { BG_COLORS } from "../constants/backgroundColor";
 import ListDetailActionButtons from "../features/ListDetail/ListDetailActionButtons";
 import DeleteButton from "../features/ListDetail/ListDetailElements/DeleteButton";
 import useGetRecipientsDetailData from "../hooks/fetcher/ListDetails/useGetRecipientsDetailData.js";
+import { useGetHeaderService } from "../features/HeaderService/hooks/useGetHeaderService";
+
+/* TODO(지권)
+  - 버튼 퍼블리싱 수정 필요
+  - 헤더 서비스 컴포넌트 데이터 테스트 필요
+  - 리스트 데이터 호출 위치 변경
+*/
 
 // Card List Page
 function ListDetails() {
@@ -22,22 +29,25 @@ function ListDetails() {
   // console.log(cardDetailData);
 
   // 헤더 서비스 데이터
+  const { data: recipients, isLoading: headerServiceLoading } =
+    useGetHeaderService(id);
+  // console.log(recipients);
 
   return (
     <>
-      <HeaderService recipientId={id} />
+      <HeaderService recipients={recipients} isLoading={headerServiceLoading} />
       <div
         className={cn(
           "w-full min-h-[calc(100vh-104px)]",
           "desktop:min-h-[calc(100vh-133px)]",
-          cardDetailData?.backgroundImageURL
+          recipients?.backgroundImageURL
             ? "bg-cover bg-center"
-            : BG_COLORS[cardDetailData?.backgroundColor] || "bg-beige-200"
+            : BG_COLORS[recipients?.backgroundColor] || "bg-beige-200"
         )}
         style={
-          cardDetailData?.backgroundImageURL && {
-            backgroundImage: `url(${cardDetailData.backgroundImageURL})`,
-          }
+          recipients?.backgroundImageURL
+            ? { backgroundImage: `url(${recipients.backgroundImageURL})` }
+            : {}
         }
       >
         <Container className="h-full flex flex-col justify-end gap-[18px]">

@@ -17,7 +17,6 @@ const AddCard = ({ id }) => {
         className="w-[56px] h-[56px] bg-gray-500 rounded-full p-4 mx-auto my-auto cursor-pointer hover:bg-gray-800 transition-all duration-150 ease-in-out"
         aria-label="추가하기 페이지 이동"
       >
-        {/* TODO(지권): Icon 컴포넌트 변경 */}
         <Icon iconName="plus" iconSize="ic-24" className="bg-white" />
       </Link>
     </div>
