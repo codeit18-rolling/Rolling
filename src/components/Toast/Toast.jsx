@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { ICONS } from "../../constants/icon";
 import { cn } from "../../utils";
 import { createPortal } from "react-dom";
+import Icon from "../Icon/Icon";
 
 const Toast = ({
   isOpen,
@@ -31,11 +31,19 @@ const Toast = ({
       )}
     >
       <div className="flex items-center gap-[12px]">
-        <img src={ICONS[image]} alt="상태 아이콘" />
+        <Icon
+          iconName={image}
+          className="bg-green-500"
+          ariaLabel="상태 아이콘"
+        />
         <span className="text-[14px]">{message}</span>
       </div>
       <button onClick={onClose} className="flex items-center">
-        <img src={ICONS["close"]} alt="닫기 아이콘" />
+        <Icon
+          iconName="close"
+          className="bg-gray-300"
+          ariaLabel="닫기 아이콘"
+        />
       </button>
     </div>
   );
