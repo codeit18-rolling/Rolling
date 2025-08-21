@@ -8,15 +8,13 @@ import Editor from "./TextFieldElements/Editor";
 const TextField = forwardRef(
   ({ value, onChange, onSelectionChange, onBlur }, ref) => {
     return (
-      <>
-        <Editor
-          ref={ref}
-          defaultValue={value}
-          onTextChange={onChange}
-          onSelectionChange={onSelectionChange}
-          onBlur={onBlur}
-        />
-      </>
+      <Editor
+        ref={ref}
+        defaultValue={value}
+        onTextChange={onChange}
+        onSelectionChange={onSelectionChange}
+        onBlur={onBlur}
+      />
     );
   }
 );
