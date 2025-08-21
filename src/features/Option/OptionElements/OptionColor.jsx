@@ -10,6 +10,7 @@ import OptionWrapper from "./OptionWrapper";
  * @component
  * @param {Object} props - 컴포넌트 props
  * @param {function} props.onColorSelect - 선택된 컬러 전달
+ * @param {string} [props.className=""] - 추가로 적용할 CSS 클래스명
  * @returns {JSX.Element} 컬러 옵션 버튼 그룹
  *
  * @example
@@ -31,6 +32,7 @@ const OptionColor = ({ onColorSelect, className }) => {
           bgClass={bgClass}
           isActive={selectedColor === color}
           onClick={() => setSelectedColor(color)}
+          ariaLabel={color}
         />
       ))}
     </OptionWrapper>
