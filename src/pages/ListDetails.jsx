@@ -32,11 +32,12 @@ function ListDetails() {
             ? "bg-cover bg-center"
             : BG_COLORS[recipients?.backgroundColor] || "bg-beige-200"
         )}
-        style={
-          recipients?.backgroundImageURL
-            ? { backgroundImage: `url(${recipients.backgroundImageURL})` }
-            : {}
-        }
+        style={{
+          backgroundImage:
+            recipients?.backgroundImageURL &&
+            `url(${recipients.backgroundImageURL})`,
+          backgroundColor: "#FFE2AD",
+        }}
       >
         <Container className="h-full flex flex-col justify-end gap-[18px]">
           {/* Delete Button */}
