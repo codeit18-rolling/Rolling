@@ -14,11 +14,13 @@ const HeaderService = ({ recipientId }) => {
 
   return (
     <HeaderServiceWrapper>
-      {!isLoading && (
+      {!isLoading ? (
         <>
           <RecipientName recipients={recipients} />
           <HeaderServiceContents recipients={recipients} />
         </>
+      ) : (
+        <>데이터를 불러오는 중 입니다...</>
       )}
     </HeaderServiceWrapper>
   );
