@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import getProfileImages from "../../../service/Message/getProfileImages";
 
-const useService = () => {
+const useMessageProfile = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [images, setImages] = useState([]);
   const [isError, setIsError] = useState(null);
@@ -30,4 +30,4 @@ const useService = () => {
   };
 };
 
-export default useService;
+export default useMessageProfile;
