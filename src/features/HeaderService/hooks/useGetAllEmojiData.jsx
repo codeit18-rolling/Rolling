@@ -14,7 +14,6 @@ export const useGetAllEmojiData = (postId) => {
     queryKey: [ALL_EMOJI_DATA_KEY, postId],
     queryFn: () => getAllEmojiData(postId),
     retry: 1,
-    refetchOnWindowFocus: false,
     enabled: !!postId,
   });
 };

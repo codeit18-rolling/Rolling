@@ -6,7 +6,6 @@ export const useGetHeaderService = (recipientId) => {
     queryKey: ["headerService", recipientId],
     queryFn: () => getHeaderService(recipientId),
     retry: 1,
-    refetchOnWindowFocus: false,
     enabled: !!recipientId,
   });
 };
