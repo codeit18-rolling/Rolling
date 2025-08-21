@@ -21,6 +21,8 @@ function ListDetails() {
   const { data: cardDetailData, isLoading } = useGetRecipientsDetailData(id);
   // console.log(cardDetailData);
 
+  // 헤더 서비스 데이터
+
   return (
     <>
       <HeaderService recipientId={id} />
