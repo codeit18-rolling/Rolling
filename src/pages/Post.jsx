@@ -2,7 +2,6 @@ import PostInput from "../features/Post/PostElements/PostInput";
 import PostOption from "../features/Post/PostElements/PostOption";
 import Container from "../components/Container/Container";
 import Button from "../components/Button/Button";
-import FloatingButton from "../components/Button/FloatingButton";
 import useInputValidator from "../hooks/useInputValidator";
 import { validateName } from "../utils/validate";
 import usePostData from "../features/Post/hooks/usePostData";

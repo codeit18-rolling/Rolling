@@ -3,6 +3,7 @@ import { cn } from "../../../utils";
 import { validateFile } from "../../../utils/validate";
 import useCloudinaryUpload from "../../Post/hooks/useCloudinaryUpload";
 import OptionFileLoadContent from "./OptionFileLoadContent";
+
 const labelClasses = [
   "group w-full cursor-pointer p-6 mt-10",
   "flex flex-col items-center justify-center gap-2 rounded-2xl relative",
@@ -11,6 +12,15 @@ const labelClasses = [
   "focus:shadow-purple-500 focus:border-purple-500 hover:border-purple-500",
 ];
 const LIMIT_SIZE = 15;
+/**
+ * 옵션 이미지 파일
+ *
+ * @author <sohyun>
+ * @component
+ * @param {Object} props - 컴포넌트 props
+ * @param {function} props.onUpload - 업로드 파일 전달
+ * @returns {JSX.Element} 이미지 옵션 버튼 요소
+ */
 
 const OptionFile = ({ onUpload }) => {
   const { uploadFiles, isUploading } = useCloudinaryUpload();
