@@ -47,14 +47,16 @@ const OptionFile = ({ onUpload }) => {
             handleFiles(Array.from(e.target.files));
             e.target.value = ""; // 연속 업로드 감지
           }}
-          className="hidden"
+          className="hidden "
         />
       </label>
+      {console.log(toastIcons[toast.type])}
       <Toast
         isOpen={toast.isOpen}
-        image={toastIcons[toast.type]}
+        icon={toastIcons[toast.type]}
         message={toast.message}
         onClose={closeToast}
+        iconClassName={toastIcons[toast.type] === "alert" && "bg-error"}
       />
     </>
   );

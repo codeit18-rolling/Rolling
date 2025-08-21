@@ -6,9 +6,10 @@ import Icon from "../Icon/Icon";
 const Toast = ({
   isOpen,
   onClose,
-  image = "completed",
+  icon = "completed",
   message = "URL이 복사되었습니다.",
   duration = 2000,
+  iconClassName = "",
 }) => {
   useEffect(() => {
     if (isOpen) {
@@ -32,8 +33,8 @@ const Toast = ({
     >
       <div className="flex items-center gap-[12px]">
         <Icon
-          iconName={image}
-          className="bg-green-500"
+          iconName={icon}
+          className={cn("bg-green-500", iconClassName)}
           ariaLabel="상태 아이콘"
         />
         <span className="text-[14px]">{message}</span>

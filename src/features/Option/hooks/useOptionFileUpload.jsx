@@ -3,7 +3,7 @@ import { cn } from "../../../utils";
 import { validateFile } from "../../../utils/validate";
 import useCloudinaryUpload from "./useCloudinaryUpload";
 
-const LIMIT_SIZE = 15;
+const LIMIT_SIZE = 5;
 const TOAST_INIT = {
   isOpen: false,
   type: "success", // "success" | "error"
