@@ -19,19 +19,19 @@ const PostOption = ({ bgImages, isLoading, onColorSelect, onImageSelect }) => {
         <ToggleButton
           isActive={toggleOption === "color"}
           onClick={() => setToggleOption("color")}
-          ariaControls="컬러 옵션"
+          aria-label="롤링페이퍼 배경 색상 옵션"
         >
           컬러
         </ToggleButton>
         <ToggleButton
           isActive={toggleOption === "image"}
           onClick={() => setToggleOption("image")}
-          ariaControls="이미지 옵션"
+          aria-label="롤링페이퍼 배경 이미지 옵션"
         >
           이미지
         </ToggleButton>
       </ToggleButtonWrapper>
-      <div className="sm:mt-4 desktop:mt-5">
+      <div className="sm:mt-4 desktop:mt-5 min-h-[calc(100vw-40px)] sm:min-h-[calc((100vw-40px-(1rem*3))/4)] tablet:min-h-[168px]">
         <Option
           type={toggleOption}
           bgImages={bgImages}

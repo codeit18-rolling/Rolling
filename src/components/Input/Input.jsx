@@ -43,7 +43,6 @@ const Input = ({
   type = "text",
   placeholder = "이름을 입력해 주세요",
   value,
-  onChange,
   errorMsg,
   className = "",
   ...props
@@ -54,7 +53,6 @@ const Input = ({
         type={type}
         placeholder={placeholder}
         value={value}
-        onChange={onChange}
         className={cn(
           ...baseInputClass,
           errorMsg ? errorInputClass : activeInputClass,

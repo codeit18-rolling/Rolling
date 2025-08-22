@@ -13,22 +13,16 @@ import { cn } from "../../../utils";
  * @param {React.ReactNode} props.children - 버튼 내부에 렌더링할 요소(활성화 시)
  * @returns {JSX.Element} 옵션 버튼 요소
  */
-
-const OptionButton = ({
-  isActive,
-  className = "",
-  children,
-  ...props
-}) => {
+const OptionButton = ({ isActive, className = "", children, ...props }) => {
   return (
     <button
       type="button"
       className={cn(
-        "w-[calc((100%-1rem)/2)] aspect-square rounded-2xl relative",
+        "flex-[0_0_calc((100%-1rem)/2)] aspect-square rounded-2xl relative",
+        "sm:flex-[0_0_calc((100%-(1rem*3))/4)]",
         className
       )}
       aria-pressed={isActive}
-  
       {...props}
     >
       {children}

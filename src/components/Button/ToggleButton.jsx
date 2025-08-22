@@ -33,7 +33,6 @@ export const ToggleButtonWrapper = ({
  * @param {boolean} [props.isActive=false] - 활성화 여부
  * @param {function} [props.onClick] - 클릭 이벤트 핸들러
  * @param {React.ReactNode} props.children - 버튼 내부에 렌더링할 요소
- * @param {string} props.ariaControls - 접근성 문구
  * @returns {JSX.Element} 토글 버튼 요소
  *
  * @example
@@ -43,7 +42,6 @@ const ToggleButton = ({
   isActive = false,
   onClick,
   children,
-  ariaControls,
   ...props
 }) => {
   const activeClass =
@@ -61,7 +59,6 @@ const ToggleButton = ({
       )}
       onClick={onClick}
       aria-pressed={isActive}
-      aria-controls={ariaControls}
       {...props}
     >
       {children}

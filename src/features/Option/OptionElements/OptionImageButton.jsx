@@ -20,10 +20,7 @@ const whiteDimmedStyled =
 const OptionImageButton = ({ image, isActive, ...props }) => {
   return (
     <OptionButton
-      className={cn(
-        "overflow-hidden sm:w-[calc((100%-(1rem*3))/4)]",
-        isActive && whiteDimmedStyled
-      )}
+      className={cn("overflow-hidden", isActive && whiteDimmedStyled)}
       isActive={isActive}
       aria-label="배경 이미지"
     >
@@ -37,6 +34,7 @@ const OptionImageButton = ({ image, isActive, ...props }) => {
         onError={(e) => {
           e.target.src = defaultBgImage; // 이미지 로딩 실패 시
         }}
+        draggable="false"
         {...props}
       />
       {isActive && <OptionCheck />}
