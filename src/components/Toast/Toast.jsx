@@ -1,14 +1,15 @@
 import { useEffect } from "react";
-import icCompleted from "../../assets/icon/ic_completed.svg";
-import icClosed from "../../assets/icon/ic_close.svg";
 import { cn } from "../../utils";
 import { createPortal } from "react-dom";
+import Icon from "../Icon/Icon";
 
 const Toast = ({
   isOpen,
   onClose,
+  icon = "completed",
   message = "URL이 복사되었습니다.",
   duration = 2000,
+  iconClassName = "",
 }) => {
   useEffect(() => {
     if (isOpen) {
@@ -31,11 +32,19 @@ const Toast = ({
       )}
     >
       <div className="flex items-center gap-[12px]">
-        <img src={icCompleted} alt="상태 아이콘" />
+        <Icon
+          iconName={icon}
+          className={cn("bg-green-500", iconClassName)}
+          ariaLabel="상태 아이콘"
+        />
         <span className="text-[14px]">{message}</span>
       </div>
       <button onClick={onClose} className="flex items-center">
-        <img src={icClosed} alt="닫기 아이콘" />
+        <Icon
+          iconName="close"
+          className="bg-gray-300"
+          ariaLabel="닫기 아이콘"
+        />
       </button>
     </div>
   );
