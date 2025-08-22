@@ -46,7 +46,7 @@ const HeaderService = ({ recipients, isLoading }) => {
                 "tablet:px-0 tablet:justify-center tablet:w-fit"
               )}
             >
-              <HeaderServiceActions topReactions={recipients?.topReactions} />
+              <HeaderServiceActions recipient={recipients} />
             </div>
           </div>
         </>

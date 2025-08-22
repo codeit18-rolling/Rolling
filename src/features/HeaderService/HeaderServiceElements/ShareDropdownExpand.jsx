@@ -5,11 +5,13 @@ import Toast from "../../../components/Toast/Toast";
 import { useRef, useState } from "react";
 import useClickOutside from "../../TextDropdown/hooks/useClickOutside";
 
+const TEMPLATE_ID = 123485;
+
 /**
  * 공유 버튼 클릭시 표출되는 드롭다운
  * @author <hwitae>
  */
-const ShareDropdownExpand = ({ onClickClose }) => {
+const ShareDropdownExpand = ({ recipient, onClickClose }) => {
   const { pathname } = useLocation();
   const dropdownRef = useRef(null);
   const [isToastOpen, setIsToastOpen] = useState(false);
@@ -24,9 +26,12 @@ const ShareDropdownExpand = ({ onClickClose }) => {
    */
   const onClickShareKakao = () => {
     Kakao.Share.sendCustom({
-      templateId: 123485,
+      templateId: TEMPLATE_ID,
       templateArgs: {
         path: pathname,
+        name: recipient.name,
+        messageCount: recipient.messageCount,
+        reactionCount: recipient.reactionCount,
       },
     });
   };
