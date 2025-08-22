@@ -6,6 +6,9 @@ import ReactionBar from "./DropdownElements/ReactionBar";
 import { useGetAllEmojiData } from "../../features/HeaderService/hooks/useGetAllEmojiData";
 import useMediaQuery from "../../features/HeaderService/hooks/useMediaQuery";
 
+const BIG_DISPLAY_LIMIT = 8;
+const SMALL_DISPLAY_LIMIT = 6;
+
 /**
  * 이모지 리액션을 모아둔 드롭다운 리스트
  * @author <hwitae>
@@ -29,7 +32,7 @@ const DropdownEmoji = ({ reactions = [], postId = "" }) => {
   useEffect(() => {
     setEmojiParams((prevParams) => ({
       ...prevParams,
-      limit: isTablet ? 8 : 6,
+      limit: isTablet ? BIG_DISPLAY_LIMIT : SMALL_DISPLAY_LIMIT,
     }));
   }, [isTablet]);
 
