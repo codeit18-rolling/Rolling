@@ -34,6 +34,16 @@ const useMessage = () => {
     }
   }, [images]);
 
+  useEffect(() => {
+    if (inputSender && inputText) {
+      //setIsDisable(false);
+      console.log(false);
+    } else {
+      //setIsDisable(true);
+      console.log(true);
+    }
+  }, [inputSender, inputText]);
+
   const handleInputChange = useCallback(
     (e) => {
       const inputValue = e.target.value;
@@ -75,6 +85,7 @@ const useMessage = () => {
   };
 
   const handleEditorChange = useCallback(() => {
+    console.log(editorRef.current, "editor");
     if (editorRef.current) {
       const html = editorRef.current.root.innerHTML;
       setPostMessageData((prev) => ({
@@ -85,6 +96,7 @@ const useMessage = () => {
   }, []);
 
   const handleFontChange = useCallback((range, oldRange, source) => {
+    console.log(editorRef.current, range, "fontchange");
     if (range && editorRef.current) {
       const format = editorRef.current.getFormat();
       let fontName = format.font;
@@ -107,7 +119,7 @@ const useMessage = () => {
     }
   }, []);
 
-  const handleButtonDisable = (type = "", e) => {
+  const handleButtonDisable = useCallback((type = "", e) => {
     if (type === "input") {
       const sender = e.target.value.trim();
       setInputSender(sender);
@@ -117,6 +129,7 @@ const useMessage = () => {
         setIsDisable(true);
       }
     } else if (type === "" && editorRef.current) {
+      console.log("goal?");
       const text = editorRef.current.getText().trim();
       setInputText(text);
       if (inputSender && text) {
@@ -125,7 +138,7 @@ const useMessage = () => {
         setIsDisable(true);
       }
     }
-  };
+  }, []);
 
   const { handleSubmit } = useMessageSubmit(postMessageData);
 

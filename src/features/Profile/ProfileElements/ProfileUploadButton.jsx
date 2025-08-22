@@ -2,13 +2,12 @@ import { useState, useCallback, useRef } from "react";
 import Icon from "../../../components/Icon/Icon";
 import { cn } from "../../../utils";
 import { validateFile } from "../../../utils/validate";
-import useCloudinaryUpload from "../../Post/hooks/useCloudinaryUpload";
+import useCloudinaryUpload from "../../Option/hooks/useCloudinaryUpload";
 
 const LIMIT_SIZE = 3;
 
 const ProfileUploadButton = ({ style, onUpload }) => {
   const { uploadFiles, isUploading } = useCloudinaryUpload();
-  const [isActive, setIsActive] = useState(false);
   const inputRef = useRef(null);
 
   const imageUploadBtn = () => {
@@ -43,7 +42,7 @@ const ProfileUploadButton = ({ style, onUpload }) => {
         type="file"
         id="imageUpload"
         name="imageUpload"
-        accept="image/*"
+        accept="image/jpeg, image/jpg, image/png, image/webp"
         onChange={(e) => handleFiles(Array.from(e.target.files))}
         className="hidden"
         ref={inputRef}
