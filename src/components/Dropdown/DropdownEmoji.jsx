@@ -1,9 +1,10 @@
-import { memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { cn } from "../../utils";
 import DropdownExpandEmoji from "./DropdownElements/DropdownExpandEmoji";
 import { useToggle } from "../../hooks/useToggle";
 import ReactionBar from "./DropdownElements/ReactionBar";
 import { useGetAllEmojiData } from "../../features/HeaderService/hooks/useGetAllEmojiData";
+import useMediaQuery from "../../features/HeaderService/hooks/useMediaQuery";
 
 /**
  * 이모지 리액션을 모아둔 드롭다운 리스트
@@ -13,6 +14,7 @@ import { useGetAllEmojiData } from "../../features/HeaderService/hooks/useGetAll
  */
 const DropdownEmoji = ({ reactions = [], postId = "" }) => {
   const { isOpen, onClickToggle } = useToggle();
+  const isTablet = useMediaQuery("(min-width: 768px)");
   const [emojiParams, setEmojiParams] = useState({
     id: postId,
     limit: 8,
@@ -23,6 +25,13 @@ const DropdownEmoji = ({ reactions = [], postId = "" }) => {
     hasNextPage,
     isLoading,
   } = useGetAllEmojiData(emojiParams);
+
+  useEffect(() => {
+    setEmojiParams((prevParams) => ({
+      ...prevParams,
+      limit: isTablet ? 8 : 6,
+    }));
+  }, [isTablet]);
 
   return (
     <>
