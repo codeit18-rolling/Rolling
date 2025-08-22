@@ -8,7 +8,7 @@ export const HeaderServiceWrapper = ({ children }) => {
   return (
     <div
       className={cn(
-        "flex justify-center h-[104px] bg-white z-50",
+        "flex justify-center h-[104px] z-50",
         "tablet:items-center tablet:h-[68px]"
       )}
     >
