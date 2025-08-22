@@ -57,7 +57,7 @@
   /* Etc */
   --error: #dc3a3a;
   --surface: #f6f8ff;
-  --white: #f4f4f4;
+  --white: #fcfcfc;
   --black: #181b28;
   --bgColor: #f8f9fa;
 
@@ -71,6 +71,7 @@
   --black-opacity-8: rgba(0, 0, 0, 0.8);
   --black-opacity-08: rgba(0, 0, 0, 0.08);
   --white-opacity-5: rgba(255, 255, 255, 0.5);
+  --dimmed-opacity: rgba(0, 0, 0, 0.4);
 }
 
 /* 다크모드 변수 */
@@ -103,29 +104,11 @@
   --purple-800: #ecd9ff;
   --purple-900: #f8f0ff;
 
-  --beige-100: #2a1e15;
-  --beige-200: #66492e;
-  --beige-300: #7f5939;
-  --beige-400: #99714a;
-  --beige-500: #b88c61;
-
-  --blue-100: #081623;
-  --blue-200: #102a40;
-  --blue-300: #134666;
-  --blue-400: #196a99;
-  --blue-500: #34b9ff;
-
-  --green-100: #0a120a;
-  --green-200: #1f4d24;
-  --green-300: #29662f;
-  --green-400: #3b8c40;
-  --green-500: #60cf37;
-  /*  */
   --beige-100: #3c2a21;
   --beige-200: #6d4b35;
   --beige-300: #8d5e44;
   --beige-400: #ab7758;
-  --beige-500: #e18b46;
+  --beige-500: #d38e64;
 
   --blue-100: #16354d;
   --blue-200: #1d4668;
@@ -141,7 +124,7 @@
 
   /* Etc */
   --error: #ff6b6b;
-  --surface: #1b1d29;
+  --surface: #323545;
   --white: #1e1e1e;
   --black: #f4f4f4;
   --bgColor: #13141d;
@@ -156,6 +139,7 @@
   --black-opacity-8: rgba(255, 255, 255, 0.8);
   --black-opacity-08: rgba(255, 255, 255, 0.08);
   --white-opacity-5: rgba(0, 0, 0, 0.5);
+  --dimmed-opacity: rgba(0, 0, 0, 0.7);
 }
 * {
   color: var(--gray-900);
@@ -163,6 +147,3 @@
 body {
   background-color: var(--bgColor);
 }
-/* button.bg-purple-600 {
-  color: #f6f8ff !important;
-} */

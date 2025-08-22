@@ -68,11 +68,15 @@ export default {
         "black-opacity-7": "var(--black-opacity-7)",
         "black-opacity-8": "var(--black-opacity-8)",
         "black-opacity-08": "var(--black-opacity-08)",
-        "black/40": "var(--black-opacity-4)",
-        "black/50": "var(--black-opacity-5)",
-        "black/60": "var(--black-opacity-6)",
-        "black/70": "var(--black-opacity-7)",
-        "black/80": "var(--black-opacity-8)",
+        "dimmed-opacity": "var(--dimmed-opacity)",
+
+        "black/": "rgba(0, 0, 0, 0.1)",
+        "black/10": "rgba(0, 0, 0, 0.1)",
+        "black/40": "rgba(0, 0, 0, 0.4)",
+        "black/50": "rgba(0, 0, 0, 0.5)",
+        "black/60": "rgba(0, 0, 0, 0.6)",
+        "black/70": "rgba(0, 0, 0, 0.7)",
+        "black/80": "rgba(0, 0, 0, 0.8)",
       },
       fontSize: {
         12: ["0.75rem", { lineHeight: "1.5", letterSpacing: "-0.005em" }], // -0.5%

@@ -7,7 +7,6 @@ import { validateName } from "../utils/validate";
 import usePostData from "../features/Post/hooks/usePostData";
 import usePostImages from "../features/Post/hooks/usePostImages";
 import usePostSubmit from "../features/Post/hooks/usePostSubmit";
-import Theme from "../features/Theme/Theme";
 const Post = () => {
   const {
     createPostData,
@@ -17,8 +16,13 @@ const Post = () => {
     resetName,
   } = usePostData();
   const { images, isLoading } = usePostImages();
-  const { errorMsg, handleChange, handleBlur, handleValidateSubmit } =
-    useInputValidator(createPostData.name, validateName);
+  const {
+    errorMsg,
+    handleChange,
+    handleBlur,
+    handleValidateSubmit,
+    isDisabled,
+  } = useInputValidator(createPostData.name, validateName);
   const { handleSubmit } = usePostSubmit(createPostData, resetName);
 
   return (
@@ -26,7 +30,6 @@ const Post = () => {
       isInnerBox={true}
       innerBoxClassName="flex flex-col gap-[32px] tablet:gap-[50px]"
     >
-      <Theme />
       <PostInput
         value={createPostData.name}
         errorMsg={errorMsg}
@@ -45,7 +48,7 @@ const Post = () => {
       <Button
         className="w-full"
         onClick={() => handleSubmit(handleValidateSubmit)}
-        disabled={errorMsg}
+        disabled={isDisabled}
       >
         생성하기
       </Button>

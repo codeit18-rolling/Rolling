@@ -17,16 +17,15 @@ const whiteDimmedStyled =
  * @param {...Object} props - 기타 img 엘리먼트에 전달할 속성
  * @returns {JSX.Element} 이미지 옵션 버튼 요소
  */
-const OptionImageButton = ({ image, isActive, onClick, onLoad, ...props }) => {
+const OptionImageButton = ({ image, isActive, ...props }) => {
   return (
     <OptionButton
       className={cn(
         "overflow-hidden sm:w-[calc((100%-(1rem*3))/4)]",
         isActive && whiteDimmedStyled
       )}
-      onClick={onClick}
       isActive={isActive}
-      ariaLabel="배경 이미지"
+      aria-label="배경 이미지"
     >
       <img
         src={image}
@@ -38,7 +37,6 @@ const OptionImageButton = ({ image, isActive, onClick, onLoad, ...props }) => {
         onError={(e) => {
           e.target.src = defaultBgImage; // 이미지 로딩 실패 시
         }}
-        onLoad={onLoad}
         {...props}
       />
       {isActive && <OptionCheck />}

@@ -16,9 +16,7 @@ import { cn } from "../../../utils";
 
 const OptionButton = ({
   isActive,
-  onClick,
   className = "",
-  ariaLabel,
   children,
   ...props
 }) => {
@@ -29,9 +27,8 @@ const OptionButton = ({
         "w-[calc((100%-1rem)/2)] aspect-square rounded-2xl relative",
         className
       )}
-      onClick={onClick}
       aria-pressed={isActive}
-      aria-label={ariaLabel}
+  
       {...props}
     >
       {children}
