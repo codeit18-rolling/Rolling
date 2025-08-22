@@ -38,8 +38,8 @@ const DeleteModal = ({ isOpen, onClose, onConfirm }) => {
         className={cn(
           "w-[90vw] max-w-[600px] rounded-[20px] bg-white shadow-lg border border-gray-200",
           "flex flex-col overflow-hidden",
-          "tablet:w-[600px]",
-          "desktop:w-[600px]"
+          "tablet:w-[700px]",
+          "desktop:w-[700px]"
         )}
       >
         <div className="px-8 pt-9 pb-6 flex items-start gap-4">
@@ -60,13 +60,18 @@ const DeleteModal = ({ isOpen, onClose, onConfirm }) => {
 
         <div className="h-px bg-gray-200" />
 
-        <div className="px-8 py-6 flex gap-3">
+        <div className="px-8 py-6 flex justify-center gap-3">
           {button.map((button) => (
             <Button
               key={button.children}
               btnStyle={button.btnStyle}
               onClick={button.onClick}
-              className="flex-1 h-9 text-[14px]"
+              btnSize="btn-40"
+              className={cn(
+                "flex-1 text-[14px]",
+                "tablet:flex-none tablet:w-[30%]",
+                "desktop:flex-none desktop:w-[30%]"
+              )}
             >
               {button.children}
             </Button>
