@@ -10,19 +10,18 @@
 .ql-editor {
   font-size: 16px !important;
   line-height: 1.5;
-  font-family: "Noto Sans", "pretendard", "Nanum Myeongjo", "Handletter";
+  font-family: "Noto Sans";
+  height: 100%;
+  overflow-y: auto;
 }
 
 .ql-toolbar {
   background-color: #eeeeee;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  height: 49px;
-  white-space: nowrap;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
 }
 
 .ql-snow .ql-formats {
@@ -36,10 +35,11 @@
   height: calc(100% - 49px);
 }
 
-.ql-editor {
-  height: 100%;
-  overflow-y: auto;
+.ql-formats {
+  display: flex;
+  flex-shrink: 0; /* 요소들이 줄어들지 않도록 */
 }
+
 /*Font 설정*/
 
 .ql-toolbar.ql-snow {
@@ -49,8 +49,8 @@
   padding: 8px;
 }
 
-.ql-snow .ql-picker.ql-font .ql-picker-label[data-value="Noto Sans"]::before,
-.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="Noto Sans"]::before {
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value="noto-sans"]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="noto-sans"]::before {
   content: "Noto Sans" !important;
   font-family: "Noto Sans";
 }
