@@ -12,7 +12,7 @@ export const ALL_EMOJI_DATA_KEY = "allEmojiData";
 export const useGetAllEmojiData = (emojiParams) => {
   return useInfiniteQuery({
     queryKey: [ALL_EMOJI_DATA_KEY, emojiParams],
-    queryFn: (pageParam) => getAllEmojiData(emojiParams, pageParam),
+    queryFn: ({ pageParam }) => getAllEmojiData(emojiParams, pageParam),
     initialPageParam: 0,
     getNextPageParam: (lastPage) => {
       if (lastPage.next) {
