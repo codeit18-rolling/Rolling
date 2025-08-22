@@ -25,7 +25,7 @@ const NotFoundFooter = () => {
   return (
     <div
       className={cn(
-        "flex items-center gap-3",
+        "flex items-center gap-3 justify-center",
         "rounded-2xl px-5 py-3 w-[min(80vw,720px)]",
         "bg-purple-500 text-white mx-auto"
       )}
