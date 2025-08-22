@@ -32,7 +32,7 @@ const HeaderService = ({ recipients, isLoading }) => {
           </div>
           <div className={cn("flex items-center justify-center")}>
             <div className="justify-start pr-7 hidden desktop:block mobile:hidden">
-              <Writers data={recipients} />
+              <Writers item={recipients} />
             </div>
             <div
               className={cn(
