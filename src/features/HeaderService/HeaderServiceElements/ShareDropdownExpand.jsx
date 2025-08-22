@@ -2,15 +2,18 @@ import { useLocation } from "react-router";
 import { SHARE_MENU } from "../../../constants/shareMenu";
 import { cn } from "../../../utils";
 import Toast from "../../../components/Toast/Toast";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import useClickOutside from "../../TextDropdown/hooks/useClickOutside";
 
 /**
  * 공유 버튼 클릭시 표출되는 드롭다운
  * @author <hwitae>
  */
-const ShareDropdownExpand = () => {
+const ShareDropdownExpand = ({ onClickClose }) => {
   const { pathname } = useLocation();
+  const dropdownRef = useRef(null);
   const [isToastOpen, setIsToastOpen] = useState(false);
+  useClickOutside(dropdownRef, onClickClose);
 
   const handleClose = (e) => {
     setIsToastOpen((prevState) => !prevState);
@@ -64,6 +67,7 @@ const ShareDropdownExpand = () => {
           "drop-shadow-dropdownBorder"
         )}
         onClick={handleClick}
+        ref={dropdownRef}
       >
         {SHARE_MENU.map((option) => {
           return (

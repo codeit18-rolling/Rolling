@@ -12,5 +12,9 @@ export const useToggle = () => {
     setIsOpen((prevState) => !prevState);
   }, []);
 
-  return { isOpen, onClickToggle };
+  const onClickClose = useCallback(() => {
+    setIsOpen(false);
+  });
+
+  return { isOpen, onClickToggle, onClickClose };
 };

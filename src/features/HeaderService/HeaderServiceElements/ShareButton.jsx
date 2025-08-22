@@ -8,7 +8,7 @@ import ShareDropdownExpand from "./ShareDropdownExpand";
  * @author <hwitae>
  */
 export const ShareButton = () => {
-  const { isOpen, onClickToggle } = useToggle();
+  const { isOpen, onClickToggle, onClickClose } = useToggle();
 
   return (
     <div onClick={onClickToggle} className="relative">
@@ -25,7 +25,7 @@ export const ShareButton = () => {
           className="bg-black block tablet:hidden"
         />
       </Button>
-      {isOpen && <ShareDropdownExpand />}
+      {isOpen && <ShareDropdownExpand onClickClose={onClickClose} />}
     </div>
   );
 };
