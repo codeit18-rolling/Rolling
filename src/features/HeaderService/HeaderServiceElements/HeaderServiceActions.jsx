@@ -1,8 +1,10 @@
 import { memo } from "react";
 import DropdownEmoji from "../../../components/Dropdown/DropdownEmoji";
-import { DropdownAddEmoji } from "../../../components/Dropdown/DropdownAddEmoji";
 import { ShareButton } from "./ShareButton";
 import { cn } from "../../../utils";
+import { useLocation } from "react-router";
+import DropdownAddEmoji from "../../../components/Dropdown/DropdownAddEmoji";
+import { useGetAllEmojiData } from "../hooks/useGetAllEmojiData";
 
 /**
  * 헤더 서비스에서 action이 있는 부분을 모아둔 컴포넌트
@@ -11,13 +13,16 @@ import { cn } from "../../../utils";
  * @returns
  */
 const HeaderServiceActions = ({ topReactions = [] }) => {
+  const { pathname } = useLocation();
+  const postId = pathname.slice(6);
+
   return (
     <>
       <div className="desktop:pl-7">
-        <DropdownEmoji reactions={topReactions} />
+        <DropdownEmoji reactions={topReactions} postId={postId} />
       </div>
       <div className="flex items-center h-[52px] tablet:h-[0px]">
-        <DropdownAddEmoji />
+        <DropdownAddEmoji postId={postId} />
         <div
           className={cn(
             "flex items-center border-r h-[28px]",

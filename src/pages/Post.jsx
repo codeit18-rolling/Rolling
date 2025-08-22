@@ -2,7 +2,6 @@ import PostInput from "../features/Post/PostElements/PostInput";
 import PostOption from "../features/Post/PostElements/PostOption";
 import Container from "../components/Container/Container";
 import Button from "../components/Button/Button";
-import FloatingButton from "../components/Button/FloatingButton";
 import useInputValidator from "../hooks/useInputValidator";
 import { validateName } from "../utils/validate";
 import usePostData from "../features/Post/hooks/usePostData";
@@ -22,7 +21,7 @@ const Post = () => {
   const { handleSubmit } = usePostSubmit(createPostData, resetName);
 
   return (
-    <Container isInnerBox={true} innerBoxClassName="flex flex-col gap-[50px]">
+    <Container isInnerBox={true} innerBoxClassName="flex flex-col gap-[32px] tablet:gap-[50px]">
       <PostInput
         value={createPostData.name}
         errorMsg={errorMsg}
@@ -37,16 +36,14 @@ const Post = () => {
         isLoading={isLoading}
         onColorSelect={handleColorSelect}
         onImageSelect={handleImageSelect}
-      ></PostOption>
-      <FloatingButton>
-        <Button
-          className="w-full"
-          onClick={() => handleSubmit(handleValidateSubmit)}
-          disabled={errorMsg}
-        >
-          생성하기
-        </Button>
-      </FloatingButton>
+      />
+      <Button
+        className="w-full"
+        onClick={() => handleSubmit(handleValidateSubmit)}
+        disabled={errorMsg}
+      >
+        생성하기
+      </Button>
     </Container>
   );
 };

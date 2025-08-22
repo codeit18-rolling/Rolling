@@ -13,6 +13,7 @@ export const ShareButton = () => {
   return (
     <div onClick={onClickToggle} className="relative">
       <Button
+        aria-label="공유 메뉴 버튼"
         btnStyle="outlined"
         btnSize={"btn-icon-36"}
         className={"tablet:w-[56px] tablet:h-[36px] mobile:h-[32px]"}

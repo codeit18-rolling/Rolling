@@ -15,3 +15,6 @@ export const validateName = (value) => {
   if (value[0] === " ") return "이름은 첫 글자가 공백일 수 없습니다";
   return "";
 };
+export const validateFile = (value, limit) => {
+  return value.filter((file) => file.size <= limit * 1024 * 1024);
+};

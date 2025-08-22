@@ -6,7 +6,7 @@ import { useState } from "react";
 import Modal from "../Modal/Modal";
 
 // Card Component
-const Card = ({ data, isDeleteMode = false, id }) => {
+const Card = ({ data, isDeleteMode = false }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -26,9 +26,11 @@ const Card = ({ data, isDeleteMode = false, id }) => {
       <hr className="border-gray-200 mt-[15px]" />
 
       {/* Content */}
-      <p className="flex-1 my-4 w-full overflow-hidden truncate font-normal text-18 leading-7 tracking-[-0.01em] text-gray-600">
-        {data?.content || ERROR_MESSAGE}
-      </p>
+      <div
+        style={{ fontFamily: data?.font }}
+        className="flex-1 my-4 w-full overflow-hidden truncate font-normal text-18 leading-7 tracking-[-0.01em] text-gray-600"
+        dangerouslySetInnerHTML={{ __html: data?.content || ERROR_MESSAGE }}
+      />
 
       {/* Date */}
       <span className="font-normal text-12 leading-[18px] tracking-[-0.05em] text-gray-400">

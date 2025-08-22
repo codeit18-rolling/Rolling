@@ -1,37 +1,57 @@
-import { memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { cn } from "../../utils";
-import BadgeEmoji from "../Badge/BadgeEmoji";
-import DropdownButton from "./DropdownElements/DropdownButton";
 import DropdownExpandEmoji from "./DropdownElements/DropdownExpandEmoji";
 import { useToggle } from "../../hooks/useToggle";
+import ReactionBar from "./DropdownElements/ReactionBar";
+import { useGetAllEmojiData } from "../../features/HeaderService/hooks/useGetAllEmojiData";
+import useMediaQuery from "../../features/HeaderService/hooks/useMediaQuery";
+
+const BIG_DISPLAY_LIMIT = 8;
+const SMALL_DISPLAY_LIMIT = 6;
 
 /**
  * 이모지 리액션을 모아둔 드롭다운 리스트
  * @author <hwitae>
- * @param {Object{}} reactionData API로 받아온 reactions 데이터
- * @param {boolean} dropdown 드롭다운 아이콘 표기 여부
+ * @param {Object{}} reactions API로 받아온 reactions 데이터
+ * @param {string} 롤링페이퍼 아이디
  */
-const DropdownEmoji = ({ reactions = [], allReactions = [] }) => {
+const DropdownEmoji = ({ reactions = [], postId = "" }) => {
   const { isOpen, onClickToggle } = useToggle();
-  // API로 변경 예정
-  const tempCount = 3;
+  const isTablet = useMediaQuery("(min-width: 768px)");
+  const [emojiParams, setEmojiParams] = useState({
+    id: postId,
+    limit: 8,
+  });
+  const {
+    data: allEmojiData,
+    fetchNextPage,
+    hasNextPage,
+    isLoading,
+  } = useGetAllEmojiData(emojiParams);
+
+  useEffect(() => {
+    setEmojiParams((prevParams) => ({
+      ...prevParams,
+      limit: isTablet ? BIG_DISPLAY_LIMIT : SMALL_DISPLAY_LIMIT,
+    }));
+  }, [isTablet]);
 
   return (
     <>
       <div className={cn("flex items-center relative")}>
-        <div className={cn("flex gap-x-2")}>
-          {reactions.map((reaction) => {
-            return (
-              <BadgeEmoji
-                key={reaction.id}
-                reactions={reaction}
-                style={"w-[50px] h-[28px] tablet:w-fit tablet:h-[36px]"}
-              />
-            );
-          })}
-          <DropdownButton onClickOpen={onClickToggle} isOpen={isOpen} />
-        </div>
-        {isOpen && tempCount > 3 && <DropdownExpandEmoji allReactions={[]} />}
+        <ReactionBar
+          reactions={reactions}
+          allReactions={allEmojiData?.pages[0]}
+          isOpen={isOpen}
+          onClickOpen={onClickToggle}
+        />
+        {isOpen && (
+          <DropdownExpandEmoji
+            allEmojiData={allEmojiData}
+            fetchNextPage={fetchNextPage}
+            hasNextPage={hasNextPage}
+          />
+        )}
       </div>
     </>
   );
