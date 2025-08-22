@@ -1,26 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ProfileOptions } from "./ProfileElements/ProfileOptions";
-import { profileImagesData } from "../../MockData";
 
-const basicIconUrl = profileImagesData.imageUrls.slice(0, 1);
-const imageUrlLists = profileImagesData.imageUrls.slice(1);
-
-const Profile = () => {
-  const [selectedProfile, setSelectedProfile] = useState(basicIconUrl[0]);
-
-  const selectHandler = (imageUrl) => {
-    setSelectedProfile(imageUrl);
-  };
+const Profile = ({ value, options, onClick, selectedProfile }) => {
+  if (!selectedProfile) {
+    selectedProfile = value;
+  }
 
   return (
     <div className="h-[95px] flex gap-[30px] items-center">
       <div
-        className="bg-gray-300 rounded-full w-[80px] h-[80px] bg-cover bg-center"
+        className="bg-gray-300 rounded-full w-[80px] h-[80px] bg-cover bg-center flex-shrink-0"
         style={{ backgroundImage: `url("${selectedProfile}")` }}
       />
       <ProfileOptions
-        imageUrlLists={imageUrlLists}
-        onClick={selectHandler}
+        imageUrlLists={options}
+        onClick={onClick}
         selectedProfile={selectedProfile}
       />
     </div>

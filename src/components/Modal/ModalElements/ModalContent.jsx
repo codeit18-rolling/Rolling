@@ -8,9 +8,8 @@ const ModalContent = ({ children }) => {
         styles.scroll,
         "h-full w-full overflow-y-auto pr-4 text-18 text-gray-550"
       )}
-    >
-      {children}
-    </div>
+      dangerouslySetInnerHTML={{ __html: children }}
+    />
   );
 };
 

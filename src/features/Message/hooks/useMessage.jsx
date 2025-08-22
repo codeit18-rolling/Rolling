@@ -1,19 +1,9 @@
-import { useParams } from "react-router";
 import { useState, useRef, useCallback, useEffect } from "react";
-import Container from "../components/Container/Container";
-import MessageInput from "../features/Message/MessageElements/MessageInput";
-import MessageProfile from "../features/Message/MessageElements/MessageProfile";
-import MessageSelect from "../features/Message/MessageElements/MessageSelect";
-import MessageEditor from "../features/Message/MessageElements/MessageEditor";
-import Button from "../components/Button/Button";
-import useMessageProfile from "../features/Message/hooks/useMessageProfile";
-import useMessageSubmit from "../features/Message/hooks/useMessageSubmit";
+import { useParams } from "react-router";
+import useMessageProfile from "./useMessageProfile";
+import useMessageSubmit from "./useMessageSubmit";
 
-const style = {
-  font: "text-24 font-bold text-gray-900 mb-[15px]",
-};
-
-const Message = () => {
+const useMessage = () => {
   const { id } = useParams();
   const editorRef = useRef(null);
   const [errorMsg, setErrorMsg] = useState("");
@@ -44,23 +34,36 @@ const Message = () => {
     }
   }, [images]);
 
-  const handleInputChange = useCallback((e) => {
-    const inputValue = e.target.value;
-    setPostMessageData((prev) => ({
-      ...prev,
-      sender: inputValue,
-    }));
-    if (errorMsg) {
-      setErrorMsg("");
+  useEffect(() => {
+    if (inputSender && inputText) {
+      //setIsDisable(false);
+      console.log(false);
+    } else {
+      //setIsDisable(true);
+      console.log(true);
     }
-  }, []);
+  }, [inputSender, inputText]);
+
+  const handleInputChange = useCallback(
+    (e) => {
+      const inputValue = e.target.value;
+      setPostMessageData((prev) => ({
+        ...prev,
+        sender: inputValue,
+      }));
+      if (errorMsg) {
+        setErrorMsg("");
+      }
+    },
+    [errorMsg]
+  );
 
   const handleInputBlur = (e) => {
     const inputValue = e.target.value.trim();
-    const errorMsg = "값을 입력해 주세요.";
+    const errorMessage = "값을 입력해 주세요.";
 
     if (!inputValue) {
-      setErrorMsg(errorMsg);
+      setErrorMsg(errorMessage);
     } else {
       setErrorMsg("");
     }
@@ -81,10 +84,10 @@ const Message = () => {
     }));
   };
 
-  const handleTextChange = useCallback(() => {
+  const handleEditorChange = useCallback(() => {
+    console.log(editorRef.current, "editor");
     if (editorRef.current) {
       const html = editorRef.current.root.innerHTML;
-
       setPostMessageData((prev) => ({
         ...prev,
         content: html,
@@ -92,7 +95,8 @@ const Message = () => {
     }
   }, []);
 
-  const handleSelectionChange = useCallback((range, oldRange, source) => {
+  const handleFontChange = useCallback((range, oldRange, source) => {
+    console.log(editorRef.current, range, "fontchange");
     if (range && editorRef.current) {
       const format = editorRef.current.getFormat();
       let fontName = format.font;
@@ -105,7 +109,6 @@ const Message = () => {
         fontName = "Noto Sans";
       } else {
         fontName = fontName.replace(/^['"]+|['"]+$/g, "");
-
         if (!fontName) fontName = "Noto Sans";
       }
 
@@ -116,16 +119,17 @@ const Message = () => {
     }
   }, []);
 
-  const handleButtonDisable = (type = "", e) => {
+  const handleButtonDisable = useCallback((type = "", e) => {
     if (type === "input") {
-      const input = e.target.value.trim();
-      setInputSender(input);
-      if (input && inputText) {
+      const sender = e.target.value.trim();
+      setInputSender(sender);
+      if (sender && inputText) {
         setIsDisable(false);
       } else {
         setIsDisable(true);
       }
     } else if (type === "" && editorRef.current) {
+      console.log("goal?");
       const text = editorRef.current.getText().trim();
       setInputText(text);
       if (inputSender && text) {
@@ -134,54 +138,26 @@ const Message = () => {
         setIsDisable(true);
       }
     }
-  };
+  }, []);
 
   const { handleSubmit } = useMessageSubmit(postMessageData);
 
-  return (
-    <Container
-      isInnerBox={true}
-      innerBoxClassName="flex flex-col gap-[32px] tablet:gap-[50px]"
-    >
-      <MessageInput
-        style={style}
-        value={setPostMessageData.sender}
-        onChange={handleInputChange}
-        onBlur={(e) => {
-          handleInputBlur(e);
-          handleButtonDisable("input", e);
-        }}
-        errorMsg={errorMsg}
-      />
-      <MessageProfile
-        style={style}
-        value={postMessageData.profileImageURL}
-        options={profileOptions}
-        onClick={handleProfile}
-        selectedProfile={selectedProfile}
-      />
-      <MessageSelect
-        style={style}
-        value={postMessageData.relationship}
-        onChange={handleSelectChange}
-      />
-      <MessageEditor
-        style={style}
-        ref={editorRef}
-        value={postMessageData.content}
-        onChange={handleTextChange}
-        onSelectionChange={handleSelectionChange}
-        onBlur={handleButtonDisable}
-      />
-      <Button
-        className="w-full"
-        disabled={isDisable}
-        onClick={() => handleSubmit()}
-      >
-        생성하기
-      </Button>
-    </Container>
-  );
+  return {
+    editorRef,
+    errorMsg,
+    selectedProfile,
+    profileOptions,
+    isDisable,
+    postMessageData,
+    handleInputChange,
+    handleInputBlur,
+    handleProfile,
+    handleSelectChange,
+    handleEditorChange,
+    handleFontChange,
+    handleButtonDisable,
+    handleSubmit,
+  };
 };
 
-export default Message;
+export default useMessage;
