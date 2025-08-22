@@ -1,6 +1,5 @@
 import { memo } from "react";
 import HeaderServiceContents from "./HeaderServiceElements/HeaderServiceContents";
-import { useGetHeaderService } from "./hooks/useGetHeaderService";
 import RecipientName from "./HeaderServiceElements/RecipientName";
 import { HeaderServiceWrapper } from "./HeaderServiceElements/HeaderServiceWrapper";
 
@@ -9,9 +8,7 @@ import { HeaderServiceWrapper } from "./HeaderServiceElements/HeaderServiceWrapp
  * @author <hwitae>
  * @param {string} recipientId
  */
-const HeaderService = ({ recipientId }) => {
-  const { data: recipients, isLoading } = useGetHeaderService(recipientId);
-
+const HeaderService = ({ recipients, isLoading }) => {
   return (
     <HeaderServiceWrapper>
       {!isLoading ? (
