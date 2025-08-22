@@ -6,6 +6,8 @@ import { cn } from "../../utils";
  * @param {Object{}} reactions emoji와 count가 들어있는 객체
  */
 const EmojiBadge = ({ reactions = {}, style = "" }) => {
+  const { emoji, count } = reactions;
+
   return (
     <>
       <div
@@ -17,8 +19,8 @@ const EmojiBadge = ({ reactions = {}, style = "" }) => {
           style
         )}
       >
-        <p>{reactions?.emoji}</p>
-        <p className={cn("text-white")}>{reactions?.count}</p>
+        <p>{emoji}</p>
+        <p className={cn("text-white")}>{count}</p>
       </div>
     </>
   );
