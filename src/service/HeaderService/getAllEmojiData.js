@@ -1,9 +1,9 @@
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-export const getAllEmojiData = async (recipientId) => {
+export const getAllEmojiData = async ({ id, limit = 8 }, pageParam) => {
   try {
     const response = await fetch(
-      `${API_BASE_URL}/18-4/recipients/${recipientId}/reactions/`,
+      `${API_BASE_URL}/18-4/recipients/${id}/reactions/?limit=${limit}&offset=${pageParam}`,
       {
         method: "get",
         headers: { "Content-Type": "application/json" },

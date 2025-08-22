@@ -14,9 +14,9 @@ export const usePostEmoji = () => {
 
   const { mutate, isPending, isSuccess } = useMutation({
     mutationFn: (reactionData) => postEmoji(reactionData),
-    onSuccess: (_, variables) => {
+    onSuccess: () => {
       queryClient.invalidateQueries({
-        queryKey: [ALL_EMOJI_DATA_KEY, variables.id],
+        queryKey: [ALL_EMOJI_DATA_KEY],
       });
       queryClient.invalidateQueries({
         queryKey: [HEADER_SERVICE_KEY],

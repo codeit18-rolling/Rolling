@@ -15,15 +15,11 @@ import { useGetAllEmojiData } from "../hooks/useGetAllEmojiData";
 const HeaderServiceActions = ({ topReactions = [] }) => {
   const { pathname } = useLocation();
   const postId = pathname.slice(6);
-  const { data: allEmojiData, isLoading } = useGetAllEmojiData(postId);
 
   return (
     <>
       <div className="desktop:pl-7">
-        <DropdownEmoji
-          reactions={topReactions}
-          allReactions={!isLoading && allEmojiData}
-        />
+        <DropdownEmoji reactions={topReactions} postId={postId} />
       </div>
       <div className="flex items-center h-[52px] tablet:h-[0px]">
         <DropdownAddEmoji postId={postId} />
