@@ -3,7 +3,7 @@ import OptionButton from "./OptionButton";
 import defaultBgImage from "../../../assets/empty/img_background_null.png";
 import { cn } from "../../../utils";
 const whiteDimmedStyled =
-  "after:absolute after:inset-0 after:bg-white/50 after:rounded-2xl after:z-[1]";
+  "after:absolute after:inset-0 after:bg-white/50 after:rounded-2xl after:z-[1] after:border-[3px] after:border-gray-500";
 /**
  * 옵션 리스트 내부 버튼 컴포넌트 - 이미지
  *
@@ -30,7 +30,7 @@ const OptionImageButton = ({ image, isActive, onClick, onLoad, ...props }) => {
     >
       <img
         src={image}
-        alt="배경 이미지 옵션"
+        alt=""
         width={300}
         height={300}
         className="w-full h-full object-cover"

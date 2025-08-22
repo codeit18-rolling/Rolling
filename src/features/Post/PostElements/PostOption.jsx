@@ -15,16 +15,18 @@ const PostOption = ({ bgImages, isLoading, onColorSelect, onImageSelect }) => {
           컬러를 선택하거나, 이미지를 선택할 수 있습니다.
         </p>
       </div>
-      <ToggleButtonWrapper className="sm:w-[244px]">
+      <ToggleButtonWrapper className="sm:w-[244px]" ariaLabel="배경 선택 방식">
         <ToggleButton
           isActive={toggleOption === "color"}
           onClick={() => setToggleOption("color")}
+          ariaControls="컬러 옵션"
         >
           컬러
         </ToggleButton>
         <ToggleButton
           isActive={toggleOption === "image"}
           onClick={() => setToggleOption("image")}
+          ariaControls="이미지 옵션"
         >
           이미지
         </ToggleButton>
