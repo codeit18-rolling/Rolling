@@ -26,12 +26,11 @@ const Card = ({ data, isDeleteMode = false }) => {
       <hr className="border-gray-200 mt-[15px]" />
 
       {/* Content */}
-      <p
+      <div
         style={{ fontFamily: data?.font }}
         className="flex-1 my-4 w-full overflow-hidden truncate font-normal text-18 leading-7 tracking-[-0.01em] text-gray-600"
-      >
-        {data?.content || ERROR_MESSAGE}
-      </p>
+        dangerouslySetInnerHTML={{ __html: data?.content || ERROR_MESSAGE }}
+      />
 
       {/* Date */}
       <span className="font-normal text-12 leading-[18px] tracking-[-0.05em] text-gray-400">
