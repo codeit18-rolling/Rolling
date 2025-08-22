@@ -25,11 +25,12 @@ const OptionImage = ({ bgImages, onImageSelect, isLoading, className }) => {
   const imageUrlCount = imageList?.length;
   const [selectedImage, setSelectedImage] = useState(firstImage);
   const [loadedCount, setLoadedCount] = useState(0); // 브라우저 이미지 로딩 완료 체크
-  const [uploadedImages, setUploadedImages] = useState([]); // 파일 업로드
+  const [confirmedImages, setConfirmedImages] = useState([]); // 업로드 확정된 파일리스트
 
   const handleUpload = (newImages) => {
-    setUploadedImages((prev) => [...prev, ...newImages]);
+    setConfirmedImages((prev) => [...prev, ...newImages]);
   };
+
   useEffect(() => {
     onImageSelect(selectedImage);
   }, [selectedImage, onImageSelect]);
@@ -58,7 +59,7 @@ const OptionImage = ({ bgImages, onImageSelect, isLoading, className }) => {
             onLoad={() => setLoadedCount((prev) => prev + 1)} // 이미지 로딩 체크
           />
         ))}
-        {uploadedImages.map((image, index) => (
+        {confirmedImages.map((image, index) => (
           <OptionImageButton
             key={`upload-${index}`}
             image={image}
@@ -67,7 +68,7 @@ const OptionImage = ({ bgImages, onImageSelect, isLoading, className }) => {
           />
         ))}
       </OptionWrapper>
-      {showSkeleton || <OptionFile onUpload={handleUpload} />}
+      {!showSkeleton && <OptionFile onUpload={handleUpload} />}
     </>
   );
 };

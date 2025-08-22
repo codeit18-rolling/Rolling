@@ -6,11 +6,19 @@ import { cn } from "../../utils";
  * @component
  * @param {Object} props - 컴포넌트 props
  * @param {React.ReactNode} props.children - 자식 컴포넌트들
+ * @param {string} props.ariaLabel - 접근성 문구
  * @returns {JSX.Element} 토글 버튼 그룹 래퍼
  */
-export const ToggleButtonWrapper = ({ children, className = "" }) => {
+export const ToggleButtonWrapper = ({
+  children,
+  className = "",
+  ariaLabel = "선택 방식",
+}) => {
   return (
-    <div className={cn("flex flex-row bg-gray-100 rounded-md", className)}>
+    <div
+      className={cn("flex flex-row bg-gray-100 rounded-md", className)}
+      aria-label={ariaLabel}
+    >
       {children}
     </div>
   );
@@ -25,12 +33,19 @@ export const ToggleButtonWrapper = ({ children, className = "" }) => {
  * @param {boolean} [props.isActive=false] - 활성화 여부
  * @param {function} [props.onClick] - 클릭 이벤트 핸들러
  * @param {React.ReactNode} props.children - 버튼 내부에 렌더링할 요소
+ * @param {string} props.ariaControls - 접근성 문구
  * @returns {JSX.Element} 토글 버튼 요소
  *
  * @example
  * <ToggleButton isActive={true} onClick={handleClick}>컬러</ToggleButton>
  */
-const ToggleButton = ({ isActive = false, onClick, children, ...props }) => {
+const ToggleButton = ({
+  isActive = false,
+  onClick,
+  children,
+  ariaControls,
+  ...props
+}) => {
   const activeClass =
     isActive &&
     "bg-white shadow-purple-600-2 text-purple-700 font-bold hover:bg-purple-100 active:bg-purple-200";
@@ -45,6 +60,8 @@ const ToggleButton = ({ isActive = false, onClick, children, ...props }) => {
         activeClass
       )}
       onClick={onClick}
+      aria-pressed={isActive}
+      aria-controls={ariaControls}
       {...props}
     >
       {children}

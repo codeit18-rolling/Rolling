@@ -15,6 +15,8 @@ import share_24 from "/src/assets/icon/ic_share_24.svg";
 import back from "/src/assets/icon/ic_back.svg";
 import icListEdit from "/src/assets/icon/ic_list_edit.svg";
 import warning from "/src/assets/icon/ic_warning.svg";
+import file from "/src/assets/icon/ic_file.svg";
+import alert from "/src/assets/icon/ic_alert.svg";
 
 export const ICONS = {
   add_20,
@@ -34,6 +36,8 @@ export const ICONS = {
   back,
   icListEdit,
   warning,
+  file,
+  alert,
 };
 export const ICON_SIZES = {
   "ic-16": "w-4 h-4",
