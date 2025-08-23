@@ -1,21 +1,26 @@
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "react-router";
 import createMessage from "../../../service/Message/createMessage";
 
-const useMessageSubmit = (postMessageData) => {
+const useMessageSubmit = () => {
+  const queryClient = useQueryClient();
   const navigate = useNavigate();
 
-  const handleSubmit = async () => {
-    try {
-      const result = await createMessage(postMessageData);
-      navigate(`/post/${result.recipientId}`, { replace: true });
+  return useMutation({
+    mutationFn: createMessage, // 메시지 생성
+    onSuccess: (result) => {
+      queryClient.invalidateQueries({
+        queryKey: ["getRecipientsDetailData"],
+      });
+
+      navigate(`/post/${result.recipientId}`, { replace: `/list` });
+
       console.log("Message 전송 성공");
-    } catch (error) {
+    },
+    onError: (error) => {
       console.error("Message 전송 실패:", error);
       alert("Message 전송에 실패했습니다");
-    } finally {
-    }
-  };
-
-  return { handleSubmit };
+    },
+  });
 };
 export default useMessageSubmit;

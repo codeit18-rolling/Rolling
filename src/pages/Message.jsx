@@ -22,6 +22,7 @@ const Message = () => {
   const [isDisable, setIsDisable] = useState(true);
   const [inputText, setInputText] = useState("");
   const { images } = useMessageProfile();
+  const { mutate } = useMessageSubmit();
 
   const [postMessageData, setPostMessageData] = useState({
     team: "18-4",
@@ -124,7 +125,9 @@ const Message = () => {
     }
   }, []);
 
-  const { handleSubmit } = useMessageSubmit(postMessageData);
+  const handleSubmit = () => {
+    mutate(postMessageData);
+  };
 
   return (
     <Container
