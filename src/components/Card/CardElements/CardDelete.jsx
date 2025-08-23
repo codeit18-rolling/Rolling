@@ -2,6 +2,7 @@ import deleteIcon from "../../../assets/icon/ic_deleted.svg";
 import { cn } from "../../../utils";
 import deleteMessage from "../../../service/ListDetails/deleteMessageData";
 import { useQueryClient } from "@tanstack/react-query";
+import Icon from "../../Icon/Icon";
 
 // Delete Button
 const CardDelete = ({ cardId }) => {
@@ -18,13 +19,13 @@ const CardDelete = ({ cardId }) => {
   return (
     <button
       className={cn(
-        "w-[40px] h-[40px] rounded-[6px] p-2 bg-white border-gray-300 border",
+        "inline-flex items-center justify-center shrink-0 self-center box-border w-10 h-10 rounded-[6px] p-2 bg-white border-gray-300 border",
         "hover:border-gray-500 hover:bg-gray-50 transition-all duration-150 ease-in-out"
       )}
       aria-label="삭제 버튼"
       onClick={deleteMessageHandler}
     >
-      <img src={deleteIcon} alt="삭제 아이콘" />
+      <Icon iconName="deleted" iconSize="ic-24" className="bg-black" />
     </button>
   );
 };
