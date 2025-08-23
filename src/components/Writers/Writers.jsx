@@ -22,7 +22,7 @@ const Writers = ({ item = {}, useCard = false, isBackgroundImage = false }) => {
         useCard ? "flex-col items-start" : "items-center"
       )}
     >
-      {item?.messageCount >= 1 && (
+      {item?.messageCount > 0 && (
         <div className="flex -space-x-3">
           {item?.recentMessages?.map((writer) => (
             <img
