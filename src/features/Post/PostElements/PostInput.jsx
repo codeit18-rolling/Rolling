@@ -7,11 +7,12 @@ const PostInput = ({ value, errorMsg, onChange, onBlur }) => {
       <form>
         <Input
           placeholder="받는 사람 이름을 입력해 주세요"
+          name="recipientName"
           value={value}
           errorMsg={errorMsg}
           onChange={onChange}
           onBlur={onBlur}
-          maxlength="40"
+          maxLength="40"
         />
       </form>
     </div>

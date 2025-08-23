@@ -4,8 +4,8 @@ import uploadToCloudinary from "../../../service/Post/uploadToCloudinary";
 const useCloudinaryUpload = () => {
   const [isUploading, setIsUploading] = useState(false);
   const uploadFiles = async (files) => {
+    setIsUploading(true);
     try {
-      setIsUploading(true);
       const urls = [];
       for (const file of files) {
         const url = await uploadToCloudinary(file);
