@@ -29,7 +29,7 @@ export const Header = () => {
             <div
               className={cn(
                 "h-[64px] flex items-center justify-between m-auto px-6",
-                "w-full mx-auto max-w-[1248px] px-[20px]"
+                "w-full mx-auto max-w-[1248px] px-6"
               )}
             >
               <Link to="/">

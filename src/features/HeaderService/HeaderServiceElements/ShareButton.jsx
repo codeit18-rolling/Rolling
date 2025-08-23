@@ -6,9 +6,10 @@ import ShareDropdownExpand from "./ShareDropdownExpand";
 /**
  * 공유 하기 버튼
  * @author <hwitae>
+ * @param {Object{}} recipient 롤링페이퍼 상세 정보
  */
-export const ShareButton = () => {
-  const { isOpen, onClickToggle } = useToggle();
+export const ShareButton = ({ recipient }) => {
+  const { isOpen, onClickToggle, onClickClose } = useToggle();
 
   return (
     <div onClick={onClickToggle} className="relative">
@@ -25,7 +26,12 @@ export const ShareButton = () => {
           className="bg-black block tablet:hidden"
         />
       </Button>
-      {isOpen && <ShareDropdownExpand />}
+      {isOpen && (
+        <ShareDropdownExpand
+          recipient={recipient}
+          onClickClose={onClickClose}
+        />
+      )}
     </div>
   );
 };

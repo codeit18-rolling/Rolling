@@ -9,8 +9,12 @@ import { cn } from "../../../utils";
  * @returns
  */
 const EmojiMoreLoadButton = ({ onClick }) => {
+  const handleClick = (e) => {
+    e.stopPropagation();
+    onClick();
+  };
   return (
-    <div onClick={onClick} className="flex justify-center pt-2">
+    <div onClick={handleClick} className="flex justify-center pt-2">
       <Icon
         iconName="arrow_down"
         iconSize="ic-24"

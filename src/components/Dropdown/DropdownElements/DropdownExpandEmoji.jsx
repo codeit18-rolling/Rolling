@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useRef } from "react";
 import BadgeEmoji from "../../Badge/BadgeEmoji";
 import EmojiMoreLoadButton from "../../../features/HeaderService/HeaderServiceElements/EmojiMoreLoadButton";
 import { ExpandEmojiWrapper } from "./ExpandEmojiWrapper";
@@ -8,9 +8,11 @@ const DropdownExpandEmoji = ({
   allEmojiData = {},
   hasNextPage,
 }) => {
+  const dropdownRef = useRef(null);
+
   return (
     <ExpandEmojiWrapper>
-      <div className="flex flex-wrap gap-[10px]">
+      <div className="flex flex-wrap gap-[10px]" ref={dropdownRef}>
         {allEmojiData?.pages?.map((emojiData) => {
           return emojiData?.results.map((data) => {
             return (
