@@ -5,8 +5,8 @@ import { useCallback, useState } from "react";
  * @author <hwitae>
  * @returns {Object{}} isOpen: 열림, 닫힘 상태 / onClickToggle: 상태를 다룰 함수
  */
-export const useToggle = () => {
-  const [isOpen, setIsOpen] = useState(false);
+export const useToggle = (value) => {
+  const [isOpen, setIsOpen] = useState(value ? value : false);
 
   const onClickToggle = useCallback(() => {
     setIsOpen((prevState) => !prevState);
