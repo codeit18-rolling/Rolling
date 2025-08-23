@@ -7,14 +7,13 @@ import NotFoundFooter from "../components/NotFound/NotFoundFooter";
 
 function NotFound() {
   return (
-    <div className={cn("relative min-h-screen flex-col", "flex")}>
+    <div className={cn("relative min-h-screen flex-col flex")}>
       <img
         src={BackGround}
         alt="배경 이미지"
         className={cn("absolute -z-20 w-full h-full object-cover")}
       />
 
-      {/* 본문 */}
       <div className="flex-1 flex items-center justify-center">
         <img
           src={Paper}
@@ -50,8 +49,6 @@ function NotFound() {
           <NotFoundButtons />
         </div>
       </div>
-
-      {/* 푸터 */}
       <div className="mt-auto mb-48">
         <NotFoundFooter />
       </div>
