@@ -14,9 +14,9 @@ export const HeaderServiceWrapper = ({ children }) => {
     >
       <div
         className={cn(
-          "justify-between flex flex-col",
+          "flex flex-col",
           "w-full mx-auto max-w-[1248px]",
-          "tablet:flex-row tablet:items-center tablet:h-[42px] tablet:px-[24px]"
+          "tablet:flex-row tablet:items-center tablet:h-[42px] tablet:px-[24px] tablet:gap-10"
         )}
       >
         {children}

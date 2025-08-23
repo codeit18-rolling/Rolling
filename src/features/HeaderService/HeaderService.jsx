@@ -16,7 +16,7 @@ const HeaderService = ({ recipients, isLoading }) => {
         <>
           <div
             className={cn(
-              "h-[52px] min-w-0 flex items-center w-full border-b border-gray-200",
+              "h-[52px] flex-1 min-w-0 flex items-center w-full border-b border-gray-200",
               "tablet:border-none",
               "desktop:w-[450px]"
             )}
