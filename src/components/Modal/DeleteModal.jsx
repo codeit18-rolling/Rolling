@@ -27,7 +27,7 @@ const DeleteModal = ({ isOpen, onClose, onConfirm }) => {
   return createPortal(
     <div
       onMouseDown={onBackdropMouseDown}
-      className="fixed inset-0 z-50 flex items-center justify-center black-opacity-4"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-dimmed-opacity"
     >
       <div
         role="dialog"
