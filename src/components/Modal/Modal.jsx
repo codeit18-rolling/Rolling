@@ -1,5 +1,5 @@
 import { createPortal } from "react-dom";
-import { dateFunc } from "../../utils/dateFunc";
+import { formatDate } from "../../utils/formatDate";
 import ModalHeader from "./ModalElements/ModalHeader";
 import ModalContent from "./ModalElements/ModalContent";
 import ModalFooter from "./ModalElements/ModalFooter";
@@ -19,7 +19,7 @@ const Modal = ({
   useModalLockAndEsc(isOpen, onClose);
   const onBackdropMouseDown = useModalBackdrop(onClose);
 
-  const formattedDate = createdAt ? dateFunc(createdAt) : "";
+  const formattedDate = createdAt ? formatDate(createdAt) : "";
 
   return createPortal(
     <div
