@@ -9,7 +9,7 @@ import defaultImg from "../../assets/empty/img_null.png";
  * @param {Object{}} messages 롤링페이퍼 작성자 정보 데이터
  * @param {boolean} useCard 롤링페이퍼 카드에서 사용할 경우 해당 옵션을 true로 설정합니다.
  */
-const Writers = ({ data = {}, useCard = false, isBackgroundImage = false }) => {
+const Writers = ({ item = {}, useCard = false, isBackgroundImage = false }) => {
   const handleError = (e) => {
     e.target.onError = null;
     e.target.src = defaultImg;
@@ -22,9 +22,9 @@ const Writers = ({ data = {}, useCard = false, isBackgroundImage = false }) => {
         useCard ? "flex-col items-start" : "items-center"
       )}
     >
-      {data?.messageCount > 1 && (
+      {item?.messageCount > 1 && (
         <div className="flex -space-x-3">
-          {data?.recentMessages?.map((writer) => (
+          {item?.recentMessages?.map((writer) => (
             <img
               key={writer?.id}
               alt="프로필 이미지"
@@ -33,8 +33,8 @@ const Writers = ({ data = {}, useCard = false, isBackgroundImage = false }) => {
               onError={handleError}
             />
           ))}
-          {data?.messageCount > 3 && (
-            <RemainWriter count={data?.messageCount} useCard={useCard} />
+          {item?.messageCount > 3 && (
+            <RemainWriter count={item?.messageCount} useCard={useCard} />
           )}
         </div>
       )}
@@ -45,14 +45,7 @@ const Writers = ({ data = {}, useCard = false, isBackgroundImage = false }) => {
           isBackgroundImage ? "text-gray-200" : "text-gray-700"
         )}
       >
-        {data?.messageCount > 0 ? (
-          <>
-            <span className="font-bold">{data?.messageCount}</span>명이
-            작성했어요!
-          </>
-        ) : (
-          <>아직 작성한 사람이 없어요!</>
-        )}
+        <span className="font-bold">{item?.messageCount}</span>명이 작성했어요!
       </p>
     </div>
   );

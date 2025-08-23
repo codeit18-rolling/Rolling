@@ -6,25 +6,14 @@ import CustomSelect from "./TextDropdownElements/SelectReact";
  * @component
  *
  */
-const RELATIONS = [
-  { label: "친구", value: "친구" },
-  { label: "지인", value: "지인" },
-  { label: "동료", value: "동료" },
-  { label: "가족", value: "가족" },
-];
-
-export const TextDropdown = () => {
-  const handleChange = (selectedOption) => {
-    //추후 api 연동을 위해 만들었고, 우선 console.log로 function 내용을 채워넣었습니다.
-    console.log("선택된 옵션:", selectedOption);
-  };
-
+export const TextDropdown = ({ options, value, onChange }) => {
   return (
     <div className="w-[320px]">
       <CustomSelect
-        options={RELATIONS}
+        options={options}
+        value={value}
         defaultValue="지인"
-        onChange={handleChange}
+        onChange={onChange}
       />
     </div>
   );

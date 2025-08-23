@@ -1,8 +1,6 @@
 import { Link } from "react-router";
 import Icon from "../../components/Icon/Icon";
 
-// TODO(지권): 퍼블리싱 수정 필요
-
 const style = {
   container: "group relative",
   tooltip:
@@ -17,7 +15,7 @@ const ListDetailActionButtons = ({
   navigateToBack,
 }) => {
   return (
-    <div className="flex flex-col gap-4 absolute bottom-8 right-8 z-10">
+    <div className="flex flex-col gap-4 fixed bottom-8 right-8 z-10">
       {!isDeleteMode && (
         <div className={style.container}>
           <span className={style.tooltip}>리스트 페이지로 돌아가기</span>

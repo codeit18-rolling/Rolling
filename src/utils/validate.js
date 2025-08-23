@@ -16,12 +16,5 @@ export const validateName = (value) => {
   return "";
 };
 export const validateFile = (value, limit) => {
-  const validFiles = value.filter((file) => {
-    if (file.size > limit * 1024 * 1024) {
-      alert(`${limit}MB 이하만 업로드 가능합니다.`);
-      return false;
-    }
-    return true;
-  });
-  return validFiles;
+  return value.filter((file) => file.size <= limit * 1024 * 1024);
 };
