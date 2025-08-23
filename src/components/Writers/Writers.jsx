@@ -19,7 +19,7 @@ const Writers = ({ item = {}, useCard = false, isBackgroundImage = false }) => {
     <div
       className={cn(
         "flex justify-start",
-        useCard ? "flex-col items-start" : "items-center"
+        useCard ? "flex-col items-start gap-3" : "items-center"
       )}
     >
       {item?.messageCount > 0 && (
@@ -41,7 +41,7 @@ const Writers = ({ item = {}, useCard = false, isBackgroundImage = false }) => {
       <p
         className={cn(
           "leading-[27px]",
-          useCard ? "text-16 gap-3" : "text-18 text-gray-900 pl-[11px]",
+          useCard ? "text-16" : "text-18 text-gray-900 pl-[11px]",
           isBackgroundImage ? "text-gray-200" : "text-gray-700"
         )}
       >
