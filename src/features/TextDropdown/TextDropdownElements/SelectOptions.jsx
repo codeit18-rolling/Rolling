@@ -31,6 +31,7 @@ const SelectOptions = ({ isOpen, options, onSelect, style }) => {
             style.fontSelect
           )}
           onClick={() => onSelect(option)}
+          aria-label="관계 선택 드롭박스"
         >
           {option.label}
         </div>

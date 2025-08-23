@@ -33,6 +33,7 @@ const ProfileUploadButton = ({ style, onUpload }) => {
       )}
       disabled={isUploading}
       onClick={imageUploadBtn}
+      aria-label="프로필 사진 추가하기 버튼"
     >
       <Icon
         iconName="plus"

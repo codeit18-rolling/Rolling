@@ -164,6 +164,7 @@ const Message = () => {
         className="w-full"
         disabled={isDisable}
         onClick={() => handleSubmit()}
+        aria-label="생성하기 버튼"
       >
         생성하기
       </Button>

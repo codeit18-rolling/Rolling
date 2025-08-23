@@ -15,6 +15,45 @@ import "./editor.css";
  * @author <sejin5>
  */
 
+const handlerAria = (toolbar) => {
+  const labelMap = {
+    bold: "굵게",
+    italic: "기울임",
+    underline: "밑줄",
+    strike: "취소선",
+    link: "링크",
+    image: "이미지",
+    list: "목록",
+    bullet: "글머리표",
+    check: "체크리스트",
+    align: "정렬",
+    color: "글자색",
+    background: "배경색",
+    header: "글씨크기",
+    font: "글꼴",
+  };
+
+  toolbar.container.querySelectorAll("button, select").forEach((el) => {
+    // 버튼
+    if (el.tagName.toLowerCase() === "button") {
+      const format = el.className.match(/ql-([a-z]+)/)?.[1];
+      if (format && labelMap[format]) {
+        el.setAttribute("aria-label", labelMap[format]);
+      }
+    }
+    // select(글꼴, 색상 등)
+    if (el.tagName.toLowerCase() === "select") {
+      const format = el.className.match(/ql-([a-z]+)/)?.[1];
+      if (format && labelMap[format]) {
+        el.previousSibling.childNodes[0].setAttribute(
+          "aria-label",
+          labelMap[format]
+        );
+      }
+    }
+  });
+};
+
 const Editor = forwardRef(
   ({ defaultValue, onTextChange, onSelectionChange }, ref) => {
     const containerRef = useRef(null);
@@ -45,6 +84,8 @@ const Editor = forwardRef(
       });
 
       quill.format("font", "noto-sans");
+
+      handlerAria(quill.getModule("toolbar"));
 
       ref.current = quill;
 
