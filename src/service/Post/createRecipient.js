@@ -11,7 +11,7 @@ const createRecipient = async (data) => {
     });
     if (!res.ok) {
       const errorText = await res.text(); // 서버 메시지 가져오기
-      throw new Error(
+      console.log(
         `응답 실패: ${res.status} ${res.statusText} 서버 메시지: ${errorText}`
       );
     }
