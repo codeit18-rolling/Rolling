@@ -47,8 +47,15 @@ const Writers = ({ item = {}, useCard = false, isBackgroundImage = false }) => {
       >
         {item?.messageCount > 0 ? (
           <>
-            <span className="font-bold">{item?.messageCount}</span>명이
-            작성했어요!
+            <span
+              className={cn(
+                "font-bold",
+                isBackgroundImage ? "text-gray-200" : "text-gray-700"
+              )}
+            >
+              {item?.messageCount}
+            </span>
+            명이 작성했어요!
           </>
         ) : (
           <>아직 작성한 사람이 없어요!</>
