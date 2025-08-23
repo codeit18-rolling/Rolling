@@ -56,7 +56,6 @@ const Editor = forwardRef(
         const text = quill.getText().trim();
         if (text === "") {
           quill.format("font", "noto-sans");
-          quill.setSelection(0, 0);
 
           const toolbar = document.querySelector(".ql-font");
 
@@ -70,7 +69,17 @@ const Editor = forwardRef(
 
       quill.on("selection-change", (range, oldRange, source) => {
         onSelectionChangeRef.current?.(range, oldRange, source);
+
+        if (range) {
+          quill.root.removeAttribute("data-placeholder");
+        } else {
+          if (quill.getText().trim() === "") {
+            quill.root.setAttribute("data-placeholder", "메세지를 입력하세요");
+          }
+        }
       });
+
+      setTimeout(() => quill.blur(), 0);
 
       return () => {
         ref.current = null;
