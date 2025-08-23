@@ -4,7 +4,6 @@ import { ShareButton } from "./ShareButton";
 import { cn } from "../../../utils";
 import { useLocation } from "react-router";
 import DropdownAddEmoji from "../../../components/Dropdown/DropdownAddEmoji";
-import { useGetAllEmojiData } from "../hooks/useGetAllEmojiData";
 
 /**
  * 헤더 서비스에서 action이 있는 부분을 모아둔 컴포넌트
