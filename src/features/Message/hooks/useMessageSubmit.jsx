@@ -8,9 +8,10 @@ const useMessageSubmit = (postMessageData) => {
     try {
       const result = await createMessage(postMessageData);
       navigate(`/post/${result.recipientId}`);
-      console.log("Post Message 요청 성공:", result);
+      console.log("Message 전송 성공");
     } catch (error) {
-      console.error("Post Message 요청 실패:", error);
+      console.error("Message 전송 실패:", error);
+      alert("Message 전송에 실패했습니다");
     } finally {
     }
   };
