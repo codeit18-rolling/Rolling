@@ -23,7 +23,7 @@ const uploadToCloudinary = async (file) => {
     const data = await res.json();
     return data.secure_url; // 업로드 후 URL 반환
   } catch (err) {
-    console.error("Cloudinary 업로드 에러:", err);
+    alert("Cloudinary 업로드에 에러가 발생하여 실패했습니다", err);
     return null;
   }
 };
