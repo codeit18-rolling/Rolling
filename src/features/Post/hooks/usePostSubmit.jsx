@@ -8,7 +8,7 @@ const usePostSubmit = (createPostData, resetName) => {
     if (!validateFn()) return;
     try {
       const result = await createRecipient(createPostData);
-      navigate(`/post/${result.id}`);
+      navigate(`/post/${result.id}`, { replace: true });
     } catch (error) {
       console.error("Post 요청 실패:", error);
     } finally {
