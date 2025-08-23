@@ -20,7 +20,7 @@ const ListPageMap = [
 function Lists() {
   return (
     <div className="w-full flex flex-col tablet:items-center overflow-x-auto">
-      <div className="flex flex-col tablet:w-[1200px] justify-start tablet:items-start mx-auto">
+      <div className="flex flex-col tablet:w-[1200px] justify-start tablet:items-start tablet:mx-auto">
         {ListPageMap.map(({ title, sortOrder }) => (
           <div className={`${DESIGN.List}`} key={title}>
             <span className={`${DESIGN.Msg}`}>{title}</span>

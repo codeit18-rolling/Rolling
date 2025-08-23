@@ -14,16 +14,17 @@ import usePrefetchQueryList from "./hooks/usePrefetchQueryList";
 const CardListSet = ({ sortOrder }) => {
   const [index, setIndex] = useState(0);
   const [items, setItems] = useState([]);
-  const { isLoading, isError, data } = useQueryList(index, sortOrder);
+  const { isLoading, isError, data } = useQueryList({ index, sortOrder });
   const totalIndex = data ? Math.ceil(data?.count / 4) : 1;
-  usePrefetchQueryList(index, sortOrder, totalIndex);
+  usePrefetchQueryList({ index, sortOrder, totalIndex });
   useEffect(() => {
     if (data?.results) {
-      setItems(data.results);
+      setItems(data?.results);
     }
   }, [data]);
   return (
     <div className="flex justify-center relative">
+      {isError && <div>데이터를 불러오는데 실패했습니다.</div>}
       <DesktopGrid
         items={items}
         clickNext={() => setIndex(index + 1)}
@@ -31,7 +32,8 @@ const CardListSet = ({ sortOrder }) => {
         isNext={index !== totalIndex - 1}
         isLast={index !== 0}
       />
-      <MobileGrid items={items} />
+      <MobileGrid sortOrder={sortOrder} />
+      <div id="wjdgns1" className="w-0.5 h-full bg-red-500"></div>
     </div>
   );
 };

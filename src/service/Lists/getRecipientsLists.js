@@ -1,12 +1,13 @@
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-const getLists = async (index, sort) => {
+const getRecipientsLists = async ({ index, sortOrder }) => {
   const limit = 4;
   const offset = index * 4;
   const params = { limit, offset };
-  if (sort === "reactionCount") {
+  if (sortOrder === "reactionCount") {
     params.sort = "like";
   }
+  console.log(index, sortOrder);
   const searchParams = new URLSearchParams(params).toString();
   const response = await fetch(
     `${API_BASE_URL}/18-4/recipients/?${searchParams}`,
@@ -21,4 +22,4 @@ const getLists = async (index, sort) => {
   return response.json();
 };
 
-export default getLists;
+export default getRecipientsLists;

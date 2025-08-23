@@ -1,8 +1,8 @@
 import { useQueryClient } from "@tanstack/react-query";
-import getLists from "../../../service/Lists/getLists";
+import getRecipientsLists from "../../../service/Lists/getRecipientsLists";
 import { useEffect } from "react";
 
-const usePrefetchQueryList = (index, sortOrder, totalIndex) => {
+const usePrefetchQueryList = ({ index, sortOrder, totalIndex }) => {
   const queryClient = useQueryClient();
 
   useEffect(() => {
@@ -10,7 +10,7 @@ const usePrefetchQueryList = (index, sortOrder, totalIndex) => {
       const nextIndex = index + 1;
       queryClient.prefetchQuery({
         queryKey: ["recipients", nextIndex, sortOrder],
-        queryFn: () => getLists(nextIndex, sortOrder),
+        queryFn: () => getRecipientsLists(nextIndex, sortOrder),
       });
     }
   }, [index, totalIndex, sortOrder, queryClient]);
