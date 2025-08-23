@@ -7,7 +7,7 @@ const useMessageSubmit = (postMessageData) => {
   const handleSubmit = async () => {
     try {
       const result = await createMessage(postMessageData);
-      navigate(`/post/${result.recipientId}`);
+      navigate(`/post/${result.recipientId}`, { replace: true });
       console.log("Message 전송 성공");
     } catch (error) {
       console.error("Message 전송 실패:", error);
