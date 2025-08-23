@@ -11,6 +11,7 @@ const PostInput = ({ value, errorMsg, onChange, onBlur }) => {
           errorMsg={errorMsg}
           onChange={onChange}
           onBlur={onBlur}
+          maxlength="40"
         />
       </form>
     </div>

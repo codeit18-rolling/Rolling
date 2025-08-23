@@ -16,9 +16,8 @@ const createRecipient = async (data) => {
       );
     }
     return await res.json();
-  } catch (error) {
-    console.error("Create Recipient 실패:", error);
-    throw error;
+  } catch (err) {
+    alert("Create Recipient 에러가 발생하여 실패했습니다", err);
   }
 };
 
