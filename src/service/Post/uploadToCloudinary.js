@@ -16,14 +16,14 @@ const uploadToCloudinary = async (file) => {
     );
     if (!res.ok) {
       const errorText = await res.text(); // 서버 메시지 가져오기
-      console.log(
+      console.error(
         `Cloudinary 응답 실패: ${res.status} ${res.statusText} 서버 메시지: ${errorText}`
       );
     }
     const data = await res.json();
     return data.secure_url; // 업로드 후 URL 반환
   } catch (err) {
-    alert("Cloudinary 업로드에 에러가 발생하여 실패했습니다", err);
+    alert("이미지 업로드에 실패했습니다", err);
     return null;
   }
 };

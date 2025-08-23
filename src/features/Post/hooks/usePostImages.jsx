@@ -16,6 +16,7 @@ const usePostImages = () => {
       setImages(image);
     } catch (error) {
       console.error("이미지를 불러오는데 실패했습니다:", error);
+      alert("이미지를 불러오는데 실패했습니다");
     } finally {
       setIsLoading(false);
     }
