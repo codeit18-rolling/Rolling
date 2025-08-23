@@ -24,7 +24,7 @@ const Modal = ({
   return createPortal(
     <div
       onMouseDown={onBackdropMouseDown}
-      className="fixed inset-0 z-50 flex bg-black/40 items-center justify-center"
+      className="fixed inset-0 z-50 flex bg-dimmed-opacity items-center justify-center"
     >
       <div
         role="dialog"
