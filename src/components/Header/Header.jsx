@@ -35,7 +35,7 @@ export const Header = () => {
               )}
             >
               <Link to="/">
-                <div className={cn("flex gap-x-2")}>
+                <div className={cn("flex items-center gap-x-2")}>
                   <img
                     className={cn("w-[27px] h-[27px]")}
                     src={icRolling}
