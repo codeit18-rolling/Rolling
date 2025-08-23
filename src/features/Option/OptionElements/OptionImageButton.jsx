@@ -3,7 +3,7 @@ import OptionButton from "./OptionButton";
 import defaultBgImage from "../../../assets/empty/img_background_null.png";
 import { cn } from "../../../utils";
 const whiteDimmedStyled =
-  "after:absolute after:inset-0 after:bg-white/50 after:rounded-2xl after:z-[1] after:border-[3px] after:border-gray-500";
+  "after:absolute after:inset-0 after:bg-white-opacity-5 after:rounded-2xl after:z-[1] after:border-[3px] after:border-gray-500";
 /**
  * 옵션 리스트 내부 버튼 컴포넌트 - 이미지
  *
@@ -17,16 +17,12 @@ const whiteDimmedStyled =
  * @param {...Object} props - 기타 img 엘리먼트에 전달할 속성
  * @returns {JSX.Element} 이미지 옵션 버튼 요소
  */
-const OptionImageButton = ({ image, isActive, onClick, onLoad, ...props }) => {
+const OptionImageButton = ({ image, isActive, ...props }) => {
   return (
     <OptionButton
-      className={cn(
-        "overflow-hidden sm:w-[calc((100%-(1rem*3))/4)]",
-        isActive && whiteDimmedStyled
-      )}
-      onClick={onClick}
+      className={cn("overflow-hidden", isActive && whiteDimmedStyled)}
       isActive={isActive}
-      ariaLabel="배경 이미지"
+      aria-label="배경 이미지"
     >
       <img
         src={image}
@@ -38,7 +34,7 @@ const OptionImageButton = ({ image, isActive, onClick, onLoad, ...props }) => {
         onError={(e) => {
           e.target.src = defaultBgImage; // 이미지 로딩 실패 시
         }}
-        onLoad={onLoad}
+        draggable="false"
         {...props}
       />
       {isActive && <OptionCheck />}

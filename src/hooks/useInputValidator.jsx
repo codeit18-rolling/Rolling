@@ -3,7 +3,7 @@ import { useState } from "react";
 /**
  * 커스텀 입력값 유효성 검사 훅
  * blur(포커스 해제) 이후에만 에러 메시지를 UI에 출력
- * 
+ *
  * @author <sohyun>
  * @param {string} [value] -  입력값(외부에서 관리)
  * @param {(value: string) => string} validateFn - 입력값을 검증하는 함수
@@ -20,13 +20,16 @@ import { useState } from "react";
 const useInputValidator = (value, validateFn) => {
   const [errorMsg, setErrorMsg] = useState("");
   const [focused, setFocused] = useState(false); // blur 이후 검증 표시 여부
+  const [isDisabled, setIsDisabled] = useState(true);
 
   const handleChange = (e) => {
     const newValue = e.target.value;
     // 입력 중에도 에러 상태는 유지하지만, blur 전에는 UI에 안 보이게
+    const validate = validateFn(newValue);
     if (focused) {
-      setErrorMsg(validateFn(newValue));
+      setErrorMsg(validate);
     }
+    setIsDisabled(Boolean(validate));
   };
 
   const handleBlur = () => {
@@ -46,6 +49,7 @@ const useInputValidator = (value, validateFn) => {
     handleChange,
     handleBlur,
     handleValidateSubmit,
+    isDisabled,
   };
 };
 
