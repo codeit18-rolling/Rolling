@@ -21,7 +21,10 @@ const Post = () => {
   const { handleSubmit } = usePostSubmit(createPostData, resetName);
 
   return (
-    <Container isInnerBox={true} innerBoxClassName="flex flex-col gap-[32px] tablet:gap-[50px]">
+    <Container
+      isInnerBox={true}
+      innerBoxClassName="flex flex-col gap-[32px] tablet:gap-[50px]"
+    >
       <PostInput
         value={createPostData.name}
         errorMsg={errorMsg}
