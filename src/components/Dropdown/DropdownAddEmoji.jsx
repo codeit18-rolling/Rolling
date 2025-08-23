@@ -1,18 +1,21 @@
-import { memo } from "react";
+import { memo, useRef } from "react";
 import Button from "../Button/Button";
 import Icon from "../Icon/Icon";
 import EmojiPicker from "emoji-picker-react";
 import { useToggle } from "../../hooks/useToggle";
 import { cn } from "../../utils";
 import { usePostEmoji } from "../../features/HeaderService/hooks/usePostEmoji";
+import useClickOutside from "../../features/TextDropdown/hooks/useClickOutside";
 
 /**
  * 이미지를 추가할 수 있는 드롭다운
  * @author <hwitae>
  */
 const DropdownAddEmoji = ({ postId }) => {
-  const { isOpen, onClickToggle } = useToggle();
+  const { isOpen, onClickToggle, onClickClose } = useToggle();
   const { mutate, isPending, isSuccess } = usePostEmoji();
+  const dropdownRef = useRef(null);
+  useClickOutside(dropdownRef, onClickClose);
 
   /**
    * 이모지 클릭 시 이모지 등록 요청을 한다.
@@ -61,6 +64,7 @@ const DropdownAddEmoji = ({ postId }) => {
             "tablet:top-12 tablet:right-5"
           )}
           onClick={(e) => e.stopPropagation()}
+          ref={dropdownRef}
         >
           <EmojiPicker
             className="drop-shadow-dropdownBorder z-50"

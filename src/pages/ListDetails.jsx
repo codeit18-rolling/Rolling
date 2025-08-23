@@ -8,6 +8,7 @@ import { BG_COLORS } from "../constants/backgroundColor";
 import ListDetailActionButtons from "../features/ListDetail/ListDetailActionButtons";
 import DeleteButton from "../features/ListDetail/ListDetailElements/DeleteButton";
 import { useGetHeaderService } from "../features/HeaderService/hooks/useGetHeaderService";
+import img_background_fallback from "../assets/empty/img_background_fallback.png";
 
 // Card List Page
 function ListDetails() {
@@ -35,7 +36,7 @@ function ListDetails() {
         style={{
           backgroundImage:
             recipients?.backgroundImageURL &&
-            `url(${recipients.backgroundImageURL})`,
+            `url(${(recipients.backgroundImageURL, img_background_fallback)})`,
         }}
       >
         <Container className="h-full flex flex-col justify-end gap-[18px]">

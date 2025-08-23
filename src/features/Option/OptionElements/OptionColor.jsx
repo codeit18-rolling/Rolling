@@ -28,11 +28,10 @@ const OptionColor = ({ onColorSelect, className }) => {
       {Object.entries(BG_COLORS).map(([color, bgClass]) => (
         <OptionColorButton
           key={color}
-          color={color}
           bgClass={bgClass}
           isActive={selectedColor === color}
           onClick={() => setSelectedColor(color)}
-          ariaLabel={color}
+          aria-label={color}
         />
       ))}
     </OptionWrapper>
