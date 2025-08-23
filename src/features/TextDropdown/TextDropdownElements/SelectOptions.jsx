@@ -19,7 +19,7 @@ const SelectOptions = ({ isOpen, options, onSelect, style }) => {
   return (
     <div
       className={cn(
-        "absolute top-[60px] left-0 right-0 z-40 shadow-[0_2px_12px_rgb(0_0_0_/_8%)]",
+        "absolute top-[60px] left-0 right-0 z-40 shadow-black-opacity",
         style.boxSelect
       )}
     >
