@@ -3,6 +3,7 @@ import icRolling from "../../assets/icon/ic-rolling-paperplain.svg";
 import { cn } from "../../utils";
 import Button from "../Button/Button";
 import useMediaQuery from "../../features/HeaderService/hooks/useMediaQuery";
+import DarkModeButton from "./HeaderElements/DarkModeButton";
 
 /**
  * 헤더 컴포넌트
@@ -48,7 +49,8 @@ export const Header = () => {
                   </p>
                 </div>
               </Link>
-              <div className={cn("text-center")}>
+              <div className={cn("text-center flex gap-2")}>
+                <DarkModeButton />
                 {(pathname === "/" || pathname === "/list") && (
                   <Link to="/post">
                     <Button
