@@ -16,11 +16,10 @@ import "./editor.css";
  */
 
 const Editor = forwardRef(
-  ({ defaultValue, onTextChange, onSelectionChange, onBlur }, ref) => {
+  ({ defaultValue, onTextChange, onSelectionChange }, ref) => {
     const containerRef = useRef(null);
     const onTextChangeRef = useRef(onTextChange);
     const onSelectionChangeRef = useRef(onSelectionChange);
-    const onBlurRef = useRef(onBlur);
     const modules = useMemo(() => {
       return {
         toolbar: toolbarOptions,
@@ -30,7 +29,6 @@ const Editor = forwardRef(
     useLayoutEffect(() => {
       onTextChangeRef.current = onTextChange;
       onSelectionChangeRef.current = onSelectionChange;
-      onBlurRef.current = onBlur;
     });
 
     useEffect(() => {
@@ -72,10 +70,6 @@ const Editor = forwardRef(
 
       quill.on("selection-change", (range, oldRange, source) => {
         onSelectionChangeRef.current?.(range, oldRange, source);
-
-        if (!range && oldRange && onBlurRef.current) {
-          onBlurRef.current();
-        }
       });
 
       return () => {
