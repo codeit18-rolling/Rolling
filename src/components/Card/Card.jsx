@@ -28,7 +28,7 @@ const Card = ({ data, isDeleteMode = false }) => {
       {/* Content */}
       <div
         style={{ fontFamily: data?.font }}
-        className="flex-1 my-4 w-full overflow-hidden truncate font-normal text-18 leading-7 tracking-[-0.01em] text-gray-600"
+        className="flex-1 my-4 w-full overflow-hidden font-normal text-18 leading-7 tracking-[-0.01em] text-gray-600 line-clamp-4"
         dangerouslySetInnerHTML={{ __html: data?.content || ERROR_MESSAGE }}
       />
 
