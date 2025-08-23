@@ -84,7 +84,7 @@ const ShareDropdownExpand = ({ recipient, onClickClose }) => {
           );
         })}
       </div>
-      <Toast isOpen={isToastOpen} onClose={handleClose} />
+      <Toast isOpen={isToastOpen} onClose={handleClose} duration={5000} />
     </>
   );
 };
