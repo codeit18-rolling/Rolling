@@ -16,8 +16,13 @@ const Post = () => {
     resetName,
   } = usePostData();
   const { images, isLoading } = usePostImages();
-  const { errorMsg, handleChange, handleBlur, handleValidateSubmit } =
-    useInputValidator(createPostData.name, validateName);
+  const {
+    errorMsg,
+    handleChange,
+    handleBlur,
+    handleValidateSubmit,
+    isDisabled,
+  } = useInputValidator(createPostData.name, validateName);
   const { handleSubmit } = usePostSubmit(createPostData, resetName);
 
   return (
@@ -43,7 +48,7 @@ const Post = () => {
       <Button
         className="w-full"
         onClick={() => handleSubmit(handleValidateSubmit)}
-        disabled={errorMsg}
+        disabled={isDisabled}
       >
         생성하기
       </Button>
