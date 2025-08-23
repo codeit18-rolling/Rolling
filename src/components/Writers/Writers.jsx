@@ -22,7 +22,7 @@ const Writers = ({ item = {}, useCard = false, isBackgroundImage = false }) => {
         useCard ? "flex-col items-start" : "items-center"
       )}
     >
-      {item?.messageCount > 1 && (
+      {item?.messageCount >= 1 && (
         <div className="flex -space-x-3">
           {item?.recentMessages?.map((writer) => (
             <img
@@ -45,7 +45,14 @@ const Writers = ({ item = {}, useCard = false, isBackgroundImage = false }) => {
           isBackgroundImage ? "text-gray-200" : "text-gray-700"
         )}
       >
-        <span className="font-bold">{item?.messageCount}</span>명이 작성했어요!
+        {item?.messageCount > 0 ? (
+          <>
+            <span className="font-bold">{item?.messageCount}</span>명이
+            작성했어요!
+          </>
+        ) : (
+          <>아직 작성한 사람이 없어요!</>
+        )}
       </p>
     </div>
   );
