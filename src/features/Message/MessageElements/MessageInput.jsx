@@ -9,6 +9,7 @@ const MessageInput = ({ style, value, onChange, onBlur, errorMsg }) => {
         onChange={onChange}
         onBlur={onBlur}
         errorMsg={errorMsg}
+        maxLength="40"
       />
     </div>
   );
