@@ -133,21 +133,6 @@ export default {
       },
     },
   },
-  plugins: [
-    function ({ addUtilities }) {
-      addUtilities({
-        "scrollbar-hide": {
-          /* Firefox */
-          "scrollbar-width": "none",
-          /* IE, Edge */
-          "-ms-overflow-style": "none",
-        },
-        ".scrollbar-hide::-webkit-scrollbar": {
-          display: "none" /* Chrome, Safari, Opera */,
-        },
-      });
-    },
-  ],
   variants: {
     extend: {
       boxShadow: ["focus"],

@@ -32,9 +32,7 @@ function Lists() {
         to="/post"
         className="mt-[66px] mobile:mt-[156px] tablet:mt-16 mb-6 text-center w-full px-5 mobile:px-6 tablet:px-0 tablet:w-[280px]"
       >
-        <Button className="w-full tablet:w-[280px] text-18">
-          나도 만들어 보기
-        </Button>
+        <Button className="w-full tablet:w-[280px]">나도 만들어 보기</Button>
       </Link>
     </div>
   );

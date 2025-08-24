@@ -16,9 +16,7 @@ const MobileGrid = (sortOrder) => {
     isFetchingNextPage,
     fetchNextPage,
   });
-  {
-    /* <div className="flex flex-row gap-3 overflow-x-auto scrollbar-hide tablet:hidden mobile:gap-5 pl-5 mobile:pl-6 ">*/
-  }
+
   return (
     <>
       <div
@@ -32,7 +30,7 @@ const MobileGrid = (sortOrder) => {
         {items?.map((item) => (
           <CardList key={item.id} item={item} />
         ))}
-        <div id="옵저버" ref={observer}></div>
+        <div ref={observer}></div>
       </div>
     </>
   );

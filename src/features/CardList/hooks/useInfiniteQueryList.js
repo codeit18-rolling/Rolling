@@ -5,7 +5,6 @@ const useInfiniteQueryList = ({ sortOrder }) => {
   return useInfiniteQuery({
     queryKey: ["recipients", sortOrder],
     queryFn: ({ pageParam = 0 }) => {
-      console.log("쿼리Fn에서 보기", pageParam, sortOrder);
       return getRecipientsLists({
         index: pageParam,
         sortOrder,

@@ -33,7 +33,6 @@ const CardListSet = ({ sortOrder }) => {
         isLast={index !== 0}
       />
       <MobileGrid sortOrder={sortOrder} />
-      <div id="wjdgns1" className="w-0.5 h-full bg-red-500"></div>
     </div>
   );
 };

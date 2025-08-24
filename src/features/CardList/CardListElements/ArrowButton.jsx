@@ -1,12 +1,21 @@
 import Icon from "../../../components/Icon/Icon";
 import Button from "../../../components/Button/Button";
 import { cn } from "../../../utils";
-
+const directionData = {
+  right: {
+    iconName: "arrow_right",
+    position: "right-0",
+    ariaLabel: "다음페이지",
+  },
+  left: {
+    iconName: "arrow_left",
+    position: "left-0",
+    ariaLabel: "이전페이지",
+  },
+};
 const ArrowButton = ({ direction, onClick }) => {
   const btn_design = "absolute z-10 top-[110px]";
-  const iconName = direction === "right" ? "arrow_right" : "arrow_left";
-  const position = direction === "right" ? "right-0" : "left-0";
-  const ariaLabel = direction === "right" ? "다음페이지" : "이전페이지";
+  const { iconName, position, ariaLabel } = directionData[direction];
 
   return (
     <div className={cn(btn_design, position)}>

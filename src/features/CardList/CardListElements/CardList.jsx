@@ -44,28 +44,26 @@ const CardList = ({ item }) => {
       {/*배경 이미지 있을시 검은색 필터 적용 */}
 
       {/*container*/}
-      <div className="z-10 flex flex-1 justify-start items-start gap-3">
-        <div className="gap-3 ">
-          {/*to. ~ , 몇명이 작성 등등이 들어갈 곳 */}
-          <div className="text-24 flex justify-start text-left">
-            {/*받는사람 */}
-            <span
-              className={cn(
-                "font-bold text-2xl pb-3 max-h-[4rem] line-clamp-2",
-                item.backgroundImageURL ? "text-white" : "text-gray-900"
-              )}
-            >
-              To. {item.name}
-            </span>
-          </div>
-          <div className="flex justify-start">
-            {/* 작성자 이미지, ~~명이 작성 하셨습니다.*/}
-            <Writers
-              item={item}
-              useCard={true}
-              isBackgroundImage={item.backgroundImageURL}
-            />
-          </div>
+      <div className="z-10 flex flex-1 flex-col justify-start items-start gap-3">
+        {/*to. ~ , 몇명이 작성 등등이 들어갈 곳 */}
+        <div className="text-24 flex justify-start text-left">
+          {/*받는사람 */}
+          <span
+            className={cn(
+              "font-bold text-2xl pb-3 max-h-[4rem] line-clamp-2",
+              item.backgroundImageURL ? "text-white" : "text-gray-900"
+            )}
+          >
+            To. {item.name}
+          </span>
+        </div>
+        <div className="flex justify-start">
+          {/* 작성자 이미지, ~~명이 작성 하셨습니다.*/}
+          <Writers
+            item={item}
+            useCard={true}
+            isBackgroundImage={item.backgroundImageURL}
+          />
         </div>
       </div>
 

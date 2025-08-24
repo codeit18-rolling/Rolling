@@ -7,7 +7,6 @@ const getRecipientsLists = async ({ index, sortOrder }) => {
   if (sortOrder === "reactionCount") {
     params.sort = "like";
   }
-  console.log(index, sortOrder);
   const searchParams = new URLSearchParams(params).toString();
   const response = await fetch(
     `${API_BASE_URL}/18-4/recipients/?${searchParams}`,
