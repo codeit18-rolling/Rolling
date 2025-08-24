@@ -19,12 +19,7 @@ const ReactionBar = ({
   isOpen,
 }) => {
   return (
-    <div
-      className={cn(
-        "flex gap-x-2",
-        allReactions.count > 0 && allReactions.count < 4 && "pr-5"
-      )}
-    >
+    <div className={cn("flex gap-x-2")}>
       {reactions.map((reaction) => {
         return (
           <BadgeEmoji
@@ -34,11 +29,14 @@ const ReactionBar = ({
           />
         );
       })}
-      {allReactions?.count > 3 ? (
-        <DropdownButton onClickOpen={onClickOpen} isOpen={isOpen} />
-      ) : (
-        <div className="w-[20px] desktop:w-0"></div>
-      )}
+      <DropdownButton
+        className={cn(
+          !(allReactions?.count > 3) &&
+            "opacity-0 invisible pointer-events-none"
+        )}
+        onClickOpen={onClickOpen}
+        isOpen={isOpen}
+      />
     </div>
   );
 };

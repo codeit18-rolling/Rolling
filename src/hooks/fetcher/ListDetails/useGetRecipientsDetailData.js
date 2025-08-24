@@ -24,4 +24,3 @@ const useGetRecipientsDetailData = ({ id }) => {
 };
 
 export default useGetRecipientsDetailData;
-
