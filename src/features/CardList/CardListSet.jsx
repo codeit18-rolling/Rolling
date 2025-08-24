@@ -3,6 +3,7 @@ import DesktopGrid from "./CardListElements/desktopGrid";
 import MobileGrid from "./CardListElements/MobileGrid";
 import useQueryList from "./hooks/useQueryList";
 import usePrefetchQueryList from "./hooks/usePrefetchQueryList";
+import SkeletonUI from "../../components/Skeleton/SkeletonUI";
 /**
  *sortOder 변수에 의해 정렬된 카드리스트를 보여준다.
  * @author <Junghoon>
@@ -25,6 +26,13 @@ const CardListSet = ({ sortOrder }) => {
   return (
     <div className="flex justify-center relative">
       {isError && <div>데이터를 불러오는데 실패했습니다.</div>}
+      {isLoading && (
+        <SkeletonUI
+          count={4}
+          className="flex-row flex-nowrap overflow-hidden"
+          boxClassName="w-[208px] h-[232px] mobile:w-[275px] mobile:h-[260px]"
+        />
+      )}
       <DesktopGrid
         items={items}
         clickNext={() => setIndex(index + 1)}
