@@ -6,6 +6,7 @@ import Writers from "../../../components/Writers/Writers";
 import BadgeEmoji from "../../../components/Badge/BadgeEmoji";
 import { useEffect, useState } from "react";
 import defaultBgImage from "../../../assets/empty/img_background_null.png";
+import Dimmed from "../../../components/Dimmed/Dimmed";
 
 const CardList = ({ item }) => {
   const navigate = useNavigate();
@@ -34,13 +35,7 @@ const CardList = ({ item }) => {
         }
       }
     >
-      {item.backgroundImageURL && (
-        <div
-          className={cn(
-            "absolute inset-0 bg-black opacity-50 bg-cover bg-center"
-          )}
-        />
-      )}
+      {item.backgroundImageURL && <Dimmed />}
       {/*배경 이미지 있을시 검은색 필터 적용 */}
 
       {/*container*/}

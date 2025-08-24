@@ -29,7 +29,7 @@ const CardListSet = ({ sortOrder }) => {
       {isLoading && (
         <SkeletonUI
           count={4}
-          className="flex-row flex-nowrap overflow-hidden"
+          className="flex-row flex-nowrap overflow-hidden px-5"
           boxClassName="w-[208px] h-[232px] mobile:w-[275px] mobile:h-[260px]"
         />
       )}

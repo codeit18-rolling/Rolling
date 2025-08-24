@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react";
 import CardList from "./CardList";
 import useInfiniteQueryList from "../hooks/useInfiniteQueryList";
-import scrollObserver from "../hooks/scrollObserver";
+import useInfiniteScroll from "../../ListDetail/hooks/useInfiniteScroll";
 
 const MobileGrid = (sortOrder) => {
   const observer = useRef();
@@ -11,7 +11,7 @@ const MobileGrid = (sortOrder) => {
     useInfiniteQueryList(sortOrder);
   const items = data?.pages.flatMap((item) => item.results) ?? [];
 
-  scrollObserver({
+  useInfiniteScroll({
     observerTarget: observer,
     hasNextPage,
     isFetchingNextPage,
