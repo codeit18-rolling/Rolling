@@ -42,7 +42,7 @@ const Writers = ({ item = {}, useCard = false, isBackgroundImage = false }) => {
         className={cn(
           "leading-[27px]",
           useCard ? "text-16" : "text-18 text-gray-900 pl-[11px]",
-          isBackgroundImage ? "text-gray-200" : "text-gray-700"
+          isBackgroundImage ? "text-[#eeeeee]" : "text-gray-700"
         )}
       >
         {item?.messageCount > 0 ? (
@@ -50,7 +50,7 @@ const Writers = ({ item = {}, useCard = false, isBackgroundImage = false }) => {
             <span
               className={cn(
                 "font-bold",
-                isBackgroundImage ? "text-gray-200" : "text-gray-700"
+                isBackgroundImage ? "text-[#eeeeee]" : "text-gray-700"
               )}
             >
               {item?.messageCount}
