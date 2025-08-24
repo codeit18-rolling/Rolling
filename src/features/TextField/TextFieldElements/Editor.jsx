@@ -113,10 +113,10 @@ const Editor = forwardRef(
 
         if (range) {
           quill.root.removeAttribute("data-placeholder");
-        } else {
-          if (quill.getText().trim() === "") {
-            quill.root.setAttribute("data-placeholder", "메세지를 입력하세요");
-          }
+        }
+
+        if (!range && quill.getText().trim() === "") {
+          quill.root.setAttribute("data-placeholder", "메세지를 입력하세요");
         }
       });
 

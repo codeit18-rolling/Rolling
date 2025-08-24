@@ -14,8 +14,6 @@ const useMessageSubmit = () => {
       });
 
       navigate(`/post/${result.recipientId}`, { replace: `/list` });
-
-      console.log("Message 전송 성공");
     },
     onError: (error) => {
       console.error("Message 전송 실패:", error);
