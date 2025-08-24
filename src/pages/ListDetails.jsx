@@ -10,6 +10,7 @@ import DeleteButton from "../features/ListDetail/ListDetailElements/DeleteButton
 import { useGetHeaderService } from "../features/HeaderService/hooks/useGetHeaderService";
 import img_background_fallback from "../assets/empty/img_background_fallback.png";
 import Dimmed from "../components/Dimmed/Dimmed";
+import MetaTag from "../components/MetaTag/MetaTag";
 
 // Card List Page
 function ListDetails() {
@@ -22,9 +23,9 @@ function ListDetails() {
   // 삭제 커스텀 훅
   const { isDeleteMode, navigateToEdit, navigateToBack } =
     useNavigateToEdit(id);
-
   return (
     <>
+      <MetaTag title={`Rolling | ${recipients?.name}님의 롤링페이퍼`} />
       <HeaderService recipients={recipients} isLoading={headerServiceLoading} />
       <div
         className={cn(
