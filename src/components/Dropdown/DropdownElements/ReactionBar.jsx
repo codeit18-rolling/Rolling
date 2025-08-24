@@ -19,7 +19,12 @@ const ReactionBar = ({
   isOpen,
 }) => {
   return (
-    <div className={cn("flex gap-x-2", allReactions.count < 4 && "pr-5")}>
+    <div
+      className={cn(
+        "flex gap-x-2",
+        allReactions.count > 0 && allReactions.count < 4 && "pr-5"
+      )}
+    >
       {reactions.map((reaction) => {
         return (
           <BadgeEmoji
