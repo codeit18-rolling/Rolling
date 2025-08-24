@@ -2,10 +2,10 @@ import { memo } from "react";
 import { cn } from "../../../utils";
 import Icon from "../../Icon/Icon";
 
-const DropdownButton = ({ onClickOpen, isOpen }) => {
+const DropdownButton = ({ onClickOpen, isOpen, className }) => {
   return (
     <div
-      className={"flex items-center tablet:justify-start w-[36px]"}
+      className={"flex items-center w-[36px] tablet:justify-start" + className}
       onClick={onClickOpen}
     >
       <Icon
