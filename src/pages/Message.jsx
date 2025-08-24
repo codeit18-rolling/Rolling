@@ -8,7 +8,7 @@ import MessageEditor from "../features/Message/MessageElements/MessageEditor";
 import Button from "../components/Button/Button";
 import useMessageProfile from "../features/Message/hooks/useMessageProfile";
 import useMessageSubmit from "../features/Message/hooks/useMessageSubmit";
-
+import MetaTag from "../components/MetaTag/MetaTag";
 const style = {
   font: "text-24 font-bold text-gray-900 mb-[15px]",
 };
@@ -130,45 +130,51 @@ const Message = () => {
   };
 
   return (
-    <Container
-      isInnerBox={true}
-      innerBoxClassName="flex flex-col gap-[32px] tablet:gap-[50px]"
-    >
-      <MessageInput
-        style={style}
-        value={setPostMessageData.sender}
-        onChange={handleInputChange}
-        onBlur={handleInputBlur}
-        errorMsg={errorMsg}
+    <>
+      <MetaTag
+        title={`Rolling | 소중한 사람에게 메시지 남기기`}
+        description={`롤링페이퍼에 따뜻한 메시지를 작성해 보세요. 작은 한마디가 큰 힘이 될 수 있습니다.`}
       />
-      <MessageProfile
-        style={style}
-        value={postMessageData.profileImageURL}
-        options={profileOptions}
-        onClick={handleProfile}
-        selectedProfile={selectedProfile}
-      />
-      <MessageSelect
-        style={style}
-        value={postMessageData.relationship}
-        onChange={handleSelectChange}
-      />
-      <MessageEditor
-        style={style}
-        ref={editorRef}
-        value={postMessageData.content}
-        onChange={handleTextChange}
-        onSelectionChange={handleSelectionChange}
-      />
-      <Button
-        className="w-full"
-        disabled={isDisable}
-        onClick={() => handleSubmit()}
-        aria-label="생성하기 버튼"
+      <Container
+        isInnerBox={true}
+        innerBoxClassName="flex flex-col gap-[32px] tablet:gap-[50px]"
       >
-        생성하기
-      </Button>
-    </Container>
+        <MessageInput
+          style={style}
+          value={setPostMessageData.sender}
+          onChange={handleInputChange}
+          onBlur={handleInputBlur}
+          errorMsg={errorMsg}
+        />
+        <MessageProfile
+          style={style}
+          value={postMessageData.profileImageURL}
+          options={profileOptions}
+          onClick={handleProfile}
+          selectedProfile={selectedProfile}
+        />
+        <MessageSelect
+          style={style}
+          value={postMessageData.relationship}
+          onChange={handleSelectChange}
+        />
+        <MessageEditor
+          style={style}
+          ref={editorRef}
+          value={postMessageData.content}
+          onChange={handleTextChange}
+          onSelectionChange={handleSelectionChange}
+        />
+        <Button
+          className="w-full"
+          disabled={isDisable}
+          onClick={() => handleSubmit()}
+          aria-label="생성하기 버튼"
+        >
+          생성하기
+        </Button>
+      </Container>
+    </>
   );
 };
 

@@ -33,7 +33,7 @@ const Modal = ({
         className={cn(
           "rounded-[20px] bg-white shadow-lg border border-gray-200 p-6",
           "flex flex-col overflow-hidden",
-          "w-[70vw] h-[40vh] min-h-[300px]",
+          "w-[90vw] max-w-[600px] h-[40vh] min-h-[300px]",
           "tablet:w-[600px] tablet:h-[476px]",
           "desktop:w-[600px] desktop:h-[476px]"
         )}
