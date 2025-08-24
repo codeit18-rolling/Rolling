@@ -4,7 +4,7 @@ import Button from "../components/Button/Button";
 import { HOME_DATA } from "../constants/HomeData";
 import HomeSection from "../components/Home/HomeSection";
 import { Link } from "react-router";
-
+import MetaTag from "../components/MetaTag/MetaTag";
 /**
  * 메인 페이지 컴포넌트
  * @author <hwitae>
@@ -12,6 +12,7 @@ import { Link } from "react-router";
 function Home() {
   return (
     <>
+      <MetaTag title="Rolling | 누구나 손쉽게, 온라인 롤링 페이퍼를 로그인 없이 자유롭게 만들어 보세요"/>
       <Container className="pb-0 tablet:pb-0">
         {HOME_DATA.map((section) => {
           return (
