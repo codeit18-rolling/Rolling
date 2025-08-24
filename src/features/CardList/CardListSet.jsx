@@ -29,7 +29,7 @@ const CardListSet = ({ sortOrder }) => {
       {isLoading && (
         <SkeletonUI
           count={4}
-          className="flex-row flex-nowrap overflow-hidden px-5"
+          className="flex-row flex-nowrap overflow-hidden px-5 gap-3 mobile:gap-5"
           boxClassName="w-[208px] h-[232px] mobile:w-[275px] mobile:h-[260px]"
         />
       )}
@@ -42,7 +42,7 @@ const CardListSet = ({ sortOrder }) => {
           isLast={index !== 0}
         />
       )}
-      <MobileGrid sortOrder={sortOrder} />
+      {!isLoading && <MobileGrid sortOrder={sortOrder} />}
     </div>
   );
 };
