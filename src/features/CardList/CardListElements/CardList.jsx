@@ -11,13 +11,6 @@ import Dimmed from "../../../components/Dimmed/Dimmed";
 const CardList = ({ item }) => {
   const navigate = useNavigate();
   const [bgURL, setBgURL] = useState(null);
-  {
-    /*const [theme, setTheme] = useState("white");
-  setTheme(localStorage.getItem("screenStyle"));
-  useEffect(() => {
-    console.log(theme);
-  }, [theme]);*/
-  }
 
   useEffect(() => {
     if (item.backgroundImageURL) {
