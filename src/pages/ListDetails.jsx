@@ -25,7 +25,10 @@ function ListDetails() {
     useNavigateToEdit(id);
   return (
     <>
-      <MetaTag title={`Rolling | ${recipients?.name}님의 롤링페이퍼`} />
+      <MetaTag
+        title={`Rolling | ${recipients?.name}님의 롤링페이퍼`}
+        description="친구들이 남긴 따뜻한 메시지를 확인하세요. 함께한 추억과 마음이 담긴 롤링페이퍼를 지금 바로 감상할 수 있습니다."
+      />
       <HeaderService recipients={recipients} isLoading={headerServiceLoading} />
       <div
         className={cn(
