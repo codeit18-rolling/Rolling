@@ -13,6 +13,7 @@
   font-family: "Noto Sans";
   height: 100%;
   overflow-y: auto;
+  min-height: 260px;
 }
 
 .ql-toolbar {

@@ -131,7 +131,7 @@ const Editor = forwardRef(
     return (
       <div
         ref={containerRef}
-        className="w-full min-w-[320px] h-[260px] m-auto tablet:w-[720px]"
+        className="w-full min-w-[320px] min-h-[260px] m-auto tablet:w-[720px]"
       ></div>
     );
   }
