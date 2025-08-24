@@ -1,5 +1,4 @@
 import { cn } from "../utils";
-import { useState } from "react";
 import NotFoundButtons from "../features/NotFound/NotFoundElements/NotFoundButtons";
 import NotFoundFooter from "../features/NotFound/NotFoundElements/NotFoundFooter";
 import BackgroundImage from "../features/NotFound/NotFoundElements/BackGroundImage";
@@ -7,8 +6,6 @@ import PaperImage from "../features/NotFound/NotFoundElements/PaperImage";
 import Image404 from "../features/NotFound/NotFoundElements/404Image";
 
 function NotFound() {
-  const [bgLoaded, setBgLoaded] = useState(false);
-
   return (
     <div className={cn("relative min-h-screen flex-col flex")}>
       <BackgroundImage />
