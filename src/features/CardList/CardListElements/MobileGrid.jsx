@@ -32,7 +32,7 @@ const MobileGrid = (sortOrder) => {
     <>
       <div
         ref={containerRef}
-        className={`flex flex-row gap-3 overflow-x-auto tablet:hidden mobile:gap-5 pl-5 mobile:pl-6 pr-24`}
+        className={`flex flex-row gap-3 overflow-x-auto desktop:hidden tablet:gap-5 pl-5 tablet:pl-6 pr-24`}
         style={{
           scrollbarWidth: "none",
           msOverflowStyle: "none",

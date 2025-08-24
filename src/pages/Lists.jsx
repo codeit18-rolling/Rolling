@@ -19,8 +19,8 @@ const ListPageMap = [
 
 function Lists() {
   return (
-    <div className="w-full flex flex-col tablet:items-center overflow-x-auto">
-      <div className="flex flex-col tablet:w-[1200px] justify-start tablet:items-start tablet:mx-auto">
+    <div className="w-full flex flex-col desktop:items-center overflow-x-auto">
+      <div className="flex flex-col desktop:w-[1200px] justify-start desktop:items-start desktop:mx-auto">
         {ListPageMap.map(({ title, sortOrder }) => (
           <div className={`${DESIGN.List}`} key={title}>
             <span className={`${DESIGN.Msg}`}>{title}</span>
@@ -30,9 +30,9 @@ function Lists() {
       </div>
       <Link
         to="/post"
-        className="mt-[66px] mobile:mt-[156px] tablet:mt-16 mb-6 text-center w-full px-5 mobile:px-6 tablet:px-0 tablet:w-[280px]"
+        className="mt-[66px] tablet:mt-[156px] desktop:mt-16 mb-6 text-center w-full px-5 tablet:px-6 desktop:px-0 desktop:w-[280px]"
       >
-        <Button className="w-full tablet:w-[280px]">나도 만들어 보기</Button>
+        <Button className="w-full desktop:w-[280px]">나도 만들어 보기</Button>
       </Link>
     </div>
   );

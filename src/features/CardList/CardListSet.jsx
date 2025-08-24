@@ -29,8 +29,8 @@ const CardListSet = ({ sortOrder }) => {
       {isLoading && (
         <SkeletonUI
           count={4}
-          className="flex-row flex-nowrap overflow-hidden px-5 gap-3 mobile:gap-5"
-          boxClassName="w-[208px] h-[232px] mobile:w-[275px] mobile:h-[260px]"
+          className="flex-row flex-nowrap overflow-hidden px-5 gap-3 tablet:gap-5"
+          boxClassName="w-[208px] h-[232px] tablet:w-[275px] tablet:h-[260px]"
         />
       )}
       {!isLoading && (

@@ -26,7 +26,7 @@ const CardList = ({ item }) => {
       onClick={() => navigate(`/post/${item.id}`)}
       className={cn(
         "w-[208px] h-[232px] shrink-0 pt-[30px] pb-[20px] pl-[24px] pr-[22px] rounded-[16px] overflow-hidden border border-black/10 flex relative justify-start items-start flex-col bg-cover bg-center shadow-black-opacity",
-        "mobile:w-[275px] mobile:h-[260px] mobile:pr-[24px] select-none",
+        "tablet:w-[275px] tablet:h-[260px] tablet:pr-[24px] select-none",
         !item.backgroundImageURL && BG_COLOR[item.backgroundColor]
       )}
       style={
@@ -62,14 +62,14 @@ const CardList = ({ item }) => {
         </div>
       </div>
 
-      <div className="gap-2 w-[162px] flex-wrap overflow-y-hidden h-[49px] mobile:w-[227px] mobile:h-[56px] z-10 pt-[17px] flex flex-row border-t border-black-opacity-1">
+      <div className="gap-2 w-[162px] flex-wrap overflow-y-hidden h-[49px] tablet:w-[227px] tablet:h-[56px] z-10 pt-[17px] flex flex-row border-t border-black-opacity-1">
         {/* emoji 들어가는 곳*/}
         {item.topReactions.map((reaction) => (
           <BadgeEmoji
             key={reaction.id}
             reactions={reaction}
             style={
-              "tablet:w-fit tablet:h-[36px] mobile:w-[55px] mobile:h-[28px]"
+              "desktop:w-fit desktop:h-[36px] tablet:w-[55px] tablet:h-[28px]"
             }
           />
         ))}
@@ -78,7 +78,7 @@ const CardList = ({ item }) => {
         <img
           src={BG_PATTERN[item.backgroundColor]}
           alt={`${item.backgroundColor} 색`}
-          className="absolute w-[107px] h-[114px] mobile:w-[142px] mobile:h-[142px] right-0 bottom-0"
+          className="absolute w-[107px] h-[114px] tablet:w-[142px] tablet:h-[142px] right-0 bottom-0"
         />
       )}
     </button>
