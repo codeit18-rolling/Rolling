@@ -26,6 +26,7 @@ export const ProfileOptions = ({ imageUrlLists, onClick, selectedProfile }) => {
               selectedProfile === url && "ring-2 ring-blue-500"
             )}
             style={{ backgroundImage: `url("${url}")` }}
+            aria-label={`프로필 사진 ` + index}
           />
         ))}
       </div>

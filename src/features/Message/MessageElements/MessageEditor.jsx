@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 import TextField from "../../TextField/TextField";
 
 const MessageEditor = forwardRef(
-  ({ style, value, onChange, onSelectionChange, onBlur }, ref) => {
+  ({ style, value, onChange, onSelectionChange }, ref) => {
     return (
       <div>
         <h2 className={style.font}>내용을 입력해 주세요</h2>
@@ -11,7 +11,6 @@ const MessageEditor = forwardRef(
           value={value}
           onChange={onChange}
           onSelectionChange={onSelectionChange}
-          onBlur={onBlur}
         />
       </div>
     );

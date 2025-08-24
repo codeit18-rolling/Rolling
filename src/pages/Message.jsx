@@ -20,9 +20,9 @@ const Message = () => {
   const [selectedProfile, setSelectedProfile] = useState("");
   const [profileOptions, setProfileOptions] = useState([]);
   const [isDisable, setIsDisable] = useState(true);
-  const [inputSender, setInputSender] = useState("");
   const [inputText, setInputText] = useState("");
   const { images } = useMessageProfile();
+  const { mutate } = useMessageSubmit();
 
   const [postMessageData, setPostMessageData] = useState({
     team: "18-4",
@@ -43,6 +43,14 @@ const Message = () => {
       setProfileOptions(images.imageUrls.slice(1));
     }
   }, [images]);
+
+  useEffect(() => {
+    if (postMessageData.sender.trim() && inputText.trim()) {
+      setIsDisable(false);
+    } else {
+      setIsDisable(true);
+    }
+  }, [postMessageData.sender, inputText]);
 
   const handleInputChange = useCallback((e) => {
     const inputValue = e.target.value;
@@ -84,7 +92,8 @@ const Message = () => {
   const handleTextChange = useCallback(() => {
     if (editorRef.current) {
       const html = editorRef.current.root.innerHTML;
-
+      const text = editorRef.current.getText().trim();
+      setInputText(text);
       setPostMessageData((prev) => ({
         ...prev,
         content: html,
@@ -116,27 +125,9 @@ const Message = () => {
     }
   }, []);
 
-  const handleButtonDisable = (type = "", e) => {
-    if (type === "input") {
-      const input = e.target.value.trim();
-      setInputSender(input);
-      if (input && inputText) {
-        setIsDisable(false);
-      } else {
-        setIsDisable(true);
-      }
-    } else if (type === "" && editorRef.current) {
-      const text = editorRef.current.getText().trim();
-      setInputText(text);
-      if (inputSender && text) {
-        setIsDisable(false);
-      } else {
-        setIsDisable(true);
-      }
-    }
+  const handleSubmit = () => {
+    mutate(postMessageData);
   };
-
-  const { handleSubmit } = useMessageSubmit(postMessageData);
 
   return (
     <Container
@@ -147,10 +138,7 @@ const Message = () => {
         style={style}
         value={setPostMessageData.sender}
         onChange={handleInputChange}
-        onBlur={(e) => {
-          handleInputBlur(e);
-          handleButtonDisable("input", e);
-        }}
+        onBlur={handleInputBlur}
         errorMsg={errorMsg}
       />
       <MessageProfile
@@ -171,12 +159,12 @@ const Message = () => {
         value={postMessageData.content}
         onChange={handleTextChange}
         onSelectionChange={handleSelectionChange}
-        onBlur={handleButtonDisable}
       />
       <Button
         className="w-full"
         disabled={isDisable}
         onClick={() => handleSubmit()}
+        aria-label="생성하기 버튼"
       >
         생성하기
       </Button>
