@@ -7,7 +7,6 @@ import Icon from "../../Icon/Icon";
 const SCREEN_STYLE = "screenStyle";
 const LIGHT_MODE = "light";
 const DARK_MODE = "dark";
-const screenStyle = localStorage.getItem(SCREEN_STYLE);
 
 /**
  * 다크모드 버튼을 표시하는 컴포넌트
@@ -15,6 +14,7 @@ const screenStyle = localStorage.getItem(SCREEN_STYLE);
  * @returns 다크모드 버튼
  */
 const DarkModeButton = () => {
+  const screenStyle = localStorage.getItem(SCREEN_STYLE);
   const { isOpen: isDark, onClickToggle } = useToggle(
     screenStyle === DARK_MODE
   );
