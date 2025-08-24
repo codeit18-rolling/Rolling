@@ -33,13 +33,15 @@ const CardListSet = ({ sortOrder }) => {
           boxClassName="w-[208px] h-[232px] mobile:w-[275px] mobile:h-[260px]"
         />
       )}
-      <DesktopGrid
-        items={items}
-        clickNext={() => setIndex(index + 1)}
-        clickLast={() => setIndex(index - 1)}
-        isNext={index !== totalIndex - 1}
-        isLast={index !== 0}
-      />
+      {!isLoading && (
+        <DesktopGrid
+          items={items}
+          clickNext={() => setIndex(index + 1)}
+          clickLast={() => setIndex(index - 1)}
+          isNext={index !== totalIndex - 1}
+          isLast={index !== 0}
+        />
+      )}
       <MobileGrid sortOrder={sortOrder} />
     </div>
   );
