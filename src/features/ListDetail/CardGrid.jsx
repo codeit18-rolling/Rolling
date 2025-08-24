@@ -31,7 +31,7 @@ const CardGrid = ({ id, isDeleteMode = false }) => {
         className={cn(
           "grid gap-[16px] grid-cols-1 w-full justify-center order-2",
           "tablet:grid-cols-2",
-          "desktop:grid-cols-3 desktop:gap-[24px] desktop:order-2"
+          "desktop:grid-cols-3 desktop:gap-[24px] desktop:order-2 desktop:px-[24px]"
         )}
       >
         {!isDeleteMode && !isLoading && <AddCard id={id} />}
