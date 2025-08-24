@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import DesktopGrid from "./CardListElements/desktopGrid";
+import DesktopGrid from "./CardListElements/DesktopGrid";
 import MobileGrid from "./CardListElements/MobileGrid";
 import useQueryList from "./hooks/useQueryList";
 import usePrefetchQueryList from "./hooks/usePrefetchQueryList";
