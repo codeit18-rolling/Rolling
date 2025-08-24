@@ -7,7 +7,7 @@ const Profile = ({ value, options, onClick, selectedProfile }) => {
   }
 
   return (
-    <div className="h-[95px] flex gap-[30px] items-center">
+    <div className="min-h-[95px] flex gap-[30px] items-center">
       <div
         className="bg-gray-300 rounded-full w-[80px] h-[80px] bg-cover bg-center flex-shrink-0"
         style={{ backgroundImage: `url("${selectedProfile}")` }}
