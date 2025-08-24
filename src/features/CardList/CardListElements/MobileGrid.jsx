@@ -1,14 +1,21 @@
 import { useRef, useEffect } from "react";
 import CardList from "./CardList";
-import useInfiniteQueryList from "../hooks/useInfiniteQueryList";
+import SkeletonUI from "../../../components/Skeleton/SkeletonUI";
+import useInfiniteQueryList from "../hooks/useGetInfiniteList";
 import useInfiniteScroll from "../../ListDetail/hooks/useInfiniteScroll";
 
 const MobileGrid = (sortOrder) => {
   const observer = useRef();
   const containerRef = useRef();
 
-  const { data, isLoading, hasNextPage, fetchNextPage, isFetchingNextPage } =
-    useInfiniteQueryList(sortOrder);
+  const {
+    data,
+    isLoading,
+    isError,
+    hasNextPage,
+    fetchNextPage,
+    isFetchingNextPage,
+  } = useInfiniteQueryList(sortOrder);
   const items = data?.pages.flatMap((item) => item.results) ?? [];
 
   useInfiniteScroll({
@@ -38,6 +45,14 @@ const MobileGrid = (sortOrder) => {
           msOverflowStyle: "none",
         }}
       >
+        {isError && <div>데이터를 불러오는데 실패했습니다.</div>}
+        {isLoading && (
+          <SkeletonUI
+            count={4}
+            className="flex-row flex-nowrap px-5 gap-3 tablet:gap-5"
+            boxClassName="w-[208px] h-[232px] tablet:w-[275px] tablet:h-[260px]"
+          />
+        )}
         {/*모바일/태블릿용 CardList*/}
         {items?.map((item) => (
           <CardList key={item.id} item={item} />

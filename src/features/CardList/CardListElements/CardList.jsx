@@ -11,6 +11,13 @@ import Dimmed from "../../../components/Dimmed/Dimmed";
 const CardList = ({ item }) => {
   const navigate = useNavigate();
   const [bgURL, setBgURL] = useState(null);
+  {
+    /*const [theme, setTheme] = useState("white");
+  setTheme(localStorage.getItem("screenStyle"));
+  useEffect(() => {
+    console.log(theme);
+  }, [theme]);*/
+  }
 
   useEffect(() => {
     if (item.backgroundImageURL) {
@@ -46,7 +53,7 @@ const CardList = ({ item }) => {
           <span
             className={cn(
               "font-bold text-2xl pb-3 max-h-[4rem] line-clamp-2",
-              item.backgroundImageURL ? "text-white" : "text-gray-900"
+              item.backgroundImageURL ? "text-[white]" : "text-gray-900"
             )}
           >
             To. {item.name}

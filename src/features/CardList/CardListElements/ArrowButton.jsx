@@ -13,7 +13,7 @@ const directionData = {
     ariaLabel: "이전페이지",
   },
 };
-const ArrowButton = ({ direction, onClick }) => {
+const ArrowButton = ({ direction, onClick, disabled }) => {
   const btn_design = "absolute z-10 top-[110px]";
   const { iconName, position, ariaLabel } = directionData[direction];
 
@@ -24,6 +24,7 @@ const ArrowButton = ({ direction, onClick }) => {
         btnSize="btn-icon-40"
         onClick={onClick}
         aria-label={ariaLabel}
+        disabled={disabled}
       >
         <Icon
           iconName={iconName}

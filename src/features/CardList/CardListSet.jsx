@@ -1,9 +1,6 @@
-import { useEffect, useState } from "react";
 import DesktopGrid from "./CardListElements/DesktopGrid";
 import MobileGrid from "./CardListElements/MobileGrid";
-import useQueryList from "./hooks/useQueryList";
-import usePrefetchQueryList from "./hooks/usePrefetchQueryList";
-import SkeletonUI from "../../components/Skeleton/SkeletonUI";
+
 /**
  *sortOder 변수에 의해 정렬된 카드리스트를 보여준다.
  * @author <Junghoon>
@@ -13,36 +10,10 @@ import SkeletonUI from "../../components/Skeleton/SkeletonUI";
  */
 
 const CardListSet = ({ sortOrder }) => {
-  const [index, setIndex] = useState(0);
-  const [items, setItems] = useState([]);
-  const { isLoading, isError, data } = useQueryList({ index, sortOrder });
-  const totalIndex = data ? Math.ceil(data?.count / 4) : 1;
-  usePrefetchQueryList({ index, sortOrder, totalIndex });
-  useEffect(() => {
-    if (data?.results) {
-      setItems(data?.results);
-    }
-  }, [data]);
   return (
     <div className="flex justify-center relative">
-      {isError && <div>데이터를 불러오는데 실패했습니다.</div>}
-      {isLoading && (
-        <SkeletonUI
-          count={4}
-          className="flex-row flex-nowrap overflow-hidden px-5 gap-3 tablet:gap-5"
-          boxClassName="w-[208px] h-[232px] tablet:w-[275px] tablet:h-[260px]"
-        />
-      )}
-      {!isLoading && (
-        <DesktopGrid
-          items={items}
-          clickNext={() => setIndex(index + 1)}
-          clickLast={() => setIndex(index - 1)}
-          isNext={index !== totalIndex - 1}
-          isLast={index !== 0}
-        />
-      )}
-      {!isLoading && <MobileGrid sortOrder={sortOrder} />}
+      <DesktopGrid sortOrder={sortOrder} />
+      <MobileGrid sortOrder={sortOrder} />
     </div>
   );
 };
