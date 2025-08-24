@@ -1,6 +1,7 @@
 import CardListSet from "../features/CardList/CardListSet";
 import Button from "../components/Button/Button";
 import { Link } from "react-router";
+import MetaTag from "../components/MetaTag/MetaTag";
 
 const DESIGN = {
   List: "flex flex-col gap-3 mobile:gap-4 mt-[40px] mobile:mt-[50px]",
@@ -20,6 +21,10 @@ const ListPageMap = [
 function Lists() {
   return (
     <div className="w-full flex flex-col desktop:items-center overflow-x-auto">
+      <MetaTag
+        title="Rolling | 롤링페이퍼 둘러보기"
+        description="롤링페이퍼를 확인하거나 새로운 롤링페이퍼를 만들어 보실 수 있습니다."
+      />
       <div className="flex flex-col desktop:w-[1200px] justify-start desktop:items-start desktop:mx-auto">
         {ListPageMap.map(({ title, sortOrder }) => (
           <div className={`${DESIGN.List}`} key={title}>
