@@ -19,7 +19,7 @@ const NotFoundFooter = () => {
       <span
         className={cn(
           "inline-flex items-center justify-center",
-          "w-10 h-10 rounded-full bg-purple-400",
+          "w-10 h-10 rounded-full bg-purple-600",
           "text-20 text-white font-bold"
         )}
       >
