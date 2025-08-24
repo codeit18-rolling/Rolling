@@ -6,8 +6,12 @@ import ListDetails from "./pages/ListDetails";
 import Message from "./pages/Message";
 import Post from "./pages/Post";
 import NotFound from "./pages/NotFound";
+import { SCREEN_STYLE } from "./constants/screen";
 
 function App() {
+  const screenStyle = localStorage.getItem(SCREEN_STYLE.key);
+  document.documentElement.classList.add(screenStyle);
+
   return (
     <>
       <Header />

@@ -19,10 +19,10 @@ const Writers = ({ item = {}, useCard = false, isBackgroundImage = false }) => {
     <div
       className={cn(
         "flex justify-start",
-        useCard ? "flex-col items-start" : "items-center"
+        useCard ? "flex-col items-start gap-3" : "items-center"
       )}
     >
-      {item?.messageCount > 1 && (
+      {item?.messageCount > 0 && (
         <div className="flex -space-x-3">
           {item?.recentMessages?.map((writer) => (
             <img
@@ -41,11 +41,25 @@ const Writers = ({ item = {}, useCard = false, isBackgroundImage = false }) => {
       <p
         className={cn(
           "leading-[27px]",
-          useCard ? "text-16 gap-3" : "text-18 text-gray-900 pl-[11px]",
+          useCard ? "text-16" : "text-18 text-gray-900 pl-[11px]",
           isBackgroundImage ? "text-gray-200" : "text-gray-700"
         )}
       >
-        <span className="font-bold">{item?.messageCount}</span>명이 작성했어요!
+        {item?.messageCount > 0 ? (
+          <>
+            <span
+              className={cn(
+                "font-bold",
+                isBackgroundImage ? "text-gray-200" : "text-gray-700"
+              )}
+            >
+              {item?.messageCount}
+            </span>
+            명이 작성했어요!
+          </>
+        ) : (
+          <>아직 작성한 사람이 없어요!</>
+        )}
       </p>
     </div>
   );

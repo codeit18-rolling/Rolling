@@ -1,7 +1,7 @@
 import CardHeader from "./CardElements/CardHeader";
 import { cn } from "../../utils";
 import { ERROR_MESSAGE } from "../../features/ListDetail/constants/ERROR_MESSAGE";
-import { dateFunc } from "../../utils/dateFunc";
+import { formatDate } from "../../utils/formatDate";
 import { useState } from "react";
 import Modal from "../Modal/Modal";
 
@@ -28,13 +28,13 @@ const Card = ({ data, isDeleteMode = false }) => {
       {/* Content */}
       <div
         style={{ fontFamily: data?.font }}
-        className="flex-1 my-4 w-full overflow-hidden truncate font-normal text-18 leading-7 tracking-[-0.01em] text-gray-600"
+        className="flex-1 my-4 w-full overflow-hidden font-normal text-18 leading-7 tracking-[-0.01em] text-gray-600 line-clamp-4"
         dangerouslySetInnerHTML={{ __html: data?.content || ERROR_MESSAGE }}
       />
 
       {/* Date */}
       <span className="font-normal text-12 leading-[18px] tracking-[-0.05em] text-gray-400">
-        {dateFunc(data?.createdAt) || ERROR_MESSAGE}
+        {formatDate(data?.createdAt) || ERROR_MESSAGE}
       </span>
 
       {/* Modal */}

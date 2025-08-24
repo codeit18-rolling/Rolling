@@ -15,12 +15,50 @@ import "./editor.css";
  * @author <sejin5>
  */
 
+const handlerAria = (toolbar) => {
+  const labelMap = {
+    bold: "굵게",
+    italic: "기울임",
+    underline: "밑줄",
+    strike: "취소선",
+    link: "링크",
+    image: "이미지",
+    list: "목록",
+    bullet: "글머리표",
+    check: "체크리스트",
+    align: "정렬",
+    color: "글자색",
+    background: "배경색",
+    header: "글씨크기",
+    font: "글꼴",
+  };
+
+  toolbar.container.querySelectorAll("button, select").forEach((el) => {
+    // 버튼
+    if (el.tagName.toLowerCase() === "button") {
+      const format = el.className.match(/ql-([a-z]+)/)?.[1];
+      if (format && labelMap[format]) {
+        el.setAttribute("aria-label", labelMap[format]);
+      }
+    }
+    // select(글꼴, 색상 등)
+    if (el.tagName.toLowerCase() === "select") {
+      const format = el.className.match(/ql-([a-z]+)/)?.[1];
+      if (format && labelMap[format]) {
+        el.previousSibling.childNodes[0].setAttribute(
+          "aria-label",
+          labelMap[format]
+        );
+      }
+    }
+  });
+};
+
 const Editor = forwardRef(
-  ({ defaultValue, onTextChange, onSelectionChange, onBlur }, ref) => {
+  ({ defaultValue, onTextChange, onSelectionChange }, ref) => {
     const containerRef = useRef(null);
     const onTextChangeRef = useRef(onTextChange);
     const onSelectionChangeRef = useRef(onSelectionChange);
-    const onBlurRef = useRef(onBlur);
     const modules = useMemo(() => {
       return {
         toolbar: toolbarOptions,
@@ -30,7 +68,6 @@ const Editor = forwardRef(
     useLayoutEffect(() => {
       onTextChangeRef.current = onTextChange;
       onSelectionChangeRef.current = onSelectionChange;
-      onBlurRef.current = onBlur;
     });
 
     useEffect(() => {
@@ -48,6 +85,8 @@ const Editor = forwardRef(
 
       quill.format("font", "noto-sans");
 
+      handlerAria(quill.getModule("toolbar"));
+
       ref.current = quill;
 
       if (defaultValue) {
@@ -58,7 +97,6 @@ const Editor = forwardRef(
         const text = quill.getText().trim();
         if (text === "") {
           quill.format("font", "noto-sans");
-          quill.setSelection(0, 0);
 
           const toolbar = document.querySelector(".ql-font");
 
@@ -73,10 +111,16 @@ const Editor = forwardRef(
       quill.on("selection-change", (range, oldRange, source) => {
         onSelectionChangeRef.current?.(range, oldRange, source);
 
-        if (!range && oldRange && onBlurRef.current) {
-          onBlurRef.current();
+        if (range) {
+          quill.root.removeAttribute("data-placeholder");
+        }
+
+        if (!range && quill.getText().trim() === "") {
+          quill.root.setAttribute("data-placeholder", "메세지를 입력하세요");
         }
       });
+
+      setTimeout(() => quill.blur(), 0);
 
       return () => {
         ref.current = null;
@@ -87,7 +131,7 @@ const Editor = forwardRef(
     return (
       <div
         ref={containerRef}
-        className="w-full min-w-[320px] h-[260px] m-auto tablet:w-[720px]"
+        className="w-full min-w-[320px] min-h-[260px] m-auto tablet:w-[720px]"
       ></div>
     );
   }
