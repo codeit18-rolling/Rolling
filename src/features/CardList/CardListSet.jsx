@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import useGetList from "./hooks/useGetList";
 import DesktopGrid from "./CardListElements/DesktopGrid";
 import MobileGrid from "./CardListElements/MobileGrid";
 
@@ -12,27 +10,10 @@ import MobileGrid from "./CardListElements/MobileGrid";
  */
 
 const CardListSet = ({ sortOrder }) => {
-  const [index, setIndex] = useState(0);
-  const [items, setItems] = useState([]);
-
-  const { isLoading, isError, data } = useGetList(index, sortOrder);
-  useEffect(() => {
-    if (data?.results) {
-      setItems(data.results);
-    }
-  }, [data]);
-
-  const totalIndex = data ? Math.ceil(data?.count / 4) : 1;
   return (
     <div className="flex justify-center relative">
-      <DesktopGrid
-        items={items}
-        clickNext={() => setIndex(index + 1)}
-        clickLast={() => setIndex(index - 1)}
-        isNext={index !== totalIndex - 1}
-        isLast={index !== 0}
-      />
-      <MobileGrid items={items} />
+      <DesktopGrid sortOrder={sortOrder} />
+      <MobileGrid sortOrder={sortOrder} />
     </div>
   );
 };

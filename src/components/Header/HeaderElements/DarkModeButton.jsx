@@ -3,10 +3,7 @@ import { useToggle } from "../../../hooks/useToggle";
 import { cn } from "../../../utils";
 import Button from "../../Button/Button";
 import Icon from "../../Icon/Icon";
-
-const SCREEN_STYLE = "screenStyle";
-const LIGHT_MODE = "light";
-const DARK_MODE = "dark";
+import { SCREEN_STYLE } from "../../../constants/screen";
 
 /**
  * 다크모드 버튼을 표시하는 컴포넌트
@@ -14,18 +11,18 @@ const DARK_MODE = "dark";
  * @returns 다크모드 버튼
  */
 const DarkModeButton = () => {
-  const screenStyle = localStorage.getItem(SCREEN_STYLE);
+  const screenStyle = localStorage.getItem(SCREEN_STYLE.key);
   const { isOpen: isDark, onClickToggle } = useToggle(
-    screenStyle === DARK_MODE
+    screenStyle === SCREEN_STYLE.darkMode
   );
 
   const checkScreenStyle = useCallback(() => {
     if (isDark) {
-      localStorage.setItem(SCREEN_STYLE, DARK_MODE);
-      document.documentElement.classList.add(DARK_MODE);
+      localStorage.setItem(SCREEN_STYLE.key, SCREEN_STYLE.darkMode);
+      document.documentElement.classList.add(SCREEN_STYLE.darkMode);
     } else {
-      localStorage.setItem(SCREEN_STYLE, LIGHT_MODE);
-      document.documentElement.classList.remove(DARK_MODE);
+      localStorage.setItem(SCREEN_STYLE.key, SCREEN_STYLE.lightMode);
+      document.documentElement.classList.remove(SCREEN_STYLE.darkMode);
     }
   }, [isDark]);
 

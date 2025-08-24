@@ -14,8 +14,6 @@ async function deleteMessage(messageId) {
       const text = await res.text();
       throw new Error(`삭제 실패: ${res.status} ${res.statusText} ${text}`);
     }
-
-    console.log("삭제 성공");
   } catch (err) {
     console.error("삭제 에러:", err);
   }
