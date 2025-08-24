@@ -1,5 +1,151 @@
+/* 폰트 관리 */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900");
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+/* Tailwind 기본 스타일 import */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* CSS 변수 정의 */
+
+/* 라이트모드 변수 */
+:root {
+  --gray-100: #f6f6f6;
+  --gray-200: #eeeeee;
+  --gray-230: #e3e3e3;
+  --gray-300: #cccccc;
+  --gray-400: #999999;
+  --gray-500: #555555;
+  --gray-550: #5a5a5a;
+  --gray-600: #4a4a4a;
+  --gray-608: #484848;
+  --gray-700: #3a3a3a;
+  --gray-800: #2b2b2b;
+  --gray-900: #181818;
+  --gray-headerLogo: #4a494f;
+  --gray-headerBorder: #ededed;
+  --gray-dropdownBorder: #dddddd;
+
+  --purple-100: #f8f0ff;
+  --purple-200: #ecd9ff;
+  --purple-300: #dcb9ff;
+  --purple-400: #c894fd;
+  --purple-500: #ab57ff;
+  --purple-600: #9935ff;
+  --purple-700: #861dee;
+  --purple-800: #6e0ad1;
+  --purple-900: #5603a7;
+
+  --beige-100: #fff0d6;
+  --beige-200: #ffe2ad;
+  --beige-300: #ffc583;
+  --beige-400: #ffae65;
+  --beige-500: #ff8832;
+
+  --blue-100: #e2f5ff;
+  --blue-200: #b1e4ff;
+  --blue-300: #7cd2ff;
+  --blue-400: #34b9ff;
+  --blue-500: #00a2fe;
+
+  --green-100: #e4fbdc;
+  --green-200: #d0f5c3;
+  --green-300: #9be282;
+  --green-400: #60cf37;
+  --green-500: #2ba600;
+
+  /* Etc */
+  --error: #dc3a3a;
+  --surface: #eff3fd;
+  --white: #fcfcfc;
+  --black: #181b28;
+  --bgColor: #f8f9fa;
+
+  --black-opacity-1: rgba(0, 0, 0, 0.1);
+  --black-opacity-2: rgba(0, 0, 0, 0.2);
+  --black-opacity-3: rgba(0, 0, 0, 0.3);
+  --black-opacity-4: rgba(0, 0, 0, 0.4);
+  --black-opacity-5: rgba(0, 0, 0, 0.5);
+  --black-opacity-6: rgba(0, 0, 0, 0.6);
+  --black-opacity-7: rgba(0, 0, 0, 0.7);
+  --black-opacity-8: rgba(0, 0, 0, 0.8);
+  --black-opacity-08: rgba(0, 0, 0, 0.08);
+  --white-opacity-5: rgba(255, 255, 255, 0.5);
+  --dimmed-opacity: rgba(0, 0, 0, 0.4);
+}
+
+/* 다크모드 변수 */
+.dark {
+  --gray-100: #181818;
+  --gray-200: #2b2b2b;
+  --gray-230: #3a3a3a;
+  --gray-300: #484848;
+  --gray-400: #5a5a5a;
+  --gray-500: #999999;
+  --gray-550: #aaaaaa;
+  --gray-600: #cccccc;
+  --gray-608: #d6d6d6;
+  --gray-700: #e3e3e3;
+  --gray-800: #eeeeee;
+  --gray-900: #f6f6f6;
+
+  --gray-headerLogo: #f6f8ff;
+  --gray-headerBorder: #3a3a3a;
+  --gray-headerBorder: #cccccc;
+  --gray-dropdownBorder: #444444;
+
+  --purple-100: #2b0a40;
+  --purple-200: #3a0f66;
+  --purple-300: #5c18b3;
+  --purple-400: #6e0ad1;
+  --purple-500: #9935ff;
+  --purple-600: #ab57ff;
+  --purple-700: #c894fd;
+  --purple-800: #ecd9ff;
+  --purple-900: #f8f0ff;
+
+  --beige-100: #3c2a21;
+  --beige-200: #6d4b35;
+  --beige-300: #8d5e44;
+  --beige-400: #ab7758;
+  --beige-500: #d38e64;
+
+  --blue-100: #16354d;
+  --blue-200: #1d4668;
+  --blue-300: #24628a;
+  --blue-400: #2c7eaf;
+  --blue-500: #4cc0ff;
+
+  --green-100: #164a28;
+  --green-200: #275933;
+  --green-300: #32773f;
+  --green-400: #45a04e;
+  --green-500: #58e073;
+
+  /* Etc */
+  --error: #ff6b6b;
+  --surface: #323545;
+  --white: #1e1e1e;
+  --black: #f4f4f4;
+  --bgColor: #13141d;
+
+  --black-opacity-1: rgba(255, 255, 255, 0.1);
+  --black-opacity-2: rgba(255, 255, 255, 0.2);
+  --black-opacity-3: rgba(255, 255, 255, 0.3);
+  --black-opacity-4: rgba(255, 255, 255, 0.4);
+  --black-opacity-5: rgba(255, 255, 255, 0.5);
+  --black-opacity-6: rgba(255, 255, 255, 0.6);
+  --black-opacity-7: rgba(255, 255, 255, 0.7);
+  --black-opacity-8: rgba(255, 255, 255, 0.8);
+  --black-opacity-08: rgba(255, 255, 255, 0.08);
+  --white-opacity-5: rgba(0, 0, 0, 0.5);
+  --dimmed-opacity: rgba(0, 0, 0, 0.7);
+}
+
+* {
+  color: var(--gray-900);
+}
+
+body {
+  background-color: var(--bgColor);
+}

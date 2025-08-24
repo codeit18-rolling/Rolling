@@ -9,11 +9,11 @@ export const ExpandEmojiWrapper = ({ children }) => {
     <div className={"absolute right-px tablet:top-12 mobile:top-9 z-50"}>
       <div
         className={cn(
-          "desktop:w-[312px] bg-white",
+          "desktop:w-[312px]",
           "tablet:w-[248px] tablet:p-[24px]",
           "mobile:w-[203px] p-4",
           "border border-gray-dropdownBorder rounded-lg",
-          "drop-shadow-dropdownBorder"
+          "drop-shadow-dropdownBorder bg-white-opacity-5 backdrop-blur-md"
         )}
       >
         {children}

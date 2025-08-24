@@ -13,7 +13,7 @@ const EmojiBadge = ({ reactions = {}, style = "" }) => {
       <div
         className={cn(
           "desktop:w-fit desktop:h-[38px] text-14",
-          "bg-black/60 rounded-[32px] flex justify-center items-center gap-x-0.5",
+          "bg-black-opacity-6 rounded-[32px] flex justify-center items-center gap-x-0.5",
           "px-[13px] leading-[26px] tracking-[-0.01em] m-0",
           "tablet:text-base font-normal",
           style

@@ -17,6 +17,9 @@ import icListEdit from "/src/assets/icon/ic_list_edit.svg";
 import warning from "/src/assets/icon/ic_warning.svg";
 import file from "/src/assets/icon/ic_file.svg";
 import alert from "/src/assets/icon/ic_alert.svg";
+import lightMode from "/src/assets/icon/ic_sun.svg";
+import darkMode from "/src/assets/icon/ic_moon.svg";
+import addRollingPaper from "/src/assets/icon/ic_rollingpaper_edit.svg";
 
 export const ICONS = {
   add_20,
@@ -38,6 +41,9 @@ export const ICONS = {
   warning,
   file,
   alert,
+  lightMode,
+  darkMode,
+  addRollingPaper,
 };
 export const ICON_SIZES = {
   "ic-16": "w-4 h-4",

@@ -2,15 +2,20 @@ import { useLocation } from "react-router";
 import { SHARE_MENU } from "../../../constants/shareMenu";
 import { cn } from "../../../utils";
 import Toast from "../../../components/Toast/Toast";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import useClickOutside from "../../TextDropdown/hooks/useClickOutside";
+
+const TEMPLATE_ID = 123485;
 
 /**
  * 공유 버튼 클릭시 표출되는 드롭다운
  * @author <hwitae>
  */
-const ShareDropdownExpand = () => {
+const ShareDropdownExpand = ({ recipient, onClickClose }) => {
   const { pathname } = useLocation();
+  const dropdownRef = useRef(null);
   const [isToastOpen, setIsToastOpen] = useState(false);
+  useClickOutside(dropdownRef, onClickClose);
 
   const handleClose = (e) => {
     setIsToastOpen((prevState) => !prevState);
@@ -21,9 +26,12 @@ const ShareDropdownExpand = () => {
    */
   const onClickShareKakao = () => {
     Kakao.Share.sendCustom({
-      templateId: 123485,
+      templateId: TEMPLATE_ID,
       templateArgs: {
         path: pathname,
+        name: recipient.name,
+        messageCount: recipient.messageCount,
+        reactionCount: recipient.reactionCount,
       },
     });
   };
@@ -64,6 +72,7 @@ const ShareDropdownExpand = () => {
           "drop-shadow-dropdownBorder"
         )}
         onClick={handleClick}
+        ref={dropdownRef}
       >
         {SHARE_MENU.map((option) => {
           return (
@@ -75,7 +84,7 @@ const ShareDropdownExpand = () => {
           );
         })}
       </div>
-      <Toast isOpen={isToastOpen} onClose={handleClose} />
+      <Toast isOpen={isToastOpen} onClose={handleClose} duration={5000} />
     </>
   );
 };
