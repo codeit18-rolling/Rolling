@@ -1,5 +1,3 @@
-import BackGround from "../assets/img/img_not_found_background.png";
-import Paper from "../assets/img/img_not_found_paper.png";
 import { cn } from "../utils";
 import Img404 from "../assets/img/img_not_found_404.png";
 import NotFoundButtons from "../components/NotFound/NotFoundButtons";
