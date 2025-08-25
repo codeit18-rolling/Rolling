@@ -30,17 +30,14 @@ const Option = ({
 
   return (
     <>
-      <OptionColor
-        onColorSelect={onColorSelect}
-        className={type === "color" ? "flex" : "hidden"}
-      />
-      <div className={type === "image" ? "block" : "hidden"}>
+      {type === "color" && <OptionColor onColorSelect={onColorSelect} />}
+      {type === "image" && (
         <OptionImage
           bgImages={bgImages}
           onImageSelect={onImageSelect}
           isLoading={isLoading}
         />
-      </div>
+      )}
     </>
   );
 };
