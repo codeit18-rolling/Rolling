@@ -9,7 +9,7 @@ import { cleanHtml } from "../../utils/sanitizeHtml";
 // Card Component
 const Card = ({ data, isDeleteMode = false }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const cleanContent = cleanHtml(data?.content);
+  //const cleanContent = cleanHtml(data?.content);
 
   return (
     <div
@@ -31,7 +31,9 @@ const Card = ({ data, isDeleteMode = false }) => {
       <div
         style={{ fontFamily: data?.font }}
         className="flex-1 my-4 w-full overflow-hidden font-normal text-18 leading-7 tracking-[-0.01em] text-gray-600 line-clamp-4"
-        dangerouslySetInnerHTML={{ __html: cleanContent || ERROR_MESSAGE }}
+        dangerouslySetInnerHTML={{
+          __html: cleanHtml(data?.content) || ERROR_MESSAGE,
+        }}
       />
 
       {/* Date */}
