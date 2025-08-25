@@ -41,6 +41,22 @@
   flex-shrink: 0;
 }
 
+.ql-align-right {
+  text-align: right;
+}
+
+.ql-align-left {
+  text-align: left;
+}
+
+.ql-align-center {
+  text-align: center;
+}
+
+.ql-align-justify {
+  text-align: justify;
+}
+
 /*Font 설정*/
 
 .ql-toolbar.ql-snow {
