@@ -9,7 +9,7 @@ const ModalContent = ({ children }) => {
     <div
       className={cn(
         styles.scroll,
-        "h-full w-full overflow-y-auto pr-4 text-18 text-gray-550 text-viewer"
+        "h-full w-full overflow-y-auto pr-4 text-18 text-gray-550 text-viewer ql-editor"
       )}
       dangerouslySetInnerHTML={{ __html: cleanChildren }}
     />
