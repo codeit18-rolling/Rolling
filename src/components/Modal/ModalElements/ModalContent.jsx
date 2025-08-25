@@ -1,9 +1,9 @@
 import styles from "./ModalContent.module.css";
 import { cn } from "../../../utils";
-import DOMPurify from "dompurify";
+import { cleanHtml } from "../../../utils/sanitizeHtml";
 
 const ModalContent = ({ children }) => {
-  const cleanChildren = DOMPurify.sanitize(children);
+  const cleanChildren = cleanHtml(children);
 
   return (
     <div

@@ -4,12 +4,12 @@ import { ERROR_MESSAGE } from "../../features/ListDetail/constants/ERROR_MESSAGE
 import { formatDate } from "../../utils/formatDate";
 import { useState } from "react";
 import Modal from "../Modal/Modal";
-import DOMPurify from "dompurify";
+import { cleanHtml } from "../../utils/sanitizeHtml";
 
 // Card Component
 const Card = ({ data, isDeleteMode = false }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const cleanContent = DOMPurify.sanitize(data?.content);
+  const cleanContent = cleanHtml(data?.content);
 
   return (
     <div
