@@ -10,14 +10,14 @@ const usePostSubmit = (createPostData, resetName) => {
     if (!validateFn()) return;
     try {
       const result = await createRecipient(createPostData);
+      queryClient.invalidateQueries({
+        queryKey: ["recipients"],
+      });
       navigate(`/post/${result.id}`, { replace: true });
     } catch (error) {
       console.error("Post 요청 실패:", error);
     } finally {
       // 성공/실패 상관없이 입력값 초기화
-      queryClient.invalidateQueries({
-        queryKey: ["recipients"],
-      });
       resetName();
     }
   };
