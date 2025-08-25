@@ -6,6 +6,7 @@ import { useToggle } from "../../hooks/useToggle";
 import { cn } from "../../utils";
 import { usePostEmoji } from "../../features/HeaderService/hooks/usePostEmoji";
 import useClickOutside from "../../features/TextDropdown/hooks/useClickOutside";
+import { useQueryClient } from "@tanstack/react-query";
 
 /**
  * 이미지를 추가할 수 있는 드롭다운
@@ -15,6 +16,7 @@ const DropdownAddEmoji = ({ postId }) => {
   const { isOpen, onClickToggle, onClickClose } = useToggle();
   const { mutate, isPending, isSuccess } = usePostEmoji();
   const dropdownRef = useRef(null);
+  const queryClient = useQueryClient();
   useClickOutside(dropdownRef, onClickClose);
 
   /**
@@ -28,7 +30,9 @@ const DropdownAddEmoji = ({ postId }) => {
       id: postId,
       reaction: { emoji: emojiData.emoji, type: "increase" },
     };
-
+    await queryClient.invalidateQueries({
+      queryKey: ["recipients"],
+    });
     mutate(reactionData);
   };
 

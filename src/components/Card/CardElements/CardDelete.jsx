@@ -14,6 +14,9 @@ const CardDelete = ({ cardId }) => {
     await queryClient.invalidateQueries({
       queryKey: ["getRecipientsDetailData"],
     });
+    await queryClient.invalidateQueries({
+      queryKey: ["recipients"],
+    });
   };
 
   return (

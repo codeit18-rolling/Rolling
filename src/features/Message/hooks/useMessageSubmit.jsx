@@ -12,6 +12,9 @@ const useMessageSubmit = () => {
       queryClient.invalidateQueries({
         queryKey: ["getRecipientsDetailData"],
       });
+      queryClient.invalidateQueries({
+        queryKey: ["recipients"],
+      });
 
       navigate(`/post/${result.recipientId}`, { replace: `/list` });
     },
