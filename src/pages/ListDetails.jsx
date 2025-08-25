@@ -23,6 +23,10 @@ function ListDetails() {
   // 삭제 커스텀 훅
   const { isDeleteMode, navigateToEdit, navigateToBack } =
     useNavigateToEdit(id);
+
+  const hasBgImg = !!recipients?.backgroundImageURL;
+  const hasBgColor = !!recipients?.backgroundColor;
+
   return (
     <>
       <MetaTag
@@ -34,17 +38,16 @@ function ListDetails() {
         className={cn(
           "relative w-full min-h-[calc(100vh-104px)]",
           "desktop:min-h-[calc(100vh-133px)]",
-          recipients?.backgroundImageURL
-            ? "bg-cover bg-center"
-            : BG_COLORS[recipients?.backgroundColor] || "bg-beige-200"
+          hasBgImg && "bg-cover bg-center",
+          hasBgColor && BG_COLORS[recipients?.backgroundColor]
         )}
         style={{
           backgroundImage:
-            recipients?.backgroundImageURL &&
+            hasBgImg &&
             `url(${recipients.backgroundImageURL || img_background_fallback})`,
         }}
       >
-        {recipients?.backgroundImageURL && <Dimmed />}
+        {hasBgImg && <Dimmed />}
 
         <Container className="relative z-10 h-full flex flex-col justify-end gap-[18px]">
           {/* Delete Button */}
