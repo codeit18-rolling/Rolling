@@ -4,15 +4,20 @@ import deleteRecipient from "../../../service/ListDetails/deleteRecipientsDetail
 import { cn } from "../../../utils";
 import { useState } from "react";
 import DeleteModal from "../../../components/Modal/DeleteModal";
+import { useQueryClient } from "@tanstack/react-query";
 
 const DeleteButton = ({ id }) => {
   const navigate = useNavigate();
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const queryClient = useQueryClient();
 
   // 카드 전체 삭제 함수
   const deleteButtonHandler = async () => {
     await deleteRecipient(id);
     navigate("/list", { replace: true });
+    await queryClient.invalidateQueries({
+      queryKey: ["recipients"],
+    });
   };
 
   return (
