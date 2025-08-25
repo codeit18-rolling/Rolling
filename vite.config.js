@@ -8,17 +8,20 @@ export default defineConfig(async ({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
   const routes = await generateRoutes(env.VITE_API_BASE_URL);
 
+  const isVercel = process.env.VERCEL === "1";
+
   return {
     plugins: [
       react(),
-      prerender({
-        routes,
-        renderer: puppeteerRenderer,
-        rendererOptions: {
-          maxConcurrentRoutes: 1,
-          renderAfterTime: 500,
-        },
-      }),
+      !isVercel &&
+        prerender({
+          routes,
+          renderer: puppeteerRenderer,
+          rendererOptions: {
+            maxConcurrentRoutes: 1,
+            renderAfterTime: 500,
+          },
+        }),
     ],
     build: {
       assetsInlineLimit: 0,
