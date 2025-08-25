@@ -7,6 +7,33 @@
 @tailwind utilities;
 
 /* CSS 변수 정의 */
+.text-viewer h1 {
+  display: block;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.text-viewer h2 {
+  display: block;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.text-viewer h3 {
+  display: block;
+  font-size: 1.17em;
+  font-weight: bold;
+}
+
+.text-viewer h4 {
+  display: block;
+  font-weight: bold;
+}
+
+.text-viewer h5 {
+  display: block;
+  font-weight: bold;
+}
 
 /* 라이트모드 변수 */
 :root {

@@ -4,15 +4,17 @@ import { ERROR_MESSAGE } from "../../features/ListDetail/constants/ERROR_MESSAGE
 import { formatDate } from "../../utils/formatDate";
 import { useState } from "react";
 import Modal from "../Modal/Modal";
+import { cleanHtml } from "../../utils/sanitizeHtml";
 
 // Card Component
 const Card = ({ data, isDeleteMode = false }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  //const cleanContent = cleanHtml(data?.content);
 
   return (
     <div
       className={cn(
-        "flex flex-col w-full h-full min-w-[320px] min-h-[230px] rounded-[16px] p-6 bg-white shadow-lg overflow-hidden cursor-pointer",
+        "flex flex-col w-full h-full min-w-[320px] min-h-[230px] rounded-[16px] p-6 bg-white shadow-lg overflow-hidden cursor-pointer ql-editor",
         "hover:bg-gray-100 transition-all duration-150 ease-in-out",
         "desktop:min-w-[384px] desktop:h-[280px]",
         "tablet:min-w-[352px] tablet:h-[284px]"
@@ -29,7 +31,9 @@ const Card = ({ data, isDeleteMode = false }) => {
       <div
         style={{ fontFamily: data?.font }}
         className="flex-1 my-4 w-full overflow-hidden font-normal text-18 leading-7 tracking-[-0.01em] text-gray-600 line-clamp-4"
-        dangerouslySetInnerHTML={{ __html: data?.content || ERROR_MESSAGE }}
+        dangerouslySetInnerHTML={{
+          __html: cleanHtml(data?.content) || ERROR_MESSAGE,
+        }}
       />
 
       {/* Date */}
