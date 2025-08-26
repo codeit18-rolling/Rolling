@@ -39,7 +39,7 @@ const CardList = ({ item }) => {
       {/*배경 이미지 있을시 검은색 필터 적용 */}
 
       {/*container*/}
-      <div className="z-10 flex flex-1 flex-col justify-start items-start gap-3">
+      <div className="z-10 flex flex-1 flex-col justify-start items-start">
         {/*to. ~ , 몇명이 작성 등등이 들어갈 곳 */}
         <div className="text-24 flex justify-start text-left">
           {/*받는사람 */}

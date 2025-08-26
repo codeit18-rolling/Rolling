@@ -49,7 +49,7 @@ const Modal = ({
         <hr className="my-4 h-px bg-gray-200" />
 
         {/* Modal Content */}
-        <ModalContent>{content}</ModalContent>
+        <ModalContent content={content} />
 
         {/* Modal Footer */}
         <ModalFooter onClose={onClose} />
